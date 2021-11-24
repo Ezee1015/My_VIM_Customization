@@ -1,23 +1,44 @@
 #!/bin/bash
 
-clear
+function INSTALAR {
 
-for number in {0..10}; do
-    echo ""
-done
+     cp Tema/vimrc ~/.vimrc
+     cp -r Tema/colors ~/.vim/
+     echo "           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador..."
+ 
+}
 
-read -p "Desea Instalar Mi Configuracion de VIM? (S/N)>  " respuesta
 
-case $respuesta in
-    's' ) clear; cp Tema/vimrc ~/.vimrc && cp -r Tema/colors ~/.vim/ ; echo -n "\n\n           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador...\n\n" ;;
-    'si' ) clear; cp Tema/vimrc ~/.vimrc && cp -r Tema/colors ~/.vim/ ; echo -n "\n\n           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador...\n\n" ;;
-    'Si' ) clear; cp Tema/vimrc ~/.vimrc && cp -r Tema/colors ~/.vim/ ; echo -n "\n\n           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador...\n\n" ;;
-    'sI' ) clear; cp Tema/vimrc ~/.vimrc && cp -r Tema/colors ~/.vim/ ; echo -n "\n\n           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador...\n\n" ;;
-    'SI' ) clear; cp Tema/vimrc ~/.vimrc && cp -r Tema/colors ~/.vim/ ; echo -n "\n\n           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador...\n\n" ;;
-    'y' ) clear; cp Tema/vimrc ~/.vimrc && cp -r Tema/colors ~/.vim/ ; echo -n "\n\n           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador...\n\n" ;;
-    'yes' ) clear; cp Tema/vimrc ~/.vimrc && cp -r Tema/colors ~/.vim/ ; echo -n "\n\n           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador...\n\n" ;;
-    'YES' ) clear; cp Tema/vimrc ~/.vimrc && cp -r Tema/colors ~/.vim/ ; echo -n "\n\n           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador...\n\n" ;;
-    1 ) clear; cp Tema/vimrc ~/.vimrc && cp -r Tema/colors ~/.vim/ ; echo -n "\n\n           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador...\n\n" ;;
-    'S' ) clear; cp Tema/vimrc ~/.vimrc && cp -r Tema/colors ~/.vim/ ; echo -n "\n\n           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador...\n\n" ;;
-    * ) echo -n "\n\n           Se ha elegido que NO. Se saldrá del Instalador.\n\n";;
-esac
+function MENU {
+
+    clear
+    
+    for number in {0..10}; do
+        echo ""
+    done
+    
+    echo "" ; echo ""
+    read -p "Desea Instalar Mi Configuracion de VIM? (S/N)>  " respuesta
+    clear
+    echo "" ; echo ""
+
+    case $respuesta in
+        's' )   INSTALAR  ;;
+        'si' )  INSTALAR  ;;
+        'Si' )  INSTALAR  ;;
+        'sI' )  INSTALAR  ;;
+        'SI' )  INSTALAR  ;;
+        'y' )   INSTALAR  ;;
+        'yes' ) INSTALAR  ;;
+        'YES' ) INSTALAR  ;;
+        '1' )   INSTALAR  ;;
+        'S' )   INSTALAR  ;;
+        * )     echo "           Se ha elegido que NO. Se saldrá del Instalador." ;;
+    esac
+    
+    echo "" ; echo ""
+
+}
+
+MENU
+exit
