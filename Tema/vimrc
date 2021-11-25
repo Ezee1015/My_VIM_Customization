@@ -23,12 +23,10 @@ endif
 syntax on
 
 
-set undofile
-set undodir=~/.vim/undodir
-
 
 """""" SELECT BETWEEN DIFERENTS LANGUAJES
-colorscheme dracula
+"colorscheme dracula
+colorscheme gruvbox
 "colorscheme onedark
 "colorscheme molokai
 
