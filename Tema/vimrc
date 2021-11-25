@@ -23,6 +23,9 @@ endif
 syntax on
 
 
+set undofile
+set undodir=~/.vim/undodir
+
 
 """""" SELECT BETWEEN DIFERENTS LANGUAJES
 colorscheme dracula
