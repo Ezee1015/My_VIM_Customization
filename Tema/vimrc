@@ -3,7 +3,12 @@
 set nu rnu
 set mouse=a
 set cursorline
-"colorscheme onedark
+"colorscheme onedark                                                                                                                                                          
+                                                                                                                                                                          
+nnoremap <C-Right> <C-w>l                                                                                                                                                     
+nnoremap <C-Left> <C-w>h                                                                                                                                                      
+nnoremap <C-Up> <C-w>k                                                                                                                                                        
+nnoremap <C-Down> <C-w>j
 
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -93,6 +98,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 "Plug 'tomasr/molokai'
+Plug 'sheerun/polyglot'
+Plug 'mhinz/vim-signify'
 
 
 if isdirectory('/usr/local/opt/fzf')
