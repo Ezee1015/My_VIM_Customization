@@ -37,6 +37,8 @@ colorscheme gruvbox
 "colorscheme onedark
 "colorscheme molokai
 
+set bg=dark
+
 
 
 
