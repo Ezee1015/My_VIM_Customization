@@ -2,6 +2,7 @@
 "set number relativenumber
 set nu rnu
 set mouse=a
+set cursorline
 "colorscheme onedark
 
 
