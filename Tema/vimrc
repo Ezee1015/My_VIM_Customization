@@ -1,6 +1,7 @@
 "" MINE CHANGES
 "set number relativenumber
 set nu rnu
+set mouse=a
 "colorscheme onedark
 
 
