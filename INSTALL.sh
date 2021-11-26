@@ -3,8 +3,8 @@
 function INSTALAR {
 
      cp Tema/vimrc ~/.vimrc
-     mkdir ~/.vim/undodir
      cp -rf Tema/vim ~/.vim
+     mkdir ~/.vim/undodir
      echo "           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador..."
  
 }
