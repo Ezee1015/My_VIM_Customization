@@ -11,6 +11,9 @@ nnoremap <C-Up> <C-w>k
 nnoremap <C-Down> <C-w>j
 
 
+set clipboard=unnamed
+
+
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
@@ -102,6 +105,8 @@ Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 "Plug 'tomasr/molokai'
 Plug 'sheerun/vim-polyglot'
 Plug 'mhinz/vim-signify'
+Plug 'easymotion/vim-easymotion'
+
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -371,6 +376,9 @@ set autoread
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
+
+"" EasyMotion
+nmap <Leader>f <Plug>(easymotion-s2)
 
 "" Git
 noremap <Leader>ga :Gwrite<CR>
