@@ -100,7 +100,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 "Plug 'tomasr/molokai'
-Plug 'sheerun/polyglot'
+Plug 'sheerun/vim-polyglot'
 Plug 'mhinz/vim-signify'
 
 
