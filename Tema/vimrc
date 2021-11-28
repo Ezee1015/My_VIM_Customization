@@ -5,6 +5,9 @@ set mouse=a
 set cursorline
 set showcmd
 
+set undofile
+set undodir=~/.vim/undodir
+
 nnoremap <C-Right> <C-w>l
 nnoremap <C-Left> <C-w>h
 nnoremap <C-Up> <C-w>k
