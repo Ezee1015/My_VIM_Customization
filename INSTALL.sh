@@ -3,7 +3,7 @@
 function INSTALAR {
 
      cp Tema/vimrc ~/.vimrc
-     cp -rf Tema/colors ~/.vim/colors
+     cp -rf Tema/colors/* ~/.vim/colors
      mkdir ~/.vim/undodir
      echo "           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador..."
  
