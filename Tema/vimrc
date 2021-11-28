@@ -2,8 +2,9 @@
 "set number relativenumber
 set nu rnu
 set mouse=a
-set cursorline                                                                                                                                                      
-                                                                                                                                                                          
+set cursorline
+set showcmd
+
 nnoremap <C-Right> <C-w>l
 nnoremap <C-Left> <C-w>h
 nnoremap <C-Up> <C-w>k
