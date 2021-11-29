@@ -5,18 +5,18 @@ set mouse=a
 set cursorline
 set showcmd
 
-set undofile
+set undofile " UnDo persistente, aun cerrando el programa
 set undodir=~/.vim/undodir
 
-nnoremap <C-Right> <C-w>l
+nnoremap <C-Right> <C-w>l " Objetivo: Saltar entre splits
 nnoremap <C-Left> <C-w>h
 nnoremap <C-Up> <C-w>k
 nnoremap <C-Down> <C-w>j
 
 
-set clipboard=unnamed
+set clipboard=unnamed " Combina el Portapapeles de VIM con el del Sistema
 
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=1 " Cierra el NerdTree al abrir un archivo
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
