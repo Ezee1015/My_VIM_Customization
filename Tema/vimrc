@@ -34,6 +34,7 @@ if (empty($TMUX))
   endif
 endif
 
+syntax on
 
 
 """""" SELECT BETWEEN DIFERENTS LANGUAJES
@@ -44,12 +45,7 @@ colorscheme gruvbox
 
 set bg=dark
 
-
-
-
-
-
-
+" set updatetime=1000 " FRECUENCIA DE ACTUALIZACION DE vim-signify
 
 
 
@@ -89,61 +85,67 @@ call plug#begin(expand('~/.vim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-scripts/grep.vim'
-Plug 'vim-scripts/CSApprox'
-Plug 'Raimondi/delimitMate'
-Plug 'majutsushi/tagbar'
-Plug 'dense-analysis/ale'
-Plug 'Yggdroot/indentLine'
-Plug 'editor-bootstrap/vim-bootstrap-updater'
-Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-"Plug 'tomasr/molokai'
-Plug 'sheerun/vim-polyglot'
-Plug 'mhinz/vim-signify'
-Plug 'easymotion/vim-easymotion'
+Plug 'scrooloose/nerdtree'                         " COMPLEMENTO DE ARBOL DE ARCHIVOS
+" Plug 'jistr/vim-nerdtree-tabs'                    " CIERRA NERDTREE. NO ESTA MÁS MANTENIDO, POR ESO LO COMENTO
+Plug 'tpope/vim-commentary'                        " PERMITE COMENTAR CON 'gcc'
+Plug 'tpope/vim-fugitive'                          " INTEGRACION CON GIT
+Plug 'vim-airline/vim-airline'                     " BARRA INFERIOR DE ESTADO CON COLORES
+Plug 'vim-airline/vim-airline-themes'              " TEMAS PARA LABARRA INFERIOR DE ESTADO CON COLORES
+Plug 'airblade/vim-gitgutter'                      " CONTROL DE CAMBIOS DE UN ARCHIVO
+" Plug 'vim-scripts/grep.vim'                      " INTEGRA GREP EN VIM
+Plug 'vim-scripts/CSApprox'                        " FUNCION :colorscheme
+Plug 'Raimondi/delimitMate'                        " CERRADO AUTOMÁTICO DE PARÉNTESIS, LLAVES, COMILLAS, ETC.
+" Plug 'majutsushi/tagbar'                           " ESQUEMA QUE MUESTRA EN UNA LISTA LOS TIPOS DE VARIABLES Y EL NOMBRE DE LAS VARIABLES DECLARADAS. NO FUNCIONA, DA ERROR
+Plug 'dense-analysis/ale'                          " MARCA ERRORES DE SYNTAX CON '>>' EN ROJO CON UNA BREVE EXPLICACIÓN.
+Plug 'Yggdroot/indentLine'                         " PONE CON ' | ' SEGÚN LOS TABS PARA INDICAR EL CONTENIDO DE UNA ESTRUCTURA
+Plug 'editor-bootstrap/vim-bootstrap-updater'      " ACTUALIZADOR DE VIM-BOOTSTRAP
+Plug 'tpope/vim-rhubarb'                           " REQUISITO DE fugitive PARA :Gbrowse
 
+Plug 'sheerun/vim-polyglot'                        " HIGHLIGHTNING DE LENGUAJES
+Plug 'easymotion/vim-easymotion'                   " MOVERSE MÁS RAPIDO POR VIM CON ',' + 'f'
+
+
+" if has('nvim') || has('patch-8.0.902')
+"   Plug 'mhinz/vim-signify'                         " CONTROL DE VERSIONES DE UN ARCHIVO. CREO QUE NO FUNCIONA, por eso lo comento
+" else
+"   Plug 'mhinz/vim-signify', { 'branch': 'legacy' } " CONTROL DE VERSIONES DE UN ARCHIVO. CREO QUE NO FUNCIONA, por eso lo comento
+" endif
 
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-  Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/fzf.vim'                          " BUSCADOR RAPIDO DE ARCHIVOS
 endif
 let g:make = 'gmake'
 if exists('make')
         let g:make = 'make'
 endif
-Plug 'Shougo/vimproc.vim', {'do': g:make}
+
+" Plug 'Shougo/vimproc.vim', {'do': g:make}          " AYUDA DE LA ESCRITURA EN EL LENGUAJE Oracle Pro*C/C++
 
 "" Vim-Session
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
+Plug 'xolox/vim-misc'                              " LIBRERIA PARA LOS PROGRAMAS DE xolox 
+Plug 'xolox/vim-session'                           " GESTOR DE SESIONES EN VIM
 
 "" Snippets
 """""""""""""""""" Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'                          " SNIPPETS
 
 "*****************************************************************************
 "" Custom bundles
 "*****************************************************************************
 
 " c
-Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
-Plug 'ludwig/split-manpage.vim'
+Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}    " ESPECIALIZACION EN LENGUAJE C
+" Plug 'ludwig/split-manpage.vim'                    " INTEGRACION DE man EN VIM
 
 
 " python
 "" Python Bundle
-Plug 'davidhalter/jedi-vim'
-Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+Plug 'davidhalter/jedi-vim'                        " AUTOCOMPLETACION DE CODIGGO EN PYTHON
+Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'} " REQUERIMIENTOS DE PYTHON (?)
 
 
 "*****************************************************************************
@@ -209,6 +211,7 @@ let g:session_command_aliases = 1
 "*****************************************************************************
 syntax on
 set ruler
+set number
 
 let no_buffers_menu=1
 "colorscheme molokai
@@ -440,17 +443,17 @@ nnoremap <silent> <leader>e :FZF -m<CR>
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
 
-" snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="vertical"
+" " snippets
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+" let g:UltiSnipsEditSplit="vertical"
 
 " ale
 let g:ale_linters = {}
 
 " Tagbar
-nmap <silent> <F4> :TagbarToggle<CR>
+" nmap <silent> <F4> :TagbarToggle<CR> " COMENTADO PORQUE NO FUNCIONA, DA ERROR: tagbar
 let g:tagbar_autofocus = 1
 
 " Disable visualbell
