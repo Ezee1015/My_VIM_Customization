@@ -33,8 +33,6 @@ if (empty($TMUX))
   endif
 endif
 
-syntax on
-
 
 """""" SELECT BETWEEN DIFERENTS LANGUAJES
 "colorscheme dracula
@@ -105,7 +103,7 @@ Plug 'easymotion/vim-easymotion'                   " MOVERSE MÁS RAPIDO POR VIM
 
 " PLANEADO PARA UN FUTURO. HACER FUNCIONAR
 " Plug 'Xuyuanp/nerdtree-git-plugin'                 " ASTERISCOS EN NERDTREE CON GIT. no logré que funcione
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " ICONOS DE LOS ARCHIVOS!
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " ICONOS DE LOS ARCHIVOS
 Plug 'ryanoasis/vim-devicons'                      " ICONOS PARA NERDTREE SINTAX HIGHLIGHT
 
 
