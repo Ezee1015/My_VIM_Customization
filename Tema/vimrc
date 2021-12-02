@@ -43,8 +43,13 @@ colorscheme gruvbox
 
 set bg=dark
 
-" set updatetime=1000 " FRECUENCIA DE ACTUALIZACION DE vim-signify
+"
+"let g:vim_bootstrap_theme = "dracula"
+let g:vim_bootstrap_theme = "gruvbox"
+"let g:vim_bootstrap_theme = "onedark"
+"let g:vim_bootstrap_theme = "molokai"
 
+" set updatetime=1000 " FRECUENCIA DE ACTUALIZACION DE vim-signify
 
 
 "*****************************************************************************
@@ -59,7 +64,6 @@ endif
 
 let g:vim_bootstrap_langs = "c,python"
 let g:vim_bootstrap_editor = "vim"				" nvim or vim
-"let g:vim_bootstrap_theme = "molokai"
 let g:vim_bootstrap_frams = ""
 
 if !filereadable(vimplug_exists)
@@ -131,7 +135,7 @@ Plug 'xolox/vim-session'                           " GESTOR DE SESIONES EN VIM
 
 "" Snippets
 """""""""""""""""" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'                          " SNIPPETS
+" Plug 'honza/vim-snippets'                          " SNIPPETS. Ver: https://mkaz.blog/working-with-vim/snippets/
 
 "*****************************************************************************
 "" Custom bundles
