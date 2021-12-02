@@ -103,7 +103,7 @@ Plug 'tpope/vim-rhubarb'                           " REQUISITO DE fugitive PARA 
 Plug 'sheerun/vim-polyglot'                        " HIGHLIGHTNING DE LENGUAJES
 Plug 'easymotion/vim-easymotion'                   " MOVERSE MÁS RAPIDO POR VIM CON ',' + 'f'
 " Plug 'Xuyuanp/nerdtree-git-plugin'                 " ASTERISCOS EN NERDTREE CON GIT. no logré que funcione
-Plug 'neoclide/coc.nvim', {'branch': 'release'}    " AUTOCOMPLETADO DE CODIGO
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}    " AUTOCOMPLETADO DE CODIGO
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " ICONOS DE LOS ARCHIVOS
 Plug 'ryanoasis/vim-devicons'                      " ICONOS PARA NERDTREE SINTAX HIGHLIGHT
 
