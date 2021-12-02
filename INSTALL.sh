@@ -1,16 +1,36 @@
 #!/bin/bash
 
+cd $(dirname $0)
+KernelOS=$(uname)
+
 function INSTALAR {
 
-     cp Tema/vimrc ~/.vimrc
      cp -rf Tema/colors/* ~/.vim/colors
      mkdir ~/.vim/undodir
-     sudo mkdir /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font
-     sudo cp Tema/ttf/*.ttf /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font/
+
      echo "           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador..."
-     echo "           Solamente queda una cosa..."
+     echo "           Solamente queda..."
      echo "                     * Seleccione en su terminal la fuente UbuntuMono Nerd Font Mono"
- 
+    
+     case $KernelOS in
+         Linux)
+             cp Tema/vimrc ~/.vimrc
+             sudo apt update && sudo apt install nodejs -y
+             sudo mkdir /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font
+             sudo cp Tema/ttf/*.ttf /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font/
+         ;;
+         Darwin)
+             cp Tema/vimrc_mac ~/.vimrc
+             echo "                     * Instale la fuente que está dentro de la carpeta Tema/ttf"
+         ;;
+         *)
+             echo "Error identificando su sistema operativo. Su Kernel es: $KernelOS y no fue probado este script en ese kernel.";
+             read RESPONSE
+             exit
+         ;;
+     esac
+
+
 }
 
 
