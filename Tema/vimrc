@@ -13,7 +13,7 @@ nnoremap <C-Up> <C-w>k
 nnoremap <C-Down> <C-w>j
 
 
-set clipboard=unnamed " Combina el Portapapeles de VIM con el del Sistema
+set clipboard=unnamed " Combina el Portapapeles de VIM con el del Sistema, solo si en ':ver' está +clipboard
 
 let NERDTreeQuitOnOpen=1 " Cierra el NerdTree al abrir un archivo
 
@@ -32,6 +32,7 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
+
 
 
 """""" SELECT BETWEEN DIFERENTS LANGUAJES
@@ -99,9 +100,6 @@ Plug 'tpope/vim-rhubarb'                           " REQUISITO DE fugitive PARA 
 Plug 'sheerun/vim-polyglot'                        " HIGHLIGHTNING DE LENGUAJES
 Plug 'easymotion/vim-easymotion'                   " MOVERSE MÁS RAPIDO POR VIM CON ',' + 'f'
 " Plug 'neoclide/coc.nvim'                           " AUTOCOMPLETADO DE CODIGO
-
-
-" PLANEADO PARA UN FUTURO. HACER FUNCIONAR
 " Plug 'Xuyuanp/nerdtree-git-plugin'                 " ASTERISCOS EN NERDTREE CON GIT. no logré que funcione
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " ICONOS DE LOS ARCHIVOS
 Plug 'ryanoasis/vim-devicons'                      " ICONOS PARA NERDTREE SINTAX HIGHLIGHT
