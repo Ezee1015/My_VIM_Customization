@@ -36,17 +36,17 @@ endif
 
 
 """""" SELECT BETWEEN DIFERENTS LANGUAJES
-colorscheme dracula
-"colorscheme gruvbox
+"colorscheme dracula
+colorscheme gruvbox
 "colorscheme onedark
 "colorscheme molokai
 
 set bg=dark
 
-"let g:vim_bootstrap_theme = "molokai"
-let g:vim_bootstrap_theme = "dracula"
+"let g:vim_bootstrap_theme = "dracula"
 "let g:vim_bootstrap_theme = "gruvbox"
 "let g:vim_bootstrap_theme = "onedark"
+"let g:vim_bootstrap_theme = "molokai"
 
 " set updatetime=1000 " FRECUENCIA DE ACTUALIZACION DE vim-signify
 
@@ -102,8 +102,8 @@ Plug 'tpope/vim-rhubarb'                           " REQUISITO DE fugitive PARA 
 
 Plug 'sheerun/vim-polyglot'                        " HIGHLIGHTNING DE LENGUAJES
 Plug 'easymotion/vim-easymotion'                   " MOVERSE MÁS RAPIDO POR VIM CON ',' + 'f'
-" Plug 'Xuyuanp/nerdtree-git-plugin'                 " ASTERISCOS EN NERDTREE CON GIT. no logré que funcione
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}    " AUTOCOMPLETADO DE CODIGO
+Plug 'Xuyuanp/nerdtree-git-plugin'                 " ASTERISCOS EN NERDTREE CON GIT. no logré que funcione
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " ICONOS DE LOS ARCHIVOS
 Plug 'ryanoasis/vim-devicons'                      " ICONOS PARA NERDTREE SINTAX HIGHLIGHT
 
