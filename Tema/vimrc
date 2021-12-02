@@ -44,7 +44,7 @@ colorscheme gruvbox
 set bg=dark
 
 "let g:vim_bootstrap_theme = "dracula"
-"let g:vim_bootstrap_theme = "gruvbox"
+let g:vim_bootstrap_theme = "gruvbox"
 "let g:vim_bootstrap_theme = "onedark"
 "let g:vim_bootstrap_theme = "molokai"
 
