@@ -2,6 +2,7 @@ set nu rnu
 set mouse=a
 set cursorline
 set showcmd
+set encoding=UTF-8
 
 set undofile " UnDo persistente, aun cerrando el programa
 set undodir=~/.vim/undodir
@@ -99,6 +100,13 @@ Plug 'tpope/vim-rhubarb'                           " REQUISITO DE fugitive PARA 
 
 Plug 'sheerun/vim-polyglot'                        " HIGHLIGHTNING DE LENGUAJES
 Plug 'easymotion/vim-easymotion'                   " MOVERSE MÁS RAPIDO POR VIM CON ',' + 'f'
+" Plug 'neoclide/coc.nvim'                           " AUTOCOMPLETADO DE CODIGO
+
+
+" PLANEADO PARA UN FUTURO. HACER FUNCIONAR
+" Plug 'Xuyuanp/nerdtree-git-plugin'                 " ASTERISCOS EN NERDTREE CON GIT. no logré que funcione
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " ICONOS DE LOS ARCHIVOS!
+Plug 'ryanoasis/vim-devicons'                      " ICONOS PARA NERDTREE SINTAX HIGHLIGHT
 
 
 " if has('nvim') || has('patch-8.0.902')
