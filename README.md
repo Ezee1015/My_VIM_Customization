@@ -1,5 +1,5 @@
 # My_VIM_Customization
-Mi básica customización de VIM con el esquema de colores de Dracula, creado por www.vim-bootstrap.com y personalizado por mi para mis necesidades.
+Mi básica customización de VIM, creado por www.vim-bootstrap.com y personalizado por mi para mis necesidades.
 
 ## INSTALACIÓN
 Para Instalarlo, pegar estos comandos en la terminal uno por uno...
