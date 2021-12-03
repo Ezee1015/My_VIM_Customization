@@ -5,8 +5,10 @@ function INSTALAR {
      cp Tema/vimrc ~/.vimrc
      cp -rf Tema/colors/* ~/.vim/colors
      mkdir ~/.vim/undodir
+     echo ""
      sudo mkdir /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font
      sudo cp Tema/ttf/*.ttf /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font/
+     echo ""
      echo "           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador..."
      echo "           Solamente queda una cosa..."
      echo "                     * Seleccione en su terminal la fuente UbuntuMono Nerd Font Mono"
