@@ -15,10 +15,9 @@ autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 " Cierre la pestaña si NERDTree es la única ventana que queda en VIM. 
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-nnoremap <C-Right> <C-w>l " Objetivo: Saltar entre splits
-nnoremap <C-Left> <C-w>h
-nnoremap <C-Up> <C-w>k
-nnoremap <C-Down> <C-w>j
+"Muestra Numero de Linea en NERDTree
+let NERDTreeShowLineNumbers=1
+
 
 
 set clipboard=unnamed " Combina el Portapapeles de VIM con el del Sistema, solo si en ':ver' está +clipboard
@@ -40,6 +39,25 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
+
+"" Cambia entre el cursor cuadrado ( [] ) en modo normal al cursor de barrita ( | ) en el modo de insercion 
+    
+    "" Intento 1
+        " :autocmd InsertEnter,InsertLeave * set cul!
+    
+    "" Intento 2
+        " :autocmd InsertEnter * set cul
+        " :autocmd InsertLeave * set nocul
+
+    " Intento 3
+        let &t_SI = "\e[6 q"
+        let &t_EI = "\e[2 q"
+
+        " reset the cursor on start (for older versions of vim, usually not required)
+        augroup myCmds
+        au!
+        autocmd VimEnter * silent !echo -ne "\e[2 q"
+        augroup END
 
 
 
@@ -396,11 +414,31 @@ nmap <Leader>s :w<CR>
 nmap <Leader>q :q!<CR>
 
 "" Split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
+noremap <silent><Leader>h :<C-u>split<CR>
+noremap <silent><Leader>v :<C-u>vsplit<CR>
 
 "" EasyMotion (E)
 nmap <Leader>f <Plug>(easymotion-s2)
+
+" Remapea ESC a ii para Salir del Modo Insertar (E)
+:imap ii <Esc>
+
+"" Window Movement (E)
+nnoremap <C-Right> <C-w>l " Objetivo: Saltar entre splits
+nnoremap <C-Left> <C-w>h
+nnoremap <C-Up> <C-w>k
+nnoremap <C-Down> <C-w>j
+
+"" Window Size (E)
+map <silent><S-k> :res -2<CR>
+map <silent><S-j> :res +2<CR>
+map <silent><S-l> :vertical resize +2<CR>
+map <silent><S-h> :vertical resize -2<CR>
+
+map <silent><S-Up> :res -2<CR>
+map <silent><S-Down> :res +2<CR>
+map <silent><S-Right> :vertical resize +2<CR>
+map <silent><S-Left> :vertical resize -2<CR>
 
 "" Git
 noremap <Leader>ga :Gwrite<CR>
