@@ -11,14 +11,11 @@ set undodir=~/.vim/undodir
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
-
 " Cierre la pestaña si NERDTree es la única ventana que queda en VIM. 
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 "Muestra Numero de Linea en NERDTree
 let NERDTreeShowLineNumbers=1
-
-
 
 set clipboard=unnamed " Combina el Portapapeles de VIM con el del Sistema, solo si en ':ver' está +clipboard
 
@@ -41,7 +38,7 @@ if (empty($TMUX))
 endif
 
 "" Cambia entre el cursor cuadrado ( [] ) en modo normal al cursor de barrita ( | ) en el modo de insercion 
-    
+"" Fuente: https://stackoverflow.com/questions/6488683/how-to-change-the-cursor-between-normal-and-insert-modes-in-vim    
     "" Intento 1
         " :autocmd InsertEnter,InsertLeave * set cul!
     
