@@ -442,14 +442,14 @@ map <silent><S-Right> :vertical resize +2<CR>
 map <silent><S-Left> :vertical resize -2<CR>
 
 "" Git
-noremap <Leader>ga :Gwrite<CR>
+noremap <Leader>ga :Git write<CR>
 noremap <Leader>gc :Git commit --verbose<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gr :Gremove<CR>
+noremap <Leader>gsh :Git push<CR>
+noremap <Leader>gll :Git pull<CR>
+noremap <Leader>gs :Git status<CR>
+noremap <Leader>gb :Git blame<CR>
+noremap <Leader>gd :Git vdiff<CR>
+noremap <Leader>gr :Git remove<CR>
 
 " session management
 nnoremap <leader>so :OpenSession<Space>
