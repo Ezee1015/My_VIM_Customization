@@ -5,6 +5,7 @@ function INSTALAR {
      cp Tema/vimrc ~/.vimrc
      cp -rf Tema/colors/* ~/.vim/colors
      cp Tema/vim_forever.sh ~/.vim_forever.sh
+     cp Documentacion/VIM\ -\ Documentacion.pdf ~/
      mkdir ~/.vim/undodir
      echo ""
      sudo mkdir /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font
