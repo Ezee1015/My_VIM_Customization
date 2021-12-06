@@ -53,7 +53,7 @@ endif
         " reset the cursor on start (for older versions of vim, usually not required)
         augroup myCmds
         au!
-        autocmd VimEnter * silent !echo -ne "\e[2 q"
+        autocmd VimEnter * silent !echo -ne "\e[2 q"            "
         augroup END
 
 
