@@ -1,5 +1,5 @@
 set nu rnu
-set mouse=a
+" set mouse=a " M
 set cursorline
 set showcmd
 set encoding=UTF-8
@@ -8,8 +8,8 @@ set undofile " UnDo persistente, aun cerrando el programa
 set undodir=~/.vim/undodir
 
 "" Abre NERDTree si no hay archivos abiertos cuando se abre VIM
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1 " M
+" autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif " M
 
 " Cierre la pestaña si NERDTree es la única ventana que queda en VIM. 
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
@@ -59,15 +59,15 @@ endif
 
 
 """""" SELECT BETWEEN DIFERENTS LANGUAJES
-"colorscheme dracula
-colorscheme gruvbox
+"colorscheme dracula " M
+colorscheme gruvbox " M
 "colorscheme onedark
 "colorscheme molokai
 
 set bg=dark
 
-"let g:vim_bootstrap_theme = "dracula"
-let g:vim_bootstrap_theme = "gruvbox"
+"let g:vim_bootstrap_theme = "dracula" " M
+let g:vim_bootstrap_theme = "gruvbox" " M
 "let g:vim_bootstrap_theme = "onedark"
 "let g:vim_bootstrap_theme = "molokai"
 
