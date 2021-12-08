@@ -59,17 +59,17 @@ endif
 
 
 """""" SELECT BETWEEN DIFERENTS LANGUAJES
-"colorscheme dracula " M
+" colorscheme dracula " M
 colorscheme gruvbox " M
-"colorscheme onedark
-"colorscheme molokai
+" colorscheme onedark
+" colorscheme molokai
 
 set bg=dark
 
-"let g:vim_bootstrap_theme = "dracula" " M
+" let g:vim_bootstrap_theme = "dracula" " M
 let g:vim_bootstrap_theme = "gruvbox" " M
-"let g:vim_bootstrap_theme = "onedark"
-"let g:vim_bootstrap_theme = "molokai"
+" let g:vim_bootstrap_theme = "onedark"
+" let g:vim_bootstrap_theme = "molokai"
 
 " set updatetime=1000 " FRECUENCIA DE ACTUALIZACION DE vim-signify
 
