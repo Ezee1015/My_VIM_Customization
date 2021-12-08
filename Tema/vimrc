@@ -7,10 +7,6 @@ set encoding=UTF-8
 set undofile " UnDo persistente, aun cerrando el programa
 set undodir=~/.vim/undodir
 
-"" Abre NERDTree si no hay archivos abiertos cuando se abre VIM
-" autocmd StdinReadPre * let s:std_in=1 " M
-" autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif " M
-
 " Cierre la pestaña si NERDTree es la única ventana que queda en VIM. 
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
