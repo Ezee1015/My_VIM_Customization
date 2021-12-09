@@ -7,6 +7,7 @@ function INSTALAR {
      cp Tema/vim_forever.sh ~/.vim_forever.sh
      cp Documentacion/VIM\ -\ Documentacion.pdf ~/
      mkdir ~/.vim
+     mkdir ~/.vim/colors
      mkdir ~/.vim/undodir
      mkdir ~/.vim/after
      mkdir ~/.vim/after/plugin
