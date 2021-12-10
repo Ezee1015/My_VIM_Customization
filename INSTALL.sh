@@ -16,6 +16,7 @@ function INSTALAR {
      echo ""
      sudo mkdir /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font
      sudo cp Tema/ttf/*.ttf /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font/
+     sudo ln -s /bin/vim /bin/vi
      echo ""
      echo "           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador..."
      echo "           Solamente queda una cosa..."
