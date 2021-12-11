@@ -17,7 +17,7 @@ function INSTALAR {
      sudo mkdir /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font
      sudo cp Tema/ttf/*.ttf /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font/
      
-     if [[ -e /usr/vi ]] ; then ; echo "" ; else
+     if [[ -e /usr/vi ]] ; then echo "" ; else
          sudo ln -s /bin/vim /bin/vi
      fi
 
