@@ -1,13 +1,11 @@
 set nu rnu
-" set mouse=a " M
+set mouse=a " M2017
 set cursorline
 set showcmd
 set encoding=UTF-8
 
 set undofile " UnDo persistente, aun cerrando el programa
 set undodir=~/.vim/undodir
-
-set lazyredraw " Evita redibujado de ventanas innecesarios, ideal para cuanto se ejecutan macros. Para forzar el redibujado de una ventana, usar el comando :redraw
 
 " Cierre la pestaña si NERDTree es la única ventana que queda en VIM. 
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
@@ -18,6 +16,8 @@ let NERDTreeShowLineNumbers=1
 set clipboard=unnamed " Combina el Portapapeles de VIM con el del Sistema, solo si en ':ver' está +clipboard
 
 let NERDTreeQuitOnOpen=1 " Cierra el NerdTree al abrir un archivo
+
+set lazyredraw " Evita redibujado de ventanas innecesarios, ideal para cuanto se ejecutan macros. Para forzar el redibujado de una ventana, usar el comando :redraw
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -57,17 +57,17 @@ endif
 
 
 """""" SELECT BETWEEN DIFERENTS LANGUAJES
-" colorscheme dracula " M
-colorscheme gruvbox " M
-" colorscheme onedark
-" colorscheme molokai
+"colorscheme dracula " M2017
+colorscheme gruvbox " M2017
+"colorscheme onedark
+"colorscheme molokai
 
 set bg=dark
 
-" let g:vim_bootstrap_theme = "dracula" " M
-let g:vim_bootstrap_theme = "gruvbox" " M
-" let g:vim_bootstrap_theme = "onedark"
-" let g:vim_bootstrap_theme = "molokai"
+"let g:vim_bootstrap_theme = "dracula"  " M2017
+let g:vim_bootstrap_theme = "gruvbox" " M2017
+"let g:vim_bootstrap_theme = "onedark"
+"let g:vim_bootstrap_theme = "molokai"
 
 " set updatetime=1000 " FRECUENCIA DE ACTUALIZACION DE vim-signify
 
@@ -438,6 +438,10 @@ map <silent><S-Up> :res -2<CR>
 map <silent><S-Down> :res +2<CR>
 map <silent><S-Right> :vertical resize +2<CR>
 map <silent><S-Left> :vertical resize -2<CR>
+
+"" Change between Capitalization
+map <silent><Leader>m gu
+map <silent><Leader><S-m> gU
 
 "" Git
 noremap <Leader>ga :Git write<CR>
