@@ -448,6 +448,10 @@ nmap <silent><S-Left> :vertical resize -2<CR>
 map <silent><Leader>m gu
 map <silent><Leader><S-m> gU
 
+"" Compile (E)
+map <leader>cj /public class<CR>02wyw:!javac <C-R>" && java <C-R>" <CR> " JAVA
+
+
 "" Git
 noremap <Leader>ga :Git write<CR>
 noremap <Leader>gc :Git commit --verbose<CR>
