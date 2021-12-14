@@ -449,8 +449,21 @@ map <silent><Leader>m gu
 map <silent><Leader><S-m> gU
 
 "" Compile (E)
-map <leader>cj /public class<CR>02wyw:!javac <C-R>" && java <C-R>" <CR> " JAVA
+" map <leader>cj /public class<CR>02wyw:!javac <C-R>".java && java <C-R>" <CR>
+map <leader>cj :call CompileRunJava()<CR>
+map <Leader>cc :call CompileRunGcc()<CR>
 
+func! CompileRunGcc()
+  exec "w"
+  exec "!clear && gcc % -o %<"
+  exec "!clear && ./%<"
+endfunc
+
+func! CompileRunJava()
+  exec "w"
+  exec "!clear && javac %"
+  exec "!clear && java %<"
+endfunc
 
 "" Git
 noremap <Leader>ga :Git write<CR>
