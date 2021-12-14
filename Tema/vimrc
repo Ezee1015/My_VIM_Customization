@@ -404,13 +404,13 @@ set autoread
 "*****************************************************************************
 
 "" Save and Exit (E)
-nmap <Leader>x :wq<CR>
-nmap <Leader>s :w<CR>
-nmap <Leader>º :q!<CR>
+nmap <silent><Leader>x :wq<CR>
+nmap <silent><Leader>s :w<CR>
+nmap <silent><Leader>º :q!<CR>
 
-nmap <Leader>w :wq<CR>
-nmap <Leader>s :w<CR>
-nmap <Leader>q :q!<CR>
+nmap <silent><Leader>w :wq<CR>
+nmap <silent><Leader>s :w<CR>
+nmap <silent><Leader>q :q!<CR>
 
 "" Split
 noremap <silent><Leader>h :<C-u>split<CR>
@@ -423,23 +423,26 @@ nmap <Leader>f <Plug>(easymotion-s2)
 :imap ii <Esc>
 
 "" Window Movement (E)
-nnoremap <C-Right> <C-w>l " Objetivo: Saltar entre splits
-nnoremap <C-Left> <C-w>h
-nnoremap <C-Up> <C-w>k
-nnoremap <C-Down> <C-w>j
+nnoremap <silent><C-Right> <C-w>l " Objetivo: Saltar entre splits
+nnoremap <silent><C-Left> <C-w>h
+nnoremap <silent><C-Up> <C-w>k
+nnoremap <silent><C-Down> <C-w>j
 
 "" Window Size (E)
-map <silent><S-k> :res -2<CR>
-map <silent><S-j> :res +2<CR>
-map <silent><S-l> :vertical resize +2<CR>
-map <silent><S-h> :vertical resize -2<CR>
+nmap <silent><S-k> :res -2<CR>
+    map <silent><Leader>gj :join<CR> " Cambia el <S-j> a gj. Resuelve el conflicto
+    map <silent><Leader>gJ :join!<CR>
+    map <silent><Leader>gq g~
+nmap <silent><S-j> :res +2<CR>
+nmap <silent><S-l> :vertical resize +2<CR>
+nmap <silent><S-h> :vertical resize -2<CR>
 
-map <silent><S-Up> :res -2<CR>
-map <silent><S-Down> :res +2<CR>
-map <silent><S-Right> :vertical resize +2<CR>
-map <silent><S-Left> :vertical resize -2<CR>
+nmap <silent><S-Up> :res -2<CR>
+nmap <silent><S-Down> :res +2<CR>
+nmap <silent><S-Right> :vertical resize +2<CR>
+nmap <silent><S-Left> :vertical resize -2<CR>
 
-"" Change between Capitalization
+"" Change between Capitalization (E)
 map <silent><Leader>m gu
 map <silent><Leader><S-m> gU
 
@@ -460,8 +463,8 @@ nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 "" Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
+nnoremap <silent><Tab> gt
+nnoremap <silent><S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
 
 "" Set working directory
