@@ -468,13 +468,11 @@ func! CompileAndRun()
     exec "w"
     if &filetype == 'c'
         exec "!clear && gcc '%' -o '%<'"
-        " exec "!clear && time './%<'" "Le quita el contador de tiempo
-        exec "!clear && './%<'"
+        exec "!clear && time './%<'"
     endif
     if &filetype == 'cpp'
         exec "!clear && g++ '%' -o '%<'"
-        " exec "!clear && time './%<'" "Le quita el contador de tiempo
-        exec "!clear && './%<'"
+        exec "!clear && time './%<'"
     endif
     if &filetype == 'rust'
         exec "!clear && cargo build --manifest-path='%':p:h:h/Cargo.toml"
@@ -722,3 +720,15 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
+
+
+
+"En cuanto al comando time en la funcion de compilar
+"
+"     Real is wall clock time - time from start to finish of the call. This is all elapsed time including time slices used by other processes and time the process spends blocked (for example if it is waiting for I/O to complete).
+
+"     User is the amount of CPU time spent in user-mode code (outside the kernel) within the process. This is only actual CPU time used in executing the process. Other processes and time the process spends blocked do not count towards this figure.
+
+"     Sys is the amount of CPU time spent in the kernel within the process. This means executing CPU time spent in system calls within the kernel, as opposed to library code, which is still running in user-space. Like 'user', this is only CPU time used by the process. See below for a brief description of kernel mode (also known as 'supervisor' mode) and the system call mechanism.
+
