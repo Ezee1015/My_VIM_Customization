@@ -469,46 +469,35 @@ func! CompileAndRun()
     if &filetype == 'c'
         exec "!clear && gcc '%' -o '%<'"
         exec "!clear && time './%<'"
-    endif
-    if &filetype == 'cpp'
+    elseif &filetype == 'cpp'
         exec "!clear && g++ '%' -o '%<'"
         exec "!clear && time './%<'"
-    endif
-    if &filetype == 'rust'
+    elseif &filetype == 'rust'
         exec "!clear && cargo build --manifest-path='%':p:h:h/Cargo.toml"
         exec "!time cargo run --manifest-path='%':p:h:h/Cargo.toml"
-    endif
-    if &filetype == 'java'
+    elseif &filetype == 'java'
     "     exec "!clear && javac '%'"
     "     exec "!clear && time java -cp '%':p:h %:t:r"
         exec "!clear && javac '%'"
         exec "!clear && java '%<'"
-    endif
-    if &filetype == 'sh'
+    elseif &filetype == 'sh'
         exec "!clear && time bash '%'"
-    endif
-    if &filetype == 'python'
+    elseif &filetype == 'python'
         exec "!clear && time python3 '%'"
-    endif
-    if &filetype == 'javascript'
+    elseif &filetype == 'javascript'
         exec "!clear && time node '%'"
-    endif
-    if &filetype == 'html'
+    elseif &filetype == 'html'
         exec "!chromium '%' &"
         exec "!firefox '%'"
         exec "!firefox-esr '%'"
-    endif
-    if &filetype == 'tex'
+    elseif &filetype == 'tex'
         exec "!pdflatex --output-directory='%':p:h '%'"
-    endif
-    if &filetype == 'go'
+    elseif &filetype == 'go'
         exec "!go build '%<'"
         exec "!clear && time go run '%'"
-    endif
-    if &filetype == 'text'
+    elseif &filetype == 'text'
         exec "!clear && echo 'words : ' && wc -w % && echo 'lines : ' && wc -l '%' && echo 'size : ' && du -h '%'"
-    endif
-    if &filetype == 'markdown'
+    elseif &filetype == 'markdown'
         exec "!clear && echo 'words : ' && wc -w '%' && echo 'lines : ' && wc -l '%' && echo 'size : ' && du -h '%'"
     endif
 endfunc
