@@ -450,20 +450,72 @@ map <silent><Leader><S-m> gU
 
 "" Compile (E)
 " map <leader>cj /public class<CR>02wyw:!javac <C-R>".java && java <C-R>" <CR>
-map <leader>cj :call CompileRunJava()<CR>
-map <Leader>cc :call CompileRunGcc()<CR>
+map <Leader>cc :call CompileAndRun()<CR>
 
-func! CompileRunGcc()
-  exec "w"
-  exec "!clear && gcc % -o %<"
-  exec "!clear && ./%<"
+" func! CompileRunGcc()
+"   exec "w"
+"   exec "!clear && gcc '%' -o '%<'"
+"   exec "!clear && './%<'"
+" endfunc
+
+" func! CompileRunJava()
+"   exec "w"
+"   exec "!clear && javac %"
+"   exec "!clear && java %<"
+" endfunc
+
+func! CompileAndRun()
+    exec "w"
+    if &filetype == 'c'
+        exec "!clear && gcc '%' -o '%<'"
+        " exec "!clear && time './%<'" "Le quita el contador de tiempo
+        exec "!clear && './%<'"
+    endif
+    if &filetype == 'cpp'
+        exec "!clear && g++ '%' -o '%<'"
+        " exec "!clear && time './%<'" "Le quita el contador de tiempo
+        exec "!clear && './%<'"
+    endif
+    if &filetype == 'rust'
+        exec "!clear && cargo build --manifest-path='%':p:h:h/Cargo.toml"
+        exec "!time cargo run --manifest-path='%':p:h:h/Cargo.toml"
+    endif
+    if &filetype == 'java'
+    "     exec "!clear && javac '%'"
+    "     exec "!clear && time java -cp '%':p:h %:t:r"
+        exec "!clear && javac '%'"
+        exec "!clear && java '%<'"
+    endif
+    if &filetype == 'sh'
+        exec "!clear && time bash '%'"
+    endif
+    if &filetype == 'python'
+        exec "!clear && time python3 '%'"
+    endif
+    if &filetype == 'javascript'
+        exec "!clear && time node '%'"
+    endif
+    if &filetype == 'html'
+        exec "!chromium '%' &"
+        exec "!firefox '%'"
+        exec "!firefox-esr '%'"
+    endif
+    if &filetype == 'tex'
+        exec "!pdflatex --output-directory='%':p:h '%'"
+    endif
+    if &filetype == 'go'
+        exec "!go build '%<'"
+        exec "!clear && time go run '%'"
+    endif
+    if &filetype == 'text'
+        exec "!clear && echo 'words : ' && wc -w % && echo 'lines : ' && wc -l '%' && echo 'size : ' && du -h '%'"
+    endif
+    if &filetype == 'markdown'
+        exec "!clear && echo 'words : ' && wc -w '%' && echo 'lines : ' && wc -l '%' && echo 'size : ' && du -h '%'"
+    endif
 endfunc
 
-func! CompileRunJava()
-  exec "w"
-  exec "!clear && javac %"
-  exec "!clear && java %<"
-endfunc
+
 
 "" Git
 noremap <Leader>ga :Git write<CR>
