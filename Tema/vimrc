@@ -81,11 +81,6 @@ let g:vim_bootstrap_theme = "gruvbox" " M2017
 
 " set updatetime=1000 " FRECUENCIA DE ACTUALIZACION DE vim-signify
 
-" Autopersonalizacion de la Laptop
-if (bufname()==".vimrc")
-    " nmap ++ gg/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc:wq<CR>
-    nmap ++ gg/" M2017<CR>d$gcc:wq<CR>
-endif
 
 "*****************************************************************************
 "" Vim-Plug core
@@ -463,9 +458,15 @@ nmap <silent><S-Left> :vertical resize -2<CR>
 map <silent><Leader>m gu
 map <silent><Leader><S-m> gU
 
-"" Aumenta o Disminuye el valor de un numero
+"" Aumenta o Disminuye el valor de un numero (E)
 nmap ++ <C-a>
 nmap -- <C-x>
+
+" Autopersonalizacion de la Laptop (E)
+if (bufname()==".vimrc")
+    " nmap ++ gg/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc:wq<CR>
+    nmap ++ gg/" M2017<CR>d$gcc:wq<CR>
+endif
 
 "" Compile (E)
 " map <leader>cj /public class<CR>02wyw:!javac <C-R>".java && java <C-R>" <CR>
