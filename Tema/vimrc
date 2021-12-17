@@ -463,6 +463,10 @@ nmap <silent><S-Left> :vertical resize -2<CR>
 map <silent><Leader>m gu
 map <silent><Leader><S-m> gU
 
+"" Aumenta o Disminuye el valor de un numero
+nmap ++ <C-a>
+nmap -- <C-x>
+
 "" Compile (E)
 " map <leader>cj /public class<CR>02wyw:!javac <C-R>".java && java <C-R>" <CR>
 map <Leader>cc :call CompileAndRun()<CR>
