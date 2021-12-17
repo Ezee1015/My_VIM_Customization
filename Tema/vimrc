@@ -2,7 +2,7 @@
 "" PARA FORMATEARLO A LA LAPTOP, APRETAR ++
 
 set nu rnu
-set mouse=a
+" set mouse=a " M2017
 set cursorline
 set showcmd
 set encoding=UTF-8
@@ -67,22 +67,22 @@ endif
 
 
 """""" SELECT BETWEEN DIFERENTS LANGUAJES
-colorscheme dracula
-" colorscheme gruvbox
+" colorscheme dracula " M2017
+colorscheme gruvbox " M2017
 "colorscheme onedark
 "colorscheme molokai
 
 set bg=dark
 
-let g:vim_bootstrap_theme = "dracula"
-" let g:vim_bootstrap_theme = "gruvbox"
+" let g:vim_bootstrap_theme = "dracula" " M2017
+let g:vim_bootstrap_theme = "gruvbox" " M2017
 "let g:vim_bootstrap_theme = "onedark"
 "let g:vim_bootstrap_theme = "molokai"
 
 " set updatetime=1000 " FRECUENCIA DE ACTUALIZACION DE vim-signify
 
 if (bufname()==".vimrc")
-    nmap ++ gg/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc:w<CR>
+    nmap ++ gg/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc:wq<CR>
 endif
 
 "*****************************************************************************
