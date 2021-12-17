@@ -82,7 +82,8 @@ let g:vim_bootstrap_theme = "gruvbox" " M2017
 " set updatetime=1000 " FRECUENCIA DE ACTUALIZACION DE vim-signify
 
 if (bufname()==".vimrc")
-    nmap ++ gg/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc:wq<CR>
+    " nmap ++ gg/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc:wq<CR>
+    nmap ++ gg/" M2017<CR>d$gcc:wq<CR>
 endif
 
 "*****************************************************************************
