@@ -1,5 +1,8 @@
+
+"" PARA FORMATEARLO A LA LAPTOP, APRETAR ++
+
 set nu rnu
-set mouse=a " M2017
+set mouse=a
 set cursorline
 set showcmd
 set encoding=UTF-8
@@ -8,11 +11,12 @@ set wildmode=longest,list,full ""Autocompleta Rutas
 set undofile " UnDo persistente, aun cerrando el programa
 set undodir=~/.vim/undodir
 
-" Cierre la pestaña si NERDTree es la única ventana que queda en VIM. 
+" Cierre la pestaña si NERDTree es la única ventana que queda en VIM.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 "Muestra Numero de Linea en NERDTree
 let NERDTreeShowLineNumbers=1
+
 
 set clipboard=unnamed " Combina el Portapapeles de VIM con el del Sistema, solo si en ':ver' está +clipboard
 
@@ -41,11 +45,11 @@ if (empty($TMUX))
   endif
 endif
 
-"" Cambia entre el cursor cuadrado ( [] ) en modo normal al cursor de barrita ( | ) en el modo de insercion 
-"" Fuente: https://stackoverflow.com/questions/6488683/how-to-change-the-cursor-between-normal-and-insert-modes-in-vim    
+"" Cambia entre el cursor cuadrado ( [] ) en modo normal al cursor de barrita ( | ) en el modo de insercion
+"" Fuente: https://stackoverflow.com/questions/6488683/how-to-change-the-cursor-between-normal-and-insert-modes-in-vim
     "" Intento 1
         " :autocmd InsertEnter,InsertLeave * set cul!
-    
+
     "" Intento 2
         " :autocmd InsertEnter * set cul
         " :autocmd InsertLeave * set nocul
@@ -63,20 +67,23 @@ endif
 
 
 """""" SELECT BETWEEN DIFERENTS LANGUAJES
-"colorscheme dracula " M2017
-colorscheme gruvbox " M2017
+colorscheme dracula
+" colorscheme gruvbox
 "colorscheme onedark
 "colorscheme molokai
 
 set bg=dark
 
-"let g:vim_bootstrap_theme = "dracula"  " M2017
-let g:vim_bootstrap_theme = "gruvbox" " M2017
+let g:vim_bootstrap_theme = "dracula"
+" let g:vim_bootstrap_theme = "gruvbox"
 "let g:vim_bootstrap_theme = "onedark"
 "let g:vim_bootstrap_theme = "molokai"
 
 " set updatetime=1000 " FRECUENCIA DE ACTUALIZACION DE vim-signify
 
+if (bufname()==".vimrc")
+    nmap ++ gg/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc:w<CR>
+endif
 
 "*****************************************************************************
 "" Vim-Plug core
@@ -158,7 +165,7 @@ endif
 " Plug 'Shougo/vimproc.vim', {'do': g:make}          " AYUDA DE LA ESCRITURA EN EL LENGUAJE Oracle Pro*C/C++
 
 "" Vim-Session
-Plug 'xolox/vim-misc'                              " LIBRERIA PARA LOS PROGRAMAS DE xolox 
+Plug 'xolox/vim-misc'                              " LIBRERIA PARA LOS PROGRAMAS DE xolox
 Plug 'xolox/vim-session'                           " GESTOR DE SESIONES EN VIM
 
 "" Snippets
@@ -268,7 +275,7 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-  
+
   if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
   else
@@ -276,7 +283,7 @@ else
       set term=xterm-256color
     endif
   endif
-  
+
 endif
 
 
@@ -726,4 +733,3 @@ endif
 "     User is the amount of CPU time spent in user-mode code (outside the kernel) within the process. This is only actual CPU time used in executing the process. Other processes and time the process spends blocked do not count towards this figure.
 
 "     Sys is the amount of CPU time spent in the kernel within the process. This means executing CPU time spent in system calls within the kernel, as opposed to library code, which is still running in user-space. Like 'user', this is only CPU time used by the process. See below for a brief description of kernel mode (also known as 'supervisor' mode) and the system call mechanism.
-
