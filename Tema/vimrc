@@ -468,6 +468,9 @@ if (bufname()==".vimrc")
     nmap ++ gg/" M2017<CR>d$gcc:wq<CR>
 endif
 
+"" Ordenado Random de Lineas
+vmap rr !sort -R<CR>
+
 "" Compile (E)
 " map <leader>cj /public class<CR>02wyw:!javac <C-R>".java && java <C-R>" <CR>
 map <Leader>cc :call CompileAndRun()<CR>
