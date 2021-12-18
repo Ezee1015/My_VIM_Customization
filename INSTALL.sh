@@ -2,6 +2,7 @@
 
 function INSTALAR {
 
+     sudo apt install vim curl vim-gtk -y
      cp Tema/vimrc ~/.vimrc
      cp -rf Tema/colors/* ~/.vim/colors/
      cp Tema/vim_forever.sh ~/.vim_forever.sh
@@ -30,8 +31,6 @@ function INSTALAR {
              cp Tema/init.vim ~/.config/nvim/init.vim
         fi
      fi
-
-     sudo apt install vim curl vim-gtk -y
 
      echo ""
      echo "           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador..."
