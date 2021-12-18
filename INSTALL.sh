@@ -16,7 +16,7 @@ function INSTALAR {
      echo ""
      sudo mkdir /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font
      sudo cp Tema/ttf/*.ttf /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font/
-     
+
      if [ -e /bin/vi ] || [ -e /usr/vi ] ; then echo "" ; else
          sudo ln -s /bin/vim /bin/vi
      fi
@@ -25,28 +25,30 @@ function INSTALAR {
              mkdir ~/.config/nvim
              cp Tema/init.vim ~/.config/nvim/init.vim
     else
-         if [ -e /usr/nvim ] ; then 
+         if [ -e /usr/nvim ] ; then
              mkdir ~/.config/nvim
              cp Tema/init.vim ~/.config/nvim/init.vim
         fi
      fi
 
+     sudo apt install vim curl vim-gtk -y
+
      echo ""
      echo "           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador..."
      echo "           Solamente queda una cosa..."
      echo "                     * Seleccione en su terminal la fuente UbuntuMono Nerd Font Mono"
- 
+
 }
 
 
 function MENU {
 
     clear
-    
+
     for number in {0..10}; do
         echo ""
     done
-    
+
     echo "" ; echo ""
     read -p "Desea Instalar Mi Configuracion de VIM? (S/N)>  " respuesta
     clear
@@ -65,7 +67,7 @@ function MENU {
         'S' )   INSTALAR  ;;
         * )     echo "           Se ha elegido que NO. Se saldrá del Instalador." ;;
     esac
-    
+
     echo "" ; echo ""
 
 }

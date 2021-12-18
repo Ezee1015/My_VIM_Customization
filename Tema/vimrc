@@ -2,7 +2,7 @@
 "" PARA FORMATEARLO A LA LAPTOP, APRETAR ++
 
 set nu rnu
-" set mouse=a " M2017
+set mouse=a
 set cursorline
 set showcmd
 set encoding=UTF-8
@@ -468,8 +468,12 @@ if (bufname()==".vimrc")
     nmap ++ gg/" M2017<CR>d$gcc:wq<CR>
 endif
 
-"" Ordenado Random de Lineas
+"" Ordenado Random de Lineas (E)
 vmap rr !sort -R<CR>
+
+"" Camina entre los errores (E)
+map r+ <Plug>(ale_next_wrap)
+map r- <Plug>(ale_previous_wrap)
 
 "" Compile (E)
 " map <leader>cj /public class<CR>02wyw:!javac <C-R>".java && java <C-R>" <CR>
