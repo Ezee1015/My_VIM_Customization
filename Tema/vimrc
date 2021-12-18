@@ -138,7 +138,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'                 " ASTERISCOS EN NERDTREE CON 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " ICONOS DE LOS ARCHIVOS
 Plug 'ryanoasis/vim-devicons'                      " ICONOS PARA NERDTREE SINTAX HIGHLIGHT
 
-
 " if has('nvim') || has('patch-8.0.902')
 "   Plug 'mhinz/vim-signify'                         " CONTROL DE VERSIONES DE UN ARCHIVO. CREO QUE NO FUNCIONA, por eso lo comento
 " else
@@ -462,6 +461,26 @@ map <silent><Leader><S-m> gU
 nmap ++ <C-a>
 nmap -- <C-x>
 
+"" Atajo Sustituir (E)
+nmap S :%s//g<Left><Left>
+
+"" Autocorrector de texto
+nmap <Leader>o :setlocal spell! spelllang=es_es<CR>
+nmap <Leader><S-o> :setlocal spell!
+
+""Lista de Cambios en un Archivo (E)
+nmap <Leader>d :DiffSaved<CR>
+nmap <Leader><S-d> :diffoff<CR>:q<CR>''
+
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
+
 " Autopersonalizacion de la Laptop (E)
 if (bufname()==".vimrc")
     " nmap ++ gg/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc:wq<CR>
@@ -646,7 +665,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 "" Open current line on GitHub
-nnoremap <Leader>o :.Gbrowse<CR>
+" nnoremap <Leader>o :.Gbrowse<CR>
 
 "*****************************************************************************
 "" Custom configs
