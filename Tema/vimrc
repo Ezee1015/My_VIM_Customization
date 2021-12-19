@@ -17,6 +17,26 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 "Muestra Numero de Linea en NERDTree
 let NERDTreeShowLineNumbers=1
 
+" Open the existing NERDTree on each new tab.
+let s:Inicio_VIM=0
+autocmd BufWinEnter * :call AbrirNerdTree()
+
+func AbrirNerdTree()
+    if getcmdwintype() == ''
+        if s:Inicio_VIM == 0
+            let s:Inicio_VIM=1
+            echom "hola"
+        else
+            NERDTreeToggle
+            echom "hola"
+        endif
+    endif
+endfunc
+
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 set clipboard=unnamed " Combina el Portapapeles de VIM con el del Sistema, solo si en ':ver' está +clipboard
 
