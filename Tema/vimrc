@@ -19,19 +19,18 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 let NERDTreeShowLineNumbers=1
 
 " Open the existing NERDTree on each new tab.
-let s:Inicio_VIM=0
-autocmd BufWinEnter * :call AbrirNerdTree()
+    " let s:Inicio_VIM=0
+    " autocmd BufWinEnter * :call AbrirNerdTree()
 
-func AbrirNerdTree()
-    if getcmdwintype() == ''
-        if s:Inicio_VIM == 0
-            let s:Inicio_VIM=1
-        else
-            NERDTreeToggle
-        endif
-    endif
-endfunc
-
+    " func AbrirNerdTree()
+    "     if getcmdwintype() == ''
+    " "         if s:Inicio_VIM == 0
+    " "             let s:Inicio_VIM=1
+    " "         else
+    "             NERDTreeToggle
+    "         endif
+    " "     endif
+    " endfunc
 
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
@@ -588,7 +587,7 @@ nnoremap <leader>sc :CloseSession<CR>
 "" Tabs
 nnoremap <silent><Tab> gt
 nnoremap <silent><S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
+nnoremap <silent> <S-t> :tabnew<CR>:NERDTreeToggle<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
