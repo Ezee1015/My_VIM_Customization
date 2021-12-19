@@ -25,10 +25,8 @@ func AbrirNerdTree()
     if getcmdwintype() == ''
         if s:Inicio_VIM == 0
             let s:Inicio_VIM=1
-            echom "hola"
         else
             NERDTreeToggle
-            echom "hola"
         endif
     endif
 endfunc
