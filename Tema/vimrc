@@ -7,6 +7,7 @@ set cursorline
 set showcmd
 set encoding=UTF-8
 set wildmode=longest,list,full ""Autocompleta Rutas
+set ic ""Ignora la Capitalizacion de las letras en la busqueda
 
 set undofile " UnDo persistente, aun cerrando el programa
 set undodir=~/.vim/undodir
