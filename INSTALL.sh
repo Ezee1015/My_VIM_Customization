@@ -15,6 +15,7 @@ function INSTALAR {
      echo "autocmd StdinReadPre * let s:std_in=1" > ~/.vim/after/plugin/NERDTreeAutoExecute.vim
      echo "autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | silent NERDTree | endif" >> ~/.vim/after/plugin/NERDTreeAutoExecute.vim
      echo ""
+     sudo mkdir /usr/share/fonts/truetype
      sudo mkdir /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font
      sudo cp Tema/ttf/*.ttf /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font/
 
