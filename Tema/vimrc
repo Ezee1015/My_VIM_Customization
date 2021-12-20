@@ -456,7 +456,7 @@ nnoremap <silent><C-Down> <C-w>j
 nmap <silent><S-k> :res -2<CR>
 
     map <silent><Leader>gj :join<CR> " Cambia el <S-j> a gj. Resuelve el conflicto
-    map <silent><Leader>gJ :join!<CR>
+    map <silent><Leader>g<S-j> :join!<CR>
     map <silent><Leader>gq g~
 
 nmap <silent><S-j> :res +2<CR>
