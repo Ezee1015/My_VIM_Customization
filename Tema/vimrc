@@ -473,8 +473,8 @@ map <silent><Leader>m gu
 map <silent><Leader><S-m> gU
 
 "" Aumenta o Disminuye el valor de un numero (E)
-nmap ++ <C-a>
-nmap -- <C-x>
+map ++ <C-a>
+map -- <C-x>
 
 "" Atajo Sustituir (E)
 nmap S :%s//g<Left><Left>
