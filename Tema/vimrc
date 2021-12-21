@@ -583,6 +583,8 @@ nnoremap <leader>sc :CloseSession<CR>
 
 "" Tabs
 nnoremap <silent><Tab> gt
+    map ca g;
+    map cd g,
 nnoremap <silent><S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>:NERDTreeToggle<CR>
 
