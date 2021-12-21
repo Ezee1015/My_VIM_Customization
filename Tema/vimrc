@@ -498,7 +498,7 @@ com! DiffSaved call s:DiffWithSaved()
 
 " Autopersonalizacion de la Laptop (E)
 " if (bufname()==".vimrc")
-"     " nmap ++ gg/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc:wq<CR>
+"     nmap ++ gg/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc/" M2017<CR>d$gcc:wq<CR>
 "     nmap ++ gg/" M2017<CR>d$gcc:wq<CR>
 " endif
 
