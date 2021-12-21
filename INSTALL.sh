@@ -4,6 +4,7 @@ function INSTALAR {
 
     sudo apt install vim curl vim-gtk -y
     sudo pacman -S neovim xclip xorg-xclipboard gvim
+    curl -sL install-node.vercel.app/lts | bash
     cp Tema/vimrc ~/.vimrc
     cp -rf Tema/colors/* ~/.vim/colors/
     cp Tema/vim_forever.sh ~/.vim_forever.sh
@@ -38,6 +39,7 @@ function INSTALAR {
      echo "           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador..."
      echo "           Solamente queda una cosa..."
      echo "                     * Seleccione en su terminal la fuente UbuntuMono Nerd Font Mono"
+     echo "                     * Ejecute vim y teclee :CocInstall coc-json coc-tsserver coc-java coc-clangd"
 
 }
 
