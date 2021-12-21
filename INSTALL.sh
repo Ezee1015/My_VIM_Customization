@@ -4,7 +4,7 @@ function INSTALAR {
 
     sudo apt install vim curl vim-gtk -y
     sudo pacman -S neovim xclip xorg-xclipboard gvim
-    curl -sL install-node.vercel.app/lts | bash
+    curl -sL install-node.vercel.app/lts | sudo bash
     cp Tema/vimrc ~/.vimrc
     cp -rf Tema/colors/* ~/.vim/colors/
     cp Tema/vim_forever.sh ~/.vim_forever.sh
