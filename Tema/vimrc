@@ -5,6 +5,7 @@ set showcmd
 set encoding=UTF-8
 set wildmode=longest,list,full ""Autocompleta Rutas
 set ic ""Ignora la Capitalizacion de las letras en la busqueda
+set updatetime=300 "" Tiempo de actualizacion de CoC
 
 set undofile " UnDo persistente, aun cerrando el programa
 set undodir=~/.vim/undodir
@@ -477,7 +478,7 @@ map ++ <C-a>
 map -- <C-x>
 
 "" Agrega Funciones en Modo Insertar (E)
-imap ppp <C-o>p
+imap ddd <C-o>d
 imap yyy <C-o>y
 
 "" Atajo Sustituir (E)
