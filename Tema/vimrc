@@ -587,8 +587,8 @@ nnoremap <leader>sc :CloseSession<CR>
 
 "" Tabs
 nnoremap <silent><Tab> gt
-    map ca g;
-    map cd g,
+    map ca g; "" Modifica la posicion del cursor hacia la anterior posición
+    map cd g, "" Modifica la posicion del cursor hacia la siguiente posición
 nnoremap <silent><S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>:NERDTreeToggle<CR>
 
