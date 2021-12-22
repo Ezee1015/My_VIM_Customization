@@ -476,6 +476,10 @@ map <silent><Leader><S-m> gU
 map ++ <C-a>
 map -- <C-x>
 
+"" Agrega Funciones en Modo Insertar (E)
+imap ppp <C-o>p
+imap yyy <C-o>y
+
 "" Atajo Sustituir (E)
 nmap S :%s//g<Left><Left>
 
