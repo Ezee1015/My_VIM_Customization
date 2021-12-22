@@ -9,16 +9,16 @@ function SEGUIR_EN_VIM {
         read ELECCION
 
         case $ELECCION in
-            's' )   vim $1 ; SEGUIR_EN_VIM  ;;
-            'si' )  vim $1 ; SEGUIR_EN_VIM  ;;
-            'Si' )  vim $1 ; SEGUIR_EN_VIM  ;;
-            'sI' )  vim $1 ; SEGUIR_EN_VIM  ;;
-            'SI' )  vim $1 ; SEGUIR_EN_VIM  ;;
-            'y' )   vim $1 ; SEGUIR_EN_VIM  ;;
-            'yes' ) vim $1 ; SEGUIR_EN_VIM  ;;
-            'YES' ) vim $1 ; SEGUIR_EN_VIM  ;;
-            '1' )   vim $1 ; SEGUIR_EN_VIM  ;;
-            'S' )   vim $1 ; SEGUIR_EN_VIM  ;;
+            's' )   vim $* ; SEGUIR_EN_VIM  ;;
+            'si' )  vim $* ; SEGUIR_EN_VIM  ;;
+            'Si' )  vim $* ; SEGUIR_EN_VIM  ;;
+            'sI' )  vim $* ; SEGUIR_EN_VIM  ;;
+            'SI' )  vim $* ; SEGUIR_EN_VIM  ;;
+            'y' )   vim $* ; SEGUIR_EN_VIM  ;;
+            'yes' ) vim $* ; SEGUIR_EN_VIM  ;;
+            'YES' ) vim $* ; SEGUIR_EN_VIM  ;;
+            '1' )   vim $* ; SEGUIR_EN_VIM  ;;
+            'S' )   vim $* ; SEGUIR_EN_VIM  ;;
             * )     clear ; echo "" ; echo "           Se ha elegido que NO." ; TERMINAR ;;
         esac
 
@@ -49,5 +49,5 @@ function TERMINAR {
 }
 
 
-vim $1
+vim $*
 SEGUIR_EN_VIM
