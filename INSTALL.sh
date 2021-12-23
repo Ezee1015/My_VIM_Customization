@@ -37,7 +37,7 @@ function INSTALAR {
 
      echo ""
      echo "           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador..."
-     echo "           Solamente queda una cosa..."
+     echo "           Solamente queda unas cosas..."
      echo "                     * Seleccione en su terminal la fuente UbuntuMono Nerd Font Mono"
      echo "                     * Ejecute vim y teclee :CocInstall coc-json coc-tsserver coc-java coc-clangd"
 
