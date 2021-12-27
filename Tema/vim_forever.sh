@@ -1,5 +1,9 @@
 #!/bin/bash
 
+TIME=$(date)
+FILE="/tmp/vimfiles$TIME.txt"
+echo "$*" > "$FILE"
+
 function SEGUIR_EN_VIM {
 
         clear
@@ -9,16 +13,16 @@ function SEGUIR_EN_VIM {
         read ELECCION
 
         case $ELECCION in
-            's' )   vim $* ; SEGUIR_EN_VIM  ;;
-            'si' )  vim $* ; SEGUIR_EN_VIM  ;;
-            'Si' )  vim $* ; SEGUIR_EN_VIM  ;;
-            'sI' )  vim $* ; SEGUIR_EN_VIM  ;;
-            'SI' )  vim $* ; SEGUIR_EN_VIM  ;;
-            'y' )   vim $* ; SEGUIR_EN_VIM  ;;
-            'yes' ) vim $* ; SEGUIR_EN_VIM  ;;
-            'YES' ) vim $* ; SEGUIR_EN_VIM  ;;
-            '1' )   vim $* ; SEGUIR_EN_VIM  ;;
-            'S' )   vim $* ; SEGUIR_EN_VIM  ;;
+            's' )   vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            'si' )  vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            'Si' )  vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            'sI' )  vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            'SI' )  vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            'y' )   vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            'yes' ) vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            'YES' ) vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            '1' )   vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            'S' )   vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
             * )     clear ; echo "" ; echo "           Se ha elegido que NO." ; TERMINAR ;;
         esac
 
@@ -49,5 +53,5 @@ function TERMINAR {
 }
 
 
-vim $*
+vim $(cat "$FILE")
 SEGUIR_EN_VIM

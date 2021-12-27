@@ -593,6 +593,11 @@ nnoremap <silent><Tab> gt
 nnoremap <silent><S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>:NERDTreeToggle<CR>
 
+nnoremap <silent>bs :bnext<CR>
+nnoremap <silent>ba :bprev<CR>
+nnoremap <silent>bn :enew<CR>:NERDTreeToggle<CR>
+nnoremap <silent>bd :bd<CR>
+
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
 
@@ -605,6 +610,9 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 "" Remapea para poder subir o bajar un bloque de texto
 vmap <S-j> :m '>+1<CR>gv=gv
 vmap <S-k> :m '<-2<CR>gv=gv
+
+"" Remapea el Shift-Y para que copie hasta el final y no toda la linea
+nnoremap <S-y> y$
 
 "" fzf.vim
 set wildmode=list:longest,list:full
@@ -626,7 +634,9 @@ endif
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>e :FZF -m<CR>
+nnoremap <silent> <leader>e :Files<CR>
+nnoremap <silent> <leader>z :FZF -m<CR>
+
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
 
