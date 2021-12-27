@@ -517,6 +517,7 @@ map r- <Plug>(ale_previous_wrap)
 "" Compile (E)
 " map <leader>cj /public class<CR>02wyw:!javac <C-R>".java && java <C-R>" <CR>
 map <Leader>cc :call CompileAndRun()<CR>
+map <Leader>c :call Compile()<CR>
 
 " func! CompileRunGcc()
 "   exec "w"
@@ -569,6 +570,22 @@ func! CompileAndRun()
 endfunc
 
 
+func! Compile()
+    exec "w"
+    if &filetype == 'c'
+        exec "echo expand('%:p:h') | terminal gcc % -o %<"
+    elseif &filetype == 'cpp'
+        exec "echo expand('%:p:h') | terminal g++ % -o %<"
+        exec "normal gg"
+    elseif &filetype == 'java'
+        exec "echo expand('%:p:h') | terminal java %"
+        exec "normal gg"
+    elseif &filetype == 'rust'
+        exec "echo expand('%:p:h') | terminal cargo build --manifest-path=%:p:h:h/Cargo.toml"
+    elseif &filetype == 'go'
+        exec "echo expand('%:p:h') | terminal go build '%<'"
+    endif
+endfunc
 
 "" Git
 noremap <Leader>ga :Git write<CR>
@@ -593,10 +610,10 @@ nnoremap <silent><Tab> gt
 nnoremap <silent><S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>:NERDTreeToggle<CR>
 
-nnoremap <silent>bs :bnext<CR>
-nnoremap <silent>ba :bprev<CR>
-nnoremap <silent>bn :enew<CR>:NERDTreeToggle<CR>
-nnoremap <silent>bd :bd<CR>
+nnoremap <silent>bn :bnext<CR>
+nnoremap <silent>bv :bprev<CR>
+nnoremap <silent>bb :enew<CR>:NERDTreeToggle<CR>
+nnoremap <silent>bc :bd<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -681,7 +698,7 @@ endif
 " noremap <leader>w :bn<CR>
 
 "" Close buffer
-noremap <leader>c :bd<CR>
+" noremap <leader>c :bd<CR>
 
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
