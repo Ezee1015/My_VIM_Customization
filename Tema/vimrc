@@ -81,8 +81,7 @@ endif
         augroup END
 
 
-
-"""""" SELECT BETWEEN DIFERENTS LANGUAJES
+"""""" SELECT BETWEEN DIFERENTS COLOSCHEMES
 " colorscheme dracula
 colorscheme gruvbox
 "colorscheme onedark
@@ -485,8 +484,8 @@ imap yyy <C-o>y
 nmap S :%s//g<Left><Left>
 
 "" Autocorrector de texto
-nmap <Leader>o :setlocal spell! spelllang=es_es<CR>
-nmap <Leader><S-o> :setlocal spell!
+nmap <Leader>o :setlocal spell! spelllang=es_es<CR>:colorscheme default<CR>
+nmap <Leader><S-o> :setlocal spell!<CR>:colorscheme gruvbox<CR>
 
 ""Lista de Cambios en un Archivo (E)
 nmap <Leader>d :DiffSaved<CR>
@@ -605,8 +604,10 @@ nnoremap <leader>sc :CloseSession<CR>
 
 "" Tabs
 nnoremap <silent><Tab> gt
-    map ca g; "" Modifica la posicion del cursor hacia la anterior posición
-    map cd g, "" Modifica la posicion del cursor hacia la siguiente posición
+    "" Modifica la posicion del cursor hacia la anterior posición
+    map ca g;
+    "" Modifica la posicion del cursor hacia la siguiente posición
+    map cd g,
 nnoremap <silent><S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>:NERDTreeToggle<CR>
 
