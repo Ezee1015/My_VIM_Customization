@@ -2,7 +2,8 @@
 
 function INSTALAR {
 
-    sudo apt install vim curl vim-gtk -y
+    sudo apt install vim curl vim-gtk clangd-12 openjdk-17* -y
+        # sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
     sudo pacman -S neovim xclip xorg-xclipboard gvim
     curl -sL install-node.vercel.app/lts | sudo bash
     cp Tema/vimrc ~/.vimrc
@@ -40,6 +41,7 @@ function INSTALAR {
      echo "           Solamente queda unas cosas..."
      echo "                     * Seleccione en su terminal la fuente UbuntuMono Nerd Font Mono"
      echo "                     * Ejecute vim y teclee :CocInstall coc-json coc-tsserver coc-java coc-clangd"
+     echo "                     * Luego ejecute :CocCommand clangd.install"
 
 }
 
