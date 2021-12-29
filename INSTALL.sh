@@ -8,6 +8,7 @@ function INSTALAR {
     curl -sL install-node.vercel.app/lts | sudo bash
     cp Tema/vimrc ~/.vimrc
     cp -rf Tema/colors/* ~/.vim/colors/
+    wget https://raw.githubusercontent.com/gruvbox-community/gruvbox/master/colors/gruvbox.vim -O ~/.vim/colors/gruvbox.vim
     cp Tema/vim_forever.sh ~/.vim_forever.sh
     cp Documentacion/VIM\ -\ Documentacion.pdf ~/
     mkdir ~/.vim
