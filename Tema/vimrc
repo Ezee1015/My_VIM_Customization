@@ -158,6 +158,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}    " SERVIDOR DE AUTOCOMPLETADO.
 " else
 "   Plug 'mhinz/vim-signify', { 'branch': 'legacy' } " CONTROL DE VERSIONES DE UN ARCHIVO. CREO QUE NO FUNCIONA, por eso lo comento
 " endif
+Plug 'gruvbox-community/gruvbox'                   " ESQUEMA DE COLORES
 
 
 
