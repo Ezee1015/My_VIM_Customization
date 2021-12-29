@@ -4,7 +4,7 @@ function INSTALAR {
 
     sudo apt install vim curl vim-gtk clangd-12 openjdk-17* clangd -y
         # sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
-    sudo pacman -S neovim xclip xorg-xclipboard gvim
+    sudo pacman -S neovim xclip xorg-xclipboard gvim clang
     curl -sL install-node.vercel.app/lts | sudo bash
     cp Tema/vimrc ~/.vimrc
     cp -rf Tema/colors/* ~/.vim/colors/
