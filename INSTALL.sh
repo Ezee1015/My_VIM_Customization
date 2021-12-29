@@ -2,7 +2,7 @@
 
 function INSTALAR {
 
-    sudo apt install vim curl vim-gtk clangd-12 openjdk-17* -y
+    sudo apt install vim curl vim-gtk clangd-12 openjdk-17* clangd -y
         # sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
     sudo pacman -S neovim xclip xorg-xclipboard gvim
     curl -sL install-node.vercel.app/lts | sudo bash
@@ -41,7 +41,7 @@ function INSTALAR {
      echo "           Solamente queda unas cosas..."
      echo "                     * Seleccione en su terminal la fuente UbuntuMono Nerd Font Mono"
      echo "                     * Ejecute vim y teclee :CocInstall coc-json coc-tsserver coc-java coc-clangd"
-     echo "                     * Luego ejecute :CocCommand clangd.install"
+     echo "                     * Luego ejecute :CocCommand clangd.install desde vim abierto en un proyecto/archivo de C"
      echo "                     * Si da error en el Servidor de lenguaje Java, poner el contenido del archivo https://download.eclipse.org/jdtls/milestones/0.57.0/ en ~/.config/coc/extensions/coc-java-data/server/ (eliminando lo que había en esa carpeta)"
 
 }

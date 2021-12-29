@@ -477,6 +477,9 @@ map <silent><Leader><S-m> gU
 map ++ <C-a>
 map -- <C-x>
 
+"" Funciones de CoC
+map gd <Plug>(coc-definition)
+
 "" Agrega Funciones en Modo Insertar (E)
 imap ddd <C-o>d
 imap yyy <C-o>y
