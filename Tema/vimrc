@@ -460,7 +460,7 @@ nmap <silent><S-k> :res -2<CR>
  " Cambia el <S-j> a gj. Resuelve el conflicto
     map <silent><Leader>gj :join<CR>
         " No me acuerdo que funcion cumple, por eso lo comento
-        " nnoremap ,gr mz<leader>gj'z
+        " nnoremap <leader>gr mz<leader>gj'z
     map <silent><Leader>g<S-j> :join!<CR>
     map <silent><Leader>gq g~
 
