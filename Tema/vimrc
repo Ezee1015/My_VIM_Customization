@@ -86,6 +86,7 @@ endif
 colorscheme gruvbox
 "colorscheme onedark
 "colorscheme molokai
+"colorscheme ghdark
 
 set bg=dark
 
