@@ -87,6 +87,7 @@ colorscheme gruvbox
 "colorscheme onedark
 "colorscheme molokai
 "colorscheme ghdark
+"colorscheme GruberDarker
 
 set bg=dark
 
