@@ -492,7 +492,7 @@ imap yyy <C-o>y
 nmap S :%s//g<Left><Left>
 
 "" Autocorrector de texto
-nmap <Leader>o :setlocal spell! spelllang=es_es<CR>:colorscheme default<CR>
+nmap <Leader>o :setlocal spell! spelllang=es_es<CR>:colorscheme GruberDarker<CR>
 nmap <Leader><S-o> :setlocal spell!<CR>:colorscheme gruvbox<CR>
 
 ""Lista de Cambios en un Archivo (E)
@@ -619,10 +619,10 @@ nnoremap <silent><Tab> gt
 nnoremap <silent><S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>:NERDTreeToggle<CR>
 
-nnoremap <silent>bn :bnext<CR>
-nnoremap <silent>bv :bprev<CR>
-nnoremap <silent>bb :enew<CR>:NERDTreeToggle<CR>
-nnoremap <silent>bc :bd<CR>
+nnoremap <silent><Leader>bn :bnext<CR>
+nnoremap <silent><Leader>bv :bprev<CR>
+nnoremap <silent><Leader>bb :enew<CR>:NERDTreeToggle<CR>
+nnoremap <silent><Leader>bc :bd<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
