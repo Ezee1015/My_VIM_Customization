@@ -585,7 +585,7 @@ func! Compile()
         exec "echo expand('%:p:h') | terminal g++ % -o %<"
         exec "normal gg"
     elseif &filetype == 'java'
-        exec "echo expand('%:p:h') | terminal java %"
+        exec "echo expand('%:p:h') | terminal javac %"
         exec "normal gg"
     elseif &filetype == 'rust'
         exec "echo expand('%:p:h') | terminal cargo build --manifest-path=%:p:h:h/Cargo.toml"
