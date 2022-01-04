@@ -635,7 +635,9 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 "" Remapea para poder subir o bajar un bloque de texto
 vmap <S-j> :m '>+1<CR>gv=gv
+vmap <S-Down> :m '>+1<CR>gv=gv
 vmap <S-k> :m '<-2<CR>gv=gv
+vmap <S-Up> :m '<-2<CR>gv=gv
 
 "" Remapea el Shift-Y para que copie hasta el final y no toda la linea
 nnoremap <S-y> y$
