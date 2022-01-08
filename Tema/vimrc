@@ -541,25 +541,39 @@ map <Leader>c :call Compile()<CR>
 func! CompileAndRun()
     exec "w"
     if &filetype == 'c'
+        exec "mz"
         exec "!clear && gcc '%' -o '%<'"
         exec "!clear && time './%<'"
+        exec "'z"
     elseif &filetype == 'cpp'
+        exec "mz"
         exec "!clear && g++ '%' -o '%<'"
         exec "!clear && time './%<'"
+        exec "'z"
     elseif &filetype == 'rust'
+        exec "mz"
         exec "!clear && cargo build --manifest-path='%':p:h:h/Cargo.toml"
         exec "!time cargo run --manifest-path='%':p:h:h/Cargo.toml"
+        exec "'z"
     elseif &filetype == 'java'
+        exec "mz"
     "     exec "!clear && javac '%'"
     "     exec "!clear && time java -cp '%':p:h %:t:r"
         exec "!clear && javac '%'"
         exec "!clear && java '%<'"
+        exec "'z"
     elseif &filetype == 'sh'
+        exec "mz"
         exec "!clear && time bash '%'"
+        exec "'z"
     elseif &filetype == 'python'
+        exec "mz"
         exec "!clear && time python3 '%'"
+        exec "'z"
     elseif &filetype == 'javascript'
+        exec "mz"
         exec "!clear && time node '%'"
+        exec "'z"
     elseif &filetype == 'html'
         exec "!chromium '%' &"
         exec "!firefox '%'"
@@ -567,8 +581,10 @@ func! CompileAndRun()
     elseif &filetype == 'tex'
         exec "!pdflatex --output-directory='%':p:h '%'"
     elseif &filetype == 'go'
+        exec "mz"
         exec "!go build '%<'"
         exec "!clear && time go run '%'"
+        exec "'z"
     elseif &filetype == 'text'
         exec "!clear && echo 'words : ' && wc -w % && echo 'lines : ' && wc -l '%' && echo 'size : ' && du -h '%'"
     elseif &filetype == 'markdown'
