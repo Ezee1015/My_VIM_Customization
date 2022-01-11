@@ -375,7 +375,7 @@ let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
 
 " terminal emulation
-nnoremap <silent> <leader>sh :terminal<CR>
+nnoremap <silent> <leader>t :terminal<CR>
 
 
 "*****************************************************************************
@@ -431,7 +431,6 @@ set autoread
 
 "" Save and Exit (E)
 nmap <silent><Leader>x :wq<CR>
-nmap <silent><Leader>s :w<CR>
 nmap <silent><Leader>º :q!<CR>
 
 nmap <silent><Leader>w :wq<CR>
@@ -605,10 +604,10 @@ noremap <Leader>gd :Git vdiff<CR>
 noremap <Leader>gr :Git remove<CR>
 
 " session management
-nnoremap <leader>so :OpenSession<Space>
-nnoremap <leader>ss :SaveSession<Space>
-nnoremap <leader>sd :DeleteSession<CR>
-nnoremap <leader>sc :CloseSession<CR>
+nnoremap <leader>os :OpenSession<Space>
+nnoremap <leader>gss :SaveSession<Space>
+nnoremap <leader>ds :DeleteSession<CR>
+nnoremap <leader>cs :CloseSession<CR>
 
 "" Tabs
 nnoremap <silent><Tab> gt
@@ -745,8 +744,8 @@ inoremap <silent><expr> <TAB>
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-let col = col('.') - 1
-return !col || getline('.')[col - 1]  =~# '\s'
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 "*****************************************************************************
