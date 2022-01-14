@@ -523,7 +523,7 @@ map r- <Plug>(ale_previous_wrap)
 "" Compile (E)
 " map <leader>cj /public class<CR>02wyw:!javac <C-R>".java && java <C-R>" <CR>
 map <Leader>cc :call CompileAndRun()<CR>
-map <Leader>c :call Compile()<CR>
+map <Leader>cx :call Compile()<CR>
 
 " func! CompileRunGcc()
 "   exec "w"
