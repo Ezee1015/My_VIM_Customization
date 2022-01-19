@@ -6,6 +6,7 @@ Mi básica customización de VIM, creado por www.vim-bootstrap.com y personaliza
 git
 vim
 wget
+X11
 ```
 
 ## INSTALACIÓN
