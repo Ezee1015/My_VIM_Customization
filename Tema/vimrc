@@ -445,7 +445,19 @@ noremap <silent><Leader>v :<C-u>vsplit<CR>
 nmap <Leader>f <Plug>(easymotion-s2)
 
 " Remapea ESC a ii para Salir del Modo Insertar (E)
-:imap ii <Esc>
+imap ii <Esc>
+imap II <Esc>
+ "" Desactiva el CapsLock Cuando se está en Insert y se pasa a Normal
+     au InsertLeave * call TurnOffCaps()
+     function TurnOffCaps()
+         if has("unix")
+             let capsState = matchstr(system('xset -q'), '00: Caps Lock:\s\+\zs\(on\|off\)\ze')
+             if capsState == 'on'
+                 silent! execute ':!xdotool key Caps_Lock'
+             endif
+         endif
+     endfunction
+     "" ESCAPE <Esc> ES EQUIVALENTE E <C-C>, pero no lo uso en esta funcion
 
 "" Window Movement (E)
 nnoremap <silent><C-Right> <C-w>l " Objetivo: Saltar entre splits
@@ -638,7 +650,7 @@ vmap <S-Down> :m '>+1<CR>gv=gv
 vmap <S-k> :m '<-2<CR>gv=gv
 vmap <S-Up> :m '<-2<CR>gv=gv
 
-"" Remapea el Shift-Y para que copie hasta el final y no toda la linea
+"" Remapea el Shift-Y para que copie hasta el final y no toda la linea (E)
 nnoremap <S-y> y$
 
 "" fzf.vim
