@@ -493,7 +493,14 @@ map ++ <C-a>
 map -- <C-x>
 
 "" Funciones de CoC
-map gd <Plug>(coc-definition)
+    ""IR A DONDE SE DECLARO
+" nmap <silent> gd <Plug>(coc-definition) "" LO REEMPLAZE POR UN QUE DIVIDE LA
+                                          "" PANTALLA A LA MITAD PARA MOSTRARLO
+nmap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
+    ""IR A LA IMPLEMENTACION (en lenguaje c no lo soporta)
+nmap <silent> gi <Plug>(coc-implementation)
+   ""VER UNA LISTA DE LAS UTILIZACIONES DE LA FUNCION
+nmap <silent> gr <Plug>(coc-references)
 
 "" Agrega Funciones en Modo Insertar (E)
 imap ddd <C-o>d
