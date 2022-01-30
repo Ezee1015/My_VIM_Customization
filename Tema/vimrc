@@ -88,6 +88,7 @@ colorscheme gruvbox
 "colorscheme molokai
 "colorscheme ghdark
 "colorscheme GruberDarker
+"colorscheme PaperColor
 
 set bg=dark
 
@@ -510,7 +511,7 @@ imap yyy <C-o>y
 nmap S :%s//g<Left><Left>
 
 "" Autocorrector de texto
-nmap <Leader>o :setlocal spell! spelllang=es_es<CR>:colorscheme GruberDarker<CR>
+nmap <Leader>o :setlocal spell! spelllang=es_es<CR>:colorscheme PaperColor<CR>
 nmap <Leader><S-o> :setlocal spell!<CR>:colorscheme gruvbox<CR>
 
 ""Lista de Cambios en un Archivo (E)
