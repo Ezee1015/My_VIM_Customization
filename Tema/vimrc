@@ -621,7 +621,8 @@ noremap <Leader>gll :Git pull<CR>
 " noremap <Leader>gs :Git status<CR>
 noremap <Leader>gs :G<CR>
 noremap <Leader>gb :Git blame<CR>
-noremap <Leader>gd :Git diff<CR>
+noremap <Leader>gdd :Git diff<CR>
+noremap <Leader>gd :Gvdiffsplit<CR>
 noremap <Leader>gr :Git remove<CR>
 
 " session management
