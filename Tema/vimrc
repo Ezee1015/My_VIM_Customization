@@ -616,7 +616,7 @@ endfunc
 "" Git
 noremap <Leader>ga :Git write<CR>
 noremap <Leader>gc :Git commit --verbose<CR>
-noremap <Leader>gsh :Git push<CR>
+noremap <Leader>gp :Git push<CR>
 noremap <Leader>gll :Git pull<CR>
 " noremap <Leader>gs :Git status<CR>
 noremap <Leader>gs :G<CR>
