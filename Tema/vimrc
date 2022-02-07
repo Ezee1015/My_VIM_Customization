@@ -498,7 +498,7 @@ map -- <C-x>
 " nmap <silent> gd <Plug>(coc-definition) "" LO REEMPLAZE POR UN QUE DIVIDE LA
                                           "" PANTALLA A LA MITAD PARA MOSTRARLO
 nmap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
-    ""IR A LA IMPLEMENTACION (en lenguaje c no lo soporta)
+    ""IR A LA COMPLEMENTACIÓN (en lenguaje c no lo soporta)
 nmap <silent> gi <Plug>(coc-implementation)
    ""VER UNA LISTA DE LAS UTILIZACIONES DE LA FUNCION
 nmap <silent> gr <Plug>(coc-references)
@@ -511,7 +511,7 @@ imap yyy <C-o>y
 nmap S :%s//g<Left><Left>
 
 "" Autocorrector de texto
-nmap <Leader>o :setlocal spell! spelllang=es_es<CR>:colorscheme PaperColor<CR>
+nmap <Leader>o :setlocal spell! spelllang=es_es,en_us<CR>:colorscheme PaperColor<CR>
 nmap <Leader><S-o> :setlocal spell!<CR>:colorscheme gruvbox<CR>
 
 ""Lista de Cambios en un Archivo (E)
