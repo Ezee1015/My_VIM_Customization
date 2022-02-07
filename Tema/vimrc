@@ -623,7 +623,7 @@ noremap <Leader>gs :G<CR>
 noremap <Leader>gb :Git blame<CR>
 noremap <Leader>gdd :Git diff<CR>
 noremap <Leader>gd :Gvdiffsplit<CR>
-" noremap <Leader>gr :Git remove<CR>
+" noremap <Leader>gr :GRemove<CR>
 
 " session management
 nnoremap <leader>os :OpenSession<Space>
