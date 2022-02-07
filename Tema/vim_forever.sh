@@ -13,16 +13,16 @@ function SEGUIR_EN_VIM {
         read ELECCION
 
         case $ELECCION in
-            's' )   vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
-            'si' )  vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
-            'Si' )  vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
-            'sI' )  vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
-            'SI' )  vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
-            'y' )   vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
-            'yes' ) vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
-            'YES' ) vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
-            '1' )   vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
-            'S' )   vim $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            's' )   vim -p $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            'si' )  vim -p $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            'Si' )  vim -p $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            'sI' )  vim -p $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            'SI' )  vim -p $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            'y' )   vim -p $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            'yes' ) vim -p $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            'YES' ) vim -p $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            '1' )   vim -p $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
+            'S' )   vim -p $(cat "$FILE") ; SEGUIR_EN_VIM  ;;
             * )     clear ; echo "" ; echo "           Se ha elegido que NO." ; TERMINAR ;;
         esac
 
@@ -53,5 +53,5 @@ function TERMINAR {
 }
 
 
-vim $(cat "$FILE")
+vim -p $(cat "$FILE")
 SEGUIR_EN_VIM
