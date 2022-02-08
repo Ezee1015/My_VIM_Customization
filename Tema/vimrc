@@ -460,6 +460,14 @@ imap II <Esc>
      endfunction
      "" ESCAPE <Esc> ES EQUIVALENTE E <C-C>, pero no lo uso en esta funcion
 
+" Agrega una Separación en el Undo (E)
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+inoremap ! !<C-g>u
+inoremap ? ?<C-g>u
+inoremap " "<C-g>u
+inoremap ; ;<C-g>u
+
 "" Window Movement (E)
 nnoremap <silent><C-Right> <C-w>l " Objetivo: Saltar entre splits
 nnoremap <silent><C-Left> <C-w>h
