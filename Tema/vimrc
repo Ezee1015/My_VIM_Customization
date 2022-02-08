@@ -97,6 +97,9 @@ let g:vim_bootstrap_theme = "gruvbox"
 "let g:vim_bootstrap_theme = "onedark"
 "let g:vim_bootstrap_theme = "molokai"
 
+" let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'base16_gruvbox_dark_hard'
+
 " set updatetime=1000 " FRECUENCIA DE ACTUALIZACION DE vim-signify
 
 
@@ -335,7 +338,7 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'powerlineish'
+" let g:airline_theme = 'powerlineish'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
