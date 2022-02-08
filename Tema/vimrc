@@ -435,7 +435,7 @@ nmap <silent><Leader>x :wq<CR>
 nmap <silent><Leader>º :q!<CR>
 
 nmap <silent><Leader>w :wq<CR>
-nmap <silent><Leader>s :w<CR>
+nmap <silent><Leader>s :w<CR>''
 nmap <silent><Leader>q :q!<CR>
 
 "" Split
