@@ -468,6 +468,13 @@ inoremap ? ?<C-g>u
 inoremap " "<C-g>u
 inoremap ; ;<C-g>u
 
+" Agrega La Posicion del cursor en el JumpList de Vim cuando se mueve más de 5
+" lineas
+" nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+" nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+" nnoremap <expr> <Up> (v:count > 5 ? "m'" . v:count : "") . '<Up>'
+" nnoremap <expr> <Down> (v:count > 5 ? "m'" . v:count : "") . '<Down>'
+
 "" Window Movement (E)
 nnoremap <silent><C-Right> <C-w>l " Objetivo: Saltar entre splits
 nnoremap <silent><C-Left> <C-w>h
