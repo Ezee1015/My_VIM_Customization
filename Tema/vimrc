@@ -379,7 +379,8 @@ let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
 
 " terminal emulation
-nnoremap <silent> <leader>t :terminal<CR>
+nnoremap <silent> <leader>t :bel vert term<CR>
+nnoremap <silent> <leader>T :terminal<CR>
 
 
 "*****************************************************************************
