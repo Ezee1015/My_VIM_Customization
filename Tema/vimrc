@@ -1,5 +1,5 @@
 set nu rnu
-set mouse=a
+" set mouse=a
 set cursorline
 set showcmd
 set encoding=UTF-8
@@ -41,9 +41,9 @@ let NERDTreeQuitOnOpen=1 " Cierra el NerdTree al abrir un archivo
 set lazyredraw " Evita redibujado de ventanas innecesarios, ideal para cuanto se ejecutan macros. Para forzar el redibujado de una ventana, usar el comando :redraw
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
-	autocmd BufWritePre * %s/\s\+$//e
-	autocmd BufWritePre * %s/\n\+\%$//e
-	autocmd BufWritePre *.[ch] %s/\%$/\r/e
+autocmd BufWritePre * %s/\s\+$//e
+autocmd BufWritePre * %s/\n\+\%$//e
+autocmd BufWritePre *.[ch] %s/\%$/\r/e
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -200,8 +200,8 @@ Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}    " ESPECIALIZACION EN LENGUAJE
 
 " python
 "" Python Bundle
-Plug 'davidhalter/jedi-vim'                        " AUTOCOMPLETACION DE CODIGGO EN PYTHON
-Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'} " REQUERIMIENTOS DE PYTHON (?)
+" Plug 'davidhalter/jedi-vim'                        " AUTOCOMPLETACION DE CODIGGO EN PYTHON
+" Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'} " REQUERIMIENTOS DE PYTHON (?)
 
 
 "*****************************************************************************
@@ -340,8 +340,8 @@ endif
 " vim-airline
 " let g:airline_theme = 'powerlineish'
 let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline_skip_empty_sections = 1
 
@@ -858,11 +858,17 @@ if !exists('g:airline_powerline_fonts')
   let g:airline#extensions#readonly#symbol   = '⊘'
   let g:airline#extensions#linecolumn#prefix = '¶'
   let g:airline#extensions#paste#symbol      = 'ρ'
-  let g:airline_symbols.linenr    = '␊'
+  " let g:airline_symbols.linenr    = '␊'
+  " let g:airline_symbols.maxlinenr= '☰' "℅
+  let g:airline_symbols.maxlinenr= ' ' "℅
+  " let g:airline_symbols.colnr = ' ℅:'
+  let g:airline_symbols.colnr = ' C:'
+  let g:airline#extensions#battery#enabled = 1
+  let g:airline_symbols.linenr    = ' '
   let g:airline_symbols.branch    = '⎇'
   let g:airline_symbols.paste     = 'ρ'
-  let g:airline_symbols.paste     = 'Þ'
   let g:airline_symbols.paste     = '∥'
+  let g:airline_symbols.paste     = 'Þ'
   let g:airline_symbols.whitespace = 'Ξ'
 else
   let g:airline#extensions#tabline#left_sep = ''
