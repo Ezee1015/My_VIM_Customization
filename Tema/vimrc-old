@@ -1,6 +1,5 @@
 set nu rnu
-syntax on
-set mouse=a
+" set mouse=a
 set cursorline
 set showcmd
 set encoding=UTF-8
@@ -17,16 +16,6 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 "Muestra Numero de Linea en NERDTree
 let NERDTreeShowLineNumbers=1
 
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-
-set clipboard=unnamed " Combina el Portapapeles de VIM con el del Sistema, solo si en ':ver' está +clipboard
-
-let NERDTreeQuitOnOpen=1 " Cierra el NerdTree al abrir un archivo
-
-set lazyredraw " Evita redibujado de ventanas innecesarios, ideal para cuanto se ejecutan macros. Para forzar el redibujado de una ventana, usar el comando :redraw
-
 " Open the existing NERDTree on each new tab.
     " let s:Inicio_VIM=0
     " autocmd BufWinEnter * :call AbrirNerdTree()
@@ -41,37 +30,56 @@ set lazyredraw " Evita redibujado de ventanas innecesarios, ideal para cuanto se
     " "     endif
     " endfunc
 
-" " Automatically deletes all trailing whitespace and newlines at end of file on save.
-" autocmd BufWritePre * %s/\s\+$//e
-" autocmd BufWritePre * %s/\n\+\%$//e
-" autocmd BufWritePre *.[ch] %s/\%$/\r/e
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
+set clipboard=unnamed " Combina el Portapapeles de VIM con el del Sistema, solo si en ':ver' está +clipboard
 
-" "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-" "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-" "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-" if (empty($TMUX))
-"   if (has("nvim"))
-"     "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-"     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-"   endif
-"   "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-"   "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-"   " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-"   if (has("termguicolors"))
-"     set termguicolors
-"   endif
-" endif
+let NERDTreeQuitOnOpen=1 " Cierra el NerdTree al abrir un archivo
+
+set lazyredraw " Evita redibujado de ventanas innecesarios, ideal para cuanto se ejecutan macros. Para forzar el redibujado de una ventana, usar el comando :redraw
+
+" Automatically deletes all trailing whitespace and newlines at end of file on save.
+autocmd BufWritePre * %s/\s\+$//e
+autocmd BufWritePre * %s/\n\+\%$//e
+autocmd BufWritePre *.[ch] %s/\%$/\r/e
+
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
 
 "" Cambia entre el cursor cuadrado ( [] ) en modo normal al cursor de barrita ( | ) en el modo de insercion
-    let &t_SI = "\e[6 q"
-    let &t_EI = "\e[2 q"
+"" Fuente: https://stackoverflow.com/questions/6488683/how-to-change-the-cursor-between-normal-and-insert-modes-in-vim
+    "" Intento 1
+        " :autocmd InsertEnter,InsertLeave * set cul!
 
-    " reset the cursor on start (for older versions of vim, usually not required)
-    augroup myCmds
-    au!
-    autocmd VimEnter * silent !echo -ne "\e[2 q"            "
-    augroup END
+    "" Intento 2
+        " :autocmd InsertEnter * set cul
+        " :autocmd InsertLeave * set nocul
+
+    " Intento 3
+        let &t_SI = "\e[6 q"
+        let &t_EI = "\e[2 q"
+
+        " reset the cursor on start (for older versions of vim, usually not required)
+        augroup myCmds
+        au!
+        autocmd VimEnter * silent !echo -ne "\e[2 q"            "
+        augroup END
+
 
 """""" SELECT BETWEEN DIFERENTS COLOSCHEMES
 " colorscheme dracula
@@ -92,6 +100,7 @@ let g:vim_bootstrap_theme = "gruvbox"
 " let g:airline_theme = 'powerlineish'
 let g:airline_theme = 'base16_gruvbox_dark_hard'
 
+" set updatetime=1000 " FRECUENCIA DE ACTUALIZACION DE vim-signify
 
 
 "*****************************************************************************
@@ -103,6 +112,10 @@ if has('win32')&&!has('win64')
 else
   let curl_exists=expand('curl')
 endif
+
+let g:vim_bootstrap_langs = "c,python"
+let g:vim_bootstrap_editor = "vim"				" nvim or vim
+let g:vim_bootstrap_frams = ""
 
 if !filereadable(vimplug_exists)
   if !executable(curl_exists)
@@ -136,13 +149,13 @@ Plug 'Raimondi/delimitMate'                        " CERRADO AUTOMÁTICO DE PAR�
 " Plug 'majutsushi/tagbar'                           " ESQUEMA QUE MUESTRA EN UNA LISTA LOS TIPOS DE VARIABLES Y EL NOMBRE DE LAS VARIABLES DECLARADAS. NO FUNCIONA, DA ERROR
 Plug 'dense-analysis/ale'                          " MARCA ERRORES DE SYNTAX CON '>>' EN ROJO CON UNA BREVE EXPLICACIÓN.
 Plug 'Yggdroot/indentLine'                         " PONE CON ' | ' SEGÚN LOS TABS PARA INDICAR EL CONTENIDO DE UNA ESTRUCTURA
-" Plug 'editor-bootstrap/vim-bootstrap-updater'      " ACTUALIZADOR DE VIM-BOOTSTRAP
+Plug 'editor-bootstrap/vim-bootstrap-updater'      " ACTUALIZADOR DE VIM-BOOTSTRAP
 Plug 'tpope/vim-rhubarb'                           " REQUISITO DE fugitive PARA :Gbrowse
 
 Plug 'sheerun/vim-polyglot'                        " HIGHLIGHTNING DE LENGUAJES
 Plug 'easymotion/vim-easymotion'                   " MOVERSE MÁS RAPIDO POR VIM CON ',' + 'f'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}    " AUTOCOMPLETADO DE CODIGO
-Plug 'Xuyuanp/nerdtree-git-plugin'                 " ASTERISCOS EN NERDTREE CON GIT
+Plug 'Xuyuanp/nerdtree-git-plugin'                 " ASTERISCOS EN NERDTREE CON GIT. no logré que funcione
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " ICONOS DE LOS ARCHIVOS
 Plug 'ryanoasis/vim-devicons'                      " ICONOS PARA NERDTREE SINTAX HIGHLIGHT
 Plug 'neoclide/coc.nvim', {'branch': 'release'}    " SERVIDOR DE AUTOCOMPLETADO. Ver: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
@@ -151,6 +164,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}    " SERVIDOR DE AUTOCOMPLETADO.
 " else
 "   Plug 'mhinz/vim-signify', { 'branch': 'legacy' } " CONTROL DE VERSIONES DE UN ARCHIVO. CREO QUE NO FUNCIONA, por eso lo comento
 " endif
+
+
+
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -166,10 +182,35 @@ endif
 " Plug 'Shougo/vimproc.vim', {'do': g:make}          " AYUDA DE LA ESCRITURA EN EL LENGUAJE Oracle Pro*C/C++
 
 "" Vim-Session
-" Plug 'xolox/vim-misc'                              " LIBRERIA PARA LOS PROGRAMAS DE xolox
-" Plug 'xolox/vim-session'                           " GESTOR DE SESIONES EN VIM
+Plug 'xolox/vim-misc'                              " LIBRERIA PARA LOS PROGRAMAS DE xolox
+Plug 'xolox/vim-session'                           " GESTOR DE SESIONES EN VIM
 
+"" Snippets
+"""""""""""""""""" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'                          " SNIPPETS. Ver: https://mkaz.blog/working-with-vim/snippets/
+
+"*****************************************************************************
+"" Custom bundles
+"*****************************************************************************
+
+" c
 Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}    " ESPECIALIZACION EN LENGUAJE C
+" Plug 'ludwig/split-manpage.vim'                    " INTEGRACION DE man EN VIM
+
+
+" python
+"" Python Bundle
+" Plug 'davidhalter/jedi-vim'                        " AUTOCOMPLETACION DE CODIGGO EN PYTHON
+" Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'} " REQUERIMIENTOS DE PYTHON (?)
+
+
+"*****************************************************************************
+"*****************************************************************************
+
+"" Include user's extra bundle
+if filereadable(expand("~/.vimrc.local.bundles"))
+  source ~/.vimrc.local.bundles
+endif
 
 call plug#end()
 
@@ -215,10 +256,22 @@ else
     set shell=/bin/sh
 endif
 
+" session management
+let g:session_directory = "~/.vim/session"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
+
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
+syntax on
+set ruler
+set number
+
 let no_buffers_menu=1
+"colorscheme molokai
+
 
 set mousemodel=popup
 set t_Co=256
@@ -320,10 +373,10 @@ nnoremap <silent> <F2> :NERDTreeFind<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
 " grep.vim
-" nnoremap <silent> <leader>f :Rgrep<CR>
-" let Grep_Default_Options = '-IR'
-" let Grep_Skip_Files = '*.log *.db'
-" let Grep_Skip_Dirs = '.git node_modules'
+nnoremap <silent> <leader>f :Rgrep<CR>
+let Grep_Default_Options = '-IR'
+let Grep_Skip_Files = '*.log *.db'
+let Grep_Skip_Dirs = '.git node_modules'
 
 " terminal emulation
 nnoremap <silent> <leader>t :bel vert term<CR>
@@ -470,9 +523,8 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 "" Agrega Funciones en Modo Insertar (E)
-" imap ddd <C-o>d
-" imap yyy <C-o>y
-
+imap ddd <C-o>d
+imap yyy <C-o>y
 
 "" Atajo Sustituir (E)
 nmap S :%s//g<Left><Left>
@@ -511,6 +563,18 @@ map r- <Plug>(ale_previous_wrap)
 " map <leader>cj /public class<CR>02wyw:!javac <C-R>".java && java <C-R>" <CR>
 map <Leader>cc :call CompileAndRun()<CR>
 map <Leader>cx :call Compile()<CR>
+
+" func! CompileRunGcc()
+"   exec "w"
+"   exec "!clear && gcc '%' -o '%<'"
+"   exec "!clear && './%<'"
+" endfunc
+
+" func! CompileRunJava()
+"   exec "w"
+"   exec "!clear && javac %"
+"   exec "!clear && java %<"
+" endfunc
 
 func! CompileAndRun()
     exec "w"
@@ -604,10 +668,10 @@ nnoremap <silent><Leader>bc :bd<CR>
 nnoremap <leader>. :lcd %:p:h<CR>
 
 "" Opens an edit command with the path of the currently edited file filled in
-noremap <Leader>ee :e <C-R>=expand("%:p:h") . "/" <CR>
+noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 "" Opens a tab edit command with the path of the currently edited file filled
-" noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 "" Remapea para poder subir o bajar un bloque de texto
 vmap <S-j> :m '>+1<CR>gv=gv
@@ -684,7 +748,6 @@ endif
 " noremap <leader>x :bn<CR>
 " noremap <leader>w :bn<CR>
 
-
 "" Close buffer
 " noremap <leader>c :bd<CR>
 
@@ -710,7 +773,6 @@ vnoremap K :m '<-2<CR>gv=gv
 "" Open current line on GitHub
 " nnoremap <Leader>o :.Gbrowse<CR>
 
-
 ""CoC
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -734,6 +796,27 @@ endfunction
 " c
 autocmd FileType c setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 expandtab
+
+
+" python
+" vim-python
+augroup vimrc-python
+  autocmd!
+  autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
+      \ formatoptions+=croq softtabstop=4
+      \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+augroup END
+
+" jedi-vim
+let g:jedi#popup_on_dot = 0
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#show_call_signatures = "0"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#smart_auto_mappings = 0
 
 " ale
 :call extend(g:ale_linters, {
