@@ -566,7 +566,6 @@ func! Compile()
         exec "echo expand('%:p:h') | terminal cargo build --manifest-path=%:p:h:h/Cargo.toml"
     elseif &filetype == 'go'
         exec "echo expand('%:p:h') | terminal go build '%<'"
-    endif
     elseif &filetype == 'markdown'
         exec "!clear && markdown '%' > '%<'.html"
     endif
