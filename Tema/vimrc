@@ -567,6 +567,9 @@ func! Compile()
     elseif &filetype == 'go'
         exec "echo expand('%:p:h') | terminal go build '%<'"
     endif
+    elseif &filetype == 'markdown'
+        exec "!clear && markdown '%' > '%<'.html"
+    endif
 endfunc
 
 "" Git
