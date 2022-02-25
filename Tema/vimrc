@@ -546,6 +546,7 @@ func! CompileAndRun()
     elseif &filetype == 'text'
         exec "!clear && echo 'words : ' && wc -w % && echo 'lines : ' && wc -l '%' && echo 'size : ' && du -h '%'"
     elseif &filetype == 'markdown'
+        exec "!clear && pandoc '%' -o '%<'.pdf && xdg-open '%<'.pdf"
         exec "!clear && echo 'words : ' && wc -w '%' && echo 'lines : ' && wc -l '%' && echo 'size : ' && du -h '%'"
     endif
 endfunc
