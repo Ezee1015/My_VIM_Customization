@@ -459,6 +459,8 @@ map <silent><Leader><S-m> gU
 "" Aumenta o Disminuye el valor de un numero (E)
 map ++ <C-a>
 map -- <C-x>
+map ** g<C-a>
+map __ g<C-x>
 
 "" Funciones de CoC
     ""IR A DONDE SE DECLARO
