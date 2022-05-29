@@ -468,6 +468,9 @@ map -- <C-x>
 map ** g<C-a>
 map __ g<C-x>
 
+"" Acomoda el texto de una linea en varias
+nmap Q gq
+
 "" Funciones de CoC
     ""IR A DONDE SE DECLARO
 " nmap <silent> gd <Plug>(coc-definition) "" LO REEMPLAZE POR UN QUE DIVIDE LA
