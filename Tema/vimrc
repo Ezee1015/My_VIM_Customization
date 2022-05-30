@@ -515,6 +515,22 @@ com! DiffSaved call s:DiffWithSaved()
 "" Ordenado Random de Lineas (E)
 vmap rr !sort -R<CR>
 
+"" Para los teclados que no tienen < y >
+nmap <silent><leader>j :call Programar()<CR>
+nmap <silent><leader><S-J> :call DesProgramar()<CR>
+func! Programar()
+    map z <
+    map Z >
+    imap z <
+    imap Z >
+endfunc
+func! DesProgramar()
+    map z z
+    map Z Z
+    imap z z
+    imap Z Z
+endfunc
+
 "" Camina entre los errores (E)
 map r+ <Plug>(ale_next_wrap)
 map r- <Plug>(ale_previous_wrap)
@@ -562,7 +578,6 @@ func! CompileAndRun()
         exec "!clear && echo 'words : ' && wc -w '%' && echo 'lines : ' && wc -l '%' && echo 'size : ' && du -h '%'"
     endif
 endfunc
-
 
 func! Compile()
     exec "w"
