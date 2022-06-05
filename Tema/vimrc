@@ -71,6 +71,7 @@ set lazyredraw " Evita redibujado de ventanas innecesarios, ideal para cuanto se
 "" Cambia entre el cursor cuadrado ( [] ) en modo normal al cursor de barrita ( | ) en el modo de insercion
     let &t_SI = "\e[6 q"
     let &t_EI = "\e[2 q"
+    let &t_SR = "\<Esc>[4 q"
 
     " reset the cursor on start (for older versions of vim, usually not required)
     augroup myCmds
@@ -423,6 +424,10 @@ inoremap ! !<C-g>u
 inoremap ? ?<C-g>u
 inoremap " "<C-g>u
 inoremap ; ;<C-g>u
+
+"Cambia entre el cursor PARA NVIM
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 
 " Agrega La Posicion del cursor en el JumpList de Vim cuando se mueve más de 5
 " lineas
