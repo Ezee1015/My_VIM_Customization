@@ -522,6 +522,10 @@ vmap rr !sort -R<CR>
 nmap <silent><leader>j :call Programar()<CR>
 nmap <silent><leader><S-J> :call DesProgramar()<CR>
 func! Programar()
+    map ç <
+    map Ç >
+    imap ç <
+    imap Ç >
     map z <
     map Z >
     imap z <
@@ -532,6 +536,10 @@ func! DesProgramar()
     map Z Z
     imap z z
     imap Z Z
+    imap Ç Ç
+    imap ç ç
+    map Ç Ç
+    map ç ç
 endfunc
 
 "" Camina entre los errores (E)
