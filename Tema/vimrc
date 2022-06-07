@@ -152,6 +152,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'                 " ASTERISCOS EN NERDTREE CON 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " ICONOS DE LOS ARCHIVOS
 Plug 'ryanoasis/vim-devicons'                      " ICONOS PARA NERDTREE SINTAX HIGHLIGHT
 Plug 'neoclide/coc.nvim', {'branch': 'release'}    " SERVIDOR DE AUTOCOMPLETADO. Ver: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
+Plug 'vim-scripts/DrawIt'                          " DIBUJAR LINEAS
+Plug 'gyim/vim-boxdraw'                            " DIBUJAR CUADRADOS
 " if has('nvim') || has('patch-8.0.902')
 "   Plug 'mhinz/vim-signify'                         " CONTROL DE VERSIONES DE UN ARCHIVO. CREO QUE NO FUNCIONA, por eso lo comento
 " else
@@ -624,7 +626,7 @@ noremap <Leader>gd :Gvdiffsplit<CR>
 " session management
 nnoremap <leader>os :OpenSession<Space>
 nnoremap <leader>gss :SaveSession<Space>
-nnoremap <leader>ds :DeleteSession<CR>
+nnoremap <leader>es :DeleteSession<CR>
 nnoremap <leader>cs :CloseSession<CR>
 
 "" Tabs
