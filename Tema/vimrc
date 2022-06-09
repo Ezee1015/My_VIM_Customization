@@ -154,6 +154,10 @@ Plug 'ryanoasis/vim-devicons'                      " ICONOS PARA NERDTREE SINTAX
 Plug 'neoclide/coc.nvim', {'branch': 'release'}    " SERVIDOR DE AUTOCOMPLETADO. Ver: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
 Plug 'vim-scripts/DrawIt'                          " DIBUJAR LINEAS
 Plug 'gyim/vim-boxdraw'                            " DIBUJAR CUADRADOS
+if(has('python3'))
+    Plug 'SirVer/ultisnips'                            " APP DE SNIPPETS
+    Plug 'honza/vim-snippets'                          " SNIPPETS DE LENGUAJES
+endif
 " if has('nvim') || has('patch-8.0.902')
 "   Plug 'mhinz/vim-signify'                         " CONTROL DE VERSIONES DE UN ARCHIVO. CREO QUE NO FUNCIONA, por eso lo comento
 " else
@@ -688,11 +692,13 @@ nnoremap <silent> <leader>z :FZF -m<CR>
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
 
-" " snippets
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-" let g:UltiSnipsEditSplit="vertical"
+" snippets
+if(has('python3'))
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+    let g:UltiSnipsEditSplit="vertical"
+endif
 
 " ale
 let g:ale_linters = {}

@@ -88,3 +88,6 @@ function MENU {
 
 MENU
 exit
+# AVISO QUE ENCONTRE EN INTERNET
+# SI NO FUNCIONA PYTHON3, HACER: pip3 install pynvim
+# Y USAR NEOVIM
