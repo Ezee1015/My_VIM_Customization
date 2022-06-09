@@ -2,12 +2,12 @@
 
 function INSTALAR {
 
-    sudo apt install vim curl vim-gtk clangd-12 openjdk-17* clangd xdotool curl -y
-    sudo apt install vim curl vim-gtk clangd-11 openjdk-17* clangd xdotool curl -y
+    sudo apt install vim curl vim-gtk clangd-12 openjdk-17* clangd xdotool curl python3 -y
+    sudo apt install vim curl vim-gtk clangd-11 openjdk-17* clangd xdotool curl python3 -y
         # ADICIONAL PARA EDICION EN MARKDOWN
         #sudo apt install pandoc markdown texlive-base
         # sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
-    sudo pacman -S neovim xclip xorg-xclipboard gvim clang xdotool
+    sudo pacman -S neovim xclip xorg-xclipboard gvim clang xdotool pythonpython-defaults
         # ADICIONAL PARA EDICION EN MARKDOWN
         #sudo pacman -S pandoc markdown texlive-core
     curl -sL install-node.vercel.app/lts | sudo bash
