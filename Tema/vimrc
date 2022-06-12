@@ -158,6 +158,8 @@ if(has('python3'))
     Plug 'SirVer/ultisnips'                            " APP DE SNIPPETS
     Plug 'honza/vim-snippets'                          " SNIPPETS DE LENGUAJES
 endif
+Plug 'nvim-treesitter/nvim-treesitter'             " MEJORA EL DIBUJADO DE LA SINTAXIS
+Plug 'nvim-treesitter/nvim-treesitter-context'     " MUESTRA EN LA PARTE SUPERIOR DENTRO DE LA CLASE, FUNCION, ETC EN LA QUE SE ENCUENTRA
 " if has('nvim') || has('patch-8.0.902')
 "   Plug 'mhinz/vim-signify'                         " CONTROL DE VERSIONES DE UN ARCHIVO. CREO QUE NO FUNCIONA, por eso lo comento
 " else

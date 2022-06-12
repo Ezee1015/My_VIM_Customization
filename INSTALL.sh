@@ -51,7 +51,7 @@ function INSTALAR {
      echo "                     * Luego ejecute :CocCommand clangd.install desde vim abierto en un proyecto/archivo de C"
      echo "                     * Si da error en el Servidor de lenguaje Java, poner el contenido del archivo https://download.eclipse.org/jdtls/milestones/0.57.0/ en ~/.config/coc/extensions/coc-java-data/server/ (eliminando lo que había en esa carpeta)"
      echo "                     * Para actualizar todos los componenetes de vim ejecute :PlugUpdate :PlugUpgrade :CocUpdate"
-
+     echo "                     * Para Instalar el soporte de TreeSitter :TSInstall java :TSInstall c " # Lenguajes Soportados: https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
 }
 
 
