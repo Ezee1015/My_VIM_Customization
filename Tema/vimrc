@@ -340,8 +340,16 @@ nnoremap <silent> <F3> :NERDTreeToggle<CR>
 " let Grep_Skip_Dirs = '.git node_modules'
 
 " terminal emulation
-nnoremap <silent> <leader>t :bel vert term<CR>
-nnoremap <silent> <leader>T :terminal<CR>
+if has('nvim')
+    set splitbelow
+    set splitright
+    tnoremap <Esc> <C-\><C-n>
+    nnoremap <silent><leader>t :vsplit<CR>:term<CR>
+    nnoremap <silent><leader>T :split<CR>:term<CR>
+else
+    nnoremap <silent><leader>t :bel vert term<CR>
+    nnoremap <silent><leader>T :terminal<CR>
+endif
 
 
 "*****************************************************************************
