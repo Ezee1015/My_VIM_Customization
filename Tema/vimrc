@@ -12,10 +12,6 @@ set smartindent
 set undofile " UnDo persistente, aun cerrando el programa
 set undodir=~/.vim/undodir
 
-""Añade Snippets para Java
-autocmd FileType java imap sout<TAB> System.out.println("");<ESC>hhi 
-autocmd FileType java imap sot<TAB> System.out.print("");<ESC>hhi
-
 " Cierre la pestaña si NERDTree es la única ventana que queda en VIM.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
