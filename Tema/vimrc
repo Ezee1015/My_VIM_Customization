@@ -702,6 +702,61 @@ nnoremap <silent> <leader>z :FZF -m<CR>
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
 
+"Startify (pantalla de inicio)
+let g:startify_files_number=5
+let g:startify_padding_left = 30 " Hard coded padding for lists
+autocmd User StartifyReady exec 'IndentLinesDisable'
+autocmd User StartifyAllBuffersOpened exec 'IndentLinesEnable'
+
+function! s:gitModified()
+    let files = systemlist('git ls-files -m 2>/dev/null')
+    return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+" " same as above, but show untracked files, honouring .gitignore
+" function! s:gitUntracked()
+"     let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
+"     return map(files, "{'line': v:val, 'path': v:val}")
+" endfunction
+
+
+let g:ascii = [
+            \ '     ___           ___           ___                                      ___     ',
+            \ '    /  /\         /  /\         /  /\          ___            ___        /  /\    ',
+            \ '   /  /::|       /  /::\       /  /::\        /  /\          /__/\      /  /::|   ',
+            \ '  /  /:|:|      /  /:/\:\     /  /:/\:\      /  /:/          \__\:\    /  /:|:|   ',
+            \ ' /  /:/|:|__   /  /::\ \:\   /  /:/  \:\    /  /:/           /  /::\  /  /:/|:|__ ',
+            \ '/__/:/ |:| /\ /__/:/\:\ \:\ /__/:/ \__\:\  /__/:/  ___    __/  /:/\/ /__/:/_|::::\',
+            \ '\__\/  |:|/:/ \  \:\ \:\_\/ \  \:\ /  /:/  |  |:| /  /\  /__/\/:/~~  \__\/  /~~/:/',
+            \ '    |  |:/:/   \  \:\ \:\    \  \:\  /:/   |  |:|/  /:/  \  \::/           /  /:/ ',
+            \ '    |__|::/     \  \:\_\/     \  \:\/:/    |__|:|__/:/    \  \:\          /  /:/  ',
+            \ '    /__/:/       \  \:\        \  \::/      \__\::::/      \__\/         /__/:/   ',
+            \ '    \__\/         \__\/         \__\/           ~~~~                     \__\/    ',
+            \ ' ',
+            \]
+let g:startify_custom_header=startify#center(g:ascii)
+
+let g:startify_bookmarks = [ 
+      \{'c': '~/.vimrc'},
+      \]
+
+let g:startify_lists = [
+      \ { 'type': 'files',                   'header': startify#pad(['   RECIENTES'])            },
+      \ { 'type': 'dir',                     'header': startify#pad(['   DENTRO DE '. getcwd()]) },
+      \ { 'type': 'sessions',                'header': startify#pad(['   SESIONES'])             },
+      \ { 'type': function('s:gitModified'), 'header': startify#pad(['   GIT - Modificados'])},
+      \ { 'type': 'bookmarks',               'header': startify#pad(['   Bookmarks'])            },
+      \ ]
+  " \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
+  " \ { 'type': 'commands',  'header': ['   Commands']       },
+"" LO MISMO QUE EL ANTERIOR PERO EN VEZ DE UN TAB ESTÁ CENTRADO
+" let g:startify_lists = [
+"       \ { 'type': 'files',                   'header': startify#center(['   RECIENTES'])            },
+"       \ { 'type': 'dir',                     'header': startify#center(['   DENTRO DE '. getcwd()]) },
+"       \ { 'type': 'sessions',                'header': startify#center(['   SESIONES'])             },
+"       \ { 'type': function('s:gitModified'), 'header': startify#center(['   GIT - Modificados'])},
+"       \ { 'type': 'bookmarks',               'header': startify#center(['   Bookmarks'])            },
+"       \ ]
+
 " snippets
 if(has('python3'))
     let g:UltiSnipsExpandTrigger="<tab>"
