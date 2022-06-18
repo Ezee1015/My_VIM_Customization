@@ -742,11 +742,11 @@ let g:startify_bookmarks = [
 
 let g:startify_lists = [
       \ { 'type': 'files',                   'header': startify#pad(['   RECIENTES'])            },
-      \ { 'type': 'dir',                     'header': startify#pad(['   DENTRO DE '. getcwd()]) },
       \ { 'type': 'sessions',                'header': startify#pad(['   SESIONES'])             },
       \ { 'type': function('s:gitModified'), 'header': startify#pad(['   GIT - Modificados'])},
-      \ { 'type': 'bookmarks',               'header': startify#pad(['   Bookmarks'])            },
+      \ { 'type': 'bookmarks',               'header': startify#pad(['   MARCADORES'])            },
       \ ]
+      " \ { 'type': 'dir',                     'header': startify#pad(['   RECIENTES DENTRO DE '. getcwd()]) },
   " \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
   " \ { 'type': 'commands',  'header': ['   Commands']       },
 "" LO MISMO QUE EL ANTERIOR PERO EN VEZ DE UN TAB ESTÁ CENTRADO
