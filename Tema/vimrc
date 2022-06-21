@@ -157,6 +157,7 @@ endif
 Plug 'nvim-treesitter/nvim-treesitter'             " MEJORA EL DIBUJADO DE LA SINTAXIS
 Plug 'nvim-treesitter/nvim-treesitter-context'     " MUESTRA EN LA PARTE SUPERIOR DENTRO DE LA CLASE, FUNCION, ETC EN LA QUE SE ENCUENTRA
 Plug 'mhinz/vim-startify'                          " PANTALLA DE INICIO
+Plug 'kyazdani42/nvim-web-devicons'                " ICONOS PARA VIM-STARTIFY
 " if has('nvim') || has('patch-8.0.902')
 "   Plug 'mhinz/vim-signify'                         " CONTROL DE VERSIONES DE UN ARCHIVO. CREO QUE NO FUNCIONA, por eso lo comento
 " else
@@ -700,6 +701,7 @@ nnoremap <silent> <leader>z :FZF -m<CR>
 nmap <leader>y :History:<CR>
 
 "Startify (pantalla de inicio)
+let g:webdevicons_enable_startify = 1
 let g:startify_files_number=5
 let g:startify_padding_left = 30 " Hard coded padding for lists
 autocmd User StartifyReady exec 'IndentLinesDisable'
@@ -714,7 +716,6 @@ endfunction
 "     let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
 "     return map(files, "{'line': v:val, 'path': v:val}")
 " endfunction
-
 
 let g:ascii = [
             \ '     ___           ___           ___                                      ___     ',
@@ -753,6 +754,18 @@ let g:startify_lists = [
 "       \ { 'type': function('s:gitModified'), 'header': startify#center(['   GIT - Modificados'])},
 "       \ { 'type': 'bookmarks',               'header': startify#center(['   Bookmarks'])            },
 "       \ ]
+
+"Agrega los iconos
+lua << EOF
+function _G.webDevIcons(path)
+  local filename = vim.fn.fnamemodify(path, ':t')
+  local extension = vim.fn.fnamemodify(path, ':e')
+  return require'nvim-web-devicons'.get_icon(filename, extension, { default = true })
+end
+EOF
+function! StartifyEntryFormat() abort
+  return 'v:lua.webDevIcons(absolute_path) . " " . entry_path'
+endfunction
 
 " snippets
 if(has('python3'))
@@ -923,3 +936,5 @@ endif
 "     User is the amount of CPU time spent in user-mode code (outside the kernel) within the process. This is only actual CPU time used in executing the process. Other processes and time the process spends blocked do not count towards this figure.
 
 "     Sys is the amount of CPU time spent in the kernel within the process. This means executing CPU time spent in system calls within the kernel, as opposed to library code, which is still running in user-space. Like 'user', this is only CPU time used by the process. See below for a brief description of kernel mode (also known as 'supervisor' mode) and the system call mechanism.
+
+
