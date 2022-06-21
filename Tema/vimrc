@@ -705,6 +705,10 @@ nnoremap <silent> <leader>z :FZF -m<CR>
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
 
+" MARCA DE ROJO los caracteres no ascii que pueden dar problemas en el codigo
+syntax match nonascii "[^\x00-\x7F]"
+highlight nonascii guibg=Red ctermbg=2
+
 "Startify (pantalla de inicio)
 let g:webdevicons_enable_startify = 1
 let g:startify_files_number=5
@@ -738,7 +742,7 @@ let g:ascii = [
             \]
 let g:startify_custom_header=startify#center(g:ascii)
 
-let g:startify_bookmarks = [ 
+let g:startify_bookmarks = [
       \{'c': '~/.vimrc'},
       \]
 
