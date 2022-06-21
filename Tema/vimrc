@@ -43,10 +43,10 @@ set lazyredraw " Evita redibujado de ventanas innecesarios, ideal para cuanto se
     " "     endif
     " endfunc
 
-" " Automatically deletes all trailing whitespace and newlines at end of file on save.
-" autocmd BufWritePre * %s/\s\+$//e
-" autocmd BufWritePre * %s/\n\+\%$//e
-" autocmd BufWritePre *.[ch] %s/\%$/\r/e
+" Automatically deletes all trailing whitespace and newlines at end of file on save.
+autocmd BufWritePre * %s/\s\+$//e
+autocmd BufWritePre * %s/\n\+\%$//e
+autocmd BufWritePre *.[ch] %s/\%$/\r/e
 
 
 " "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
