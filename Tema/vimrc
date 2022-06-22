@@ -9,6 +9,7 @@ set ic ""Ignora la Capitalizacion de las letras en la busqueda
 set updatetime=300 "" Tiempo de actualizacion de CoC
 set smartindent
 set termguicolors
+set noshowmode
 
 set undofile " UnDo persistente, aun cerrando el programa
 set undodir=~/.vim/undodir
