@@ -10,6 +10,7 @@ set updatetime=300 "" Tiempo de actualizacion de CoC
 set smartindent
 set termguicolors
 set noshowmode
+set fillchars+=vert:█ " Cambia el | en el split vertical a █
 
 set undofile " UnDo persistente, aun cerrando el programa
 set undodir=~/.vim/undodir
@@ -161,11 +162,6 @@ Plug 'nvim-treesitter/nvim-treesitter'             " MEJORA EL DIBUJADO DE LA SI
 Plug 'nvim-treesitter/nvim-treesitter-context'     " MUESTRA EN LA PARTE SUPERIOR DENTRO DE LA CLASE, FUNCION, ETC EN LA QUE SE ENCUENTRA
 Plug 'mhinz/vim-startify'                          " PANTALLA DE INICIO
 Plug 'kyazdani42/nvim-web-devicons'                " ICONOS PARA VIM-STARTIFY
-" if has('nvim') || has('patch-8.0.902')
-"   Plug 'mhinz/vim-signify'                         " CONTROL DE VERSIONES DE UN ARCHIVO. CREO QUE NO FUNCIONA, por eso lo comento
-" else
-"   Plug 'mhinz/vim-signify', { 'branch': 'legacy' } " CONTROL DE VERSIONES DE UN ARCHIVO. CREO QUE NO FUNCIONA, por eso lo comento
-" endif
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
