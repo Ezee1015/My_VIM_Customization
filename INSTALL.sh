@@ -48,6 +48,7 @@ function INSTALAR {
      echo ""
      echo "           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador..."
      echo "           Solamente queda unas cosas..."
+     echo "                     * Abra con VIM, NO CON NEOVIM la primera vez"
      echo "                     * Seleccione en su terminal la fuente UbuntuMono Nerd Font Mono"
      echo "                     * Ejecute vim y teclee :CocInstall coc-json coc-tsserver coc-java coc-clangd"
      echo "                     * Luego ejecute :CocCommand clangd.install desde vim abierto en un proyecto/archivo de C"
