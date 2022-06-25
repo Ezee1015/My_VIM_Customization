@@ -4,6 +4,7 @@ set mouse=a
 set cursorline
 set showcmd
 set encoding=UTF-8
+lang en_US.UTF-8
 set wildmode=longest,list,full ""Autocompleta Rutas
 set ic ""Ignora la Capitalizacion de las letras en la busqueda
 set updatetime=300 "" Tiempo de actualizacion de CoC
