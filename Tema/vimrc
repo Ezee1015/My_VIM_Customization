@@ -776,6 +776,9 @@ function! StartifyEntryFormat() abort
 endfunction
 
 " snippets
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+" Snippets del plugin
 if(has('python3'))
     let g:UltiSnipsExpandTrigger="<space>"
     let g:UltiSnipsJumpForwardTrigger="<space>"
