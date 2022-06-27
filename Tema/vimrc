@@ -155,6 +155,7 @@ Plug 'ryanoasis/vim-devicons'                      " ICONOS PARA NERDTREE SINTAX
 Plug 'neoclide/coc.nvim', {'branch': 'release'}    " SERVIDOR DE AUTOCOMPLETADO. Ver: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
 Plug 'vim-scripts/DrawIt'                          " DIBUJAR LINEAS
 Plug 'gyim/vim-boxdraw'                            " DIBUJAR CUADRADOS
+Plug 'preservim/tagbar'
 if(has('python3'))
     Plug 'SirVer/ultisnips'                            " APP DE SNIPPETS
     Plug 'honza/vim-snippets'                          " SNIPPETS DE LENGUAJES
@@ -774,6 +775,9 @@ EOF
 function! StartifyEntryFormat() abort
   return 'v:lua.webDevIcons(absolute_path) . " " . entry_path'
 endfunction
+
+" TagBar (Ctags) para ver clases, metodos, atributos del codigo fuente
+nmap <F8> :TagbarToggle<CR>
 
 " snippets
 inoremap {<CR> {<CR>}<ESC>O

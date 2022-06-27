@@ -2,12 +2,12 @@
 
 function INSTALAR {
 
-    sudo apt install vim curl vim-gtk clangd-12 openjdk-17* clangd xdotool curl python3 -y
-    sudo apt install vim curl vim-gtk clangd-11 openjdk-17* clangd xdotool curl python3 -y
+    sudo apt install vim curl vim-gtk clangd-12 openjdk-17* clangd xdotool curl python3 universal-ctags -y
+    sudo apt install vim curl vim-gtk clangd-11 openjdk-17* clangd xdotool curl python3 universal-ctags -y
         # ADICIONAL PARA EDICION EN MARKDOWN
         #sudo apt install pandoc markdown texlive-base
         # sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
-    sudo pacman -S neovim xclip xorg-xclipboard gvim clang xdotool python3
+    sudo pacman -S neovim xclip xorg-xclipboard gvim clang xdotool python3 ctags
     pip install -U neovim
     pip3 install -U neovim
         # ADICIONAL PARA EDICION EN MARKDOWN
