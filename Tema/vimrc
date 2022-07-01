@@ -164,6 +164,7 @@ Plug 'nvim-treesitter/nvim-treesitter'             " MEJORA EL DIBUJADO DE LA SI
 Plug 'nvim-treesitter/nvim-treesitter-context'     " MUESTRA EN LA PARTE SUPERIOR DENTRO DE LA CLASE, FUNCION, ETC EN LA QUE SE ENCUENTRA
 Plug 'mhinz/vim-startify'                          " PANTALLA DE INICIO
 Plug 'kyazdani42/nvim-web-devicons'                " ICONOS PARA VIM-STARTIFY
+Plug 'catppuccin/nvim'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
