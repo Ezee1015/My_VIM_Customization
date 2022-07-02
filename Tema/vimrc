@@ -12,6 +12,7 @@ set smartindent
 set termguicolors
 set noshowmode
 set fillchars+=vert:█ " Cambia el | en el split vertical a █
+set foldmethod=syntax " Maneja los folding según la sintaxis
 
 set undofile " UnDo persistente, aun cerrando el programa
 set undodir=~/.vim/undodir
@@ -164,7 +165,8 @@ Plug 'nvim-treesitter/nvim-treesitter'             " MEJORA EL DIBUJADO DE LA SI
 Plug 'nvim-treesitter/nvim-treesitter-context'     " MUESTRA EN LA PARTE SUPERIOR DENTRO DE LA CLASE, FUNCION, ETC EN LA QUE SE ENCUENTRA
 Plug 'mhinz/vim-startify'                          " PANTALLA DE INICIO
 Plug 'kyazdani42/nvim-web-devicons'                " ICONOS PARA VIM-STARTIFY
-Plug 'catppuccin/nvim'
+Plug 'catppuccin/nvim'                             " TEMA CATPUCCIN PARA VIM
+Plug 'kshenoy/vim-signature'                       " PONE A LA IZQUIERDA DE LOS NUMEROS DE LINEA LA MARCA(m[letra]) QUE FUE ASIGNADA A LA LINEA
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -410,9 +412,14 @@ set autoread
 nmap <silent><Leader>x :wq<CR>
 nmap <silent><Leader>º :q!<CR>
 
-nmap <silent><Leader>w :wq<CR>
+nmap <silent><Leader>w :w<CR>:call StartifyAtExit()<CR>
 nmap <silent><Leader>s :w<CR>
-nmap <silent><Leader>q :q!<CR>
+nmap <silent><Leader>q :call StartifyAtExit()<CR>
+nmap <silent><Leader>Q :q!<CR>
+func StartifyAtExit()
+    exec ':bdelete!'
+    if len(getbufinfo({'buflisted':1}))==1 && expand("%")=='' | exec 'Startify'| endif
+endfunc
 
 "" Split
 noremap <silent><Leader>h :<C-u>split<CR>
@@ -647,19 +654,24 @@ nnoremap <leader>ks ::SSave<CR>
 nnoremap <leader>rs :SDelete<CR>
 " nnoremap <leader>cs :CloseSession<CR>
 
-"" Tabs
-nnoremap <silent><Tab> gt
+"" Tabs and buffers
+nnoremap <silent><C-t><tab> gt
+nnoremap <silent><C-t><S-Tab> gT
+nnoremap <silent><C-t>t :tabnew<CR>:NERDTreeToggle<CR>
+
+nnoremap <silent><Tab> :bnext<CR>
+nnoremap <silent><S-Tab> :bprev<CR>
+nnoremap <silent><S-t> :enew<CR>:NERDTreeToggle<CR>
+
+" nnoremap <silent><Leader>bn :bnext<CR>
+" nnoremap <silent><Leader>bv :bprev<CR>
+" nnoremap <silent><Leader>bb :enew<CR>:NERDTreeToggle<CR>
+" nnoremap <silent><Leader>bc :bd<CR>
+
     "" Modifica la posicion del cursor hacia la anterior posición
     map ca g;
     "" Modifica la posicion del cursor hacia la siguiente posición
     map cd g,
-nnoremap <silent><S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>:NERDTreeToggle<CR>
-
-nnoremap <silent><Leader>bn :bnext<CR>
-nnoremap <silent><Leader>bv :bprev<CR>
-nnoremap <silent><Leader>bb :enew<CR>:NERDTreeToggle<CR>
-nnoremap <silent><Leader>bc :bd<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
@@ -747,15 +759,19 @@ let g:startify_bookmarks = [
       \{'c': '~/.vimrc'},
       \]
 
+" let g:startify_commands = [
+      " \{'s': ['Funcion', 'call Funcion()']},
+      " \]
+
 let g:startify_lists = [
-      \ { 'type': 'files',                   'header': startify#pad(['   RECIENTES'])            },
-      \ { 'type': 'sessions',                'header': startify#pad(['   SESIONES'])             },
+      \ { 'type': 'files',                   'header': startify#pad(['   RECIENTES']        )},
+      \ { 'type': 'sessions',                'header': startify#pad(['   SESIONES']         )},
       \ { 'type': function('s:gitModified'), 'header': startify#pad(['   GIT - Modificados'])},
-      \ { 'type': 'bookmarks',               'header': startify#pad(['   MARCADORES'])            },
+      \ { 'type': 'bookmarks',               'header': startify#pad(['   MARCADORES']       )},
+      \ { 'type': 'commands',                'header': startify#pad(['   COMANDOS']         )},
       \ ]
       " \ { 'type': 'dir',                     'header': startify#pad(['   RECIENTES DENTRO DE '. getcwd()]) },
   " \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
-  " \ { 'type': 'commands',  'header': ['   Commands']       },
 "" LO MISMO QUE EL ANTERIOR PERO EN VEZ DE UN TAB ESTÁ CENTRADO
 " let g:startify_lists = [
 "       \ { 'type': 'files',                   'header': startify#center(['   RECIENTES'])            },
