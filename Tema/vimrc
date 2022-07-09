@@ -13,6 +13,7 @@ set termguicolors
 set noshowmode
 set fillchars+=vert:█ " Cambia el | en el split vertical a █
 set foldmethod=syntax " Maneja los folding según la sintaxis
+set spell! spelllang=es_es,en_us
 
 set undofile " UnDo persistente, aun cerrando el programa
 set undodir=~/.vim/undodir
@@ -801,10 +802,33 @@ inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 " Snippets del plugin
 if(has('python3'))
-    let g:UltiSnipsExpandTrigger="<space>"
-    let g:UltiSnipsJumpForwardTrigger="<space>"
-    let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+    " Use tab for trigger completion with characters ahead and navigate for
+    " Coc-snippets
+    inoremap <silent><expr> <TAB>
+          \ pumvisible() ? coc#_select_confirm() :
+          \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+          \ <SID>check_back_space() ? "\<TAB>" :
+          \ coc#refresh()
+    function! s:check_back_space() abort
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
+    let g:UltiSnipsExpandTrigger='<Nop>'
+    let g:UltiSnipsJumpForwardTrigger = '<TAB>'
+    let g:UltiSnipsJumpBackwardTrigger = '<S-TAB>'
+    let g:coc_snippet_next = '<TAB>'
+    let g:coc_snippet_prev = '<S-TAB>'
     let g:UltiSnipsEditSplit="vertical"
+    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+else
+    " Use tab for trigger completion with characters ahead and navigate.
+    " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+    " other plugin before putting this into your config.
+    inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
+    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 endif
 
 " ale
@@ -869,15 +893,6 @@ vnoremap K :m '<-2<CR>gv=gv
 
 
 ""CoC
-
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-\ pumvisible() ? "\<C-n>" :
-\ <SID>check_back_space() ? "\<TAB>" :
-\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
