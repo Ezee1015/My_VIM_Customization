@@ -132,6 +132,8 @@ call plug#begin(expand('~/.vim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 Plug 'scrooloose/nerdtree'                         " COMPLEMENTO DE ARBOL DE ARCHIVOS
+Plug 'Xuyuanp/nerdtree-git-plugin'                 " ASTERISCOS EN NERDTREE CON GIT
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " ICONOS DE LOS ARCHIVOS
 " Plug 'jistr/vim-nerdtree-tabs'                    " CIERRA NERDTREE. NO ESTA MÁS MANTENIDO, POR ESO LO COMENTO
 Plug 'tpope/vim-commentary'                        " PERMITE COMENTAR CON 'gcc'
 Plug 'tpope/vim-fugitive'                          " INTEGRACION CON GIT
@@ -141,7 +143,6 @@ Plug 'airblade/vim-gitgutter'                      " CONTROL DE CAMBIOS DE UN AR
 " Plug 'vim-scripts/grep.vim'                      " INTEGRA GREP EN VIM
 Plug 'vim-scripts/CSApprox'                        " FUNCION :colorscheme
 Plug 'Raimondi/delimitMate'                        " CERRADO AUTOMÁTICO DE PARÉNTESIS, LLAVES, COMILLAS, ETC.
-" Plug 'majutsushi/tagbar'                           " ESQUEMA QUE MUESTRA EN UNA LISTA LOS TIPOS DE VARIABLES Y EL NOMBRE DE LAS VARIABLES DECLARADAS. NO FUNCIONA, DA ERROR
 Plug 'dense-analysis/ale'                          " MARCA ERRORES DE SYNTAX CON '>>' EN ROJO CON UNA BREVE EXPLICACIÓN.
 Plug 'Yggdroot/indentLine'                         " PONE CON ' | ' SEGÚN LOS TABS PARA INDICAR EL CONTENIDO DE UNA ESTRUCTURA
 " Plug 'editor-bootstrap/vim-bootstrap-updater'      " ACTUALIZADOR DE VIM-BOOTSTRAP
@@ -150,14 +151,10 @@ Plug 'norcalli/nvim-colorizer.lua'                 " COLORIZADO DE CODIGOS HEXAD
 
 Plug 'sheerun/vim-polyglot'                        " HIGHLIGHTNING DE LENGUAJES
 Plug 'easymotion/vim-easymotion'                   " MOVERSE MÁS RAPIDO POR VIM CON ',' + 'f'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}    " AUTOCOMPLETADO DE CODIGO
-Plug 'Xuyuanp/nerdtree-git-plugin'                 " ASTERISCOS EN NERDTREE CON GIT
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " ICONOS DE LOS ARCHIVOS
-Plug 'ryanoasis/vim-devicons'                      " ICONOS PARA NERDTREE SINTAX HIGHLIGHT
 Plug 'neoclide/coc.nvim', {'branch': 'release'}    " SERVIDOR DE AUTOCOMPLETADO. Ver: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions
 Plug 'vim-scripts/DrawIt'                          " DIBUJAR LINEAS
 Plug 'gyim/vim-boxdraw'                            " DIBUJAR CUADRADOS
-Plug 'preservim/tagbar'
+Plug 'preservim/tagbar'                            " ESQUEMA QUE MUESTRA EN UNA LISTA LOS TIPOS DE VARIABLES Y EL NOMBRE DE LAS VARIABLES DECLARADAS.
 if(has('python3'))
     Plug 'SirVer/ultisnips'                            " APP DE SNIPPETS
     Plug 'honza/vim-snippets'                          " SNIPPETS DE LENGUAJES
@@ -165,6 +162,7 @@ endif
 Plug 'nvim-treesitter/nvim-treesitter'             " MEJORA EL DIBUJADO DE LA SINTAXIS
 Plug 'nvim-treesitter/nvim-treesitter-context'     " MUESTRA EN LA PARTE SUPERIOR DENTRO DE LA CLASE, FUNCION, ETC EN LA QUE SE ENCUENTRA
 Plug 'mhinz/vim-startify'                          " PANTALLA DE INICIO
+Plug 'ryanoasis/vim-devicons'                      " ICONOS PARA NERDTREE SINTAX HIGHLIGHT
 Plug 'kyazdani42/nvim-web-devicons'                " ICONOS PARA VIM-STARTIFY
 Plug 'catppuccin/nvim'                             " TEMA CATPUCCIN PARA VIM
 Plug 'kshenoy/vim-signature'                       " PONE A LA IZQUIERDA DE LOS NUMEROS DE LINEA LA MARCA(m[letra]) QUE FUE ASIGNADA A LA LINEA
@@ -512,11 +510,6 @@ nmap <silent> gi <Plug>(coc-implementation)
    ""VER UNA LISTA DE LAS UTILIZACIONES DE LA FUNCION
 nmap <silent> gr <Plug>(coc-references)
 
-"" Agrega Funciones en Modo Insertar (E)
-" imap ddd <C-o>d
-" imap yyy <C-o>y
-
-
 "" Atajo Sustituir (E)
 nmap S :%s//g<Left><Left>
 
@@ -575,7 +568,6 @@ map r+ <Plug>(ale_next_wrap)
 map r- <Plug>(ale_previous_wrap)
 
 "" Compile (E)
-" map <leader>cj /public class<CR>02wyw:!javac <C-R>".java && java <C-R>" <CR>
 map <Leader>cc :call CompileAndRun()<CR>
 map <Leader>cx :call Compile()<CR>
 
@@ -591,8 +583,6 @@ func! CompileAndRun()
         exec "!clear && cargo build --manifest-path='%':p:h:h/Cargo.toml"
         exec "!time cargo run --manifest-path='%':p:h:h/Cargo.toml"
     elseif &filetype == 'java'
-    "     exec "!clear && javac '%'"
-    "     exec "!clear && time java -cp '%':p:h %:t:r"
         exec "!clear && javac '%'"
         exec "!clear && java '%<'"
     elseif &filetype == 'sh'
@@ -642,18 +632,14 @@ noremap <Leader>ga :Git write<CR>
 noremap <Leader>gc :Git commit --verbose<CR>
 noremap <Leader>gp :Git push<CR>
 noremap <Leader>gll :Git pull<CR>
-" noremap <Leader>gs :Git status<CR>
 noremap <Leader>gs :G<CR>
 noremap <Leader>gb :Git blame<CR>
 noremap <Leader>gdd :Git diff<CR>
 noremap <Leader>gd :Gvdiffsplit<CR>
-" noremap <Leader>gr :GRemove<CR>
 
 " session management
-" nnoremap <leader>os :OpenSession<Space>
 nnoremap <leader>ks ::SSave<CR>
 nnoremap <leader>rs :SDelete<CR>
-" nnoremap <leader>cs :CloseSession<CR>
 
 "" Tabs and buffers
 nnoremap <silent><C-t><tab> gt
@@ -663,11 +649,6 @@ nnoremap <silent><C-t>t :tabnew<CR>:NERDTreeToggle<CR>
 nnoremap <silent><Tab> :bnext<CR>
 nnoremap <silent><S-Tab> :bprev<CR>
 nnoremap <silent><S-t> :enew<CR>:NERDTreeToggle<CR>
-
-" nnoremap <silent><Leader>bn :bnext<CR>
-" nnoremap <silent><Leader>bv :bprev<CR>
-" nnoremap <silent><Leader>bb :enew<CR>:NERDTreeToggle<CR>
-" nnoremap <silent><Leader>bc :bd<CR>
 
     "" Modifica la posicion del cursor hacia la anterior posición
     map ca g;
