@@ -706,7 +706,7 @@ highlight nonascii guibg=Red ctermbg=2
 
 "Startify (pantalla de inicio)
 let g:webdevicons_enable_startify = 1
-let g:startify_files_number=5
+let g:startify_files_number=8
 let g:startify_padding_left = 30 " Hard coded padding for lists
 autocmd User StartifyReady exec 'IndentLinesDisable'
 autocmd User StartifyAllBufferOpened exec 'IndentLinesEnable'
