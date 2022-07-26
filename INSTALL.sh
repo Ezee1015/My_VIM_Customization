@@ -14,7 +14,7 @@ function INSTALAR {
         # ADICIONAL PARA EDICION EN MARKDOWN
         #sudo pacman -S pandoc markdown texlive-core
     curl -sL install-node.vercel.app/lts | sudo bash
-    cp -r Tema/init ~/.config/nvim/
+    cp -r Tema/init/ ~/.config/nvim/
     cp Documentacion/VIM\ -\ Documentacion.pdf ~/
     echo ""
     sudo mkdir /usr/share/fonts/truetype
