@@ -20,20 +20,24 @@ vim.opt.fillchars = {
 vim.o.foldmethod = "syntax" -- Maneja los folding según la sintaxis
 vim.cmd "set spell! spelllang=es_es,en_us"
 vim.o.clipboard = "unnamedplus"-- Combina el Portapapeles de VIM con el del Sistema
---vim.o.lazyredraw = true -- Evita redibujado de ventanas innecesarios, ideal para cuanto se ejecutan macros. Para forzar el redibujado de una ventana, usar el comando :redraw
+vim.o.lazyredraw = true -- Evita redibujado de ventanas innecesarios, ideal para cuanto se ejecutan macros. Para forzar el redibujado de una ventana, usar el comando /\s\+$//e<CR>'fdmf"redraw
 vim.o.splitbelow = true
 vim.o.splitright = true
 
-local home = vim.fn.expand("~/.config/nvim/.undo/")
-vim.opt.undodir = { home }
+vim.o.wildignore=vim.o.wildignore..",*.o,*.obj,.git,*.rbc,*.pyc,__pycache__"
+vim.opt.undofile  = true
+vim.opt.undodir = { vim.fn.expand("~/.config/nvim/.undo") }
 -- vim.opt.backupdir = { home .. ".backup//"}
 -- vim.opt.directory = { home .. ".swp//"}
 
 vim.cmd ([[
   " Automatically deletes all trailing whitespace and newlines at end of file on save.
+  autocmd BufWritePre * norm mf
   autocmd BufWritePre * %s/\s\+$//e
   autocmd BufWritePre * %s/\n\+\%$//e
   autocmd BufWritePre *.[ch] %s/\%$/\r/e
+  autocmd BufWritePre * norm `f
+  autocmd BufWritePre * norm dmf
 
   " Cambia entre el cursor cuadrado ( [] ) en modo normal al cursor de barrita ( | ) en el modo de insercion
   let &t_SI = "\e[6 q"
@@ -48,14 +52,16 @@ vim.cmd ([[
   ]])
 
 -- Select between diferents coloschemes
--- vim.cmd "colorscheme dracula"
--- vim.cmd "colorscheme gruvbox"
--- vim.cmd "colorscheme onedark"
--- vim.cmd "colorscheme molokai"
--- vim.cmd "colorscheme ghdark"
--- vim.cmd "colorscheme GruberDarker"
--- vim.cmd "colorscheme PaperColor"
 vim.cmd "colorscheme tokyonight"
+  -- Antiguos ColorSchemes:
+    -- dracula
+    -- gruvbox
+    -- onedark
+    -- molokai
+    -- ghdark
+    -- GruberDarker
+    -- PaperColor
+
 
 vim.o.background = 'dark'
 -- vim.g.airline_theme = "tokyonight"
@@ -68,7 +74,7 @@ vim.g.airline_theme = 'base16_gruvbox_dark_hard'
 -- "" Basic Setup
 -- "*****************************************************************************"
 -- Agrega icono al costado de los folds
-vim.cmd ([[set foldcolumn=1]])
+vim.opt.foldcolumn = "1"
 
 -- Fix backspace indent
 vim.cmd ([[set backspace=indent,eol,start]])
@@ -166,19 +172,6 @@ vim.cmd([[
   ]])
 
 -- "*****************************************************************************
--- "" Functions
--- "*****************************************************************************
-vim.cmd([[
-  if !exists('*s:setupWrapping')
-  function s:setupWrapping()
-    set wrap
-    set wm=2
-    set textwidth=79
-  endfunction
-  endif
-  ]])
-
--- "*****************************************************************************
 -- "" Autocmd Rules
 -- "*****************************************************************************
 vim.cmd([[
@@ -194,11 +187,9 @@ vim.cmd([[
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
   augroup END
 
-  "" txt
-  augroup vimrc-wrapping
-    autocmd!
-    autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
-  augroup END
+  "" Cambia entre el cursor PARA NVIM
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+  set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 
   "" make/cmake
   augroup vimrc-make-cmake

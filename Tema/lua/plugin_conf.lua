@@ -1,3 +1,4 @@
+          -- alalalalallala
 -- Vim-Colorize
   require'colorizer'.setup()
 
@@ -6,7 +7,7 @@
     respect_buf_cwd = true,
     view = {
       number = true,
-      relativenumber = false,
+      relativenumber = true,
       adaptive_size = true,
     },
     actions = {
@@ -22,24 +23,56 @@
   })
 
 -- LuaLine
-  local function getWords()
-    return tostring(vim.fn.wordcount().words)
-  end
-  function searchCount()
+  -- Total de Palabras en el archivo
+  local function getWords() return "\u{23B5} "..tostring(vim.fn.wordcount().words) end
+  -- Muestra la palabra de la busqueda y sus conincidencias: /zzzzzz [xx/xx]
+  local function searchCount()
     local search = vim.fn.searchcount({maxcount = 0}) -- maxcount = 0 makes the number not be capped at 99
     local searchCurrent = search.current
     local searchTotal = search.total
-    if searchCurrent > 0 then
+    if searchCurrent > 0 and vim.v.hlsearch ~= 0 then
       return "/"..vim.fn.getreg("/").." ["..searchCurrent.."/"..searchTotal.."]"
-    else
-      return ""
     end
+    return ""
+  end
+  -- Is a Function that formats the time() function indicator...
+  -- If the hour or the minutes is less than 10, it completes with a '0' on the right
+  -- in order to have always the same width and to improve visibility
+  function formatTime(value)
+    if value < 10 then
+      return '0'..value
+    end
+    return value
+  end
+  -- Shows a clock in the statusline
+  local function time()
+    local unixTime = os.time()
+    -- local seconds  = formatTime(unixTime % 60) -- UNCOMENT TO ENABLE SECONDS. Restart NeoVim in order to work properly
+    local minutes  = formatTime(math.floor(unixTime%3600/60))
+    local hours    = formatTime(math.floor(unixTime%86400/3600))
+    local timezone = -3 -- Argentina GMT-3
+    -- Apply Timezone
+    hours     = hours + timezone
+    if hours <= 0 then
+      hours   = 24 + hours
+    end
+
+    if seconds == nil then
+      return "\u{f64f} "..hours..":"..minutes
+    end
+    return "\u{f64f} "..hours..":"..minutes..":"..seconds
   end
 
   require('lualine').setup {
+    options = {
+      refresh = {
+        statusline = 500,
+      }
+    },
     sections = {
       lualine_x = {{ searchCount }, 'fileformat', 'filetype'},
-      lualine_z = {'location', { getWords }}
+      lualine_y = {'progress','location', },
+      lualine_z = {{ getWords },{ time }}
     },
     extensions = {'nvim-tree'}
   }
@@ -76,6 +109,34 @@
       -- end
     }
   }
+-- Telescope
+  local actions = require "telescope.actions"
+  require('telescope').setup{
+    defaults = {
+      -- layout_strategy = 'vertical',
+      layout_strategy = 'horizontal',
+      layout_config = {
+        height = 0.99,
+        width = 0.99,
+        preview_cutoff = 50,
+        horizontal = {
+          preview_width = function(_, cols, _)
+            if cols > 200 then
+              return math.floor(cols * 0.4)
+            else
+              return math.floor(cols * 0.6)
+            end
+          end,
+        },
+        vertical = { width = 0.9, height = 0.95, preview_height = 0.5 },
+      },
+      mappings = {
+        i = {
+          ["<ESC>"] = actions.close
+        }
+      },
+    }
+  }
 
 -- IndentLine
   vim.g.indentLine_enabled        = 1
@@ -83,56 +144,16 @@
   vim.g.indentLine_char           = '┆'
   vim.g.indentLine_faster         = 1
 
--- vim-airline
-    -- vim.cmd([[
-    -- let g:airline#extensions#virtualenv#enabled = 1
-    -- let g:airline#extensions#branch#enabled = 1
-    -- let g:airline#extensions#tabline#enabled = 1
-    -- let g:airline#extensions#ale#enabled = 1
-    -- let g:airline#extensions#tagbar#enabled = 1
-    -- let g:airline_skip_empty_sections = 1
-    -- ""-----------------------------------------------------------
-    -- if !exists('g:airline_symbols')
-    --   let g:airline_symbols = {}
-    -- endif
-
-    -- if !exists('g:airline_powerline_fonts')
-    --   let g:airline#extensions#tabline#left_sep = ' '
-    --   let g:airline#extensions#tabline#left_alt_sep = '|'
-    --   let g:airline_left_sep = ''
-    --   let g:airline_left_alt_sep = ''
-    --   let g:airline_right_sep = ''
-    --   let g:airline_right_alt_sep = ''
-    --   let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
-    --   let g:airline#extensions#readonly#symbol   = '⊘'
-    --   let g:airline#extensions#linecolumn#prefix = '¶'
-    --   let g:airline#extensions#paste#symbol      = 'ρ'
-    --   let g:airline_symbols.maxlinenr= ' ' "℅
-    --   let g:airline_symbols.colnr = ' ℅:'
-    --   let g:airline#extensions#battery#enabled = 1
-    --   let g:airline_symbols.linenr    = ' '
-    --   let g:airline_symbols.branch = ''
-    --   let g:airline_symbols.linenr = ' :'
-    --   let g:airline_symbols.paste     = 'ρ'
-    --   let g:airline_symbols.paste     = '∥'
-    --   let g:airline_symbols.paste     = 'Þ'
-    --   let g:airline_symbols.whitespace = 'Ξ'
-    --   let g:airline#extensions#tabline#right_sep = ''
-    --   let g:airline#extensions#tabline#right_alt_sep = ''
-    --   let g:airline#extensions#tabline#left_alt_sep = ''
-    --   let g:airline#extensions#tabline#left_sep = ''
-    --   let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
-    --   let g:airline#extensions#tabline#show_tab_nr = 0 " QUITA LOS NUMEROS QUE APARECEN EN LOS TABS, ANULANDO EL tab number
-    -- else
-    --   let g:airline#extensions#tabline#left_sep = ''
-    --   let g:airline#extensions#tabline#left_alt_sep = ''
-    -- endif
--- ]])
-
 -- Startify
   vim.g.webdevicons_enable_startify = 1
   vim.g.startify_files_number=8
   vim.g.startify_padding_left = 30 -- Hard coded padding for lists
+
+  function updatePlugins()
+    vim.cmd "PackerCompile"
+    vim.cmd "PackerInstall"
+    vim.cmd "PackerUpdate"
+  end
   vim.cmd([[
     autocmd User StartifyReady exec 'IndentLinesDisable'
     autocmd User StartifyAllBufferOpened exec 'IndentLinesEnable'
@@ -140,11 +161,10 @@
         let files = systemlist('git ls-files -m 2>/dev/null')
         return map(files, "{'line': v:val, 'path': v:val}")
     endfunction
-    " " same as above, but show untracked files, honouring .gitignore
-    " function! s:gitUntracked()
-    "     let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
-    "     return map(files, "{'line': v:val, 'path': v:val}")
-    " endfunction
+    function! s:gitUntracked()
+        let files = systemlist('git ls-files -o --exclude-standard --exclude=.DS_Store 2>/dev/null')
+        return map(files, "{'line': v:val, 'path': v:val}")
+    endfunction
 
     let g:ascii = [
                 \ '     ___           ___           ___                                      ___     ',
@@ -166,19 +186,20 @@
           \{'c': '~/.config/nvim/'},
           \]
 
-    " let g:startify_commands = [
-          " \{'s': ['Funcion', 'call Funcion()']},
-          " \]
+    let g:startify_commands = [
+          \{'a': ['Actualizar', 'lua updatePlugins()']},
+          \{'r': ['Limpiar Historial de Undo', 'lua updatePlugins()']},
+          \]
 
     let g:startify_lists = [
-          \ { 'type': 'files',                   'header': startify#pad(['   RECIENTES']        )},
-          \ { 'type': 'sessions',                'header': startify#pad(['   SESIONES']         )},
-          \ { 'type': function('s:gitModified'), 'header': startify#pad(['   GIT - Modificados'])},
-          \ { 'type': 'bookmarks',               'header': startify#pad(['   MARCADORES']       )},
-          \ { 'type': 'commands',                'header': startify#pad(['   COMANDOS']         )},
+          \ { 'type': 'files',                    'header': startify#pad(['   RECIENTES']             )},
+          \ { 'type': 'sessions',                 'header': startify#pad(['   SESIONES']              )},
+          \ { 'type': function('s:gitModified'),  'header': startify#pad(['   GIT - Modificados']     )},
+          \ { 'type': 'bookmarks',                'header': startify#pad(['   MARCADORES']            )},
+          \ { 'type': 'commands',                 'header': startify#pad(['   COMANDOS']              )},
+          \ { 'type': function('s:gitUntracked'), 'header': startify#pad(['   GIT - Sin Seguimiento'] )},
           \ ]
           " \ { 'type': 'dir',                     'header': startify#pad(['   RECIENTES DENTRO DE '. getcwd()]) },
-      " \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
     "" LO MISMO QUE EL ANTERIOR PERO EN VEZ DE UN TAB ESTÁ CENTRADO
     " let g:startify_lists = [
     "       \ { 'type': 'files',                   'header': startify#center(['   RECIENTES'])            },
@@ -199,32 +220,14 @@
     return require'nvim-web-devicons'.get_icon(filename, extension, { default = true })
   end
 
--- " snippets
+-- Snippets
   if vim.fn.has('python3') then
-    vim.cmd ([[
-      function! s:check_back_space() abort
-        let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~# '\s'
-      endfunction
-      ]])
     vim.g.UltiSnipsExpandTrigger='<Nop>'
     vim.g.UltiSnipsJumpForwardTrigger = '<TAB>'
     vim.g.UltiSnipsJumpBackwardTrigger = '<S-TAB>'
     vim.g.coc_snippet_next = '<TAB>'
     vim.g.coc_snippet_prev = '<S-TAB>'
     vim.g.UltiSnipsEditSplit="vertical"
-    vim.cmd ([[inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"]])
-  else
-    vim.cmd ([[
-      " Use tab for trigger completion with characters ahead and navigate.
-      " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-      " other plugin before putting this into your config.
-      inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-      inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-      ]])
   end
 
 -- ale
@@ -232,11 +235,3 @@
 
 -- Tagbar
   vim.g.tagbar_autofocus = 1
-
--- CoC
-vim.cmd ([[
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-  endfunction
-  ]])

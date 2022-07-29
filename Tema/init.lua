@@ -23,5 +23,5 @@ vim.o.termguicolors = true
 vim.cmd ([[map ff :w<Cr>:so %<CR>]])
 require("plugin")
 require("plugin_conf")
-require("maps")
 require("basic_conf")
+require("maps")
