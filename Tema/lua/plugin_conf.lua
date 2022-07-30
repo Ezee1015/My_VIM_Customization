@@ -183,7 +183,8 @@
     let startify_custom_header=startify#center(g:ascii)
 
     let g:startify_bookmarks = [
-          \{'c': '~/.config/nvim/'},
+          \{'c': '~/.config/nvim/init.lua'},
+          \{'u': '/Users/'},
           \]
 
     let g:startify_commands = [
