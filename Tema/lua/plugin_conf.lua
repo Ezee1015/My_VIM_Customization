@@ -1,4 +1,3 @@
-          -- alalalalallala
 -- Vim-Colorize
   require'colorizer'.setup()
 
@@ -149,69 +148,66 @@
   vim.g.startify_files_number=8
   vim.g.startify_padding_left = 30 -- Hard coded padding for lists
 
+  vim.g.startify_custom_header = {
+        "      ___           ___           ___                                      ___      ",
+        "     /  /\\         /  /\\         /  /\\          ___            ___        /  /\\     ",
+        "    /  /::|       /  /::\\       /  /::\\        /  /\\          /__/\\      /  /::|    ",
+        "   /  /:|:|      /  /:/\\:\\     /  /:/\\:\\      /  /:/          \\__\\:\\    /  /:|:|    ",
+        "  /  /:/|:|__   /  /::\\ \\:\\   /  /:/  \\:\\    /  /:/           /  /::\\  /  /:/|:|__  ",
+        " /__/:/ |:| /\\ /__/:/\\:\\ \\:\\ /__/:/ \\__\\:\\  /__/:/  ___    __/  /:/\\/ /__/:/_|::::\\ ",
+        " \\__\\/  |:|/:/ \\  \\:\\ \\:\\_\\/ \\  \\:\\ /  /:/  |  |:| /  /\\  /__/\\/:/~~  \\__\\/  /~~/:/ ",
+        "     |  |:/:/   \\  \\:\\ \\:\\    \\  \\:\\  /:/   |  |:|/  /:/  \\  \\::/           /  /:/  ",
+        "     |__|::/     \\  \\:\\_\\/     \\  \\:\\/:/    |__|:|__/:/    \\  \\:\\          /  /:/   ",
+        "     /__/:/       \\  \\:\\        \\  \\::/      \\__\\::::/      \\__\\/         /__/:/    ",
+        "     \\__\\/         \\__\\/         \\__\\/           ~~~~                     \\__\\/     ",
+        " ",
+        }
+  vim.g.startify_custom_header = vim.fn['startify#center'](vim.g.startify_custom_header)
+
+  function gitModified()
+      local files = vim.fn.systemlist('git ls-files -m 2>/dev/null')
+      return vim.fn.map(files, "{'line': v:val, 'path': v:val}")
+  end
+  function gitUntracked()
+      local files = vim.fn.systemlist('git ls-files -o --exclude-standard --exclude=.DS_Store 2>/dev/null')
+      return vim.fn.map(files, "{'line': v:val, 'path': v:val}")
+  end
   function updatePlugins()
     vim.cmd "PackerCompile"
     vim.cmd "PackerInstall"
     vim.cmd "PackerUpdate"
   end
+
+  vim.g.startify_bookmarks = {
+    { c = '~/.config/nvim/init.lua'},
+  }
+  vim.g.startify_commands = {
+    { a = {'Actualizar', 'lua updatePlugins()'}},
+    { r = {'Limpiar Historial de Undo', 'lua updatePlugins()'}},
+  }
+  vim.g.startify_lists = {
+    { type = 'files'                    , header = vim.fn['startify#pad']({'   RECIENTES'}             )},
+    { type = 'sessions'                 , header = vim.fn['startify#pad']({'   SESIONES'}              )},
+    -- { type = function('gitModified')  , header = vim.fn['startify#pad']({'   GIT - Modificados'}     )},
+    -- { type = function('gitUntracked') , header = vim.fn['startify#pad']({'   GIT - Sin Seguimiento'} )},
+    { type = 'bookmarks'                , header = vim.fn['startify#pad']({'   MARCADORES'}            )},
+    { type = 'commands'                 , header = vim.fn['startify#pad']({'   COMANDOS'}              )},
+    -- { type = 'dir'                      , header = vim.fn['startify#pad']({'   RECIENTES DENTRO DE '. getcwd()}) },
+  }
+  -- LO MISMO QUE EL ANTERIOR PERO EN VEZ DE UN TAB ESTÁ CENTRADO
+  -- let g:startify_lists = [
+  --       \ { 'type': 'files',                   'header': startify#center(['   RECIENTES'])            },
+  --       \ { 'type': 'dir',                     'header': startify#center(['   DENTRO DE '. getcwd()]) },
+  --       \ { 'type': 'sessions',                'header': startify#center(['   SESIONES'])             },
+  --       \ { 'type': function('s:gitModified'), 'header': startify#center(['   GIT - Modificados'])},
+  --       \ { 'type': 'bookmarks',               'header': startify#center(['   Bookmarks'])            },
+  --       \ ]
   vim.cmd([[
     autocmd User StartifyReady exec 'IndentLinesDisable'
     autocmd User StartifyAllBufferOpened exec 'IndentLinesEnable'
-    function! s:gitModified()
-        let files = systemlist('git ls-files -m 2>/dev/null')
-        return map(files, "{'line': v:val, 'path': v:val}")
-    endfunction
-    function! s:gitUntracked()
-        let files = systemlist('git ls-files -o --exclude-standard --exclude=.DS_Store 2>/dev/null')
-        return map(files, "{'line': v:val, 'path': v:val}")
-    endfunction
-
-    let g:ascii = [
-                \ '     ___           ___           ___                                      ___     ',
-                \ '    /  /\         /  /\         /  /\          ___            ___        /  /\    ',
-                \ '   /  /::|       /  /::\       /  /::\        /  /\          /__/\      /  /::|   ',
-                \ '  /  /:|:|      /  /:/\:\     /  /:/\:\      /  /:/          \__\:\    /  /:|:|   ',
-                \ ' /  /:/|:|__   /  /::\ \:\   /  /:/  \:\    /  /:/           /  /::\  /  /:/|:|__ ',
-                \ '/__/:/ |:| /\ /__/:/\:\ \:\ /__/:/ \__\:\  /__/:/  ___    __/  /:/\/ /__/:/_|::::\',
-                \ '\__\/  |:|/:/ \  \:\ \:\_\/ \  \:\ /  /:/  |  |:| /  /\  /__/\/:/~~  \__\/  /~~/:/',
-                \ '    |  |:/:/   \  \:\ \:\    \  \:\  /:/   |  |:|/  /:/  \  \::/           /  /:/ ',
-                \ '    |__|::/     \  \:\_\/     \  \:\/:/    |__|:|__/:/    \  \:\          /  /:/  ',
-                \ '    /__/:/       \  \:\        \  \::/      \__\::::/      \__\/         /__/:/   ',
-                \ '    \__\/         \__\/         \__\/           ~~~~                     \__\/    ',
-                \ ' ',
-                \]
-    let startify_custom_header=startify#center(g:ascii)
-
-    let g:startify_bookmarks = [
-          \{'c': '~/.config/nvim/init.lua'},
-          \{'u': '/Users/'},
-          \]
-
-    let g:startify_commands = [
-          \{'a': ['Actualizar', 'lua updatePlugins()']},
-          \{'r': ['Limpiar Historial de Undo', 'lua updatePlugins()']},
-          \]
-
-    let g:startify_lists = [
-          \ { 'type': 'files',                    'header': startify#pad(['   RECIENTES']             )},
-          \ { 'type': 'sessions',                 'header': startify#pad(['   SESIONES']              )},
-          \ { 'type': function('s:gitModified'),  'header': startify#pad(['   GIT - Modificados']     )},
-          \ { 'type': 'bookmarks',                'header': startify#pad(['   MARCADORES']            )},
-          \ { 'type': 'commands',                 'header': startify#pad(['   COMANDOS']              )},
-          \ { 'type': function('s:gitUntracked'), 'header': startify#pad(['   GIT - Sin Seguimiento'] )},
-          \ ]
-          " \ { 'type': 'dir',                     'header': startify#pad(['   RECIENTES DENTRO DE '. getcwd()]) },
-    "" LO MISMO QUE EL ANTERIOR PERO EN VEZ DE UN TAB ESTÁ CENTRADO
-    " let g:startify_lists = [
-    "       \ { 'type': 'files',                   'header': startify#center(['   RECIENTES'])            },
-    "       \ { 'type': 'dir',                     'header': startify#center(['   DENTRO DE '. getcwd()]) },
-    "       \ { 'type': 'sessions',                'header': startify#center(['   SESIONES'])             },
-    "       \ { 'type': function('s:gitModified'), 'header': startify#center(['   GIT - Modificados'])},
-    "       \ { 'type': 'bookmarks',               'header': startify#center(['   Bookmarks'])            },
-    "       \ ]
 
     function! StartifyEntryFormat() abort
-      return 'v:lua.webDevIcons(absolute_path) . " " . entry_path'
+      return 'v:lua.webDevIcons(absolute_path) ." ". entry_path'
     endfunction
     ]])
   -- Agrega los iconos
@@ -236,3 +232,47 @@
 
 -- Tagbar
   vim.g.tagbar_autofocus = 1
+
+--[[ Alternatives Headers for Startify
+vim.g.startify_custom_header = {
+'',
+'',
+'                                       ██            ',
+'                                      ░░             ',
+'    ███████   █████   ██████  ██    ██ ██ ██████████ ',
+'   ░░██░░░██ ██░░░██ ██░░░░██░██   ░██░██░░██░░██░░██',
+'    ░██  ░██░███████░██   ░██░░██ ░██ ░██ ░██ ░██ ░██',
+'    ░██  ░██░██░░░░ ░██   ░██ ░░████  ░██ ░██ ░██ ░██',
+'    ███  ░██░░██████░░██████   ░░██   ░██ ███ ░██ ░██',
+'   ░░░   ░░  ░░░░░░  ░░░░░░     ░░    ░░ ░░░  ░░  ░░ ',
+'',
+'',
+}
+vim.g.startify_custom_header = {
+"",
+"         .          ."
+"       ';;,.        ::'"
+"     ,:::;,,        :ccc,"
+"    ,::c::,,,,.     :cccc,"
+"    ,cccc:;;;;;.    cllll,"
+"    ,cccc;.;;;;;,   cllll;"
+"    :cccc; .;;;;;;. coooo;"
+"    ;llll;   ,:::::'loooo;"
+"    ;llll:    ':::::loooo:"
+"    :oooo:     .::::llodd:"
+"    .;ooo:       ;cclooo:."
+"      .;oc        'coo;."
+"        .'         .,."
+}
+vim.g.startify_custom_header = {
+    '',
+    ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+    ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+    ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+    ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+    ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+    ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+    '                                                       ',
+    '',
+}
+ --]]

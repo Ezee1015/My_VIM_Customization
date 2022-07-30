@@ -24,7 +24,7 @@ vim.o.lazyredraw = true -- Evita redibujado de ventanas innecesarios, ideal para
 vim.o.splitbelow = true
 vim.o.splitright = true
 
-vim.o.wildignore=vim.o.wildignore..",*.o,*.obj,.git,*.rbc,*.pyc,__pycache__"
+vim.o.wildignore=vim.o.wildignore.."*.o,*.obj,.git,*.rbc,*.pyc,__pycache__"
 vim.opt.undofile  = true
 vim.opt.undodir = { vim.fn.expand("~/.config/nvim/.undo") }
 -- vim.opt.backupdir = { home .. ".backup//"}
