@@ -38,7 +38,7 @@ vim.cmd([[
   ]])
 
 -- Programa los cambios de zZçÇ a <><> respectivamente y su restablecimiento
-function programar()
+function Programar()
   map('n', 'ç', '<', { } )
   map('n', 'Ç', '>', { } )
   map('i', 'ç', '<', { } )
@@ -52,7 +52,7 @@ function programar()
   map('v', 'z', '<', { } )
   map('v', 'Z', '>', { } )
 end
-function desProgramar()
+function DesProgramar()
   map('n', 'ç', 'ç', { } )
   map('n', 'Ç', 'Ç', { } )
   map('i', 'ç', 'ç', { } )
@@ -68,7 +68,7 @@ function desProgramar()
 end
 
 -- Compila o Compila y Ejecuta un archivo
-function compileAndRun()
+function CompileAndRun()
   vim.cmd "w"
   if vim.bo.filetype == 'c' then
     vim.cmd "!clear && gcc '%' -o '%<'"
@@ -104,7 +104,7 @@ function compileAndRun()
     vim.cmd "!clear && echo 'words : ' && wc -w '%' && echo 'lines : ' && wc -l '%' && echo 'size : ' && du -h '%'"
   end
 end
-function compile()
+function Compile()
   vim.cmd "w"
   if vim.bo.filetype == 'c' then
     vim.cmd "echo expand('%:p:h') | terminal gcc % -o %<"
@@ -204,11 +204,11 @@ map('v', 'rr'            , '!sort -R<CR>'                    , { }              
 
 -- Para los teclados que no tienen < y >
 map('n', '<leader>j'     , ':lua Programar()<CR>'            , { silent= true }                )
-map('n', '<leader><S-j>' , ':lua desProgramar()<CR>'         , { silent= true }                )
+map('n', '<leader><S-j>' , ':lua DesProgramar()<CR>'         , { silent= true }                )
 
 -- Compile
-map('n', '<leader>cc'    , ':lua compileAndRun()<CR>'        , { }                             )
-map('n', '<leader>c'     , ':lua compile()<CR>'              , { }                             )
+map('n', '<leader>cc'    , ':lua CompileAndRun()<CR>'        , { }                             )
+map('n', '<leader>c'     , ':lua Compile()<CR>'              , { }                             )
 
 -- "" Tabs,  buffers and files
 map('n', '<C-t><TAB>'    , 'gt'                              , { silent= true, noremap= true } )
@@ -268,19 +268,6 @@ map('n', '<F8>'          , ':TagbarToggle<CR>'               , { silent= true } 
 -- EasyMotion
 map('n', '<leader>f'     , ' <Plug>(easymotion-s2)'          , { }                             )
 
--- CoC
-  -- LO REEMPLAZE POR UN QUE DIVIDE LA PANTALLA A LA MITAD PARA MOSTRARLO
---nmap <silent> gd <Plug>(coc-definition)
-  -- IR A LA COMPLEMENTACIÓN (en lenguaje c no lo soporta)
---nmap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
-  -- VER UNA LISTA DE LAS UTILIZACIONES DE LA FUNCION
---nmap <silent> gi <Plug>(coc-implementation)
---nmap <silent> gr <Plug>(coc-references)
-
--- Camina entre los errores
-map('n', 'e+'            , '<Plug>(ale_next_wrap)'           , { silent= true }                )
-map('n', 'e-'            , '<Plug>(ale_previous_wrap)'       , { silent= true }                )
-
 -- Git
 map('n', '<leader>ga'    , ':Git write<CR>'                  , { noremap= true }               )
 map('n', '<leader>gc'    , ':Git commit --verbose<CR>'       , { noremap= true }               )
@@ -303,24 +290,14 @@ map('n', '<F2>'         , ':NvimTreeFindFileToggle<CR>'      , { silent= true, n
 map('n', '<F3>'         , ':NvimTreeToggle<CR>'              , { silent= true, noremap= true } )
 
 -- Telescope.nvim
-map('n', '<leader>e'    , "<cmd>lua require('telescope.builtin').find_files()<cr>", { silent= true, noremap= true })
-map('n', '<leader>r'    , "<cmd>lua require('telescope.builtin').live_grep()<cr>" , { silent= true, noremap= true })
-map('n', '<leader>b'    , "<cmd>lua require('telescope.builtin').buffers()<cr>"   , { silent= true, noremap= true })
-map('n', '<leader>fh'   , "<cmd>lua require('telescope.builtin').help_tags()<cr>" , { silent= true, noremap= true })
-map('n', '<leader>y'    , ":lua require'telescope.builtin'.search_history{}<CR>"  , { noremap= true }              )
+map('n', '<leader>rr'   , "<cmd>lua require('telescope.builtin').find_files()<cr>", { silent= true, noremap= true } )
+map('n', '<leader>r'    , "<cmd>lua require('telescope.builtin').live_grep()<cr>" , { silent= true, noremap= true } )
+map('n', '<leader>b'    , "<cmd>lua require('telescope.builtin').buffers()<cr>"   , { silent= true, noremap= true } )
+map('n', '<leader>fh'   , "<cmd>lua require('telescope.builtin').help_tags()<cr>" , { silent= true, noremap= true } )
+map('n', '<leader>y'    , ":lua require'telescope.builtin'.search_history{}<CR>"  , { noremap= true }               )
 
--- Snippets del plugin
-vim.cmd([[
-  if(has('python3'))
-      inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" : Check_back_space() ? "\<TAB>" : coc#refresh()
-    function! Check_back_space() abort
-      let col = col('.') - 1
-      return !col || getline('.')[col - 1]  =~# '\s'
-    endfunction
-  else
-      inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : Check_back_space() ? "\<TAB>" : coc#refresh()
-  endif
-  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-  ]])
--- Tuve que sacarle el <SID> a dos lineas porque no funciona con lua. Linea original:
---     \ <SID>check_back_space() ? "\<TAB>" :
+-- LSP NVIM
+map('n', '<leader>e'    , '<cmd>lua vim.diagnostic.open_float()<CR>'              , { silent= true, noremap= true } )
+map('n', 'e-'           , '<cmd>lua vim.diagnostic.goto_prev()<CR>'               , { silent= true, noremap= true } )
+map('n', 'e+'           , '<cmd>lua vim.diagnostic.goto_next()<CR>'               , { silent= true, noremap= true } )
+map('n', '<leader>dd'   , '<cmd>Telescope diagnostics<CR>'                        , { silent= true, noremap= true } )

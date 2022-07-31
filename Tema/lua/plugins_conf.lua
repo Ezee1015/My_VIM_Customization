@@ -37,7 +37,7 @@
   -- Is a Function that formats the time() function indicator...
   -- If the hour or the minutes is less than 10, it completes with a '0' on the right
   -- in order to have always the same width and to improve visibility
-  function formatTime(value)
+  local function formatTime(value)
     if value < 10 then
       return '0'..value
     end
@@ -86,7 +86,7 @@
       left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
       middle_mouse_command = nil,          -- can be a string | function, see "Mouse actions"
       tab_size = 20,
-      diagnostics = "coc",
+      -- diagnostics = "coc", --*********************
       diagnostics_update_in_insert = false,
       -- The diagnostics indicator can be set to nil to keep the buffer name highlight but delete the highlighting
       diagnostics_indicator = function(count, level, diagnostics_dict, context)
@@ -182,8 +182,9 @@
     { c = '~/.config/nvim/init.lua'},
   }
   vim.g.startify_commands = {
-    { a = {'Actualizar', 'lua updatePlugins()'}},
-    { r = {'Limpiar Historial de Undo', 'lua updatePlugins()'}},
+    { a = {'Actualizar Plugins', 'lua updatePlugins()'}},
+    { r = {'Limpiar Historial de Undo', '!rm ~/.local/share/nvim/undo/*'}},
+    { p = {'Información sobre LSP', 'LspInstallInfo'}},
   }
   vim.g.startify_lists = {
     { type = 'files'                    , header = vim.fn['startify#pad']({'   RECIENTES'}             )},
@@ -218,17 +219,17 @@
   end
 
 -- Snippets
-  if vim.fn.has('python3') then
-    vim.g.UltiSnipsExpandTrigger='<Nop>'
-    vim.g.UltiSnipsJumpForwardTrigger = '<TAB>'
-    vim.g.UltiSnipsJumpBackwardTrigger = '<S-TAB>'
-    vim.g.coc_snippet_next = '<TAB>'
-    vim.g.coc_snippet_prev = '<S-TAB>'
-    vim.g.UltiSnipsEditSplit="vertical"
-  end
+  -- if vim.fn.has('python3') then
+  --   vim.g.UltiSnipsExpandTrigger='<Nop>'
+  --   vim.g.UltiSnipsJumpForwardTrigger = '<TAB>'
+  --   vim.g.UltiSnipsJumpBackwardTrigger = '<S-TAB>'
+  --   vim.g.coc_snippet_next = '<TAB>'
+  --   vim.g.coc_snippet_prev = '<S-TAB>'
+  --   vim.g.UltiSnipsEditSplit="vertical"
+  -- end
 
 -- ale
-  vim.g.ale_linters = {python= 'flake8' }
+  -- vim.g.ale_linters = {python= 'flake8' }
 
 -- Tagbar
   vim.g.tagbar_autofocus = 1
@@ -276,3 +277,63 @@ vim.g.startify_custom_header = {
     '',
 }
  --]]
+
+-- NVIM LSP
+  local lsp = require('lsp-zero')
+  lsp.preset('recommended')
+  lsp.nvim_workspace()
+  lsp.setup()
+
+  vim.opt.completeopt= "menu,menuone,noselect"
+
+  local function t(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+  end
+  local check_back_space = function()
+    local col = vim.fn.col '.' - 1
+    return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s' ~= nil
+  end
+
+  -- local cmp = require'cmp'
+  -- local luasnip = require'luasnip'
+  -- local t = function(str)
+  --   return vim.api.nvim_replace_termcodes(str, true, true, true)
+  -- end
+  -- cmp.setup({
+  --   snippet = {
+  --     expand = function(args)
+  --       require('luasnip').lsp_expand(args.body)
+  --     end,
+  --   },
+  --   mapping = cmp.mapping.preset.insert({
+  --     ['<Tab>'] = function(core, fallback)
+  --       if vim.fn.pumvisible() == 1 then
+  --         vim.fn.feedkeys(t('<C-n>'), 'n')
+  --       elseif luasnip.expand_or_jumpable() then
+  --         vim.fn.feedkeys(t('<Plug>luasnip-expand-or-jump'), '')
+  --       elseif not check_back_space() then
+  --         cmp.mapping.complete()(core, fallback)
+  --       else
+  --         vim.cmd(':>')
+  --       end
+  --     end,
+  --     ['<S-Tab>'] = function(core, fallback)
+  --       if vim.fn.pumvisible() == 1 then
+  --         vim.fn.feedkeys(t('<C-p>'), 'n')
+  --       elseif luasnip.jumpable(-1) then
+  --         vim.fn.feedkeys(t('<Plug>luasnip-jump-prev'), '')
+  --       else
+  --         vim.cmd(':<')
+  --       end
+  --     end,
+  --     ["<ESC>"] = cmp.mapping.close(),
+  --   })
+  require("nvim-lsp-installer").setup({
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+  })

@@ -23,10 +23,11 @@ vim.o.clipboard = "unnamedplus"-- Combina el Portapapeles de VIM con el del Sist
 vim.o.lazyredraw = true -- Evita redibujado de ventanas innecesarios, ideal para cuanto se ejecutan macros. Para forzar el redibujado de una ventana, usar el comando /\s\+$//e<CR>'fdmf"redraw
 vim.o.splitbelow = true
 vim.o.splitright = true
+vim.opt.completeopt= "menu,menuone,noselect"
 
 vim.o.wildignore=vim.o.wildignore.."*.o,*.obj,.git,*.rbc,*.pyc,__pycache__"
 vim.opt.undofile  = true
-vim.opt.undodir = { vim.fn.expand("~/.config/nvim/.undo") }
+vim.opt.undodir = { vim.fn.expand("~/.local/share/nvim/undo") }
 -- vim.opt.backupdir = { home .. ".backup//"}
 -- vim.opt.directory = { home .. ".swp//"}
 
@@ -64,7 +65,6 @@ vim.cmd "colorscheme tokyonight"
 
 
 vim.o.background = 'dark'
--- vim.g.airline_theme = "tokyonight"
 -- vim.g.tokyonight_style = "storm"
 -- vim.g.tokyonight_style = "night"
 

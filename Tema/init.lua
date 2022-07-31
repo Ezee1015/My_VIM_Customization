@@ -22,10 +22,10 @@ end
 vim.o.termguicolors = true
 vim.cmd ([[map ff :w<Cr>:so %<CR>]])
 
--- lua/plugin.lua
-require("plugin")
--- lua/plugin_conf.lua
-require("plugin_conf")
+-- lua/plugins.lua
+require("plugins")
+-- lua/plugins_conf.lua
+require("plugins_conf")
 -- lua/basic_conf.lua
 require("basic_conf")
 -- lua/maps.lua

@@ -2,37 +2,24 @@
 
 function INSTALAR {
 
-    sudo apt install vim curl vim-gtk clangd-12 openjdk-17* clangd xdotool curl python3 universal-ctags -y
-    sudo apt install vim curl vim-gtk clangd-11 openjdk-17* clangd xdotool curl python3 universal-ctags -y
-        # ADICIONAL PARA EDICION EN MARKDOWN
-        #sudo apt install pandoc markdown texlive-base
-        # sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
-    sudo pacman -S neovim xclip xorg-xclipboard gvim clang xdotool python3 ctags
-    sudo zypper install neovim xclip xclipboard vim clang xdotool python3 ctags
+    sudo apt install neovim vim curl vim-gtk openjdk-17* xdotool curl python3 universal-ctags -y
+    sudo pacman -S neovim xclip xorg-xclipboard vim xdotool python3 ctags
+    sudo zypper install neovim xclip xclipboard vim xdotool python3 ctags
     pip install -U neovim
     pip3 install -U neovim
-        # ADICIONAL PARA EDICION EN MARKDOWN
-        #sudo pacman -S pandoc markdown texlive-core
     curl -sL install-node.vercel.app/lts | sudo bash
     cp -r Tema/init/ ~/.config/nvim/
+    cp    Tema/vimrc ~/.vimrc
     cp Documentacion/VIM\ -\ Documentacion.pdf ~/
     echo ""
     sudo mkdir /usr/share/fonts/truetype
     sudo mkdir /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font
     sudo cp Tema/ttf/*.ttf /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font/
 
-    if [ -e /bin/vi ] || [ -e /usr/vi ] ; then echo "" ; else
-        sudo ln -s /bin/vim /bin/vi
-    fi
-
      echo ""
      echo "           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador..."
      echo "           Solamente queda unas cosas..."
      echo "                     * Seleccione en su terminal la fuente UbuntuMono Nerd Font Mono"
-     echo "                     * Ejecute nvim y teclee :PlugInstall y luego :CocInstall coc-json coc-tsserver coc-java coc-clangd"
-     echo "                     * Luego ejecute :CocCommand clangd.install desde vim abierto en un proyecto/archivo de C"
-     echo "                     * Si da error en el Servidor de lenguaje Java, poner el contenido del archivo https://download.eclipse.org/jdtls/milestones/0.57.0/ en ~/.config/coc/extensions/coc-java-data/server/ (eliminando lo que había en esa carpeta)"
-     echo "                     * Para actualizar todos los componenetes de vim ejecute :PlugUpdate :PlugUpgrade :CocUpdate"
      echo "                     * Para Instalar el soporte de TreeSitter :TSInstall java :TSInstall c " # Lenguajes Soportados: https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
 }
 
