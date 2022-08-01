@@ -1,12 +1,10 @@
 # My_VIM_Customization
-Mi básica customización de VIM, creado por www.vim-bootstrap.com y personalizado por mi para mis necesidades.
+Mi básica customización de VIM, creado desde '0' y personalizado por mi para mis necesidades.
 
 # REQUISITOS
 ```
 git
-vim
-wget
-X11
+neovim
 ```
 
 ## INSTALACIÓN
