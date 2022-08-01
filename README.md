@@ -1,5 +1,5 @@
 # My_VIM_Customization
-Mi básica customización de NeoVIM, creado desde '0' y personalizado por mi para mis necesidades.
+Mi básica customización de NeoVIM, creado desde cero y personalizado por mi para mis necesidades.
 
 # REQUISITOS
 ```
