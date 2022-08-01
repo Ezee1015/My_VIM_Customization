@@ -36,16 +36,6 @@ function INSTALAR {
         sudo ln -s /bin/vim /bin/vi
     fi
 
-    if [ -e /bin/nvim ] ; then
-        mkdir ~/.config/nvim
-        cp Tema/init.vim ~/.config/nvim/init.vim
-    else
-        if [ -e /usr/nvim ] ; then
-            mkdir ~/.config/nvim
-            cp Tema/init.vim ~/.config/nvim/init.vim
-        fi
-     fi
-
      echo ""
      echo "           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador..."
      echo "           Solamente queda unas cosas..."
