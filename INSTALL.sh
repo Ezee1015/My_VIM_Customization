@@ -9,13 +9,12 @@ function INSTALAR {
     pip3 install -U neovim
     curl -sL install-node.vercel.app/lts | sudo bash
     cp -r Tema/init/ ~/.config/nvim/
-    cp    Tema/vimrc ~/.vimrc
     cp Documentacion/VIM\ -\ Documentacion.pdf ~/
-    echo ""
     sudo mkdir /usr/share/fonts/truetype
     sudo mkdir /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font
     sudo cp Tema/ttf/*.ttf /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font/
 
+     echo ""
      echo ""
      echo "           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador..."
      echo "           Solamente queda unas cosas..."
