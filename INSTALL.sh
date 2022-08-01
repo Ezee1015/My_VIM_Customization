@@ -8,7 +8,7 @@ function INSTALAR {
     pip install -U neovim
     pip3 install -U neovim
     curl -sL install-node.vercel.app/lts | sudo bash
-    cp -r Tema/init/ ~/.config/nvim/
+    cp -r Tema/init/* ~/.config/nvim/
     cp Documentacion/VIM\ -\ Documentacion.pdf ~/
     sudo mkdir /usr/share/fonts/truetype
     sudo mkdir /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font
