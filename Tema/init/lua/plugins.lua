@@ -68,4 +68,5 @@ return require("packer").startup(function()
 			{'rafamadriz/friendly-snippets'}, 											-- COLECCION DE SNIPPETS
 		}
 	}
+	-- use 'dstein64/vim-startuptime'  													  -- MUESTRA DE FORMA GRAFICA EL TIEMPO DE ARRANQUE
 end)

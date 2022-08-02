@@ -20,8 +20,9 @@ function isdir(file)
 end
 
 vim.o.termguicolors = true
-vim.cmd ([[map ff :w<Cr>:so %<CR>]])
 
+-- lua/procesar.lua
+require("procesar")
 -- lua/plugins.lua
 require("plugins")
 -- lua/plugins_conf.lua

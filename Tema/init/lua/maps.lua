@@ -67,61 +67,6 @@ function DesProgramar()
   map('v', 'Z', 'Z', { } )
 end
 
--- Compila o Compila y Ejecuta un archivo
-function CompileAndRun()
-  vim.cmd "w"
-  if vim.bo.filetype == 'c' then
-    vim.cmd "!clear && gcc '%' -o '%<'"
-    vim.cmd "!clear && time './%<'"
-  elseif vim.bo.filetype == 'cpp' then
-    vim.cmd "!clear && g++ '%' -o '%<'"
-    vim.cmd "!clear && time './%<'"
-  elseif vim.bo.filetype == 'rust' then
-    vim.cmd "!clear && cargo build --manifest-path='%':p:h:h/Cargo.toml"
-    vim.cmd "!time cargo run --manifest-path='%':p:h:h/Cargo.toml"
-  elseif vim.bo.filetype == 'java' then
-    vim.cmd "!clear && javac '%'"
-    vim.cmd "!clear && java '%<'"
-  elseif vim.bo.filetype == 'sh' then
-    vim.cmd "!clear && time bash '%'"
-  elseif vim.bo.filetype == 'python' then
-    vim.cmd "!clear && time python3 '%'"
-  elseif vim.bo.filetype == 'javascript' then
-    vim.cmd "!clear && time node '%'"
-  elseif vim.bo.filetype == 'html' then
-    vim.cmd "!chromium '%' &"
-    vim.cmd "!firefox '%'"
-    vim.cmd "!firefox-esr '%'"
-  elseif vim.bo.filetype == 'tex' then
-    vim.cmd "!pdflatex --output-directory='%':p:h '%'"
-  elseif vim.bo.filetype == 'go' then
-    vim.cmd "!go build '%<'"
-    vim.cmd "!clear && time go run '%'"
-  elseif vim.bo.filetype == 'text' then
-    vim.cmd "!clear && echo 'words : ' && wc -w % && echo 'lines : ' && wc -l '%' && echo 'size : ' && du -h '%'"
-  elseif vim.bo.filetype == 'markdown' then
-    vim.cmd "!clear && pandoc '%' -o '%<'.pdf && xdg-open '%<'.pdf"
-    vim.cmd "!clear && echo 'words : ' && wc -w '%' && echo 'lines : ' && wc -l '%' && echo 'size : ' && du -h '%'"
-  end
-end
-function Compile()
-  vim.cmd "w"
-  if vim.bo.filetype == 'c' then
-    vim.cmd "echo expand('%:p:h') | terminal gcc % -o %<"
-  elseif vim.bo.filetype == 'cpp' then
-    vim.cmd "echo expand('%:p:h') | terminal g++ % -o %<"
-    vim.cmd "normal gg"
-  elseif vim.bo.filetype == 'java' then
-    vim.cmd "echo expand('%:p:h') | terminal javac %"
-    vim.cmd "normal gg"
-  elseif vim.bo.filetype == 'rust' then
-    vim.cmd "echo expand('%:p:h') | terminal cargo build --manifest-path=%:p:h:h/Cargo.toml"
-  elseif vim.bo.filetype == 'go' then
-    vim.cmd "echo expand('%:p:h') | terminal go build '%<'"
-  elseif vim.bo.filetype == 'markdown' then
-    vim.cmd "!clear && markdown '%' > '%<'.html"
-  end
-end
 
 -- "*****************************************************************************
 -- "" Mappings
@@ -163,7 +108,7 @@ map('n', '<C-Down>'      , '<C-w>l'                          , { silent= true, n
 map('n', '<C-l>'         , '<C-w>l'                          , { silent= true, noremap= true } )
 map('n', '<C-h>'         , '<C-w>h'                          , { silent= true, noremap= true } )
 map('n', '<C-k>'         , '<C-w>k'                          , { silent= true, noremap= true } )
-map('n', '<C-j>'         , '<C-w>l'                          , { silent= true, noremap= true } )
+map('n', '<C-j>'         , '<C-w>j'                          , { silent= true, noremap= true } )
 
 map('n', '<S-Right>'     , ':vertical resize +2<CR>'         , { }                             )
 map('n', '<S-Left>'      , ':vertical resize -2<CR>'         , { }                             )
@@ -207,8 +152,8 @@ map('n', '<leader>j'     , ':lua Programar()<CR>'            , { silent= true } 
 map('n', '<leader><S-j>' , ':lua DesProgramar()<CR>'         , { silent= true }                )
 
 -- Compile
-map('n', '<leader>cc'    , ':lua CompileAndRun()<CR>'        , { }                             )
-map('n', '<leader>c'     , ':lua Compile()<CR>'              , { }                             )
+map('n', '<leader>cc'    , ':lua Procesar("ejecutar")<CR>'    , { }                             )
+map('n', '<leader>c'     , ':lua Procesar("compilar")<CR>'     , { }                             )
 
 -- "" Tabs,  buffers and files
 map('n', '<C-t><TAB>'    , 'gt'                              , { silent= true, noremap= true } )
@@ -217,11 +162,11 @@ map('n', '<C-t>t'        , ':tabnew<CR>:NvimTreeToggle<CR>'  , { silent= true, n
 
 map('n', '<TAB>'         , ':BufferLineCycleNext<CR>'        , { silent= true, noremap= true } )
 map('n', '<S-TAB>'       , ':BufferLineCyclePrev<CR>'        , { silent= true, noremap= true } )
+map('n', '<S-t>'         , ':enew<CR>:NvimTreeToggle<CR>'    , { silent= true, noremap= true } )
 map('n', '<C-b><Right>'  , ':BufferLineMoveNext<CR>'         , { silent= true, noremap= true } )
 map('n', '<C-b><Left>'   , ':BufferLineMovePrev<CR>'         , { silent= true, noremap= true } )
 map('n', '<C-b>e'        , ':BufferLineSortByExtension<CR>'  , { silent= true, noremap= true } )
 map('n', '<C-b>d'        , ':BufferLineSortByDirectory<CR>'  , { silent= true, noremap= true } )
-map('n', '<S-t>'         , ':enew<CR>:NvimTreeToggle<CR>'    , { silent= true, noremap= true } )
 
 map('c', '<C-r>p'        , '<C-R>=expand("%:p:h") . "/" <CR>', { noremap= true }               )
 
@@ -254,9 +199,9 @@ map('v', '<S-l>'         , '>gv'                             , { }             
 map('v', '<S-h>'         , '<gv'                             , { }                             )
 
 -- Terminal en NVim
-map('t', '<ESC>'         , '<C-\\><C-n>'                     , { noremap= true }               )
 map('n', '<leader>t'     , ':vsplit<CR>:term<CR>'            , { silent= true, noremap= true } )
 map('n', '<leader>T'     , ':split<CR>:term<CR>'             , { silent= true, noremap= true } )
+map('t', '<ESC>'         , '<C-\\><C-n>'                     , { noremap= true }               )
 
 -- "*****************************************************************************
 -- "" Mappings de los PLUGINS
@@ -293,11 +238,12 @@ map('n', '<F3>'         , ':NvimTreeToggle<CR>'              , { silent= true, n
 map('n', '<leader>rr'   , "<cmd>lua require('telescope.builtin').find_files()<cr>", { silent= true, noremap= true } )
 map('n', '<leader>r'    , "<cmd>lua require('telescope.builtin').live_grep()<cr>" , { silent= true, noremap= true } )
 map('n', '<leader>b'    , "<cmd>lua require('telescope.builtin').buffers()<cr>"   , { silent= true, noremap= true } )
-map('n', '<leader>fh'   , "<cmd>lua require('telescope.builtin').help_tags()<cr>" , { silent= true, noremap= true } )
 map('n', '<leader>y'    , ":lua require'telescope.builtin'.search_history{}<CR>"  , { noremap= true }               )
+map('n', '<leader>ht'   , "<cmd>lua require('telescope.builtin').help_tags()<cr>" , { silent= true, noremap= true } )
+map('n', '<leader>gr'   , ":Telescope lsp_references<cr>"                         , { silent= true, noremap= true } )
 
 -- LSP NVIM
 map('n', '<leader>e'    , '<cmd>lua vim.diagnostic.open_float()<CR>'              , { silent= true, noremap= true } )
-map('n', 'e-'           , '<cmd>lua vim.diagnostic.goto_prev()<CR>'               , { silent= true, noremap= true } )
-map('n', 'e+'           , '<cmd>lua vim.diagnostic.goto_next()<CR>'               , { silent= true, noremap= true } )
+map('n', '<leader>e-'   , '<cmd>lua vim.diagnostic.goto_prev()<CR>'               , { silent= true, noremap= true } )
+map('n', '<leader>e+'   , '<cmd>lua vim.diagnostic.goto_next()<CR>'               , { silent= true, noremap= true } )
 map('n', '<leader>dd'   , '<cmd>Telescope diagnostics<CR>'                        , { silent= true, noremap= true } )
