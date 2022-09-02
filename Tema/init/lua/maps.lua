@@ -6,7 +6,13 @@ vim.g.mapleader   = ','
 -- "*****************************************************************************
 vim.cmd ([[
   func! StartifyAtExit()
-    exec ':bdelete!'
+    exec ':TSContextToggle'
+    if (tabpagewinnr(tabpagenr(), '$') > 1 )
+      exec ':silent! close!'
+    else
+      exec ':bdelete!'
+    endif
+    exec ':TSContextToggle'
     if len(getbufinfo({'buflisted':1}))==1 && expand("%")=='' | exec 'Startify'| endif
   endfunc
   ]])
@@ -244,6 +250,6 @@ map('n', '<leader>gr'   , ":Telescope lsp_references<cr>"                       
 
 -- LSP NVIM
 map('n', '<leader>e'    , '<cmd>lua vim.diagnostic.open_float()<CR>'              , { silent= true, noremap= true } )
-map('n', '<leader>e-'   , '<cmd>lua vim.diagnostic.goto_prev()<CR>'               , { silent= true, noremap= true } )
-map('n', '<leader>e+'   , '<cmd>lua vim.diagnostic.goto_next()<CR>'               , { silent= true, noremap= true } )
+map('n', '-e'   , '<cmd>lua vim.diagnostic.goto_prev()<CR>'               , { silent= true, noremap= true } )
+map('n', '+e'   , '<cmd>lua vim.diagnostic.goto_next()<CR>'               , { silent= true, noremap= true } )
 map('n', '<leader>dd'   , '<cmd>Telescope diagnostics<CR>'                        , { silent= true, noremap= true } )

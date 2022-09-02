@@ -18,6 +18,11 @@ function isdir(file)
   end
   return true
 end
+-- Function to verify a folder exists
+function isfile(file)
+   local f=io.open(file,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
 
 vim.o.termguicolors = true
 

@@ -344,7 +344,10 @@ vim.g.startify_custom_header = {
           fallback()
         end
       end, { "i", "s" }),
+
       ["<ESC>"] = cmp.mapping.close(),
+
+      ["<S-k>"] = nil,
     },
    formatting = {
       fields = { "kind", "abbr", "menu" },

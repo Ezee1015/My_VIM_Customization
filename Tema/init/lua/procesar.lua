@@ -25,7 +25,11 @@ local Compile = {
     end,
 
     ['java'] = function()
-        exe("javac '%'")
+        if(isfile("build.xml")) then
+          exe("ant compile")
+        else
+          exe("javac '%'")
+        end
     end,
 
     ['rust'] = function()
@@ -64,8 +68,12 @@ local CompileAndRun = {
     end,
 
     ['java'] = function()
-        Procesar("compilar", 1)
-        exe("java '%<'", 1)
+        if(isfile("build.xml")) then
+          exe("ant run")
+        else
+          Procesar("compilar", 1)
+          exe("java '%<'", 1)
+        end
     end,
 
     ['sh'] = function()

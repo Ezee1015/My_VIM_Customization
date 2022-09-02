@@ -25,6 +25,7 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 vim.opt.completeopt= "menu,menuone,noselect"
 
+vim.o.wildignore=vim.o.wildignore.."*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite"
 vim.o.wildignore=vim.o.wildignore.."*.o,*.obj,.git,*.rbc,*.pyc,__pycache__"
 vim.opt.undofile  = true
 vim.opt.undodir = { vim.fn.expand("~/.local/share/nvim/undo") }
@@ -50,6 +51,9 @@ vim.cmd ([[
   au!
   autocmd VimEnter * silent !echo -ne "\e[2 q"            "
   augroup END
+
+  " Quita los nu y rnu en la terminal
+  autocmd TermOpen * setlocal nonumber norelativenumber
   ]])
 
 -- Select between diferents coloschemes
@@ -157,18 +161,6 @@ vim.cmd([[
   cnoreabbrev W w
   cnoreabbrev Q q
   cnoreabbrev Qall qall
-  ]])
-
--- NERDTree configuration
-vim.cmd([[
-  let g:NERDTreeIgnore              = ['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
-  let g:NERDTreeSortOrder           = ['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-  let NERDTreeChDirMode             = 2
-  let NERDTreeShowBookmarks         = 1
-  let nerdtree_tabs_focus_on_files  = 1
-  let NERDTreeMapOpenInTabSilent    = '<RightMouse>'
-  let NERDTreeWinSize               = 40
-  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
   ]])
 
 -- "*****************************************************************************
