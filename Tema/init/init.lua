@@ -18,7 +18,7 @@ function isdir(file)
   end
   return true
 end
--- Function to verify a folder exists
+-- Function to verify a file exists
 function isfile(file)
    local f=io.open(file,"r")
    if f~=nil then io.close(f) return true else return false end
