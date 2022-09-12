@@ -75,7 +75,7 @@
       lualine_y = {'progress','location', },
       lualine_z = {{ getWords },{ time }}
     },
-    extensions = {'nvim-tree'}
+    -- extensions = {'nvim-tree'}
   }
 
 -- BufLine
@@ -189,9 +189,10 @@
   -- }
   vim.g.startify_commands = {
     { g = {'Carpeta de Github', "cd ~/github/ | lua require('telescope.builtin').find_files()"}},
+    { r = {'Recargar Startify', 'Startify'}},
     { c = {'Configuración', "cd ~/.config/nvim/ | lua require('telescope.builtin').find_files()"}},
     { a = {'Actualizar Plugins', 'lua UpdatePlugins()'}},
-    { r = {'Limpiar Historial de Undo', '!rm ~/.local/share/nvim/undo/*'}},
+    { u = {'Limpiar Historial de Undo', '!rm ~/.local/share/nvim/undo/*'}},
     { p = {'Información sobre LSP', 'LspInstallInfo'}},
     -- { s = {'Tiempo de Arranque', 'StartupTime'}},
   }
@@ -366,6 +367,13 @@ vim.g.startify_custom_header = {
     }
   })
 
+-- Muestra el mensaje de error cuando se mantiene el cursor quieto
+vim.diagnostic.config({
+  virtual_text = true
+})
+-- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+-- vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float()]])
+
   require("nvim-lsp-installer").setup({
     ui = {
         icons = {
@@ -377,8 +385,6 @@ vim.g.startify_custom_header = {
   })
 
 --TreeSitter
-  -- vim.o.foldmethod = 'expr'
-  -- vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
   require'nvim-treesitter.configs'.setup {
     -- A list of parser names, or "all"
     ensure_installed = { "c", "lua", "java", "python", "bash", "html", "css", "php", "sql" },

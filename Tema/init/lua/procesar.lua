@@ -89,9 +89,11 @@ local CompileAndRun = {
     end,
 
     ['html'] = function()
-        exe("chromium '%' &")
-        exe("firefox '%'")
-        exe("firefox-esr '%'")
+        -- exe("chromium '%' &")
+        -- exe("firefox '%'")
+        -- exe("firefox-esr '%'")
+        exe("open '%'")
+        exe("xdg-open '%'")
     end,
 
     ['tex'] = function()

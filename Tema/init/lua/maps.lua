@@ -1,5 +1,6 @@
 -- Map leader to ,
-vim.g.mapleader   = ','
+-- vim.g.mapleader   = ','
+vim.g.mapleader   = ' '
 
 -- "*****************************************************************************
 -- "" Funciones de los Mappings
@@ -80,6 +81,10 @@ end
 map('n', 'n'             , 'nzzzv'                           , { noremap= true }               )
 map('n', 'N'             , 'Nzzzv'                           , { noremap= true }               )
 
+-- Elimina en el void
+map('n', '<leader>d'     , '"_d'                             , {}                              )
+map('v', '<leader>d'     , '"_d'                             , {}                              )
+
 -- Abre y cierra folds
 map('n', '<Space>'       , 'za'                              , {}                              )
 
@@ -131,8 +136,8 @@ map('n', '<leader>gq'    , 'g~'                              , { silent= true } 
 
 
 -- Change between Capitalization
-map('', '<leader>m'     , 'gu'                              , { silent= true }                )
-map('', '<leader><S-m>' , 'gU'                              , { silent= true }                )
+map('', '<leader>m'     , 'gu'                               , { silent= true }                )
+map('', '<leader><S-m>' , 'gU'                               , { silent= true }                )
 
 -- Aumenta o Disminuye el valor de un numero
 map('n', '++'            , '<C-a>'                           , { }                             )
@@ -147,8 +152,8 @@ map('n', 'Q'             , 'gq'                              , { }              
 map('n', 'S'             , ':%s//g<Left><Left>'              , { }                             )
 
 -- Lista de Cambios en un Archivo
-map('n', '<leader>d'     , ':DiffSaved<CR>'                  , { }                             )
-map('n', '<leader><S-d>' , ":diffoff<CR>:q<CR>''"            , { }                             )
+map('n', '<leader><F6>'     , ':DiffSaved<CR>'               , { }                             )
+map('n', '<leader><S-<F6>>' , ":diffoff<CR>:q<CR>''"         , { }                             )
 
 -- Ordenado Random de Lineas
 map('v', 'rr'            , '!sort -R<CR>'                    , { }                             )
@@ -158,8 +163,8 @@ map('n', '<leader>j'     , ':lua Programar()<CR>'            , { silent= true } 
 map('n', '<leader><S-j>' , ':lua DesProgramar()<CR>'         , { silent= true }                )
 
 -- Compile
-map('n', '<leader>cc'    , ':lua Procesar("ejecutar")<CR>'    , { }                             )
-map('n', '<leader>c'     , ':lua Procesar("compilar")<CR>'     , { }                             )
+map('n', '<leader>cc'    , ':lua Procesar("ejecutar")<CR>'   , { }                             )
+map('n', '<leader>c'     , ':lua Procesar("compilar")<CR>'   , { }                             )
 
 -- "" Tabs,  buffers and files
 map('n', '<C-t><TAB>'    , 'gt'                              , { silent= true, noremap= true } )
@@ -245,11 +250,17 @@ map('n', '<leader>rr'   , "<cmd>lua require('telescope.builtin').find_files()<cr
 map('n', '<leader>r'    , "<cmd>lua require('telescope.builtin').live_grep()<cr>" , { silent= true, noremap= true } )
 map('n', '<leader>b'    , "<cmd>lua require('telescope.builtin').buffers()<cr>"   , { silent= true, noremap= true } )
 map('n', '<leader>y'    , ":lua require'telescope.builtin'.search_history{}<CR>"  , { noremap= true }               )
-map('n', '<leader>ht'   , "<cmd>lua require('telescope.builtin').help_tags()<cr>" , { silent= true, noremap= true } )
+map('n', '<leader>gt'   , "<cmd>lua require('telescope.builtin').help_tags()<cr>" , { silent= true, noremap= true } )
 map('n', '<leader>gr'   , ":Telescope lsp_references<cr>"                         , { silent= true, noremap= true } )
+map('n', '<leader>gk'   , ":Telescope keymaps<cr>"                                , { silent= true, noremap= true } )
 
 -- LSP NVIM
 map('n', '<leader>e'    , '<cmd>lua vim.diagnostic.open_float()<CR>'              , { silent= true, noremap= true } )
-map('n', '-e'   , '<cmd>lua vim.diagnostic.goto_prev()<CR>'               , { silent= true, noremap= true } )
-map('n', '+e'   , '<cmd>lua vim.diagnostic.goto_next()<CR>'               , { silent= true, noremap= true } )
+map('n', '-e'           , '<cmd>lua vim.diagnostic.goto_prev()<CR>'               , { silent= true, noremap= true } )
+map('n', '+e'           , '<cmd>lua vim.diagnostic.goto_next()<CR>'               , { silent= true, noremap= true } )
 map('n', '<leader>dd'   , '<cmd>Telescope diagnostics<CR>'                        , { silent= true, noremap= true } )
+map('n', '<leader>dr'   , '<cmd>lua vim.lsp.buf.rename()<CR>'                     , { silent= true, noremap= true } )
+map('i', '<C-h>'        , '<cmd>lua vim.lsp.buf.signature_help()<CR>'             , { silent= true, noremap= true } )
+
+-- UndoTree
+map('n', '<F5>'         , ':UndotreeToggle<CR>'              , { noremap= true }               )
