@@ -75,7 +75,7 @@
       lualine_y = {'progress','location', },
       lualine_z = {{ getWords },{ time }}
     },
-    -- extensions = {'nvim-tree'}
+    extensions = {'nvim-tree'}
   }
 
 -- BufLine
@@ -153,7 +153,6 @@
   vim.g.webdevicons_enable_startify = 1
   vim.g.startify_files_number=8
   vim.g.startify_padding_left = 30 -- Hard coded padding for lists
-
   vim.g.startify_custom_header = {
         "      ___           ___           ___                                      ___      ",
         "     /  /\\         /  /\\         /  /\\          ___            ___        /  /\\     ",
@@ -384,7 +383,7 @@ vim.diagnostic.config({
     }
   })
 
---TreeSitter
+-- TreeSitter
   require'nvim-treesitter.configs'.setup {
     -- A list of parser names, or "all"
     ensure_installed = { "c", "lua", "java", "python", "bash", "html", "css", "php", "sql" },
