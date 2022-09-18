@@ -52,12 +52,12 @@ function Programar()
   map('i', 'Ç', '>', { } )
   map('v', 'ç', '<', { } )
   map('v', 'Ç', '>', { } )
-  map('n', 'z', '<', { } )
-  map('n', 'Z', '>', { } )
-  map('i', 'z', '<', { } )
-  map('i', 'Z', '>', { } )
-  map('v', 'z', '<', { } )
-  map('v', 'Z', '>', { } )
+  -- map('n', 'z', '<', { } )
+  -- map('n', 'Z', '>', { } )
+  -- map('i', 'z', '<', { } )
+  -- map('i', 'Z', '>', { } )
+  -- map('v', 'z', '<', { } )
+  -- map('v', 'Z', '>', { } )
 end
 function DesProgramar()
   map('n', 'ç', 'ç', { } )
@@ -66,12 +66,12 @@ function DesProgramar()
   map('i', 'Ç', 'Ç', { } )
   map('v', 'ç', 'ç', { } )
   map('v', 'Ç', 'Ç', { } )
-  map('n', 'z', 'z', { } )
-  map('n', 'Z', 'Z', { } )
-  map('i', 'z', 'z', { } )
-  map('i', 'Z', 'Z', { } )
-  map('v', 'z', 'z', { } )
-  map('v', 'Z', 'Z', { } )
+  -- map('n', 'z', 'z', { } )
+  -- map('n', 'Z', 'Z', { } )
+  -- map('i', 'z', 'z', { } )
+  -- map('i', 'Z', 'Z', { } )
+  -- map('v', 'z', 'z', { } )
+  -- map('v', 'Z', 'Z', { } )
 end
 
 
@@ -86,7 +86,7 @@ map('n', '<leader>d'     , '"_d'                             , {}               
 map('v', '<leader>d'     , '"_d'                             , {}                              )
 
 -- Abre y cierra folds
-map('n', '<Space>'       , 'za'                              , {}                              )
+-- map('n', '<Space>'       , 'za'                              , {}                              )
 
 -- Save and Exit
 map('n', '<leader>w'     , ':w<CR>:call StartifyAtExit()<CR>', { silent= true }                )
@@ -198,7 +198,7 @@ map('v', '<S-j>'         , ":m '>+1<CR>gv=gv"                , { noremap= true }
 map('n', '<S-y>'         , 'y$'                              , { noremap= true }               )
 
 -- Clean search (highlight)
-map('n', '<leader><space>', ':noh<CR>'                       , { silent= true, noremap= true } )
+map('n', '<leader>,', ':noh<CR>'                       , { silent= true, noremap= true } )
 
 -- Vmap for maintain Visual Mode after shifting < and >
 map('v', '<'             , '<gv'                             , { }                             )
