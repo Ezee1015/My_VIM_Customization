@@ -8,6 +8,7 @@ function INSTALAR {
     pip install -U neovim
     pip3 install -U neovim
     # curl -sL install-node.vercel.app/lts | sudo bash
+    mkdir ~/.config/nvim/
     cp -r Tema/init/* ~/.config/nvim/
     cp Documentacion/Neovim\ -\ Documentacion.pdf ~/
     sudo mkdir /usr/share/fonts/truetype
