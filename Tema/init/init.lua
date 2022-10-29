@@ -1,11 +1,3 @@
--- Functional wrapper for mapping custom keybindings
-function map(mode, lhs, rhs, opts)
-    local options = { noremap = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
 -- Function to verify a folder exists
 function isdir(file)
 	  local isok, errstr, errcode = os.rename(file, file)

@@ -1,3 +1,11 @@
+-- Functional wrapper for mapping custom keybindings
+local function map(mode, lhs, rhs, opts)
+    local options = { noremap = true }
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
 -- Map leader to ,
 -- vim.g.mapleader   = ','
 vim.g.mapleader   = ' '
@@ -144,6 +152,10 @@ map('n', '++'            , '<C-a>'                           , { }              
 map('n', '--'            , '<C-x>'                           , { }                             )
 map('n', '**'            , 'g<C-a>'                          , { }                             )
 map('n', '__'            , 'g<C-x>'                          , { }                             )
+map('v', '++'            , '<C-a>'                           , { }                             )
+map('v', '--'            , '<C-x>'                           , { }                             )
+map('v', '**'            , 'g<C-a>'                          , { }                             )
+map('v', '__'            , 'g<C-x>'                          , { }                             )
 
 -- Acomoda el texto de una linea en varias
 map('n', 'Q'             , 'gq'                              , { }                             )
