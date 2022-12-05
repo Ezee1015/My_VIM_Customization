@@ -164,8 +164,8 @@ map('n', 'Q'             , 'gq'                              , { }              
 map('n', 'S'             , ':%s//g<Left><Left>'              , { }                             )
 
 -- Lista de Cambios en un Archivo
-map('n', '<leader><F6>'     , ':DiffSaved<CR>'               , { }                             )
-map('n', '<leader><S-<F6>>' , ":diffoff<CR>:q<CR>''"         , { }                             )
+map('n', '<F6>'          , ':DiffSaved<CR>'                  , { }                             )
+map('n', '<S-<F6>>'      , ":diffoff<CR>:q<CR>''"            , { }                             )
 
 -- Ordenado Random de Lineas
 map('v', 'rr'            , '!sort -R<CR>'                    , { }                             )
@@ -223,13 +223,13 @@ map('n', '<S-y>'         , 'y$'                              , { noremap= true }
 map('n', '<leader>,', ':noh<CR>'                       , { silent= true, noremap= true } )
 
 -- Vmap for maintain Visual Mode after shifting < and >
-map('v', '<'             , '<gv'                             , { }                             )
-map('v', '>'             , '>gv'                             , { }                             )
+map('v', '<'             , '<gv'                             , { }                             )
+map('v', '>'             , '>gv'                             , { }                             )
 -- Vmap for Shift and horizontal movement to do shifting < and >
-map('v', '<S-Right>'     , '>gv'                             , { }                             )
-map('v', '<S-Left>'      , '<gv'                             , { }                             )
-map('v', '<S-l>'         , '>gv'                             , { }                             )
-map('v', '<S-h>'         , '<gv'                             , { }                             )
+map('v', '<S-Right>'     , '>gv'                             , { }                             )
+map('v', '<S-Left>'      , '<gv'                             , { }                             )
+map('v', '<S-l>'         , '>gv'                             , { }                             )
+map('v', '<S-h>'         , '<gv'                             , { }                             )
 
 -- Terminal en NVim
 map('n', '<leader>t'     , ':vsplit<CR>:term<CR>'            , { silent= true, noremap= true } )
@@ -286,3 +286,19 @@ map('i', '<C-h>'        , '<cmd>lua vim.lsp.buf.signature_help()<CR>'           
 
 -- UndoTree
 map('n', '<F5>'         , ':UndotreeToggle<CR>'              , { noremap= true }               )
+
+-- NeoClip
+map('n', '<leader>p'    , "<cmd>lua require('telescope').extensions.neoclip.default()<CR>"    , { silent= true, noremap= true } )
+map('n', '<leader>Q'    , "<cmd>lua require('telescope').extensions.macroscope.default()<CR>" , { silent= true, noremap= true } )
+
+-- ZenMode
+map('n', '<leader>z'   , ":ZenMode<CR>"                           , { silent= true, noremap= true } )
+-- ANTERIOR PLUGIN DE TRUE-ZEN
+-- -- Hace foco en la ventana
+-- map('n', '<leader>zw'   , "<cmd>lua require('true-zen.focus').toggle()<cr>"       , { silent= true, noremap= true } )
+-- -- Hace foto en el texto
+-- map('v', '<leader>zt'   , "<cmd>lua require('true-zen.narrow').toggle()<cr>"      , { silent= true, noremap= true } )
+-- -- Elimina toda las molestias graficas
+-- map('n', '<leader>zm'   , "<cmd>lua require('true-zen.minimalist').toggle()<cr>"  , { silent= true, noremap= true } )
+-- -- Cenntra el texto
+-- map('n', '<leader>zc'   , "<cmd>lua require('true-zen.ataraxis').toggle()<cr>"    , { silent= true, noremap= true } )

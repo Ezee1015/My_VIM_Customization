@@ -143,12 +143,6 @@
     }
   }
 
--- IndentLine
-  vim.g.indentLine_enabled        = 1
-  -- vim.g.indentLine_concealcursor  = 0 -- Causa errores Neovim 8.0
-  vim.g.indentLine_char           = '┆'
-  vim.g.indentLine_faster         = 1
-
 -- Startify
   vim.g.webdevicons_enable_startify = 1
   vim.g.startify_files_number=8
@@ -177,11 +171,6 @@
       local files = vim.fn.systemlist('git ls-files -o --exclude-standard --exclude=.DS_Store 2>/dev/null')
       return vim.fn.map(files, "{'line': v:val, 'path': v:val}")
   end
-  function UpdatePlugins()
-    vim.cmd "PackerCompile"
-    vim.cmd "PackerInstall"
-    vim.cmd "PackerUpdate"
-  end
 
   -- vim.g.startify_bookmarks = {
   --   { c = '~/.config/nvim/init.lua'},
@@ -190,7 +179,7 @@
     { g = {'Carpeta de Github', "cd ~/github/ | lua require('telescope.builtin').find_files()"}},
     { r = {'Recargar Startify', 'Startify'}},
     { c = {'Configuración', "cd ~/.config/nvim/ | lua require('telescope.builtin').find_files()"}},
-    { a = {'Actualizar Plugins', 'lua UpdatePlugins()'}},
+    { a = {'Actualizar Plugins', 'PackerSync'}},
     { u = {'Limpiar Historial de Undo', '!rm ~/.local/share/nvim/undo/*'}},
     { p = {'Información sobre LSP', 'LspInstallInfo'}},
     -- { s = {'Tiempo de Arranque', 'StartupTime'}},
@@ -213,8 +202,8 @@
   --       \ { 'type': 'bookmarks',               'header': startify#center(['   Bookmarks'])            },
   --       \ ]
   vim.cmd([[
-    autocmd User StartifyReady exec 'IndentLinesDisable'
-    autocmd User StartifyAllBufferOpened exec 'IndentLinesEnable'
+    autocmd User StartifyReady exec 'IndentBlanklineDisable'
+    autocmd User StartifyAllBufferOpened exec 'IndentBlanklineEnable'
 
     function! StartifyEntryFormat() abort
       return 'v:lua.webDevIcons(absolute_path) ." ". entry_path'
@@ -358,6 +347,7 @@ vim.g.startify_custom_header = {
         vim_item.menu = ({
           nvim_lsp = "- LSP",
           luasnip = "- Snippet",
+
           buffer = "- Buffer",
           path = "- Path",
         })[entry.source.name]
@@ -401,3 +391,149 @@ vim.diagnostic.config({
       enable = true,
     },
   }
+
+-- GitSigns
+require('gitsigns').setup()
+
+--Indent Blankline
+vim.opt.list = true
+-- vim.opt.listchars:append "space:⋅"
+-- vim.opt.listchars:append "eol:↴"
+
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    show_current_context = true,
+    show_current_context_start = true,
+}
+
+-- NeoClip
+require('neoclip').setup({
+    history = 1000,
+    enable_persistent_history = false,
+    length_limit = 1048576,
+    continuous_sync = false,
+    db_path = vim.fn.stdpath("data") .. "/databases/neoclip.sqlite3",
+    filter = nil,
+    preview = true,
+    prompt = nil,
+    default_register = '"',
+    default_register_macros = 'q',
+    enable_macro_history = true,
+    content_spec_column = false,
+    on_paste = {
+      set_reg = false,
+    },
+    on_replay = {
+      set_reg = false,
+    },
+    keys = {
+      telescope = {
+        i = {
+          -- select = '<cr>',
+          paste = '<cr>',
+          -- paste_behind = '<S-<cr>>',
+          replay = '<c-q>',  -- replay a macro
+          delete = '<c-d>',  -- delete an entry
+          custom = {},
+        },
+      },
+    },
+  })
+
+-- ZenMode
+require("zen-mode").setup {
+  window = {
+    backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
+    -- height and width can be:
+    -- * an absolute number of cells when > 1
+    -- * a percentage of the width / height of the editor when <= 1
+    -- * a function that returns the width or the height
+    width = 100, -- width of the Zen window
+    height = 1, -- height of the Zen window
+    -- by default, no options are changed for the Zen window
+    -- uncomment any of the options below, or add other vim.wo options you want to apply
+    options = {
+      -- signcolumn = "no", -- disable signcolumn
+      -- number = false, -- disable number column
+      -- relativenumber = false, -- disable relative numbers
+      -- cursorline = false, -- disable cursorline
+      -- cursorcolumn = false, -- disable cursor column
+      -- foldcolumn = "0", -- disable fold column
+      -- list = false, -- disable whitespace characters
+    },
+  },
+  plugins = {
+    -- disable some global vim options (vim.o...)
+    -- comment the lines to not apply the options
+    options = {
+      enabled = true,
+      ruler = false, -- disables the ruler text in the cmd line area
+      showcmd = false, -- disables the command in the last line of the screen
+    },
+    twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
+    gitsigns = { enabled = false }, -- disables git signs
+    tmux = { enabled = false }, -- disables the tmux statusline
+    -- this will change the font size on kitty when in zen mode
+    -- to make this work, you need to set the following kitty options:
+    -- - allow_remote_control socket-only
+    -- - listen_on unix:/tmp/kitty
+    kitty = {
+      enabled = false,
+      font = "+4", -- font size increment
+    },
+  },
+  -- callback where you can add custom code when the Zen window opens
+  on_open = function(win)
+  end,
+  -- callback where you can add custom code when the Zen window closes
+  on_close = function()
+  end,
+}
+
+-- Vim Commentary
+require('Comment').setup {
+    ---Add a space b/w comment and the line
+    padding = true,
+    ---Whether the cursor should stay at its position
+    sticky = true,
+    ---Lines to be ignored while (un)comment
+    ignore = nil,
+    ---LHS of toggle mappings in NORMAL mode
+    toggler = {
+        ---Line-comment toggle keymap
+        line = 'gcc',
+        ---Block-comment toggle keymap
+        block = 'gbb',
+    },
+    ---LHS of operator-pending mappings in NORMAL and VISUAL mode
+    opleader = {
+        ---Line-comment keymap
+        line = 'gc',
+        ---Block-comment keymap
+        block = 'gb',
+    },
+    ---LHS of extra mappings
+    extra = {
+        ---Add comment on the line above
+        above = 'gcO',
+        ---Add comment on the line below
+        below = 'gco',
+        ---Add comment at the end of line
+        eol = 'gcA',
+    },
+    ---Enable keybindings
+    ---NOTE: If given `false` then the plugin won't create any mappings
+    mappings = {
+        ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
+        basic = true,
+        ---Extra mapping; `gco`, `gcO`, `gcA`
+        extra = true,
+    },
+    ---Function to call before (un)comment
+    pre_hook = nil,
+    ---Function to call after (un)comment
+    post_hook = nil,
+  }
+
+-- Vim Multiple Cursors
+vim.g.VM_show_warnings = 0

@@ -23,13 +23,13 @@ vim.cmd([[
 
 return require("packer").startup(function()
   use 'wbthomason/packer.nvim'
-	use 'tpope/vim-commentary'                                  -- PERMITE COMENTAR CON 'gcc'
+	-- use 'tpope/vim-commentary'                                  -- PERMITE COMENTAR CON 'gcc'
 	use 'tpope/vim-fugitive'                                    -- INTEGRACION CON GIT
 	use 'tpope/vim-rhubarb'                                     -- REQUISITO DE fugitive PARA :Gbrowse
-	use 'airblade/vim-gitgutter'                                -- CONTROL DE CAMBIOS DE UN ARCHIVO
+	use 'lewis6991/gitsigns.nvim'                               -- CONTROL DE CAMBIOS DE UN ARCHIVO
 	use 'Raimondi/delimitMate'                                  -- CERRADO AUTOMÁTICO DE PARÉNTESIS, LLAVES, COMILLAS, ETC.
 	-- use 'dense-analysis/ale'                                    -- MARCA ERRORES DE SYNTAX CON '>>' EN ROJO CON UNA BREVE EXPLICACIÓN.
-	use 'Yggdroot/indentLine'                                   -- PONE CON ' | ' SEGÚN LOS TABS PARA INDICAR EL CONTENIDO DE UNA ESTRUCTURA
+	use 'lukas-reineke/indent-blankline.nvim'                   -- PONE CON ' | ' SEGÚN LOS TABS PARA INDICAR EL CONTENIDO DE UNA ESTRUCTURA
 	use 'norcalli/nvim-colorizer.lua'                           -- COLORIZADO DE CODIGOS HEXADECIMALES y de etiquetas rgb() y rgba()
 	use 'sheerun/vim-polyglot'                                  -- HIGHLIGHTNING DE LENGUAJES
 	use 'easymotion/vim-easymotion'                             -- MOVERSE MÁS RAPIDO POR VIM CON ',' + 'f'
@@ -49,7 +49,6 @@ return require("packer").startup(function()
 	use 'nvim-lualine/lualine.nvim'                            	-- BARRA INFERIOR DE ESTADO CON COLORES
 	use 'kshenoy/vim-signature'                                 -- PONE A LA IZQUIERDA DE LOS NUMEROS DE LINEA LA MARCA(m[letra]) QUE FUE ASIGNADA A LA LINEA
 	use ('folke/tokyonight.nvim', {branch= 'main'})             -- COLORSCHEME DE TOKIO NIGHT
-	use 'terryma/vim-multiple-cursors' 													-- VIM MULTIPLE CURSORS
 	use {
 		'VonHeikemen/lsp-zero.nvim', 															-- INTREGRACION ENTRE NVIM LSP Y LOS SNNIPPETS
 		requires = {
@@ -68,6 +67,11 @@ return require("packer").startup(function()
 			{'rafamadriz/friendly-snippets'}, 											-- COLECCION DE SNIPPETS
 		}
 	}
-	use 'mbbill/undotree'
 	-- use 'dstein64/vim-startuptime'  													  -- MUESTRA DE FORMA GRAFICA EL TIEMPO DE ARRANQUE
+	use 'mbbill/undotree'
+	use 'AckslD/nvim-neoclip.lua' 															  -- HISTORIAL DE COPIADO CON TELESCOPE
+	use 'folke/zen-mode.nvim' 																	  -- CENTRA EL CODIGO AL CENTRO
+	use 'folke/twilight.nvim' 																		-- RESALTA SOLAMENTE LA PARTE DEL CURSOR
+	use 'numToStr/Comment.nvim'                                   -- PERMITE COMENTAR CON 'gcc'
+	use 'mg979/vim-visual-multi'        													-- VIM MULTIPLE CURSORS. DA ERROR DE CONFUSION DE MAPPINGS
 end)
