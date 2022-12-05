@@ -180,7 +180,7 @@ vim.cmd([[
   augroup END
 
   "" Cambia entre el cursor PARA NVIM
-  let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+  " let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
   set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 
   "" make/cmake

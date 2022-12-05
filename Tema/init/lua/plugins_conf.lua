@@ -19,6 +19,9 @@
         git_placement = "signcolumn"
       },
     },
+    filters = {
+      dotfiles = true,
+    },
   })
 
 -- LuaLine
@@ -484,9 +487,13 @@ require("zen-mode").setup {
   },
   -- callback where you can add custom code when the Zen window opens
   on_open = function(win)
+    vim.cmd [[map j jzz]]
+    vim.cmd [[map k kzz]]
   end,
   -- callback where you can add custom code when the Zen window closes
   on_close = function()
+    vim.cmd [[unmap j]]
+    vim.cmd [[unmap k]]
   end,
 }
 

@@ -220,7 +220,7 @@ map('v', '<S-j>'         , ":m '>+1<CR>gv=gv"                , { noremap= true }
 map('n', '<S-y>'         , 'y$'                              , { noremap= true }               )
 
 -- Clean search (highlight)
-map('n', '<leader>,', ':noh<CR>'                       , { silent= true, noremap= true } )
+map('n', '<leader>,', ':noh<CR>'                             , { silent= true, noremap= true } )
 
 -- Vmap for maintain Visual Mode after shifting < and >
 map('v', '<'             , '<gv'                             , { }                             )
@@ -292,7 +292,7 @@ map('n', '<leader>p'    , "<cmd>lua require('telescope').extensions.neoclip.defa
 map('n', '<leader>Q'    , "<cmd>lua require('telescope').extensions.macroscope.default()<CR>" , { silent= true, noremap= true } )
 
 -- ZenMode
-map('n', '<leader>z'   , ":ZenMode<CR>"                           , { silent= true, noremap= true } )
+map('n', '<leader>z'   , ":ZenMode<CR>"                      , { silent= true, noremap= true } )
 -- ANTERIOR PLUGIN DE TRUE-ZEN
 -- -- Hace foco en la ventana
 -- map('n', '<leader>zw'   , "<cmd>lua require('true-zen.focus').toggle()<cr>"       , { silent= true, noremap= true } )
