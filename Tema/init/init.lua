@@ -1,5 +1,5 @@
 -- Function to verify a folder exists
-function isdir(file)
+function IsDir(file)
 	  local isok, errstr, errcode = os.rename(file, file)
   if isok == nil then
      if errcode == 13 then
@@ -11,7 +11,7 @@ function isdir(file)
   return true
 end
 -- Function to verify a file exists
-function isfile(file)
+function IsFile(file)
    local f=io.open(file,"r")
    if f~=nil then io.close(f) return true else return false end
 end

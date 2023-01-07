@@ -232,9 +232,10 @@ map('v', '<S-l>'         , '>gv'                             , { }              
 map('v', '<S-h>'         , '<gv'                             , { }                             )
 
 -- Terminal en NVim
-map('n', '<leader>t'     , ':vsplit<CR>:term<CR>'            , { silent= true, noremap= true } )
-map('n', '<leader>T'     , ':split<CR>:term<CR>'             , { silent= true, noremap= true } )
+map('n', '<leader>t'     , ':ToggleTerm direction=float<CR>'    , { silent= true, noremap= true } )
+map('n', '<leader>T'     , ':ToggleTerm direction=vertical<CR>' , { silent= true, noremap= true } )
 map('t', '<ESC>'         , '<C-\\><C-n>'                     , { noremap= true }               )
+map('t', 'ii'            , '<C-\\><C-n>'                     , { noremap= true }               )
 
 -- "*****************************************************************************
 -- "" Mappings de los PLUGINS
@@ -260,7 +261,7 @@ map('n', '<leader>ks'    , ':SSave<CR>'                      , { noremap= true }
 map('n', '<leader>rs'    , ':SDelete<CR>'                    , { noremap= true }               )
 
 -- Snippets
-map('i', '{<CR>'         , '{<CR>}<ESC>O'                    , { noremap= true }               )
+-- map('i', '{<CR>'         , '{<CR>}<ESC>O'                    , { noremap= true }               )
 map('i', '{;<CR>'        , '{<CR>};<ESC>O'                   , { noremap= true }               )
 
 -- NvimTree

@@ -5,7 +5,7 @@ local packer_install_dir = vim.g.package_home .. "start/packer.nvim"
 local install_cmd = string.format("term git clone --depth=1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim")
 
 -- Auto-install packer in case it isn't installed.
-if not isdir(packer_install_dir) then
+if not IsDir(packer_install_dir) then
   vim.api.nvim_echo({ { "Installing packer.nvim", "Type" } }, true, {})
   vim.cmd(install_cmd)
   vim.api.nvim_echo({ { "Restart nvim and execute :PackerInstall", "Type" } }, true, {})
@@ -23,12 +23,10 @@ vim.cmd([[
 
 return require("packer").startup(function()
   use 'wbthomason/packer.nvim'
-	-- use 'tpope/vim-commentary'                                  -- PERMITE COMENTAR CON 'gcc'
 	use 'tpope/vim-fugitive'                                    -- INTEGRACION CON GIT
 	use 'tpope/vim-rhubarb'                                     -- REQUISITO DE fugitive PARA :Gbrowse
 	use 'lewis6991/gitsigns.nvim'                               -- CONTROL DE CAMBIOS DE UN ARCHIVO
-	use 'Raimondi/delimitMate'                                  -- CERRADO AUTOMÁTICO DE PARÉNTESIS, LLAVES, COMILLAS, ETC.
-	-- use 'dense-analysis/ale'                                    -- MARCA ERRORES DE SYNTAX CON '>>' EN ROJO CON UNA BREVE EXPLICACIÓN.
+	use 'windwp/nvim-autopairs'                                 -- CERRADO AUTOMÁTICO DE PARÉNTESIS, LLAVES, COMILLAS, ETC.
 	use 'lukas-reineke/indent-blankline.nvim'                   -- PONE CON ' | ' SEGÚN LOS TABS PARA INDICAR EL CONTENIDO DE UNA ESTRUCTURA
 	use 'norcalli/nvim-colorizer.lua'                           -- COLORIZADO DE CODIGOS HEXADECIMALES y de etiquetas rgb() y rgba()
 	use 'sheerun/vim-polyglot'                                  -- HIGHLIGHTNING DE LENGUAJES
@@ -36,7 +34,6 @@ return require("packer").startup(function()
 	use 'vim-scripts/DrawIt'                                    -- DIBUJAR LINEAS
 	use 'gyim/vim-boxdraw'                                      -- DIBUJAR CUADRADOS
 	use 'preservim/tagbar'                                      -- ESQUEMA QUE MUESTRA EN UNA LISTA LOS TIPOS DE VARIABLES Y EL NOMBRE DE LAS VARIABLES DECLARADAS.
-	-- use('vim-scripts/c.vim', {['for']= {'c', 'cpp'}})           -- ESPECIALIZACION EN LENGUAJE C
 	use 'nvim-treesitter/nvim-treesitter'                       -- MEJORA EL DIBUJADO DE LA SINTAXIS
 	use 'nvim-treesitter/nvim-treesitter-context'               -- MUESTRA EN LA PARTE SUPERIOR DENTRO DE LA CLASE, FUNCION, ETC EN LA QUE SE ENCUENTRA
 	use 'nvim-telescope/telescope.nvim' 												-- EXTENSION DE FZF ESCRITO EN LUA
@@ -62,6 +59,7 @@ return require("packer").startup(function()
 			{'saadparwaiz1/cmp_luasnip'}, 													-- INTEGRACION ENTRE EL SERVIDOR DE AUTOCOMPLETADO Y EL PLUGIN DE SNIPPETS
 			{'hrsh7th/cmp-nvim-lsp'}, 															-- AUTOCOMPLETADO PARA EL LSP DE NVIM (?)
 			{'hrsh7th/cmp-nvim-lua'}, 															-- AUTOCOMPLETADO PARA LA API DE NEOVIM
+			{'ray-x/lsp_signature.nvim'},														-- MUESTRA LOS PARAMETROS MIENTRAS SE ESCRIBE UNA FUNCIÓN
 			-- Snippets
 			{'L3MON4D3/LuaSnip'}, 																	-- SNIPPETS PARA NEOVIM EN LUA
 			{'rafamadriz/friendly-snippets'}, 											-- COLECCION DE SNIPPETS
@@ -69,9 +67,11 @@ return require("packer").startup(function()
 	}
 	-- use 'dstein64/vim-startuptime'  													  -- MUESTRA DE FORMA GRAFICA EL TIEMPO DE ARRANQUE
 	use 'mbbill/undotree'
-	use 'AckslD/nvim-neoclip.lua' 															  -- HISTORIAL DE COPIADO CON TELESCOPE
-	use 'folke/zen-mode.nvim' 																	  -- CENTRA EL CODIGO AL CENTRO
-	use 'folke/twilight.nvim' 																		-- RESALTA SOLAMENTE LA PARTE DEL CURSOR
-	use 'numToStr/Comment.nvim'                                   -- PERMITE COMENTAR CON 'gcc'
-	use 'mg979/vim-visual-multi'        													-- VIM MULTIPLE CURSORS. DA ERROR DE CONFUSION DE MAPPINGS
+	use 'AckslD/nvim-neoclip.lua' 															-- HISTORIAL DE COPIADO CON TELESCOPE
+	use 'folke/zen-mode.nvim' 																	-- CENTRA EL CODIGO AL CENTRO
+	use 'folke/twilight.nvim' 																	-- RESALTA SOLAMENTE LA PARTE DEL CURSOR
+	use 'numToStr/Comment.nvim'                                 -- PERMITE COMENTAR CON 'gcc'
+	use 'mg979/vim-visual-multi'        												-- VIM MULTIPLE CURSORS. DA ERROR DE CONFUSION DE MAPPINGS
+	use 'akinsho/toggleterm.nvim' 															-- TERMINAL DESPLEGABLE
+	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 end)

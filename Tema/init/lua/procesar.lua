@@ -25,7 +25,7 @@ local Compile = {
     end,
 
     ['java'] = function()
-        if(isfile("build.xml")) then
+        if(IsFile("build.xml")) then
           exe("ant compile")
         else
           exe("javac '%'")
@@ -62,13 +62,17 @@ local CompileAndRun = {
         vim.cmd "so %"
     end,
 
+    ['vim'] = function()
+        vim.cmd "so %"
+    end,
+
     ['rust'] = function()
         Procesar("compilar", 1)
         exe("cargo run --manifest-path='%':p:h:h/Cargo.toml", 1)
     end,
 
     ['java'] = function()
-        if(isfile("build.xml")) then
+        if(IsFile("build.xml")) then
           exe("ant run")
         else
           Procesar("compilar", 1)
@@ -110,9 +114,10 @@ local CompileAndRun = {
     end,
 
     ['markdown'] = function()
-        Procesar("compilar", 1)
+        -- Procesar("compilar", 1)
         -- exe("xdg-open '%<'.pdf")
-        exe("%<.html")
+        -- exe("%<.html")
+        vim.cmd[[MarkdownPreview]]
     end,
   }
 
