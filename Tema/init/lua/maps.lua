@@ -269,13 +269,14 @@ map('n', '<F2>'         , ':NvimTreeFindFileToggle<CR>'      , { silent= true, n
 map('n', '<F3>'         , ':NvimTreeToggle<CR>'              , { silent= true, noremap= true } )
 
 -- Telescope.nvim
-map('n', '<leader>rr'   , "<cmd>lua require('telescope.builtin').find_files()<cr>", { silent= true, noremap= true } )
-map('n', '<leader>r'    , "<cmd>lua require('telescope.builtin').live_grep()<cr>" , { silent= true, noremap= true } )
-map('n', '<leader>b'    , "<cmd>lua require('telescope.builtin').buffers()<cr>"   , { silent= true, noremap= true } )
-map('n', '<leader>y'    , ":lua require'telescope.builtin'.search_history{}<CR>"  , { noremap= true }               )
-map('n', '<leader>gt'   , "<cmd>lua require('telescope.builtin').help_tags()<cr>" , { silent= true, noremap= true } )
-map('n', '<leader>gr'   , ":Telescope lsp_references<cr>"                         , { silent= true, noremap= true } )
-map('n', '<leader>gk'   , ":Telescope keymaps<cr>"                                , { silent= true, noremap= true } )
+map('n', '<leader>rr'   , "<cmd>lua require('telescope.builtin').find_files()<cr>"   , { silent= true, noremap= true } )
+map('n', '<leader>rc'   , "<cmd>Telescope neoclip defualt<CR>"                       , { silent= true, noremap= true } )
+map('n', '<leader>r'    , "<cmd>lua require('telescope.builtin').live_grep()<cr>"    , { silent= true, noremap= true } )
+map('n', '<leader>b'    , "<cmd>lua require('telescope.builtin').buffers()<cr>"      , { silent= true, noremap= true } )
+map('n', '<leader>y'    , "<cmd>lua require'telescope.builtin'.search_history{}<CR>" , { noremap= true }               )
+map('n', '<leader>gt'   , "<cmd>lua require('telescope.builtin').help_tags()<cr>"    , { silent= true, noremap= true } )
+map('n', '<leader>gr'   , "<cmd>Telescope lsp_references<cr>"                        , { silent= true, noremap= true } )
+map('n', '<leader>gk'   , "<cmd>Telescope keymaps<cr>"                               , { silent= true, noremap= true } )
 
 -- LSP NVIM
 map('n', '<leader>e'    , '<cmd>lua vim.diagnostic.open_float()<CR>'              , { silent= true, noremap= true } )

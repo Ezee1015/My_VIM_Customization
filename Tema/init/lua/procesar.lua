@@ -73,7 +73,7 @@ local CompileAndRun = {
 
     ['java'] = function()
         if(IsFile("build.xml")) then
-          exe("ant run")
+          exe("ant run",1)
         else
           Procesar("compilar", 1)
           exe("java '%<'", 1)
