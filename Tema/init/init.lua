@@ -22,9 +22,9 @@ vim.o.termguicolors = true
 require("maps")
 -- lua/plugins.lua
 require("plugins")
--- lua/basic_conf.lua
-require("basic_conf")
--- lua/plugins_conf.lua
-require("plugins_conf")
--- lua/procesar.lua
-require("procesar")
+-- lua/basic.lua
+require("basic")
+-- lua/compile.lua
+require("compile")
+-- lua/p-conf.lua
+require("p-conf")

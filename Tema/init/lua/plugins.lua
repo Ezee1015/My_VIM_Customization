@@ -9,6 +9,8 @@ if not IsDir(packer_install_dir) then
   vim.api.nvim_echo({ { "Installing packer.nvim", "Type" } }, true, {})
   vim.cmd(install_cmd)
   vim.api.nvim_echo({ { "Restart nvim and execute :PackerInstall", "Type" } }, true, {})
+	vim.cmd("packloadall!")
+	vim.cmd("packerInstall")
 end
 
 -- Load packer.nvim
@@ -28,7 +30,7 @@ return require("packer").startup(function()
 	use 'lewis6991/gitsigns.nvim'                               -- CONTROL DE CAMBIOS DE UN ARCHIVO
 	use 'windwp/nvim-autopairs'                                 -- CERRADO AUTOMÁTICO DE PARÉNTESIS, LLAVES, COMILLAS, ETC.
 	use 'lukas-reineke/indent-blankline.nvim'                   -- PONE CON ' | ' SEGÚN LOS TABS PARA INDICAR EL CONTENIDO DE UNA ESTRUCTURA
-	use 'norcalli/nvim-colorizer.lua'                           -- COLORIZADO DE CODIGOS HEXADECIMALES y de etiquetas rgb() y rgba()
+	use 'norcalli/nvim-colorizer.lua'                           -- COLORIZADO DE CODIGOS HEXADECIMALES y de etiquetas rgb()
 	use 'sheerun/vim-polyglot'                                  -- HIGHLIGHTNING DE LENGUAJES
 	use 'easymotion/vim-easymotion'                             -- MOVERSE MÁS RAPIDO POR VIM CON ',' + 'f'
 	use 'vim-scripts/DrawIt'                                    -- DIBUJAR LINEAS
@@ -73,5 +75,5 @@ return require("packer").startup(function()
 	use 'numToStr/Comment.nvim'                                 -- PERMITE COMENTAR CON 'gcc'
 	use 'mg979/vim-visual-multi'        												-- VIM MULTIPLE CURSORS. DA ERROR DE CONFUSION DE MAPPINGS
 	use 'akinsho/toggleterm.nvim' 															-- TERMINAL DESPLEGABLE
-	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+
 end)
