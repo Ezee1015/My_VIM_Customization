@@ -106,18 +106,8 @@ vim.cmd([[
 -- "*****************************************************************************
 -- "" Visual Settings
 -- "*****************************************************************************
--- ¿NECESARIO????
--- let no_buffers_menu=1
-
-vim.o.mousemodel  = popup
-vim.o.guioptions  = egmrti
-
--- ¿NECESARIO????
--- vim.cmd([[
--- if &term =~ '256color'
---   set t_ut=
--- endif
--- ]])
+vim.o.mousemodel  = "popup"
+vim.o.guioptions  = "egmrti"
 
 vim.o.scrolloff   = 3
 
@@ -128,23 +118,6 @@ vim.o.modelines   = 10
 vim.o.title       = true
 vim.o.titleold    = "Terminal"
 vim.o.titlestring = "%F"
-
-vim.cmd ([[
-  " MARCA DE ROJO los caracteres no ascii que pueden dar problemas en el codigo
-  syntax match nonascii "[^\x00-\x7F]"
-  highlight nonascii guibg=Red ctermbg=2
-
-  " Disable visualbell
-  set noerrorbells visualbell t_vb=
-  if has('autocmd')
-    autocmd GUIEnter * set visualbell t_vb=
-  endif
-
-  " Funciona para archivo C y C++
-  autocmd FileType c setlocal tabstop=4 shiftwidth=4 expandtab
-  autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 expandtab
-  ]])
-
 
 -- "*****************************************************************************
 -- "" Abbreviations
@@ -166,32 +139,10 @@ vim.cmd([[
 -- "*****************************************************************************
 -- "" Autocmd Rules
 -- "*****************************************************************************
-vim.cmd([[
-  "" The PC is fast enough, do syntax highlight syncing from start unless 200 lines
-    augroup vimrc-sync-fromstart
-    autocmd!
-    autocmd BufEnter * :syntax sync maxlines=200
-    augroup END
-
-  "" Remember cursor position
-  augroup vimrc-remember-cursor-position
-    autocmd!
-    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-  augroup END
-
-  "" Cambia entre el cursor PARA NVIM
-  " let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
-  set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
-
-  "" make/cmake
-  augroup vimrc-make-cmake
-    autocmd!
-    autocmd FileType make setlocal noexpandtab
-    autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
-  augroup END
-  ]])
-
--- En cuanto al comando time en la funcion de compilar...
---    Real...   is wall clock time - time from start to finish of the call. This is all elapsed time including time slices used by other processes and time the process spends blocked (for example if it is waiting for I/O to complete).
---    User...  is the amount of CPU time spent in user-mode code (outside the kernel) within the process. This is only actual CPU time used in executing the process. Other processes and time the process spends blocked do not count towards this figure.
---    Sys...   is the amount of CPU time spent in the kernel within the process. This means executing CPU time spent in system calls within the kernel, as opposed to library code, which is still running in user-space. Like 'user', this is only CPU time used by the process. See below for a brief description of kernel mode (also known as 'supervisor' mode) and the system call mechanism.
+-- Remember cursor position
+local remember_cursor_position = vim.api.nvim_create_augroup("remember-cursor-position", { clear = true })
+vim.api.nvim_create_autocmd("BufReadPost", {
+ pattern = "*",
+ command = [[ if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]],
+ group = remember_cursor_position,
+})

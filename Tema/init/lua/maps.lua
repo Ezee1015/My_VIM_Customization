@@ -162,6 +162,7 @@ map('n', 'Q'             , 'gq'                              , { }              
 
 -- Atajo Sustituir
 map('n', 'S'             , ':%s//g<Left><Left>'              , { }                             )
+map('n', '<Leader>S'     , ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>' , { }          )
 
 -- Lista de Cambios en un Archivo
 map('n', '<F6>'          , ':DiffSaved<CR>'                  , { }                             )
@@ -277,6 +278,9 @@ map('n', '<leader>y'    , "<cmd>lua require'telescope.builtin'.search_history{}<
 map('n', '<leader>gt'   , "<cmd>lua require('telescope.builtin').help_tags()<cr>"    , { silent= true, noremap= true } )
 map('n', '<leader>gr'   , "<cmd>Telescope lsp_references<cr>"                        , { silent= true, noremap= true } )
 map('n', '<leader>gk'   , "<cmd>Telescope keymaps<cr>"                               , { silent= true, noremap= true } )
+-- NeoClip Telescope
+map('n', '<leader>c'    , "<cmd>lua require('telescope').extensions.neoclip.default()<CR>"    , { silent= true, noremap= true } )
+map('n', '<leader>dq'   , "<cmd>lua require('telescope').extensions.macroscope.default()<CR>" , { silent= true, noremap= true } )
 
 -- LSP NVIM
 map('n', '<leader>e'    , '<cmd>lua vim.diagnostic.open_float()<CR>'              , { silent= true, noremap= true } )
@@ -284,23 +288,17 @@ map('n', '-e'           , '<cmd>lua vim.diagnostic.goto_prev()<CR>'             
 map('n', '+e'           , '<cmd>lua vim.diagnostic.goto_next()<CR>'               , { silent= true, noremap= true } )
 map('n', '<leader>dd'   , '<cmd>Telescope diagnostics<CR>'                        , { silent= true, noremap= true } )
 map('n', '<leader>dr'   , '<cmd>lua vim.lsp.buf.rename()<CR>'                     , { silent= true, noremap= true } )
+map('n', 'gd'           , '<cmd>lua vim.lsp.buf.definition()<CR>'                 , { silent= true, noremap= true } )
 map('i', '<C-h>'        , '<cmd>lua vim.lsp.buf.signature_help()<CR>'             , { silent= true, noremap= true } )
 
 -- UndoTree
 map('n', '<F5>'         , ':UndotreeToggle<CR>'              , { noremap= true }               )
 
--- NeoClip
-map('n', '<leader>p'    , "<cmd>lua require('telescope').extensions.neoclip.default()<CR>"    , { silent= true, noremap= true } )
-map('n', '<leader>Q'    , "<cmd>lua require('telescope').extensions.macroscope.default()<CR>" , { silent= true, noremap= true } )
-
 -- ZenMode
-map('n', '<leader>z'   , ":ZenMode<CR>"                      , { silent= true, noremap= true } )
--- ANTERIOR PLUGIN DE TRUE-ZEN
--- -- Hace foco en la ventana
--- map('n', '<leader>zw'   , "<cmd>lua require('true-zen.focus').toggle()<cr>"       , { silent= true, noremap= true } )
--- -- Hace foto en el texto
--- map('v', '<leader>zt'   , "<cmd>lua require('true-zen.narrow').toggle()<cr>"      , { silent= true, noremap= true } )
--- -- Elimina toda las molestias graficas
--- map('n', '<leader>zm'   , "<cmd>lua require('true-zen.minimalist').toggle()<cr>"  , { silent= true, noremap= true } )
--- -- Cenntra el texto
--- map('n', '<leader>zc'   , "<cmd>lua require('true-zen.ataraxis').toggle()<cr>"    , { silent= true, noremap= true } )
+map('n', '<leader>z'    , ":ZenMode<CR>"                      , { silent= true, noremap= true } )
+
+-- Hace que pegar sobre una seleccion no reemplaze a lo que se borra
+map('v', '<leader>p'    , '"_dP'                             , { silent= true, noremap= true } )
+
+-- Marca de rojo los caracteres no ascii que pueden dar problemas en el código
+map('n', '<leader>i'    , ':syntax match nonascii "[^\\d0-\\d127]"<CR>:highlight nonascii guibg=DarkRed ctermbg=2<CR>' , { silent= true, noremap= true } )
