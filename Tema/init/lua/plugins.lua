@@ -75,5 +75,6 @@ return require("packer").startup(function()
 	use 'numToStr/Comment.nvim'                                 -- PERMITE COMENTAR CON 'gcc'
 	use 'mg979/vim-visual-multi'        												-- VIM MULTIPLE CURSORS. DA ERROR DE CONFUSION DE MAPPINGS
 	use 'akinsho/toggleterm.nvim' 															-- TERMINAL DESPLEGABLE
+	use 'christoomey/vim-tmux-navigator'  											-- INTEGRAR VIM CON TMUX
 
 end)
