@@ -3,7 +3,7 @@
 function INSTALAR {
 
     sudo apt install neovim vim curl vim-gtk openjdk-17* xdotool curl python3 universal-ctags -y
-    sudo pacman -S neovim xclip xorg-xclipboard gvim xdotool python3 ctags jdk17-openjdk
+    sudo pacman -S neovim xclip xorg-xclipboard vim xdotool python3 ctags jdk17-openjdk
     sudo zypper install neovim xclip xclipboard vim xdotool python3 ctags
     pip install -U neovim
     pip3 install -U neovim
