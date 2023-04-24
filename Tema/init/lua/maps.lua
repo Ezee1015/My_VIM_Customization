@@ -162,11 +162,11 @@ map('n', 'Q'             , 'gq'                              , { }              
 
 -- Atajo Sustituir
 map('n', 'S'             , ':%s//g<Left><Left>'              , { }                             )
-map('n', '<Leader>S'     , ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>' , { }          )
+map('n', '<Leader>S'     , ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>' , { }        )
 
 -- Lista de Cambios en un Archivo
 map('n', '<F6>'          , ':DiffSaved<CR>'                  , { }                             )
-map('n', '<S-<F6>>'      , ":diffoff<CR>:q<CR>''"            , { }                             )
+map('n', '<F7>'          , ":diffoff<CR>:q<CR>''"            , { }                             )
 
 -- Ordenado Random de Lineas
 map('v', 'rr'            , '!sort -R<CR>'                    , { }                             )
@@ -256,6 +256,7 @@ map('n', '<leader>gl'    , ':Git pull<CR>'                   , { noremap= true }
 map('n', '<leader>gs'    , ':G<CR>'                          , { noremap= true }               )
 map('n', '<leader>gb'    , ':Git blame<CR>'                  , { noremap= true }               )
 map('n', '<leader>gd'    , ':Gvdiffsplit<CR>'                , { noremap= true }               )
+map('n', '<leader>gb'    , ':Gitsigns blame_line<CR>'                , { noremap= true }               )
 
 -- Startify
 map('n', '<leader>ks'    , ':SSave<CR>'                      , { noremap= true }               )

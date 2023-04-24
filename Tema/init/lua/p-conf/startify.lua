@@ -34,11 +34,13 @@ end
 vim.g.startify_commands = {
   { g = {'Carpeta de Github', "cd ~/github/ | lua require('telescope.builtin').find_files()"}},
   { f = {'Mostrar Arbol de Archivos', "NvimTreeToggle"}},
-  { r = {'Recargar Startify', 'Startify'}},
+  -- { r = {'Recargar Startify', 'Startify'}},
   { c = {'Configuración', "cd ~/.config/nvim/ | lua require('telescope.builtin').find_files()"}},
   { a = {'Actualizar Plugins', 'PackerSync'}},
   { u = {'Limpiar Historial de Undo', '!rm ~/.local/share/nvim/undo/*'}},
   { p = {'Información sobre LSP', 'LspInstallInfo'}},
+  { o = {'Log del LSP', 'e ~/.local/state/nvim/lsp.log'}},
+{ r = {'Telescope Recent Files', 'Telescope oldfiles'}},
   -- { s = {'Tiempo de Arranque', 'StartupTime'}},
 }
 vim.g.startify_lists = {
