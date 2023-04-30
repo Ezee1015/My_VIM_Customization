@@ -41,8 +41,9 @@ local Compile = {
     end,
 
     ['markdown'] = function()
+        exe('MarkdownPreview')
+        -- exe("markdown '%' > '%<'.html")
         -- exe("pandoc '%' -o '%<'.pdf")
-        exe("markdown '%' > '%<'.html")
     end
 
 }

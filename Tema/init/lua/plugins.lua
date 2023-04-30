@@ -77,4 +77,8 @@ return require("packer").startup(function()
 	use 'akinsho/toggleterm.nvim' 															-- TERMINAL DESPLEGABLE
 	use 'christoomey/vim-tmux-navigator'  											-- INTEGRAR VIM CON TMUX
 
+	use({
+			"iamcco/markdown-preview.nvim", 												-- LIVE PREVIEW DE MARKDOWN PARA NEOVIM
+			run = function() vim.fn["mkdp#util#install"]() end,
+	})
 end)
