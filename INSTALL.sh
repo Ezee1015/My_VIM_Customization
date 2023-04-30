@@ -3,8 +3,8 @@
 function INSTALAR {
 
     sudo apt install neovim vim curl vim-gtk openjdk-17* xdotool curl python3 universal-ctags -y
-    sudo pacman -S neovim xclip xorg-xclipboard vim xdotool python3 ctags jdk17-openjdk
-    sudo zypper install neovim xclip xclipboard vim xdotool python3 ctags
+    sudo pacman -S neovim xclip xorg-xclipboard vim xdotool python3 ctags jdk17-openjdk lua-language-server
+    sudo zypper install neovim xclip xclipboard vim xdotool python3 ctags lua-language-server
     pip install -U neovim
     pip3 install -U neovim
     # curl -sL install-node.vercel.app/lts | sudo bash
@@ -19,6 +19,7 @@ function INSTALAR {
      echo ""
      echo "           Se ha instalado Correctamente en el VIM del Usuario. Terminando el Instalador..."
      echo "           Solamente queda unas cosas..."
+     echo "                     * Si está en Debian o derivada, instale el paquete 'lua-language-server'"
      echo "                     * Seleccione en su terminal la fuente UbuntuMono Nerd Font Mono"
      echo "                     * Para Instalar el soporte de TreeSitter :TSInstall java :TSInstall c " # Lenguajes Soportados: https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
 }
