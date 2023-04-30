@@ -11,11 +11,11 @@ local has_words_before = function()
 end
 local cmp = require'cmp'
 local luasnip = require'luasnip'
---   פּ ﯟ   some other good icons
+--     פּ  ﯟ  m    some other good icons
 local kind_icons = {
   Text = "",
-  Method = "m",
-  Function = "",
+  Method = "m ",
+  Function = " ",
   Constructor = "",
   Field = "",
   Variable = "",
