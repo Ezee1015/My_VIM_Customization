@@ -273,6 +273,7 @@ map('n', '<F3>'         , ':NvimTreeToggle<CR>'              , { silent= true, n
 -- Telescope.nvim
 map('n', '<leader>rr'   , "<cmd>lua require('telescope.builtin').find_files()<cr>"   , { silent= true, noremap= true } )
 map('n', '<leader>rc'   , "<cmd>Telescope neoclip defualt<CR>"                       , { silent= true, noremap= true } )
+map('n', '<leader>rf'   , "<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>" , { silent= true, noremap= true } )
 map('n', '<leader>r'    , "<cmd>lua require('telescope.builtin').live_grep()<cr>"    , { silent= true, noremap= true } )
 map('n', '<leader>b'    , "<cmd>lua require('telescope.builtin').buffers()<cr>"      , { silent= true, noremap= true } )
 map('n', '<leader>y'    , "<cmd>lua require'telescope.builtin'.search_history{}<CR>" , { noremap= true }               )

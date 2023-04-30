@@ -76,9 +76,13 @@ return require("packer").startup(function()
 	use 'mg979/vim-visual-multi'        												-- VIM MULTIPLE CURSORS. DA ERROR DE CONFUSION DE MAPPINGS
 	use 'akinsho/toggleterm.nvim' 															-- TERMINAL DESPLEGABLE
 	use 'christoomey/vim-tmux-navigator'  											-- INTEGRAR VIM CON TMUX
-
 	use({
 			"iamcco/markdown-preview.nvim", 												-- LIVE PREVIEW DE MARKDOWN PARA NEOVIM
 			run = function() vim.fn["mkdp#util#install"]() end,
 	})
+	use {
+			"nvim-telescope/telescope-file-browser.nvim", 						-- FILE EXPLORER EN TELESCOPE
+			requires = { "nvim-telescope/telescope.nvim",
+			"nvim-lua/plenary.nvim" }
+	}
 end)
