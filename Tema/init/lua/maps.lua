@@ -296,13 +296,13 @@ map('n', '<leader>dr'   , '<cmd>lua vim.lsp.buf.rename()<CR>'                   
 map('n', 'gd'           , '<cmd>lua vim.lsp.buf.definition()<CR>'                 , { silent= true, noremap= true } )
 
 -- UndoTree
-map('n', '<F5>'         , ':UndotreeToggle<CR>'              , { noremap= true }               )
+map('n', '<F5>'         , ':UndotreeToggle<CR>'                 , { noremap= true }               )
 
 -- ZenMode
-map('n', '<leader>x'    , ":ZenMode<CR>"                      , { silent= true, noremap= true } )
+map('n', '<leader>a'    , ":ZenMode<CR>"                        , { silent= true, noremap= true } )
 
 -- Terminal en NVim
-map('n', '<leader>t'     , ':ToggleTerm direction=float<CR>'    , { silent= true, noremap= true } )
-map('n', '<leader>T'     , ':ToggleTerm direction=vertical<CR>' , { silent= true, noremap= true } )
-map('t', '<ESC>'         , '<C-\\><C-n>'                     , { noremap= true }               )
-map('t', 'ii'            , '<C-\\><C-n>'                     , { noremap= true }               )
+map('n', '<leader>x'     , ':ToggleTerm direction=float<CR>'    , { silent= true, noremap= true } )
+map('n', '<leader>X'     , ':ToggleTerm direction=vertical<CR>' , { silent= true, noremap= true } )
+map('t', '<ESC>'         , '<C-\\><C-n>'                        , { noremap= true }               )
+map('t', 'ii'            , '<C-\\><C-n>'                        , { noremap= true }               )
