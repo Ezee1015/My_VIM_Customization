@@ -7,9 +7,16 @@ local insert = ls.insert_node
 ls.add_snippets("markdown", {
 	s("ul", {
 		text("<ins>"),
-		-- Placeholder/Insert.
-		insert(1),
+		insert(1, "Texto Subrayado"),
 		text("</ins> "),
+		insert(0),
+	})
+})
+ls.add_snippets("markdown", {
+	s("center", {
+		text({ '<div align="center">', "\t" }),
+		insert(1),
+		text({ "\t", "</div> " }),
 		insert(0),
 	})
 })
@@ -18,7 +25,6 @@ ls.add_snippets("markdown", {
 ls.add_snippets("java", {
 	s("sout", {
 		text("System.out.println("),
-		-- Placeholder/Insert.
 		insert(1),
 		text(");"),
 		insert(0),
