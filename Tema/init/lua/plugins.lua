@@ -44,7 +44,7 @@ return require("packer").startup(function()
 	use 'mhinz/vim-startify'			                              -- PANTALLA DE INICIO
 	use 'kyazdani42/nvim-web-devicons'                          -- ICONOS PARA VIM-STARTIFY
 	use 'kyazdani42/nvim-tree.lua' 															-- ARBOL DE ARCHIVOS ESCRITO EN LUA (SIMIL A NERDTREE)
-	use 'akinsho/bufferline.nvim'
+	use 'akinsho/bufferline.nvim' 															-- PESTAÑAS PARA CADA BUFFER (PARTE SUPERIOR)
 	use 'nvim-lualine/lualine.nvim'                            	-- BARRA INFERIOR DE ESTADO CON COLORES
 	use 'kshenoy/vim-signature'                                 -- PONE A LA IZQUIERDA DE LOS NUMEROS DE LINEA LA MARCA(m[letra]) QUE FUE ASIGNADA A LA LINEA
 	use ('folke/tokyonight.nvim', {branch= 'main'})             -- COLORSCHEME DE TOKIO NIGHT
@@ -71,9 +71,9 @@ return require("packer").startup(function()
 	use 'mbbill/undotree'
 	use 'AckslD/nvim-neoclip.lua' 															-- HISTORIAL DE COPIADO CON TELESCOPE
 	use 'folke/zen-mode.nvim' 																	-- CENTRA EL CODIGO AL CENTRO
-	use 'folke/twilight.nvim' 																	-- RESALTA SOLAMENTE LA PARTE DEL CURSOR
+	use 'folke/twilight.nvim' 																	-- RESALTA LA PORCION DE CODIGO DEBAJO DEL CURSOR
 	use 'numToStr/Comment.nvim'                                 -- PERMITE COMENTAR CON 'gcc'
-	use 'mg979/vim-visual-multi'        												-- VIM MULTIPLE CURSORS. DA ERROR DE CONFUSION DE MAPPINGS
+	use 'mg979/vim-visual-multi'        												-- VIM MULTIPLE CURSORS
 	use 'akinsho/toggleterm.nvim' 															-- TERMINAL DESPLEGABLE
 	use 'christoomey/vim-tmux-navigator'  											-- INTEGRAR VIM CON TMUX
 	use({
@@ -85,4 +85,5 @@ return require("packer").startup(function()
 			requires = { "nvim-telescope/telescope.nvim",
 			"nvim-lua/plenary.nvim" }
 	}
+	use 'dhruvasagar/vim-table-mode' 															-- ASISTENTE PARA LAS TABLAS EN MARKDOWN
 end)
