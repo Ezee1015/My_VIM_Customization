@@ -86,4 +86,5 @@ return require("packer").startup(function()
 			"nvim-lua/plenary.nvim" }
 	}
 	use 'dhruvasagar/vim-table-mode' 															-- ASISTENTE PARA LAS TABLAS EN MARKDOWN
+	use 'mzlogin/vim-markdown-toc' 																-- GENERA LOS INDICES EN MARKDOWN
 end)

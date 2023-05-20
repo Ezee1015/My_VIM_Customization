@@ -306,3 +306,6 @@ map('n', '<leader>x'     , ':ToggleTerm direction=float<CR>'    , { silent= true
 map('n', '<leader>X'     , ':ToggleTerm direction=vertical<CR>' , { silent= true, noremap= true } )
 map('t', '<ESC>'         , '<C-\\><C-n>'                        , { noremap= true }               )
 map('t', 'ii'            , '<C-\\><C-n>'                        , { noremap= true }               )
+
+-- Markdown
+map('n', '<leader>toc'   , 'gg:GenTocGFM<CR>'                   , { noremap= true }               )
