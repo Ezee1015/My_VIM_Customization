@@ -1,20 +1,16 @@
-vim.g.package_home = vim.fn.stdpath("data") .. "/site/pack/packer/"
-local packer_install_dir = vim.g.package_home .. "start/packer.nvim"
-
--- local packer_repo = string.format("")
-local install_cmd = string.format("term git clone --depth=1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim")
-
--- Auto-install packer in case it isn't installed.
-if not IsDir(packer_install_dir) then
-  vim.api.nvim_echo({ { "Installing packer.nvim", "Type" } }, true, {})
-  vim.cmd(install_cmd)
-  vim.api.nvim_echo({ { "Restart nvim and execute :PackerInstall", "Type" } }, true, {})
-	vim.cmd("packloadall!")
-	vim.cmd("packerInstall")
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
 
--- Load packer.nvim
-vim.cmd("packadd packer.nvim")
+local packer_bootstrap = ensure_packer()
+
 -- Compila la lista de packer cuando se actualiza este archivo
 vim.cmd([[
   augroup packer_user_config
@@ -88,4 +84,9 @@ return require("packer").startup(function()
 	use 'dhruvasagar/vim-table-mode' 															-- ASISTENTE PARA LAS TABLAS EN MARKDOWN
 	use 'mzlogin/vim-markdown-toc' 																-- GENERA LOS INDICES EN MARKDOWN
 	use 'stevearc/oil.nvim' 																			-- ABRE UN DIRECTIORIO COMO UN BUFFER
+
+	-- Instalación de Plugins en el primer arranque
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)
