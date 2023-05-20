@@ -309,3 +309,7 @@ map('t', 'ii'            , '<C-\\><C-n>'                        , { noremap= tru
 
 -- Markdown
 map('n', '<leader>toc'   , 'gg:GenTocGFM<CR>'                   , { noremap= true }               )
+
+-- Oil Nvim
+map("n", "<leader>--"    , '<cmd>lua require("oil").open_float()<CR>'             , { desc = "Open parent directory"} )
+map("n", "<leader>-"     , '<cmd>lua require("oil").open()<CR>'                   , { desc = "Open parent directory"} )

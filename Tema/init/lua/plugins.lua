@@ -87,4 +87,5 @@ return require("packer").startup(function()
 	}
 	use 'dhruvasagar/vim-table-mode' 															-- ASISTENTE PARA LAS TABLAS EN MARKDOWN
 	use 'mzlogin/vim-markdown-toc' 																-- GENERA LOS INDICES EN MARKDOWN
+	use 'stevearc/oil.nvim' 																			-- ABRE UN DIRECTIORIO COMO UN BUFFER
 end)
