@@ -49,7 +49,10 @@ return require("packer").startup(function()
 		requires = {
 			-- LSP Support
 			{'neovim/nvim-lspconfig'}, 															-- CONFIGURACIONES PARA EL LSP INTEGRADO DE NEOVIM
-			{'williamboman/nvim-lsp-installer'}, 										-- INSTALADOR DE LENGUAJES PARA EL LSP DE NEOVIM
+			{'williamboman/mason.nvim', 														-- PARA INSTALAR SERVIDORES DE LENGUAJES
+					run = ":MasonUpdate"
+			},
+			{'williamboman/mason-lspconfig.nvim'}, 									-- PARA CONFIGURAR EL LSP (MEJOR INTEGRACIÓN CON LSP)
 			-- Autocompletion
 			{'hrsh7th/nvim-cmp'}, 																	-- SERVIDOR DE AUTOCOMPLETADO
 			{'hrsh7th/cmp-buffer'}, 																-- AUTOCOMPLETADO DE ARCHIVOS

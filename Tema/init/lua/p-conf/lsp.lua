@@ -157,14 +157,14 @@ vim.diagnostic.config({
 -- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 -- vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float()]])
 
-require("nvim-lsp-installer").setup({
-  ui = {
-    icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗"
+require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
     }
-  }
 })
 
 -- Lua-Language-Server
