@@ -17,7 +17,7 @@ end
 
 local Compile = {
     ['c'] = function()
-        exe("gcc '%' -o '%<'")
+        exe("gcc '%' -o '%<' -lm")
     end,
 
     ['cpp'] = function()
@@ -51,7 +51,7 @@ local Compile = {
 local CompileAndRun = {
     ['c'] = function()
         Procesar("compilar", 1)
-        exe("'%<'", 1)
+        exe("'./%<'", 1)
     end,
 
     ['cpp'] = function()
