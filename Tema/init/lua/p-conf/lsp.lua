@@ -191,3 +191,6 @@ require'lspconfig'.lua_ls.setup {
     },
   },
 }
+
+-- Clangd
+require'lspconfig'.clangd.setup{}
