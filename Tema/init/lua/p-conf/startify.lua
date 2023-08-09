@@ -1,3 +1,8 @@
+function update()
+  vim.cmd('PackerSync')
+  vim.cmd('TSUpdate')
+end
+
 vim.g.webdevicons_enable_startify = 1
 vim.g.startify_files_number=8
 vim.g.startify_update_oldfiles = 1
@@ -36,7 +41,7 @@ vim.g.startify_commands = {
   { f = {'Mostrar Arbol de Archivos', "NvimTreeToggle"}},
   -- { r = {'Recargar Startify', 'Startify'}},
   { c = {'Configuración', "cd ~/.config/nvim/ | lua require('telescope.builtin').find_files()"}},
-  { a = {'Actualizar Plugins', 'PackerSync'}},
+  { a = {'Actualizar Plugins', 'lua update()'}},
   { u = {'Limpiar Historial de Undo', '!rm ~/.local/share/nvim/undo/*'}},
   { p = {'Información sobre LSP', 'Mason'}},
   { o = {'Log del LSP', 'e ~/.local/state/nvim/lsp.log'}},
