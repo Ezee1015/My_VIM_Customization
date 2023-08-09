@@ -44,6 +44,7 @@ return require("packer").startup(function()
 	use 'nvim-lualine/lualine.nvim'                            	-- BARRA INFERIOR DE ESTADO CON COLORES
 	use 'kshenoy/vim-signature'                                 -- PONE A LA IZQUIERDA DE LOS NUMEROS DE LINEA LA MARCA(m[letra]) QUE FUE ASIGNADA A LA LINEA
 	use ('folke/tokyonight.nvim', {branch= 'main'})             -- COLORSCHEME DE TOKIO NIGHT
+	-- LSPs que uso: clangd, cpptools, jdtls, lua-language-server lua_ls , python-lsp-server pylsp
 	use {
 		'VonHeikemen/lsp-zero.nvim', 															-- INTREGRACION ENTRE NVIM LSP Y LOS SNNIPPETS
 		requires = {
