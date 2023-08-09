@@ -1,5 +1,6 @@
 require('p-conf.bufline')
 require('p-conf.commentary')
+require('p-conf.dap')
 require('p-conf.lsp')
 require('p-conf.lualine')
 require('p-conf.luasnip')

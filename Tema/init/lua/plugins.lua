@@ -44,6 +44,7 @@ return require("packer").startup(function()
 	use 'nvim-lualine/lualine.nvim'                            	-- BARRA INFERIOR DE ESTADO CON COLORES
 	use 'kshenoy/vim-signature'                                 -- PONE A LA IZQUIERDA DE LOS NUMEROS DE LINEA LA MARCA(m[letra]) QUE FUE ASIGNADA A LA LINEA
 	use ('folke/tokyonight.nvim', {branch= 'main'})             -- COLORSCHEME DE TOKIO NIGHT
+
 	-- LSPs que uso: clangd, cpptools, jdtls, lua-language-server lua_ls , python-lsp-server pylsp
 	use {
 		'VonHeikemen/lsp-zero.nvim', 															-- INTREGRACION ENTRE NVIM LSP Y LOS SNNIPPETS
@@ -88,6 +89,13 @@ return require("packer").startup(function()
 	use 'dhruvasagar/vim-table-mode' 															-- ASISTENTE PARA LAS TABLAS EN MARKDOWN
 	use 'mzlogin/vim-markdown-toc' 																-- GENERA LOS INDICES EN MARKDOWN
 	use 'stevearc/oil.nvim' 																			-- ABRE UN DIRECTIORIO COMO UN BUFFER
+
+	-- DAPs que uso: cpptools
+	use({
+		"rcarriga/nvim-dap-ui", 																		-- Interfaz del DAP
+		requires = {"mfussenegger/nvim-dap", 												-- DAP para vim: cliente para Nvim del debugger
+		"theHamsta/nvim-dap-virtual-text"} 													-- Muestra junto a la declaración el valor de la variable
+	})
 
 	-- Instalación de Plugins en el primer arranque
   if packer_bootstrap then
