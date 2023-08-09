@@ -17,7 +17,7 @@ end
 
 local Compile = {
     ['c'] = function()
-        exe("gcc '%' -o '%<' -lm")
+        exe("gcc '%' -o '%<' -lm -g")
     end,
 
     ['cpp'] = function()
