@@ -51,12 +51,12 @@ local Compile = {
 local CompileAndRun = {
     ['c'] = function()
         Procesar("compilar", 1)
-        exe("'./%<'", 1)
+        exe("'"..vim.fn.expand('%:p:r').."'", 1)
     end,
 
     ['cpp'] = function()
         Procesar("compilar", 1)
-        exe("'%<'", 1)
+        exe("'"..vim.fn.expand('%:p:r').."'", 1)
     end,
 
     ['lua'] = function()
