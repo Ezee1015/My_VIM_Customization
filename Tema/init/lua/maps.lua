@@ -138,8 +138,10 @@ map('n', '<S-h>'         , ':vertical resize -2<CR>'         , { }              
 map('n', '<S-k>'         , ':res -2<CR>'                     , { }                             )
 map('n', '<S-j>'         , ':res +2<CR>'                     , { }                             )
 -- Cambia el <S-j> a gj. Resuelve el conflicto
-map('n', '<leader>gj'    , ':join<CR>'                       , { silent= true }                )
-map('n', '<leader>g<S-j>', ':join!<CR>'                      , { silent= true }                )
+map('n', '<leader>j'    , ':join<CR>'                       , { silent= true }                )
+map('n', '<leader><S-j>', ':join!<CR>'                      , { silent= true }                )
+map('v', '<leader>j'    , ':join<CR>'                       , { silent= true }                )
+map('v', '<leader><S-j>', ':join!<CR>'                      , { silent= true }                )
 map('n', '<leader>gq'    , 'g~'                              , { silent= true }                )
 
 
@@ -172,8 +174,8 @@ map('n', '<F7>'          , ":diffoff<CR>:q<CR>''"            , { }              
 map('v', 'rr'            , '!sort -R<CR>'                    , { }                             )
 
 -- Para los teclados que no tienen < y >
-map('n', '<leader>j'     , ':lua Programar()<CR>'            , { silent= true }                )
-map('n', '<leader><S-j>' , ':lua DesProgramar()<CR>'         , { silent= true }                )
+map('n', '<leader>ç'     , ':lua Programar()<CR>'            , { silent= true }                )
+map('n', '<leader>Ç'     , ':lua DesProgramar()<CR>'         , { silent= true }                )
 
 -- Compile
 map('n', '<leader>cc'    , ':lua Procesar("ejecutar")<CR>'   , { }                             )
@@ -187,10 +189,10 @@ map('n', '<C-t>t'        , ':tabnew<CR>:NvimTreeToggle<CR>'  , { silent= true, n
 map('n', '<TAB>'         , ':BufferLineCycleNext<CR>'        , { silent= true, noremap= true } )
 map('n', '<S-TAB>'       , ':BufferLineCyclePrev<CR>'        , { silent= true, noremap= true } )
 map('n', '<S-t>'         , ':enew<CR>:NvimTreeToggle<CR>'    , { silent= true, noremap= true } )
-map('n', '<C-b><Right>'  , ':BufferLineMoveNext<CR>'         , { silent= true, noremap= true } )
-map('n', '<C-b><Left>'   , ':BufferLineMovePrev<CR>'         , { silent= true, noremap= true } )
-map('n', '<C-b>e'        , ':BufferLineSortByExtension<CR>'  , { silent= true, noremap= true } )
-map('n', '<C-b>d'        , ':BufferLineSortByDirectory<CR>'  , { silent= true, noremap= true } )
+map('n', '<leader>b<Right>', ':BufferLineMoveNext<CR>'       , { silent= true, noremap= true } )
+map('n', '<leader>b<Left>' , ':BufferLineMovePrev<CR>'       , { silent= true, noremap= true } )
+map('n', '<leader>be'      , ':BufferLineSortByExtension<CR>', { silent= true, noremap= true } )
+map('n', '<leader>bd'      , ':BufferLineSortByDirectory<CR>', { silent= true, noremap= true } )
 map('n', '<leader>1'     , ':BufferLineGoToBuffer 1<CR>'     , { silent= true, noremap= true } )
 map('n', '<leader>2'     , ':BufferLineGoToBuffer 2<CR>'     , { silent= true, noremap= true } )
 map('n', '<leader>3'     , ':BufferLineGoToBuffer 3<CR>'     , { silent= true, noremap= true } )
@@ -314,14 +316,14 @@ map('n', '<F5>'         , ':UndotreeToggle<CR>'                 , { noremap= tru
 map('n', '<leader>a'    , ":ZenMode<CR>"                        , { silent= true, noremap= true } )
 
 -- Terminal en NVim
-map('n', '<leader>x'     , ':ToggleTerm direction=float<CR>'    , { silent= true, noremap= true } )
-map('n', '<leader>X'     , ':ToggleTerm direction=vertical<CR>' , { silent= true, noremap= true } )
-map('t', '<ESC>'         , '<C-\\><C-n>'                        , { noremap= true }               )
-map('t', 'ii'            , '<C-\\><C-n>'                        , { noremap= true }               )
+map('n', '<leader>x'    , ':ToggleTerm direction=float<CR>'    , { silent= true, noremap= true } )
+map('n', '<leader>X'    , ':ToggleTerm direction=vertical<CR>' , { silent= true, noremap= true } )
+map('t', '<ESC>'        , '<C-\\><C-n>'                        , { noremap= true }               )
+map('t', 'ii'           , '<C-\\><C-n>'                        , { noremap= true }               )
 
 -- Markdown
-map('n', '<leader>toc'   , 'gg:GenTocGFM<CR>'                   , { noremap= true }               )
+map('n', '<leader>toc'  , 'gg:GenTocGFM<CR>'                   , { noremap= true }               )
 
 -- Oil Nvim
-map("n", "<leader>--"    , '<cmd>lua require("oil").open_float()<CR>'             , { desc = "Open parent directory"} )
-map("n", "<leader>-"     , '<cmd>lua require("oil").open()<CR>'                   , { desc = "Open parent directory"} )
+map("n", "<leader>--"   , '<cmd>lua require("oil").open_float()<CR>'         , { desc = "Open parent directory"} )
+map("n", "<leader>-"    , '<cmd>lua require("oil").open()<CR>'               , { desc = "Open parent directory"} )
