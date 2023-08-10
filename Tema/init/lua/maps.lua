@@ -334,3 +334,5 @@ map('n', '<C-d>b'       , ":lua require('dap').toggle_breakpoint()<CR>"      , {
 map('n', '<C-d>c'       , ":lua require('dap').continue()<CR>"               , { silent= true, noremap= true } )
 map('n', '<C-d>n'       , ":lua require('dap').step_over()<CR>"              , { silent= true, noremap= true } )
 map('n', '<C-d>i'       , ":lua require('dap').step_into()<CR>"              , { silent= true, noremap= true } )
+map('n', '<C-d>o'       , ":lua require('dap').step_out()<CR>"               , { silent= true, noremap= true } )
+map('n', '<C-d><S-b>'   , ":lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", { silent= true, noremap= true } )
