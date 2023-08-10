@@ -1,4 +1,5 @@
 require("dapui").setup()
+require("nvim-dap-virtual-text").setup()
 
 -- DAP para C, C++, Rust
 local whereis_gdb = vim.fn.system('whereis gdb')
