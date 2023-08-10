@@ -1,6 +1,8 @@
 # My_VIM_Customization
 Mi básica customización de NeoVIM, creado desde cero y personalizado por mi para mis necesidades.
 
+Documentación: [Documentacion/Neovim - Documentacion.pdf](https://github.com/Ezee1015/My_VIM_Customization/blob/Neovim-Lua/Documentacion/Neovim%20-%20Documentacion.pdf)
+
 # REQUISITOS
 ```
 git
