@@ -1,6 +1,6 @@
 require("dapui").setup()
 
--- DAP para C
+-- DAP para C, C++, Rust
 local whereis_gdb = vim.fn.system('whereis gdb')
 local gdb_path = whereis_gdb:match('gdb: (%S+)')
 if gdb_path then
