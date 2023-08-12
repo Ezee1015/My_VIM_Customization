@@ -43,3 +43,6 @@ if gdb_path then
     dap.configurations.c = dap.configurations.cpp
     dap.configurations.rust = dap.configurations.cpp
 end
+
+-- DAP para Python
+require('dap-python').setup('~/.local/share/nvim/mason/packages/debugpy/venv/bin/python')

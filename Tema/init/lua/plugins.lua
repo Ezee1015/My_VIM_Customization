@@ -91,9 +91,11 @@ return require("packer").startup(function()
 	use 'stevearc/oil.nvim' 																			-- ABRE UN DIRECTIORIO COMO UN BUFFER
 
 	use({
-		"rcarriga/nvim-dap-ui", 																		-- Interfaz del DAP
-		requires = {"mfussenegger/nvim-dap", 												-- DAP para vim: cliente para Nvim del debugger
-		"theHamsta/nvim-dap-virtual-text"} 													-- Muestra junto a la declaración el valor de la variable
+		'rcarriga/nvim-dap-ui', 																		-- Interfaz del DAP
+		requires = {'mfussenegger/nvim-dap', 												-- DAP para vim: cliente para Nvim del debugger
+		'theHamsta/nvim-dap-virtual-text', 													-- Muestra junto a la declaración el valor de la variable
+		'mfussenegger/nvim-dap-python', 														-- Configuración para el DAP de Python
+		'nvim-telescope/telescope-dap.nvim'} 												-- Utiliza Telescope para DAP
 	})
 
 	-- Instalación de Plugins en el primer arranque
