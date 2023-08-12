@@ -329,7 +329,7 @@ map("n", "<leader>--"   , '<cmd>lua require("oil").open_float()<CR>'         , {
 map("n", "<leader>-"    , '<cmd>lua require("oil").open()<CR>'               , { desc = "Open parent directory"} )
 
 -- DAP
-map('n', '<C-d>o'       , ":lua require('dapui').toggle()<CR>"               , { silent= true, noremap= true } )
+map('n', '<C-d>d'       , ":lua require('dapui').toggle()<CR>"               , { silent= true, noremap= true } )
 map('n', '<C-d>b'       , ":lua require('dap').toggle_breakpoint()<CR>"      , { silent= true, noremap= true } )
 map('n', '<C-d>c'       , ":lua require('dap').continue()<CR>"               , { silent= true, noremap= true } )
 map('n', '<C-d>n'       , ":lua require('dap').step_over()<CR>"              , { silent= true, noremap= true } )
