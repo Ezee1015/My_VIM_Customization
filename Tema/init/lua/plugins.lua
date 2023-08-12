@@ -45,7 +45,6 @@ return require("packer").startup(function()
 	use 'kshenoy/vim-signature'                                 -- PONE A LA IZQUIERDA DE LOS NUMEROS DE LINEA LA MARCA(m[letra]) QUE FUE ASIGNADA A LA LINEA
 	use ('folke/tokyonight.nvim', {branch= 'main'})             -- COLORSCHEME DE TOKIO NIGHT
 
-	-- LSPs que uso: clangd, cpptools, jdtls, lua-language-server lua_ls , python-lsp-server pylsp
 	use {
 		'VonHeikemen/lsp-zero.nvim', 															-- INTREGRACION ENTRE NVIM LSP Y LOS SNNIPPETS
 		requires = {
@@ -55,6 +54,7 @@ return require("packer").startup(function()
 					run = ":MasonUpdate"
 			},
 			{'williamboman/mason-lspconfig.nvim'}, 									-- PARA CONFIGURAR EL LSP (MEJOR INTEGRACIÓN CON LSP)
+			{'WhoIsSethDaniel/mason-tool-installer.nvim'}, 					-- PARA INSTALAR AUTOMATICAMENTE LSPs Y DAPs
 			-- Autocompletion
 			{'hrsh7th/nvim-cmp'}, 																	-- SERVIDOR DE AUTOCOMPLETADO
 			{'hrsh7th/cmp-buffer'}, 																-- AUTOCOMPLETADO DE ARCHIVOS
@@ -90,7 +90,6 @@ return require("packer").startup(function()
 	use 'mzlogin/vim-markdown-toc' 																-- GENERA LOS INDICES EN MARKDOWN
 	use 'stevearc/oil.nvim' 																			-- ABRE UN DIRECTIORIO COMO UN BUFFER
 
-	-- DAPs que uso: cpptools
 	use({
 		"rcarriga/nvim-dap-ui", 																		-- Interfaz del DAP
 		requires = {"mfussenegger/nvim-dap", 												-- DAP para vim: cliente para Nvim del debugger

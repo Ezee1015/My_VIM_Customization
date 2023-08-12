@@ -157,16 +157,6 @@ vim.diagnostic.config({
 -- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 -- vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float()]])
 
-require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
-})
-
 -- Lua-Language-Server
 require'lspconfig'.lua_ls.setup {
   settings = {
