@@ -285,18 +285,18 @@ map('n', '<F2>'         , ':NvimTreeFindFileToggle<CR>'      , { silent= true, n
 map('n', '<F3>'         , ':NvimTreeToggle<CR>'              , { silent= true, noremap= true } )
 
 -- Telescope.nvim
-map('n', '<leader>rr'   , "<cmd>lua require('telescope.builtin').find_files()<cr>"   , { silent= true, noremap= true } )
-map('n', '<leader>rc'   , "<cmd>Telescope neoclip defualt<CR>"                       , { silent= true, noremap= true } )
-map('n', '<leader>rf'   , "<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>" , { silent= true, noremap= true } )
-map('n', '<leader>r'    , "<cmd>lua require('telescope.builtin').live_grep()<cr>"    , { silent= true, noremap= true } )
+map('n', 'gd'           , "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>" , { silent= true, noremap= true } )
+map('n', 'gr'           , "<cmd>lua require('telescope.builtin').lsp_references()<cr>"  , { silent= true, noremap= true } )
+map('n', '<leader>z'    , "<cmd>lua require('telescope.builtin').spell_suggest()<cr>"   , { silent= true, noremap= true } )
 map('n', '<leader>b'    , "<cmd>lua require('telescope.builtin').buffers()<cr>"      , { silent= true, noremap= true } )
-map('n', '<leader>y'    , "<cmd>lua require'telescope.builtin'.search_history{}<CR>" , { noremap= true }               )
-map('n', '<leader>gt'   , "<cmd>lua require('telescope.builtin').help_tags()<cr>"    , { silent= true, noremap= true } )
-map('n', '<leader>z'    , "<cmd>lua require('telescope.builtin').spell_suggest()<cr>"                      , { silent= true, noremap= true } )
--- map('n', '<leader>gi'   , "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>" , { silent= true, noremap= true } )
-map('n', '<leader>gr'   , "<cmd>lua require('telescope.builtin').lsp_references()<cr>" , { silent= true, noremap= true } )
+map('n', '<leader>r'    , "<cmd>lua require('telescope.builtin').live_grep()<cr>"    , { silent= true, noremap= true } )
+map('n', '<leader>rr'   , "<cmd>lua require('telescope.builtin').find_files()<cr>"   , { silent= true, noremap= true } )
+map('n', '<leader>rf'   , "<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>" , { silent= true, noremap= true } )
+map('n', '<leader>dd'   , "<cmd>lua require('telescope.builtin').diagnostics()<cr>"  , { silent= true, noremap= true } )
+map('n', '<leader>dh'   , "<cmd>lua require('telescope.builtin').help_tags()<cr>"    , { silent= true, noremap= true } )
 map('n', '<leader>dk'   , "<cmd>lua require('telescope.builtin').keymaps()<cr>"      , { silent= true, noremap= true } )
 map('n', '<leader>dt'   , "<cmd>lua require('telescope.builtin').treesitter()<cr>"   , { silent= true, noremap= true } )
+map('n', '<leader>d/'   , "<cmd>lua require'telescope.builtin'.search_history{}<CR>" , { noremap= true }               )
 -- NeoClip Telescope
 map('n', '<leader>dc'   , "<cmd>lua require('telescope').extensions.neoclip.default()<CR>"    , { silent= true, noremap= true } )
 map('n', '<leader>dq'   , "<cmd>lua require('telescope').extensions.macroscope.default()<CR>" , { silent= true, noremap= true } )
@@ -305,9 +305,9 @@ map('n', '<leader>dq'   , "<cmd>lua require('telescope').extensions.macroscope.d
 map('n', '<leader>e'    , '<cmd>lua vim.diagnostic.open_float()<CR>'              , { silent= true, noremap= true } )
 map('n', '-e'           , '<cmd>lua vim.diagnostic.goto_prev()<CR>'               , { silent= true, noremap= true } )
 map('n', '+e'           , '<cmd>lua vim.diagnostic.goto_next()<CR>'               , { silent= true, noremap= true } )
-map('n', '<leader>dd'   , '<cmd>Telescope diagnostics<CR>'                        , { silent= true, noremap= true } )
 map('n', '<leader>dr'   , '<cmd>lua vim.lsp.buf.rename()<CR>'                     , { silent= true, noremap= true } )
-map('n', 'gd'           , '<cmd>lua vim.lsp.buf.definition()<CR>'                 , { silent= true, noremap= true } )
+-- Reemplazado por Telescope
+-- map('n', 'gd'           , '<cmd>lua vim.lsp.buf.definition()<CR>'                 , { silent= true, noremap= true } )
 
 -- UndoTree
 map('n', '<F5>'         , ':UndotreeToggle<CR>'                 , { noremap= true }               )
