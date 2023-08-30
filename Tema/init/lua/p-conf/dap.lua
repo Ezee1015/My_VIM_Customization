@@ -45,4 +45,6 @@ if gdb_path then
 end
 
 -- DAP para Python
+-- Si tira algún error con una librería del proyecto, hay que instalarla con...
+-- ~/.local/share/nvim/mason/packages/debugpy/venv/bin/pip install [librería]
 require('dap-python').setup('~/.local/share/nvim/mason/packages/debugpy/venv/bin/python')
