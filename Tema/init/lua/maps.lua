@@ -259,8 +259,9 @@ map('v', '*'    , 's**<ESC>P'                             , { silent= true, nore
 -- TagBar (Ctags)
 map('n', '<F8>'          , ':TagbarToggle<CR>'               , { silent= true }                )
 
--- EasyMotion
-map('n', '<leader>f'     , ' <Plug>(easymotion-s2)'          , { }                             )
+-- Hop
+map('n', '<leader>f'     , '<cmd>HopChar2<CR>'                , { }                             )
+map('n', '<leader>F'     , '<cmd>HopWord<CR>'                 , { }                             )
 
 -- Git
 map('n', '<leader>ga'    , ':Git write<CR>'                  , { noremap= true }               )

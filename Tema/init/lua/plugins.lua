@@ -28,7 +28,7 @@ return require("packer").startup(function()
 	use 'lukas-reineke/indent-blankline.nvim'                   -- PONE CON ' | ' SEGÚN LOS TABS PARA INDICAR EL CONTENIDO DE UNA ESTRUCTURA
 	use 'norcalli/nvim-colorizer.lua'                           -- COLORIZADO DE CODIGOS HEXADECIMALES y de etiquetas rgb()
 	use 'sheerun/vim-polyglot'                                  -- HIGHLIGHTNING DE LENGUAJES
-	use 'easymotion/vim-easymotion'                             -- MOVERSE MÁS RAPIDO POR VIM CON ',' + 'f'
+	use 'phaazon/hop.nvim'                                      -- MOVERSE MÁS RAPIDO POR NEOVIM CON ',' + 'f'
 	use 'vim-scripts/DrawIt'                                    -- DIBUJAR LINEAS
 	use 'gyim/vim-boxdraw'                                      -- DIBUJAR CUADRADOS
 	use 'preservim/tagbar'                                      -- ESQUEMA QUE MUESTRA EN UNA LISTA LOS TIPOS DE VARIABLES Y EL NOMBRE DE LAS VARIABLES DECLARADAS.

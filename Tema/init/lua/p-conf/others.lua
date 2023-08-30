@@ -56,3 +56,6 @@ vim.g.tagbar_autofocus = 1
 require("toggleterm").setup({
     size = vim.o.columns * 0.45
 })
+
+-- Hop
+require("hop").setup()
