@@ -29,8 +29,7 @@ return require("packer").startup(function()
 	use 'norcalli/nvim-colorizer.lua'                           -- COLORIZADO DE CODIGOS HEXADECIMALES y de etiquetas rgb()
 	use 'sheerun/vim-polyglot'                                  -- HIGHLIGHTNING DE LENGUAJES
 	use 'phaazon/hop.nvim'                                      -- MOVERSE MÁS RAPIDO POR NEOVIM CON ',' + 'f'
-	use 'vim-scripts/DrawIt'                                    -- DIBUJAR LINEAS
-	use 'gyim/vim-boxdraw'                                      -- DIBUJAR CUADRADOS
+	use 'jbyuki/venn.nvim'                                      -- DIBUJAR LINEAS
 	use 'preservim/tagbar'                                      -- ESQUEMA QUE MUESTRA EN UNA LISTA LOS TIPOS DE VARIABLES Y EL NOMBRE DE LAS VARIABLES DECLARADAS.
 	use 'nvim-treesitter/nvim-treesitter'                       -- MEJORA EL DIBUJADO DE LA SINTAXIS
 	use 'nvim-treesitter/nvim-treesitter-context'               -- MUESTRA EN LA PARTE SUPERIOR DENTRO DE LA CLASE, FUNCION, ETC EN LA QUE SE ENCUENTRA
