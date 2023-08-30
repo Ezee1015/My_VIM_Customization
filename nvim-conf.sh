@@ -32,7 +32,8 @@ fi
 if [ "$1" == "sync" ]; then
   rm -rf ~/github/My_VIM_Customization/Tema/init/*
   cd ~/.config/nvim/
-  cp -r after init.lua lua ~/github/My_VIM_Customization/Tema/init/
+  # cp -r after init.lua lua ~/github/My_VIM_Customization/Tema/init/
+  cp -r init.lua lua ~/github/My_VIM_Customization/Tema/init/
   exit
 fi
 
