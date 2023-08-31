@@ -2,9 +2,9 @@
 
 function INSTALAR {
 
-    sudo apt install neovim vim curl vim-gtk openjdk-17* xdotool curl python3 universal-ctags gdb -y
-    sudo pacman -S neovim xclip xorg-xclipboard vim xdotool python3 ctags jdk17-openjdk lua-language-server gdb
-    sudo zypper install neovim xclip xclipboard vim xdotool python3 ctags lua-language-server gdb
+    sudo apt install neovim vim curl vim-gtk openjdk-17* xdotool curl python3 universal-ctags gdb ripgrep -y
+    sudo pacman -S neovim xclip xorg-xclipboard vim xdotool python3 ctags jdk17-openjdk lua-language-server gdb ripgrep
+    sudo zypper install neovim xclip xclipboard vim xdotool python3 ctags lua-language-server gdb ripgrep
     pip install -U neovim
     pip3 install -U neovim
     # curl -sL install-node.vercel.app/lts | sudo bash
