@@ -13,18 +13,33 @@ vim.g.mapleader   = ' '
 -- "*****************************************************************************
 -- "" Funciones de los Mappings
 -- "*****************************************************************************
-vim.cmd ([[
-  func! StartifyAtExit()
-    exec ':TSContextToggle'
-    if (tabpagewinnr(tabpagenr(), '$') > 1 )
-      exec ':silent! close!'
-    else
-      exec ':bdelete!'
-    endif
-    exec ':TSContextToggle'
-    if len(getbufinfo({'buflisted':1}))==1 && expand("%")=='' | exec 'Startify'| endif
-  endfunc
-  ]])
+
+local function isBufferEmptyAndNotSaved()
+  local buffer_number = vim.fn.bufnr('%')
+  local is_modified = vim.fn.getbufvar(buffer_number, '&modified')
+
+  if is_modified == 0 then
+    local line_count = vim.fn.line('$')
+    return line_count == 1 and vim.fn.empty(vim.fn.getline(1)) == 1
+  end
+  return false
+end
+
+function StartifyAtExit()
+  local exec = vim.api.nvim_exec
+
+  -- Si existe una segunda ventana (no solo una)
+  if vim.fn.winbufnr(2) ~= -1 then
+    exec(':silent! close!', false)
+  else
+    exec(':bdelete!', false)
+
+    if isBufferEmptyAndNotSaved() then
+      exec(':bdelete!', false)
+      exec('Startify', false)
+    end
+  end
+end
 
 -- Desactiva el CapsLock Cuando se está en Insert y se pasa a Normal (Linux-X11)
 vim.cmd([[
@@ -97,9 +112,9 @@ map('v', '<leader>d'     , '"_d'                             , {}               
 -- map('n', '<Space>'       , 'za'                              , {}                              )
 
 -- Save and Exit
-map('n', '<leader>w'     , ':w<CR>:call StartifyAtExit()<CR>', { silent= true }                )
+map('n', '<leader>w'     , ':w<CR>:lua StartifyAtExit()<CR>', { silent= true }                )
 map('n', '<leader>s'     , ':w<CR>'                          , { silent= true }                )
-map('n', '<leader>q'     , ':call StartifyAtExit()<CR>'      , { silent= true }                )
+map('n', '<leader>q'     , ':lua StartifyAtExit()<CR>'      , { silent= true }                )
 map('n', '<leader>Q'     , ':q!<CR>'                         , { silent= true }                )
 
 -- Split
