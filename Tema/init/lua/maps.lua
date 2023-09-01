@@ -158,10 +158,10 @@ map('n', '<leader>o'     , '<C-w>='                          , { silent= true, n
 map('n', '<leader>O'     , '<C-w>|<C-W>_'                    , { silent= true, noremap= true } )
 
 -- Cambia el <S-j> a gj. Resuelve el conflicto
-map('n', '<leader>j'    , ':join<CR>'                       , { silent= true }                )
-map('n', '<leader><S-j>', ':join!<CR>'                      , { silent= true }                )
-map('v', '<leader>j'    , ':join<CR>'                       , { silent= true }                )
-map('v', '<leader><S-j>', ':join!<CR>'                      , { silent= true }                )
+map('n', '<leader>j'    , ':join<CR>'                        , { silent= true }                )
+map('n', '<leader><S-j>', ':join!<CR>'                       , { silent= true }                )
+map('v', '<leader>j'    , ':join<CR>'                        , { silent= true }                )
+map('v', '<leader><S-j>', ':join!<CR>'                       , { silent= true }                )
 map('n', '<leader>gq'    , 'g~'                              , { silent= true }                )
 
 
