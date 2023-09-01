@@ -317,6 +317,8 @@ map('n', '<leader>dd'   , "<cmd>lua require('telescope.builtin').diagnostics()<c
 map('n', '<leader>dh'   , "<cmd>lua require('telescope.builtin').help_tags()<cr>"       , { silent= true, noremap= true } )
 map('n', '<leader>dk'   , "<cmd>lua require('telescope.builtin').keymaps()<cr>"         , { silent= true, noremap= true } )
 map('n', '<leader>dt'   , "<cmd>lua require('telescope.builtin').treesitter()<cr>"      , { silent= true, noremap= true } )
+map('n', '<leader>df'   , "<cmd>lua require('telescope.builtin').filetypes()<cr>"       , { silent= true, noremap= true } )
+map('n', '<leader>ds'   , "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>"    , { silent= true, noremap= true } )
 map('n', '<leader>d/'   , "<cmd>lua require'telescope.builtin'.search_history{}<CR>"    , { noremap= true }               )
 -- NeoClip Telescope
 map('n', '<leader>dc'   , "<cmd>lua require('telescope').extensions.neoclip.default()<CR>"           , { silent= true, noremap= true } )
