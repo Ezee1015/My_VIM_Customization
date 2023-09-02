@@ -100,9 +100,9 @@ map('v', '<leader>d'     , '"_d'                             , {}               
 -- map('n', '<Space>'       , 'za'                              , {}                              )
 
 -- Save and Exit
-map('n', '<leader>w'     , ':w<CR>:lua StartifyAtExit()<CR>', { silent= true }                )
+map('n', '<leader>w'     , ':w<CR>:lua StartifyAtExit()<CR>' , { silent= true }                )
 map('n', '<leader>s'     , ':w<CR>'                          , { silent= true }                )
-map('n', '<leader>q'     , ':lua StartifyAtExit()<CR>'      , { silent= true }                )
+map('n', '<leader>q'     , ':lua StartifyAtExit()<CR>'       , { silent= true }                )
 map('n', '<leader>Q'     , ':q!<CR>'                         , { silent= true }                )
 
 -- Split
@@ -249,16 +249,16 @@ map('v', '<leader>p'    , '"_dP'                             , { silent= true, n
 map('n', '<leader>i'    , ':syntax match nonascii "[^\\d0-\\d127]"<CR>:highlight nonascii guibg=DarkRed ctermbg=2<CR>' , { silent= true, noremap= true } )
 
 -- Surround ([{*"'` `'"*}])
-map('v', '('    , 's()<ESC>P'                             , { silent= true, noremap= true } )
+map('v', '('    , 's()<ESC>P'                                , { silent= true, noremap= true } )
 map('v', ')'    , 's(  )<ESC>hP'                             , { silent= true, noremap= true } )
-map('v', '['    , 's[]<ESC>P'                             , { silent= true, noremap= true } )
+map('v', '['    , 's[]<ESC>P'                                , { silent= true, noremap= true } )
 map('v', ']'    , 's[  ]<ESC>hP'                             , { silent= true, noremap= true } )
-map('v', '{'    , 's{}<ESC>P'                             , { silent= true, noremap= true } )
+map('v', '{'    , 's{}<ESC>P'                                , { silent= true, noremap= true } )
 map('v', '}'    , 's{  }<ESC>hP'                             , { silent= true, noremap= true } )
-map('v', '"'    , 's""<ESC>P'                             , { silent= true, noremap= true } )
+map('v', '"'    , 's""<ESC>P'                                , { silent= true, noremap= true } )
 map('v', '\''    , 's\'\'<ESC>P'                             , { silent= true, noremap= true } )
-map('v', '`'    , 's``<ESC>P'                             , { silent= true, noremap= true } )
-map('v', '*'    , 's**<ESC>P'                             , { silent= true, noremap= true } )
+map('v', '`'    , 's``<ESC>P'                                , { silent= true, noremap= true } )
+map('v', '*'    , 's**<ESC>P'                                , { silent= true, noremap= true } )
 
 -- "*****************************************************************************
 -- "" Mappings de los PLUGINS
@@ -268,8 +268,8 @@ map('v', '*'    , 's**<ESC>P'                             , { silent= true, nore
 map('n', '<F8>'          , ':TagbarToggle<CR>'               , { silent= true }                )
 
 -- Hop
-map('n', '<leader>f'     , '<cmd>HopChar2<CR>'                , { }                             )
-map('n', '<leader>F'     , '<cmd>HopWord<CR>'                 , { }                             )
+map('n', '<leader>f'     , '<cmd>HopChar2<CR>'               , { }                             )
+map('n', '<leader>F'     , '<cmd>HopWord<CR>'                , { }                             )
 
 -- Git
 map('n', '<leader>ga'    , ':Git write<CR>'                  , { noremap= true }               )
@@ -321,10 +321,10 @@ map('n', '<leader>dr'   , '<cmd>lua vim.lsp.buf.rename()<CR>'                   
 -- map('n', 'gd'           , '<cmd>lua vim.lsp.buf.definition()<CR>'                 , { silent= true, noremap= true } )
 
 -- UndoTree
-map('n', '<F5>'         , ':UndotreeToggle<CR>'                 , { noremap= true }               )
+map('n', '<F5>'         , ':UndotreeToggle<CR>'                , { noremap= true }               )
 
 -- ZenMode
-map('n', '<leader>a'    , ":ZenMode<CR>"                        , { silent= true, noremap= true } )
+map('n', '<leader>a'    , ":ZenMode<CR>"                       , { silent= true, noremap= true } )
 
 -- Terminal en NVim
 map('n', '<leader>x'    , ':ToggleTerm direction=float<CR>'    , { silent= true, noremap= true } )
@@ -347,4 +347,4 @@ map('n', '<C-d>n'       , ":lua require('dap').step_over()<CR>"              , {
 map('n', '<C-d>i'       , ":lua require('dap').step_into()<CR>"              , { silent= true, noremap= true } )
 map('n', '<C-d>o'       , ":lua require('dap').step_out()<CR>"               , { silent= true, noremap= true } )
 map('n', '<C-d><S-b>'   , ":lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", { silent= true, noremap= true } )
-map('n', '<C-d>s'       , ":lua require'dap'.close()<CR>"                    , { silent= true, noremap= true } )
+map('n', '<C-d>s'       , ":lua require('dap').close()<CR>"                  , { silent= true, noremap= true } )
