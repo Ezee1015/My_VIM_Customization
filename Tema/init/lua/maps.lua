@@ -145,17 +145,17 @@ map('n', '<S-j>'         , ':res +2<CR>'                     , { }              
 map('n', '<leader>o'     , '<C-w>='                          , { silent= true, noremap= true } )
 map('n', '<leader>O'     , '<C-w>|<C-W>_'                    , { silent= true, noremap= true } )
 
--- Cambia el <S-j> a gj. Resuelve el conflicto
+-- Junta lineas
 map('n', '<leader>j'    , ':join<CR>'                        , { silent= true }                )
 map('n', '<leader><S-j>', ':join!<CR>'                       , { silent= true }                )
 map('v', '<leader>j'    , ':join<CR>'                        , { silent= true }                )
 map('v', '<leader><S-j>', ':join!<CR>'                       , { silent= true }                )
-map('n', '<leader>gq'    , 'g~'                              , { silent= true }                )
 
 
 -- Change between Capitalization
 map('', '<leader>m'     , 'gu'                               , { silent= true }                )
 map('', '<leader><S-m>' , 'gU'                               , { silent= true }                )
+map('n', '<leader>gq'   , 'g~'                               , { silent= true }                )
 
 -- Aumenta o Disminuye el valor de un numero
 map('n', '++'            , '<C-a>'                           , { }                             )
