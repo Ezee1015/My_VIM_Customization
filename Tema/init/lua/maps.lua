@@ -277,9 +277,9 @@ map('n', '<leader>F'     , '<cmd>HopWord<CR>'                , { }              
 map('n', '<leader>gp'    , ':Git push<CR>'                   , { noremap= true }               )
 map('n', '<leader>gl'    , ':Git pull<CR>'                   , { noremap= true }               )
 map('n', '<leader>gs'    , ':G<CR>'                          , { noremap= true }               )
-map('n', '<leader>gb'    , ':Git blame<CR>'                  , { noremap= true }               )
 map('n', '<leader>gd'    , ':Gvdiffsplit<CR>'                , { noremap= true }               )
-map('n', '<leader>gb'    , ':Gitsigns blame_line<CR>'                , { noremap= true }               )
+map('n', '<leader>gb'    , ':Gitsigns blame_line<CR>'        , { noremap= true }               )
+map('n', '<leader>gB'    , ':Git blame<CR>'                  , { noremap= true }               )
 
 -- Startify
 map('n', '<leader>ks'    , ':SSave<CR>'                      , { noremap= true }               )
