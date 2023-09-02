@@ -274,8 +274,6 @@ map('n', '<leader>f'     , '<cmd>HopChar2<CR>'               , { }              
 map('n', '<leader>F'     , '<cmd>HopWord<CR>'                , { }                             )
 
 -- Git
-map('n', '<leader>ga'    , ':Git write<CR>'                  , { noremap= true }               )
-map('n', '<leader>gc'    , ':Git commit --verbose<CR>'       , { noremap= true }               )
 map('n', '<leader>gp'    , ':Git push<CR>'                   , { noremap= true }               )
 map('n', '<leader>gl'    , ':Git pull<CR>'                   , { noremap= true }               )
 map('n', '<leader>gs'    , ':G<CR>'                          , { noremap= true }               )
