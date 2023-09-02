@@ -19,7 +19,7 @@ vim.cmd([[
   augroup end
 	]])
 
-return require("packer").startup(function()
+return require("packer").startup(function(use)
   use 'wbthomason/packer.nvim'
 	use 'tpope/vim-fugitive'                                    -- INTEGRACION CON GIT
 	use 'tpope/vim-rhubarb'                                     -- REQUISITO DE fugitive PARA :Gbrowse
