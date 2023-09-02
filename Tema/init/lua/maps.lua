@@ -151,6 +151,8 @@ map('n', '<leader><S-j>', ':join!<CR>'                       , { silent= true } 
 map('v', '<leader>j'    , ':join<CR>'                        , { silent= true }                )
 map('v', '<leader><S-j>', ':join!<CR>'                       , { silent= true }                )
 
+-- DiffPut en varias lineas (Visual-Mode)
+map('v', 'Dp'           , ':diffput<CR>'                     , { silent= true, noremap= true } )
 
 -- Change between Capitalization
 map('', '<leader>m'     , 'gu'                               , { silent= true }                )
