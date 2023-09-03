@@ -10,7 +10,8 @@ function INSTALAR {
     # curl -sL install-node.vercel.app/lts | sudo bash
     mkdir ~/.config/nvim/
     cp -r Tema/init/* ~/.config/nvim/
-    cp Documentacion/Neovim - Documentación - *.pdf ~/
+    cp Documentacion/Neovim\ -\ Documentación\ -\ *.pdf ~/
+    cp Documentacion/Neovim\ -\ Documentación.md ~/.config/nvim/documentacion.md
     sudo mkdir /usr/share/fonts/truetype
     sudo mkdir /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font
     sudo cp Tema/ttf/*.ttf /usr/share/fonts/truetype/Ubuntu__Mono_Nerd_Font/

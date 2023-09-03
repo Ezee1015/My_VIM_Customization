@@ -11,6 +11,11 @@ if [ "$1" == "diff" ]; then
     nvim -d init.lua ~/github/My_VIM_Customization/Tema/init/init.lua
   fi
 
+  # Documentación
+  if [ ! -z "$(diff documentacion.md ~/github/My_VIM_Customization/Documentacion/Neovim\ -\ Documentación.md)" ]; then
+    nvim -d documentacion.md ~/github/My_VIM_Customization/Documentacion/Neovim\ -\ Documentación.md
+  fi
+
   # Archivos de configuraciones
   LUACONFIG=$(ls lua/*.lua)
   for i in $LUACONFIG ; do
@@ -31,16 +36,19 @@ fi
 
 if [ "$1" == "sync" ]; then
   rm -rf ~/github/My_VIM_Customization/Tema/init/*
+  rm ~/github/My_VIM_Customization/Documentacion/Neovim\ -\ Documentación.md
   cd ~/.config/nvim/
   # cp -r after init.lua lua ~/github/My_VIM_Customization/Tema/init/
   cp -r init.lua lua ~/github/My_VIM_Customization/Tema/init/
+  cp documentacion.md ~/github/My_VIM_Customization/Documentacion/Neovim\ -\ Documentación.md
   exit
 fi
 
 if [ "$1" == "install" ]; then
   cd ~/github/My_VIM_Customization
   git pull
-  cp -r ~/github/My_VIM_Customization/Tema/init/* ~/.config/nvim/
+  cp -r Tema/init/* ~/.config/nvim/
+  cp Documentacion/Neovim\ -\ Documentación.md ~/.config/nvim/documentacion.md
   exit
 fi
 
