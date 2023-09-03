@@ -305,9 +305,10 @@ map('n', '<leader>dt'   , "<cmd>lua require('telescope.builtin').treesitter()<cr
 map('n', '<leader>df'   , "<cmd>lua require('telescope.builtin').filetypes()<cr>"       , { silent= true, noremap= true } )
 map('n', '<leader>dl'   , "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>"    , { silent= true, noremap= true } )
 map('n', '<leader>de'   , "<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>" , { silent= true, noremap= true } )
-map('n', '<leader>ds'   , "<cmd>lua require('telescope.builtin').find_files()<cr>"      , { silent= true, noremap= true } )
 map('n', '<leader>dg'   , "<cmd>lua require('telescope.builtin').live_grep()<cr>"       , { silent= true, noremap= true } )
+map('n', '<leader>ds'   , "<cmd>lua require('telescope.builtin').find_files()<cr>"      , { silent= true, noremap= true } )
 map('n', '<leader>d/'   , "<cmd>lua require('telescope.builtin').search_history{}<CR>"  , { noremap= true }               )
+map('n', '<leader>dQ'   , "<cmd>lua require('telescope.builtin').registers{}<CR>"       , { noremap= true }               )
 
 -- NeoClip Telescope
 map('n', '<leader>dc'   , "<cmd>lua require('telescope').extensions.neoclip.default()<CR>"           , { silent= true, noremap= true } )
