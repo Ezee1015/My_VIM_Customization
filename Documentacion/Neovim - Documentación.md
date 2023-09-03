@@ -573,8 +573,8 @@ Se puede modificar los archivos como si fuera un buffer de texto
 
 ## Buffer <-> Tab <-> Session
 
-<img src="./VIM Buffs Tabs Sessions Cuadro Conseptual - Light.png">
-<!-- <img src="./VIM Buffs Tabs Sessions Cuadro Conseptual - Dark.png"> -->
+<!-- <img src="./VIM Buffs Tabs Sessions Cuadro Conseptual - Light.png"> -->
+<img src="./VIM Buffs Tabs Sessions Cuadro Conseptual - Dark.png">
 
 ---
 
