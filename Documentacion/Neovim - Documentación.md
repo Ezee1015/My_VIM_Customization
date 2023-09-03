@@ -677,11 +677,11 @@ Se puede modificar los archivos como si fuera un buffer de texto
 
 ## Ejemplos de RegEx en Neovim
 
-|          Atajo          | Significado                                                                                      |
-|:-----------------------:|--------------------------------------------------------------------------------------------------|
-| **`:s/<\(.*\)>/(\1)/`** | Reemplaza los \<div\> por (div)                                                                    |
-|     **`/([0-9]*)`**    | Busca por ejemplo: (2), (88), etc.                                                                |
-|       **`/^Hola`**      | Busca las lineas que comienzen por 'Hola'. Si contiene 'Hola' pero no al principio, NO lo cuenta |
+|          Atajo          | Significado                                                                                |
+|:-----------------------:|--------------------------------------------------------------------------------------------|
+| **`:s/<\(.*\)>/(\1)/`** | Reemplaza los \<div\> por (div)                                                            |
+|     **`/([0-9]*)`**     | Busca por ejemplo: (2), (88), etc.                                                         |
+|       **`/^Hola`**      | Busca las lineas que comiencen por 'Hola'. Si contiene, pero no al principio, NO lo cuenta |
 
 [^1]:
     > Con 'a distancia', me refiero a dentro de la misma linea pero fuera de los caracteres, ya que busca los () más cercanos hacia adelante (no funciona en todos los comandos).
