@@ -90,7 +90,7 @@
 |    **`:![Comando Bash]`**    | Ejecuta comando de Terminal                                                                                                                  |
 |     **`:read [Comando]`**    | Lee un Comando y lo importa al texto (Ejemplo comando: !date o un archivo como “Texto.txt”)                                                  |
 |      **`:earlier 10m`**      | Retrocede los cambios según en el tiempo especificado.                                                                                       |
-| **`:verbose map [MAPPING]`** | Muestra a qué corresponde el mapping y donde fue definido                                                                                    |
+| **`:verbose map [MAPPING]`** | Muestra a qué corresponde el mapping y donde fueron declarados por última vez                                                                |
 
 
 ## Atajos
@@ -214,6 +214,8 @@
 | **`[Shift] ⇨`** == **`[Shift] i`** | Aumenta el tamaño horizontal   |
 | **`[Shift] ⇧`** == **`[Shift] k`** | Disminuye el tamaño vertical   |
 | **`[Shift] ⇩`** == **`[Shift] j`** | Aumenta el tamaño vertical     |
+|              **`⎵O`**              | Maximiza una ventana           |
+|              **`⎵o`**              | Minimiza una ventana           |
 
 ### Moverse entre ventanas
 
@@ -259,9 +261,9 @@
 
 |   Atajo   | Significado                                                                                  |
 |:---------:|----------------------------------------------------------------------------------------------|
-| **`⎵gJ`** | Agrupa las linea seleccionadas en una linea (agregando 2 espacios por cada linea que agrupa) |
-| **`⎵gj`** | Agrupa las linea seleccionadas en una linea (sin agregar espacios).                          |
-| **`⎵gq`** | Realiza lo contrario que **`⎵gj`**.                                                          |
+|  **`⎵j`** | Agrupa las linea seleccionadas en una linea (agregando un espacio por cada linea que agrupa) |
+|  **`⎵J`** | Agrupa las linea seleccionadas en una linea (sin agregar espacios).                          |
+| **`⎵gq`** | Separa lineas largas en varias lineas pequeñas                                               |
 
 ### Números
 
@@ -340,36 +342,19 @@
 |   **`[Shift-F6]`**   | Volver  a la ventana de edición del archivo                                               |
 |       **`g??`**      | Encripta una linea                                                                        |
 |      [ACCION]gn      | Salta a la siguiente coincidencia (de la búsqueda) y realizar una operación (Ej.: dgn)    |
-|       **`⎵j`**       | cambia la tecla ç por < y la Ç por >                                                      |
-|       **`⎵J`**       | Revierte los cambios hecho por **`⎵j`**                                                   |
+|       **`⎵ç`**       | cambia la tecla ç por < y la Ç por >                                                      |
+|       **`⎵Ç`**       | Revierte los cambios hecho por **`⎵j`**                                                   |
 |       **`⎵d`**       | Elimina lo seleccionado de manera permanente                                              |
 
 ## Plugins
 
-### DrawIt
+### Venn
 
-|      Atajo      | Significado                                                                   |
-|:---------------:|-------------------------------------------------------------------------------|
-|    **`⎵di`**    | Comienza el dibujo                                                            |
-|    **`⎵ds`**    | Terminar de dibujar                                                           |
-| **`[Flechas]`** | Mover y dibujar a la izquierda, insertando líneas/espacio según sea necesario |
-|   **`[hjkl]`**  | Sirven para moverse sin dibujar                                               |
-| **`[Espacio]`** | Activar y desactivar el modo de borrado                                       |
-|     **`>`**     | Dibujar -> flecha                                                             |
-|     **`<`**     | Dibujar <- flecha                                                             |
-|     **`^`**     | Dibujar ^ flecha                                                              |
-|     **`v`**     | Dibujar la flecha v                                                           |
-|     **`⎵a`**    | Dibujar una flecha basada en las esquinas del bloque visual                   |
-|     **`⎵l`**    | Dibujar línea basada en las esquinas del bloque visual                        |
-|     **`⎵e`**    | Dibujar una elipse dentro del bloque visual                                   |
-
-### DrawBox (Desde VisualMode)
-
-|   Atajo   | Significado                                                        |
-|:---------:|--------------------------------------------------------------------|
-| **`+ o`** | Dibujar un rectángulo, borrar su contenido con espacios en blanco. |
-| **`+ O`** | Dibuja un rectángulo, rellénalo con una etiqueta.                  |
-| **`+ c`** | Rellena el rectángulo con una etiqueta.                            |
+|     Atajo    | Significado                              |
+|:------------:|------------------------------------------|
+|   **`⎵V`**   | Enciende y apaga a Venn                  |
+| **`[HJKL]`** | Sirven para dibujar lineas               |
+|    **`f`**   | **En modo visual**, dibuja un rectángulo |
 
 ### TableMode (Markdown)
 
@@ -416,24 +401,24 @@ En un texto separado por comas, se selecciona, se presiona ⎵tt y lo ordena en 
 
 #### Extensiones/Funciones
 
-|   Atajo   | Significado                                                        |
-|:---------:|--------------------------------------------------------------------|
-|  **`⎵e`** | Abre el File Fuzzy Finder                                          |
-|  **`⎵z`** | Muestra la lista del autocorregtor (z=)                            |
-|  **`⎵y`** | Historial de Comandos                                              |
-|  **`⎵b`** | Buscador entre buffers abiertos                                    |
-| **`⎵rr`** | Buscador de Archivos Recursivos con vista previa                   |
-|  **`⎵r`** | Buscador de Archivos Recursivos pero con ripgrep                   |
-| **`⎵rf`** | Muestra un explorador de archivos                                  |
-| **`⎵gt`** | Buscador entre las ayudas disponibles de :help de vim              |
-| **`⎵dk`** | Muestra la lista de keymaps                                        |
-| **`⎵dd`** | Lista de errores, advertencias y sugerencias del LSP               |
-| **`⎵dr`** | Cambia el nombre a una variable (de manera inteligente)            |
-| **`⎵gt`** | Muestra Telescope con la lista de ayuda                            |
-| **`⎵gr`** | Ir a las referencias de una variable/función                       |
-| **`⎵dt`** | Muestra la lista con variables y funciones que encontró TreeSitter |
-| **`⎵dc`** | Portapapeles                                                       |
-| **`⎵dq`** | Muestra la lista de macros grabadas                                |
+|   Atajo   | Significado                                                           |
+|:---------:|-----------------------------------------------------------------------|
+|  **`⎵z`** | Muestra la lista del autocorregtor (z=)                               |
+|  **`⎵b`** | Buscador entre buffers abiertos                                       |
+| **`⎵ds`** | Buscador de Archivos Recursivos                                       |
+| **`⎵dg`** | Buscador de Archivos Recursivos pero con ripgrep                      |
+| **`⎵de`** | Muestra un explorador de archivos                                     |
+| **`⎵df`** | Selecciona el tipo de archivo (extención) manualmente (para sintaxis) |
+| **`⎵dl`** | Busqueda fuzzy dentro del archivo actual (buffer) por lineas          |
+| **`⎵dh`** | Buscador entre las ayudas disponibles de :help de vim                 |
+| **`⎵dk`** | Muestra la lista de keymaps                                           |
+| **`⎵dd`** | Lista de errores, advertencias y sugerencias del LSP                  |
+| **`⎵dt`** | Muestra la lista con variables y funciones que encontró TreeSitter    |
+| **`⎵dc`** | Portapapeles                                                          |
+| **`⎵dr`** | Cambia el nombre a una variable (de manera inteligente)               |
+| **`⎵d/`** | Historial de Comandos                                                 |
+| **`⎵dq`** | Muestra la lista de macros grabadas                                   |
+| **`⎵dQ`** | Muestra la lista de los registros                                     |
 
 ### NvimTree
 
@@ -441,11 +426,12 @@ En un texto separado por comas, se selecciona, se presiona ⎵tt y lo ordena en 
 |:----------:|------------------------------|
 | **`[F3]`** | NvimTree (Árbol de Archivos) |
 
-### EasyMotion
+### Hop
 
-|         Atajo         | Significado                                      |
-|:---------------------:|--------------------------------------------------|
-| **`⎵f [Dos Letras]`** | Salta entre palabras con el teclado (EasyMotion) |
+|         Atajo         | Significado                                            |
+|:---------------------:|--------------------------------------------------------|
+| **`⎵f [Dos Letras]`** | Salta entre palabras que comienzen con esas dos letras |
+|        **`⎵F`**       | Salta entre todas las palabras                         |
 
 ### TagBar
 
@@ -503,16 +489,17 @@ En un texto separado por comas, se selecciona, se presiona ⎵tt y lo ordena en 
 
 ### Git
 
-|     Atajo    | Significado                                                        |
-|:------------:|--------------------------------------------------------------------|
-|   **`⎵gl`**  | Git pull                                                           |
-|   **`⎵gs`**  | Ventana de gestión de Git (*)                                      |
-|   **`⎵gp`**  | Git Push                                                           |
-|   **`⎵gd`**  | Git Diff                                                           |
-|   **`⎵gb`**  | Muestra quien y cuando escribió la linea y en qué commit (con git) |
-|   **`]g`**   | Avanza por los cambios del archivo (con git)                       |
-|   **`[g`**   | Retrocede por los cambios del archivo (con git)                    |
-| **`:G log`** | Muestra el log de git y muestra los cambios de los commits         |
+|     Atajo    | Significado                                                |
+|:------------:|------------------------------------------------------------|
+|   **`⎵gl`**  | Git pull                                                   |
+|   **`⎵gs`**  | Ventana de gestión de Git (*)                              |
+|   **`⎵gp`**  | Git Push                                                   |
+|   **`⎵gd`**  | Git Diff                                                   |
+|   **`⎵gb`**  | Muestra quien y cuando escribió la linea y en qué commit   |
+|   **`⎵gB`**  | Muestra el Git Blame del archivo entero                    |
+|   **`]g`**   | Avanza por los cambios del archivo (con git)               |
+|   **`[g`**   | Retrocede por los cambios del archivo (con git)            |
+| **`:G log`** | Muestra el log de git y muestra los cambios de los commits |
 
 > (*) Comando dentro de la gestión del repositorio...
 > - `s`  --> agregar al commit
@@ -522,14 +509,14 @@ En un texto separado por comas, se selecciona, se presiona ⎵tt y lo ordena en 
 
 ### LSP
 
-|      Atajo     | Significado                                            |
-|:--------------:|--------------------------------------------------------|
-|    **`+e`**    | Próximo error del Compilador                           |
-|    **`-e`**    | Anterior error del Compilador                          |
-|    **`⎵e`**    | Muestra el error en formato cartel                     |
-|    **`gd`**    | Va a la Definición de la Función                       |
-|    **`gr`**    | Lista de referencias (llamadas) de la variable/función |
-| **`[Ctrl]n`** | Llama al autocompletado del LSP                        |
+|     Atajo     | Significado                                                 |
+|:-------------:|-------------------------------------------------------------|
+|    **`+e`**   | Próximo error del Compilador                                |
+|    **`-e`**   | Anterior error del Compilador                               |
+|    **`⎵e`**   | Muestra el error en formato cartel                          |
+|    **`gd`**   | Va a la Definición de la variable/función                   |
+|    **`gi`**   | Lista de implementaciones (llamadas) de la variable/función |
+| **`[Ctrl]n`** | Llama al autocompletado del LSP                             |
 
 ### Oil
 Se puede modificar los archivos como si fuera un buffer de texto
@@ -541,11 +528,11 @@ Se puede modificar los archivos como si fuera un buffer de texto
 
 ### BufferLine
 
-|    Atajo   | Significado                         |
-|:----------:|-------------------------------------|
-| **`[Ctrl]b [Flechas]`** | Mueve el buffer por la barra              |
-| **`[Ctrl]b e`**         | Acomoda los buffers según su extensión    |
-| **`[Ctrl]b d`**         | Acomoda los buffers según sus directorios |
+|        Atajo       | Significado                               |
+|:------------------:|-------------------------------------------|
+| **`⎵b [Flechas]`** | Mueve el buffer por la barra              |
+|     **`⎵b e`**     | Acomoda los buffers según su extensión    |
+|     **`⎵b d`**     | Acomoda los buffers según sus directorios |
 
 ### UndoTree
 
@@ -565,11 +552,54 @@ Se puede modificar los archivos como si fuera un buffer de texto
 | **`gco`** | Crea una nueva linea de comentario en la parte superior |
 | **`gcA`** | Crea un comentario al final de la linea                 |
 
+### DAP
+
+**Si lo que se va a ejecutar es una binario**, se debe COMPILAR CON **`⎵c`** PARA OBTENER UN BINARIO CON 'Debug instructions' QUE PUEDE SER LEÍDO POR EL DAP (Ejemplo de compilación de c: `gcc ej.c -o ej -g`)
+
+#### Mappings
+
+|     Atajo    | Significado                                                                                     |
+|:------------:|-------------------------------------------------------------------------------------------------|
+| **`[C-d]d`** | Abre y cierra el debugger.                                                                      |
+| **`[C-d]b`** | Agrega un breakpoint                                                                            |
+| **`[C-d]c`** | Comienza la ejecución                                                                           |
+| **`[C-d]n`** | Continúa a la siguiente instrucción                                                             |
+| **`[C-d]i`** | Entra dentro de la función que está sobre la línea que se está ejecutando                       |
+| **`[C-d]o`** | Sale dentro de la función que se entró con [C-d]i                                               |
+| **`[C-d]B`** | Pone un breakpoint, donde **solamente** se frena la ejecución cuando se cumple cierta condición |
+| **`[C-d]s`** | Detiene la ejecución del DAP                                                                    |
+| **`[C-d]r`** | Resetea el Layout original de la interfaz del DAP                                               |
+
+#### Mappings de las ventanas más importantes
+
+##### Breakpoints (Frena la ejecución)
+
+|  Atajo  | Significado                        |
+|:-------:|------------------------------------|
+| **`o`** | Se posiciona en el breakpoint      |
+| **`t`** | Habilita/Deshabilita el breakpoint |
+
+##### Scopes (Muestra los Scopes y variables)
+
+|     Atajo     | Significado                                    |
+|:-------------:|------------------------------------------------|
+|    **`e`**    | Edita el valor de la variable                  |
+| **`[Enter]`** | Muestra la herencia de la variable             |
+|    **`r`**    | Envía la variable a REPL (desconozco utilidad) |
+
+##### Watch (Permite vigilar bajo demanda ciertas variables)
+
+|     Atajo     | Significado                                         |
+|:-------------:|-----------------------------------------------------|
+| **`[Enter]`** | Muestra la herencia de la variable                  |
+|    **`d`**    | Elimina la expresión                                |
+|    **`e`**    | Edita la expresión o cambia el valor de la variable |
+|    **`r`**    | Envía la variable a REPL (desconozco utilidad)      |
 
 ## Datos útiles
 
 - Si se está el cursor debajo de una palabra y se apreta **`*`**, busca la palabra, y si se presiona **`S/`** Busca y reemplaza el termino.
-- En caso de que el sistema falle o la electricidad se interrumpa, se puede recuperar los cambios del archivo si abrimos el archivo en el que estábamos así: "nvim -r archivo.txt". También se puede listar los archivos con “vim –r” y se repite el paso anterior colocando la ruta del archivo temporal con el nombre del “.swp”
+- En caso de que **el sistema falle o la electricidad se interrumpa**, se puede recuperar los cambios del archivo si abrimos el archivo en el que estábamos así: `nvim -r archivo.txt`. También se puede listar los archivos con `vim –r` y se repite el paso anterior colocando la ruta del archivo temporal con el nombre del `.swp`
 
 ## Buffer <-> Tab <-> Session
 
