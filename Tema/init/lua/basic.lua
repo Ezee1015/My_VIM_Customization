@@ -56,24 +56,6 @@ vim.cmd ([[
   autocmd TermOpen * setlocal nonumber norelativenumber
   ]])
 
--- Select between diferents coloschemes
-vim.cmd "colorscheme tokyonight"
-  -- Antiguos ColorSchemes:
-    -- dracula
-    -- gruvbox
-    -- onedark
-    -- molokai
-    -- ghdark
-    -- GruberDarker
-    -- PaperColor
-
-
-vim.o.background = 'dark'
--- vim.g.tokyonight_style = "storm"
--- vim.g.tokyonight_style = "night"
-
-vim.g.airline_theme = 'base16_gruvbox_dark_hard'
-
 -- "*****************************************************************************
 -- "" Basic Setup
 -- "*****************************************************************************"

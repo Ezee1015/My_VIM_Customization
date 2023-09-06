@@ -1,6 +1,7 @@
 -- Function to verify a folder exists
 function IsDir(file)
-	  local isok, errstr, errcode = os.rename(file, file)
+  local isok, errstr, errcode = os.rename(file, file)
+
   if isok == nil then
      if errcode == 13 then
         -- Permission denied, but it exists
@@ -18,13 +19,11 @@ end
 
 vim.o.termguicolors = true
 
--- lua/maps.lua
-require("maps")
--- lua/plugins.lua
-require("plugins")
 -- lua/basic.lua
 require("basic")
+-- lua/maps.lua
+require("maps")
 -- lua/compile.lua
 require("compile")
--- lua/p-conf.lua
-require("p-conf")
+-- lua/plugins.lua
+require("plugins")
