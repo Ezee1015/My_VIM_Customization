@@ -33,6 +33,6 @@ return {
       extensions = {'nvim-tree'}
     },
 
-    lazy = false
+    event = { "BufReadPre", "BufNewFile", "BufAdd" },
   }
 }

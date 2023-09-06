@@ -576,14 +576,16 @@ En un texto separado por comas, se selecciona, se presiona ⎵tt y lo ordena en 
 
 ### LSP
 
-|     Atajo     | Significado                                                 |
-|:-------------:|-------------------------------------------------------------|
-|    **`+e`**   | Próximo error del Compilador                                |
-|    **`-e`**   | Anterior error del Compilador                               |
-|    **`⎵e`**   | Muestra el error en formato cartel                          |
-|    **`gd`**   | Va a la Definición de la variable/función                   |
-|    **`gi`**   | Lista de implementaciones (llamadas) de la variable/función |
-| **`[Ctrl]n`** | Llama al autocompletado del LSP                             |
+|     Atajo     | Significado                                                                 |
+|:-------------:|-----------------------------------------------------------------------------|
+|    **`+e`**   | Próximo error del Compilador                                                |
+|    **`-e`**   | Anterior error del Compilador                                               |
+|    **`⎵e`**   | Muestra el error en formato cartel                                          |
+|    **`gd`**   | Va a la Definición de la variable/función                                   |
+|    **`gD`**   | Lista las definiciones de la variable/función                               |
+|   **`⎵gr`**   | Lista de implementaciones (llamadas) de la variable/función (con QuickFix)  |
+|   **`⎵gr`**   | Lista de implementaciones (llamadas) de la variable/función (con Telescope) |
+| **`[Ctrl]n`** | Llama al autocompletado del LSP                                             |
 
 ### Oil
 Se puede modificar los archivos como si fuera un buffer de texto

@@ -106,9 +106,12 @@ return {
         },
       },
     },
+
     keys = {
       {'<F2>'         , ':NvimTreeFindFileToggle<CR>'      , { silent= true, noremap= true } },
       {'<F3>'         , ':NvimTreeToggle<CR>'              , { silent= true, noremap= true } },
-    }
+    },
+
+    cmd = "NvimTreeToggle"
   }
 }

@@ -147,10 +147,13 @@ return {
     },
 
     config = telescope_config,
+
     cmd = "Telescope",
+
     keys = {
-      { 'gd'        , "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", desc="Ir a la definición" },
-      { 'gr'        , "<cmd>lua require('telescope.builtin').lsp_references()<cr>" , desc="Ir a las referencias" },
+      -- No puedo reemplazar el keymap que viene con el lsp de neovim para poner el de telescope
+      { 'gD'        , "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", desc="Ir a la definición" },
+      { '<leader>gr', "<cmd>lua require('telescope.builtin').lsp_references()<cr>" , desc="Ir a las referencias" },
       { '<leader>z' , "<cmd>lua require('telescope.builtin').spell_suggest()<cr>"  , desc="Corrector ortográfico" },
       { '<leader>b' , "<cmd>lua require('telescope.builtin').buffers()<cr>"        , desc="Lista buffers" },
       { '<leader>dd', "<cmd>lua require('telescope.builtin').diagnostics()<cr>"    , desc="Diagnósticos LSP" },
@@ -158,7 +161,7 @@ return {
       { '<leader>dk', "<cmd>lua require('telescope.builtin').keymaps()<cr>"        , desc="Lista de keymaps" },
       { '<leader>dt', "<cmd>lua require('telescope.builtin').treesitter()<cr>"     , desc="Componentes con Treesitter" },
       { '<leader>df', "<cmd>lua require('telescope.builtin').filetypes()<cr>"      , desc="Tipo de archivos" },
-      { '<leader>dl', "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_fnd()<cr>"   , desc="Buscar por lineas" },
+      { '<leader>dl', "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>"   , desc="Buscar por lineas" },
       { '<leader>de', "<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>", desc="Explorador de archivos" },
       { '<leader>dg', "<cmd>lua require('telescope.builtin').live_grep()<cr>"      , desc="Ripgrep" },
       { '<leader>ds', "<cmd>lua require('telescope.builtin').find_files()<cr>"     , desc="Buscar archivos" },

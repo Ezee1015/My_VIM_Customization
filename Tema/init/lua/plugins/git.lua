@@ -45,7 +45,9 @@ return {
         -- map('n', '<leader>gu', gs.undo_stage_hunk)
       end
     },
-    lazy = false,
+
+    event = { "BufReadPre", "BufNewFile", "BufAdd" },
+
     keys = {
       { '<leader>gb', ':Gitsigns blame_line<CR>', { noremap= true , desc="Git blame line" } },
     }

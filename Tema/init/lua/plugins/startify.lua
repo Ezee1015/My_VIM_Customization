@@ -3,6 +3,17 @@ function Update_nvim()
   vim.cmd('TSUpdate')
 end
 
+function Delete_undo_history()
+  local input = vim.fn.confirm("Do you want to proceed? (y/n)", "&Yes\n&No")
+
+  if input == 1 then
+      vim.cmd("!rm ~/.local/share/nvim/undo/*")
+      print("\nHistorial de Deshacer eliminado!\n")
+  else
+      print("\nEliminado cancelado...\n")
+  end
+end
+
 local function startify_config()
   vim.g.webdevicons_enable_startify = 1
   vim.g.startify_files_number=8
@@ -41,12 +52,11 @@ local function startify_config()
     { g = {'Carpeta de Github', "cd ~/github/ | lua require('telescope.builtin').find_files()"}},
     { c = {'Configuración', "cd ~/.config/nvim/ | lua require('telescope.builtin').find_files()"}},
     { a = {'Actualizar Plugins', 'lua Update_nvim()'}},
-    { u = {'Limpiar Historial de Undo', '!rm ~/.local/share/nvim/undo/*'}},
+    { u = {'Limpiar Historial de Undo', 'lua Delete_undo_history()'}},
     { p = {'Información sobre LSP y DAP', 'Mason'}},
     { l = {'Información sobre Lazy', 'Lazy'}},
     { o = {'Log del LSP', 'e ~/.local/state/nvim/lsp.log'}},
     { r = {'Telescope Recent Files', 'Telescope oldfiles'}},
-    -- { s = {'Tiempo de Arranque', 'StartupTime'}},
   }
   vim.g.startify_lists = {
     { type = 'files'                    , header = vim.fn['startify#pad']({'   RECIENTES'}             )},

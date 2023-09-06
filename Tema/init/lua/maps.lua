@@ -196,7 +196,7 @@ map('n', '<leader>Ç'     , ':lua DesProgramar()<CR>'         , { silent= true }
 map('n', '<leader>cc'    , ':lua Procesar("ejecutar")<CR>'   , { }                             )
 map('n', '<leader>c'     , ':lua Procesar("compilar")<CR>'   , { }                             )
 
--- "" Tabs,  buffers and files
+-- Tabs,  buffers and files
 map('n', '<C-t><TAB>'    , 'gt'                              , { silent= true, noremap= true } )
 map('n', '<C-t><S-TAB>'  , 'gT'                              , { silent= true, noremap= true } )
 map('n', '<C-t>t'        , ':tabnew<CR>:NvimTreeToggle<CR>'  , { silent= true, noremap= true } )
@@ -254,15 +254,11 @@ map('v', '*'    , 's**<ESC>P'                                , { silent= true, n
 -- "" Mappings de los PLUGINS
 -- "*****************************************************************************
 
--- TagBar (Ctags)
-map('n', '<F8>'          , ':TagbarToggle<CR>'               , { silent= true }                )
-
 -- Startify
 map('n', '<leader>ks'    , ':SSave<CR>'                      , { noremap= true }               )
 map('n', '<leader>rs'    , ':SDelete<CR>'                    , { noremap= true }               )
 
 -- Snippets
--- map('i', '{<CR>'         , '{<CR>}<ESC>O'                    , { noremap= true }               )
 map('i', '{;<CR>'        , '{<CR>};<ESC>O'                   , { noremap= true }               )
 
 -- LSP NVIM
@@ -270,15 +266,7 @@ map('n', '<leader>e'    , '<cmd>lua vim.diagnostic.open_float()<CR>'            
 map('n', '-e'           , '<cmd>lua vim.diagnostic.goto_prev()<CR>'               , { silent= true, noremap= true } )
 map('n', '+e'           , '<cmd>lua vim.diagnostic.goto_next()<CR>'               , { silent= true, noremap= true } )
 map('n', '<leader>dr'   , '<cmd>lua vim.lsp.buf.rename()<CR>'                     , { silent= true, noremap= true } )
--- Reemplazado por Telescope
--- map('n', 'gd'           , '<cmd>lua vim.lsp.buf.definition()<CR>'                 , { silent= true, noremap= true } )
-
--- UndoTree
-map('n', '<F5>'         , ':UndotreeToggle<CR>'                , { noremap= true }               )
 
 -- Terminal
 map('t', '<ESC>'        , '<C-\\><C-n>'                        , { noremap= true }               )
 map('t', 'ii'           , '<C-\\><C-n>'                        , { noremap= true }               )
-
--- Markdown
-map('n', '<leader>toc'  , 'gg:GenTocGFM<CR>'                   , { noremap= true }               )
