@@ -41,7 +41,7 @@ local Compile = {
     end,
 
     ['markdown'] = function()
-        exe('MarkdownPreview')
+        vim.cmd("MarkdownPreview")
         -- exe("markdown '%' > '%<'.html")
         -- exe("pandoc '%' -o '%<'.pdf")
     end
@@ -115,10 +115,7 @@ local CompileAndRun = {
     end,
 
     ['markdown'] = function()
-        -- Procesar("compilar", 1)
-        -- exe("xdg-open '%<'.pdf")
-        -- exe("%<.html")
-        vim.cmd[[MarkdownPreview]]
+        Procesar("compilar", 1)
     end,
   }
 
