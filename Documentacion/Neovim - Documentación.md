@@ -490,9 +490,10 @@ En un texto separado por comas, se selecciona, se presiona ⎵tt y lo ordena en 
 
 ### NvimTree
 
-|    Atajo   | Significado                  |
-|:----------:|------------------------------|
-| **`[F3]`** | NvimTree (Árbol de Archivos) |
+|    Atajo   | Significado                                                      |
+|:----------:|------------------------------------------------------------------|
+| **`[F2]`** | Muestra el Árbol de Archivos                                     |
+| **`[F3]`** | Muestra el Árbol de Archivos desde la carpeta del archivo actual |
 
 ### Hop
 
@@ -582,11 +583,9 @@ En un texto separado por comas, se selecciona, se presiona ⎵tt y lo ordena en 
 |    **`+e`**   | Próximo error del Compilador                                                |
 |    **`-e`**   | Anterior error del Compilador                                               |
 |    **`⎵e`**   | Muestra el error en formato cartel                                          |
-|    **`gd`**   | Va a la Definición de la variable/función                                   |
-|    **`gD`**   | Lista las definiciones de la variable/función                               |
-|   **`⎵gr`**   | Lista de implementaciones (llamadas) de la variable/función (con QuickFix)  |
-|   **`⎵gr`**   | Lista de implementaciones (llamadas) de la variable/función (con Telescope) |
 | **`[Ctrl]n`** | Llama al autocompletado del LSP                                             |
+|    **`gd`**   | Lista las definiciones de la variable/función (con Telescope)               |
+|    **`gr`**   | Lista de implementaciones (llamadas) de la variable/función (con Telescope) |
 
 ### Oil
 Se puede modificar los archivos como si fuera un buffer de texto

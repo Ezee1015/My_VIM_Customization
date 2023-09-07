@@ -151,9 +151,8 @@ return {
     cmd = "Telescope",
 
     keys = {
-      -- No puedo reemplazar el keymap que viene con el lsp de neovim para poner el de telescope
-      { 'gD'        , "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", desc="Ir a la definición" },
-      { '<leader>gr', "<cmd>lua require('telescope.builtin').lsp_references()<cr>" , desc="Ir a las referencias" },
+      { 'gd'        , "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", desc="Ir a la definición" },
+      { 'gr'        , "<cmd>lua require('telescope.builtin').lsp_references()<cr>" , desc="Ir a las referencias" },
       { '<leader>z' , "<cmd>lua require('telescope.builtin').spell_suggest()<cr>"  , desc="Corrector ortográfico" },
       { '<leader>b' , "<cmd>lua require('telescope.builtin').buffers()<cr>"        , desc="Lista buffers" },
       { '<leader>dd', "<cmd>lua require('telescope.builtin').diagnostics()<cr>"    , desc="Diagnósticos LSP" },

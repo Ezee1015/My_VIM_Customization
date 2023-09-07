@@ -227,12 +227,24 @@ end
 
 local function lsp_zero_config()
   local lsp_zero = require('lsp-zero')
+
   lsp_zero.preset('recommended')
   lsp_zero.nvim_workspace()
-  lsp_zero.setup()
-end
 
-local function hola ()
+  local lsp = require('lsp-zero').preset({})
+
+  lsp.on_attach(function(client, bufnr)
+
+    lsp.default_keymaps({
+      buffer = bufnr,
+      -- NO Mapea...
+      -- F2 y F3 porque lo va a ocupar Nvim-tree
+      -- gr y gd porque lo reemplaza con Telescope
+      omit = {'<F2>', '<F3>', 'gr', 'gd'},
+    })
+  end)
+
+  lsp.setup()
 end
 
 return {

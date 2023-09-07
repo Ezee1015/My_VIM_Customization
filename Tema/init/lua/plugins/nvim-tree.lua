@@ -108,9 +108,11 @@ return {
     },
 
     keys = {
-      {'<F2>'         , ':NvimTreeFindFileToggle<CR>'      , { silent= true, noremap= true } },
-      {'<F3>'         , ':NvimTreeToggle<CR>'              , { silent= true, noremap= true } },
+      {'<F2>', ':NvimTreeFindFileToggle<CR>', { desc="Mostrar archivo actual", silent= true, noremap= true } },
+      {'<F3>', ':NvimTreeToggle<CR>'        , { desc="Abrir nvim-tree", silent= true, noremap= true } },
     },
+
+    event = { "BufReadPre", "BufNewFile", "BufAdd" },
 
     cmd = "NvimTreeToggle"
   }
