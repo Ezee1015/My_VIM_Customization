@@ -475,6 +475,7 @@ En un texto separado por comas, se selecciona, se presiona ⎵tt y lo ordena en 
 | **`⎵ds`** | Buscador de Archivos Recursivos                                       |
 | **`⎵dg`** | Buscador de Archivos Recursivos pero con ripgrep                      |
 | **`⎵de`** | Muestra un explorador de archivos                                     |
+| **`⎵do`** | Muestra los archivos abiertos recientemente                           |
 | **`⎵df`** | Selecciona el tipo de archivo (extención) manualmente (para sintaxis) |
 | **`⎵dl`** | Busqueda fuzzy dentro del archivo actual (buffer) por lineas          |
 | **`⎵dh`** | Buscador entre las ayudas disponibles de :help de vim                 |

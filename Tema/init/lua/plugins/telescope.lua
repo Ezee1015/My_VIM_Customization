@@ -165,6 +165,7 @@ return {
       { '<leader>de', "<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>", desc="Explorador de archivos" },
       { '<leader>dg', "<cmd>lua require('telescope.builtin').live_grep()<cr>"      , desc="Ripgrep" },
       { '<leader>ds', "<cmd>lua require('telescope.builtin').find_files()<cr>"     , desc="Buscar archivos" },
+      { '<leader>do', "<cmd>lua require('telescope.builtin').oldfiles()<cr>"       , desc="Archivos abiertos recientemente" },
       { '<leader>d/', "<cmd>lua require('telescope.builtin').search_history{}<CR>" , desc="Historial de busqueda" },
       { '<leader>dQ', "<cmd>lua require('telescope.builtin').registers{}<CR>"      , desc="Registros"},
       { '<leader>dq', "<cmd>lua require('telescope').extensions.macroscope.default()<CR>"      , desc="Macros" },
