@@ -49,14 +49,14 @@ local function startify_config()
   --   { c = '~/.config/nvim/init.lua'},
   -- }
   vim.g.startify_commands = {
-    { g = {'Carpeta de Github', "cd ~/github/ | lua require('telescope.builtin').find_files()"}},
-    { c = {'Configuración', "cd ~/.config/nvim/ | lua require('telescope.builtin').find_files()"}},
-    { a = {'Actualizar Plugins', 'lua Update_nvim()'}},
-    { u = {'Limpiar Historial de Undo', 'lua Delete_undo_history()'}},
-    { p = {'Información sobre LSP y DAP', 'Mason'}},
-    { l = {'Información sobre Lazy', 'Lazy'}},
-    { o = {'Log del LSP', 'e ~/.local/state/nvim/lsp.log'}},
-    { r = {'Telescope Recent Files', 'Telescope oldfiles'}},
+    { a = {'󱐦  Actualizar Plugins', 'lua Update_nvim()'}},
+    { c = {'  Configuración', "cd ~/.config/nvim/ | lua require('telescope.builtin').find_files()"}},
+    { g = {'  Carpeta de Github', "cd ~/github/ | lua require('telescope.builtin').find_files()"}},
+    { r = {'󰚰  Telescope Recent Files', 'Telescope oldfiles'}},
+    { l = {'󰐱  Información sobre Lazy', 'Lazy'}},
+    { p = {'  Información sobre LSP y DAP', 'Mason'}},
+    { o = {'  Log del LSP', 'e ~/.local/state/nvim/lsp.log'}},
+    { u = {'  Limpiar Historial de Undo', 'lua Delete_undo_history()'}},
   }
   vim.g.startify_lists = {
     { type = 'files'                    , header = vim.fn['startify#pad']({'   RECIENTES'}             )},
