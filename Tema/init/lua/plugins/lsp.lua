@@ -233,7 +233,7 @@ local function lsp_zero_config()
 
   local lsp = require('lsp-zero').preset({})
 
-  lsp.on_attach(function(client, bufnr)
+  lsp.on_attach(function(_, bufnr)
 
     lsp.default_keymaps({
       buffer = bufnr,
@@ -294,5 +294,9 @@ return {
     event = { "BufReadPre", "BufNewFile", "BufAdd" },
 
     cmd = { "LspInfo", "LspInstall", "LspUninstall" },
+
+    keys = {
+      { "<leader>di", "<cmd>lua vim.lsp.buf.hover()<CR>", desc="Información del objeto"}
+    }
   }
 }

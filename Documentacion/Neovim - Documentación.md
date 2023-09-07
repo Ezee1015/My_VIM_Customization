@@ -586,6 +586,7 @@ En un texto separado por comas, se selecciona, se presiona ⎵tt y lo ordena en 
 | **`[Ctrl]n`** | Llama al autocompletado del LSP                                             |
 |    **`gd`**   | Lista las definiciones de la variable/función (con Telescope)               |
 |    **`gr`**   | Lista de implementaciones (llamadas) de la variable/función (con Telescope) |
+|   **`⎵di`**   | Muestra información del objeto debajo del cursor                            |
 
 ### Oil
 Se puede modificar los archivos como si fuera un buffer de texto
