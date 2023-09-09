@@ -112,7 +112,7 @@ return {
       {'<F3>', ':NvimTreeToggle<CR>'        , { desc="Abrir nvim-tree", silent= true, noremap= true } },
     },
 
-    event = { "BufReadPre", "BufNewFile", "BufAdd" },
+    lazy = false,
 
     cmd = "NvimTreeToggle"
   }
