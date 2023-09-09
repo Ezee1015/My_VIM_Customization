@@ -1,10 +1,17 @@
 -- Functional wrapper for mapping custom keybindings
-local function map(mode, lhs, rhs, opts)
+local function map(modes, lhs, rhs, opts)
     local options = { noremap = true }
     if opts then
         options = vim.tbl_extend("force", options, opts)
     end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+
+    if type(modes) == "string" then
+        modes = { modes }
+    end
+
+    for _, mode in ipairs(modes) do
+        vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+    end
 end
 
 vim.g.mapleader   = ' '
@@ -36,19 +43,6 @@ function StartifyAtExit()
       vim.cmd('Startify')
     end
   end
-
-  -- if vim.fn.winbufnr(2) ~= -1 then
-  --   exec(':silent! close!', false)
-  -- else
-  --   exec(':bdelete!', false)
-  --
-  --
-  -- if isBufferEmptyAndNotSaved() then
-  --   exec(':bdelete!', false)
-  --   exec('Startify', false)
-  -- end
-
-  -- end
 end
 
 -- Desactiva el CapsLock Cuando se está en Insert y se pasa a Normal (Linux-X11)
@@ -77,24 +71,22 @@ endfunction
 com! DiffSaved call s:DiffWithSaved()
 ]])
 
--- Programa los cambios de zZçÇ a <><> respectivamente y su restablecimiento
+-- Programa los cambios de çÇ a <> respectivamente y su restablecimiento
+local programado = false
 function Programar()
-  map('n', 'ç', '<', { } )
-  map('n', 'Ç', '>', { } )
-  map('i', 'ç', '<', { } )
-  map('i', 'Ç', '>', { } )
-  map('v', 'ç', '<', { } )
-  map('v', 'Ç', '>', { } )
-end
-function DesProgramar()
-  map('n', 'ç', 'ç', { } )
-  map('n', 'Ç', 'Ç', { } )
-  map('i', 'ç', 'ç', { } )
-  map('i', 'Ç', 'Ç', { } )
-  map('v', 'ç', 'ç', { } )
-  map('v', 'Ç', 'Ç', { } )
-end
+  local n1 = 'ç'
+  local n2 = 'Ç'
 
+  if programado then
+    n1 = '<'
+    n2 = '>'
+  end
+
+  programado = not programado
+
+  map({ 'n', 'v', 'x', 's', 'o', 'i', 'l', 'c', 't' }, 'ç', n1, { noremap=true } )
+  map({ 'n', 'v', 'x', 's', 'o', 'i', 'l', 'c', 't' }, 'Ç', n2, { noremap=true } )
+end
 
 -- "*****************************************************************************
 -- "" Mappings
@@ -188,9 +180,8 @@ map('n', '<F7>'          , ":diffoff<CR>:q<CR>''"            , { }              
 -- Ordenado Random de Lineas
 map('v', 'rr'            , '!sort -R<CR>'                    , { }                             )
 
--- Para los teclados que no tienen < y >
+-- Para los teclados que no tienen < y > los reprograma a çÇ
 map('n', '<leader>ç'     , ':lua Programar()<CR>'            , { silent= true }                )
-map('n', '<leader>Ç'     , ':lua DesProgramar()<CR>'         , { silent= true }                )
 
 -- Compile
 map('n', '<leader>cc'    , ':lua Procesar("ejecutar")<CR>'   , { }                             )
