@@ -355,15 +355,15 @@
 
 |   Atajo  | Significado                                                                  |
 |:--------:|------------------------------------------------------------------------------|
-|  **`(`** | En visual mode, inserta al inicio un `(` y al final un `)`                   |
-|  **`[`** | En visual mode, inserta al inicio un `[` y al final un `]`                   |
-|  **`{`** | En visual mode, inserta al inicio un `{` y al final un `}`                   |
-|  **`'`** | En visual mode, inserta al inicio un `'` y al final un `'`                   |
-| **`\``** | En visual mode, inserta al inicio un `` ` `` y al final un `` ` ``           |
-|  **`"`** | En visual mode, inserta al inicio un `"` y al final un `"`                   |
-|  **`)`** | En visual mode, **lo mismo que `(`**, pero agregando un espacio en el medio  |
-|  **`]`** | En visual mode, **lo mismo que `[`**, pero agregando un espacio en el medio  |
-|  **`}`** | En visual mode, **lo mismo que `{`**, pero agregando un espacio en el medio  |
+|  **`ñ(`** | En visual mode, inserta al inicio un `(` y al final un `)`                   |
+|  **`ñ[`** | En visual mode, inserta al inicio un `[` y al final un `]`                   |
+|  **`ñ{`** | En visual mode, inserta al inicio un `{` y al final un `}`                   |
+|  **`ñ'`** | En visual mode, inserta al inicio un `'` y al final un `'`                   |
+| **`ñ\``** | En visual mode, inserta al inicio un `` ` `` y al final un `` ` ``           |
+|  **`ñ"`** | En visual mode, inserta al inicio un `"` y al final un `"`                   |
+|  **`ñ)`** | En visual mode, **lo mismo que `(`**, pero agregando un espacio en el medio  |
+|  **`ñ]`** | En visual mode, **lo mismo que `[`**, pero agregando un espacio en el medio  |
+|  **`ñ}`** | En visual mode, **lo mismo que `{`**, pero agregando un espacio en el medio  |
 
 ### Modo Diff (`vimdiff` o `nvim -d`)
 
