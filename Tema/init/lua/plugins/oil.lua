@@ -55,8 +55,10 @@ return {
         ["."] = "actions.toggle_hidden",
         ["q"] = "actions.close",
 
-        ["h"] = "actions.parent",
-        ["l"] = "actions.select",
+        ["H"] = "actions.parent",
+        ["L"] = "actions.select",
+        ["J"] = "j",
+        ["K"] = "k",
         ["v"] = "<S-v>",
       },
       -- Set to false to disable all of the above keymaps
