@@ -57,7 +57,7 @@ local function telescope_config()
         quiet = false,
         dir_icon = "",
         dir_icon_hl = "Default",
-        display_stat = { date = true, size = true, mode = true },
+        display_stat = false, -- { date = false, size = false, mode = false },
         hijack_netrw = false,
         use_fd = true,
         git_status = true,
