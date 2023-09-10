@@ -24,8 +24,8 @@ if [ "$1" == "diff" ]; then
     fi
   done
 
-  # Archivos de configuraciones
-  LUACONFIG=$(ls lua/**/*.lua)
+  # Archivos de configuraciones de PLUGINS
+  LUACONFIG=$(ls lua/plugins/*.lua)
   for i in $LUACONFIG ; do
     if [ ! -z "$(diff $i ~/github/My_VIM_Customization/Tema/init/$i)" ]; then
       nvim -d $i ~/github/My_VIM_Customization/Tema/init/$i
