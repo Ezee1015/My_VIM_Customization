@@ -77,9 +77,7 @@ local function startify_config()
   --       \ ]
   vim.cmd([[
   autocmd User StartifyReady exec 'IndentBlanklineDisable'
-  autocmd User StartifyReady set laststatus=0
   autocmd User StartifyAllBufferOpened exec 'IndentBlanklineEnable'
-  autocmd User StartifyAllBufferOpened set laststatus=2
 
   function! StartifyEntryFormat() abort
   return 'v:lua.webDevIcons(absolute_path) ." ". entry_path'
