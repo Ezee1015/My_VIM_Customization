@@ -131,15 +131,15 @@ local function cmp_config ()
   local luasnip = require('luasnip')
   local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
-  --      פּ  ﯟ  m      some other good icons
+  --         פּ  ﯟ   m    󰈔  some other good icons
   local kind_icons = {
     Text = "󰦨",
-    Method = "m ",
+    Method = "m",
     Function = " ",
     Constructor = "",
     Field = "",
-    Variable = "",
-    Class = "",
+    Variable = "󰫧",
+    Class = "",
     Interface = "",
     Module = "",
     Property = "",
@@ -148,16 +148,16 @@ local function cmp_config ()
     Enum = "",
     Keyword = "",
     Snippet = "",
-    Color = "",
-    File = "󰈔",
+    Color = "",
+    File = "",
     Reference = "",
     Folder = "",
     EnumMember = "",
-    Constant = "",
+    Constant = "󰰊",
     Struct = "",
     Event = "",
-    Operator = "",
-    TypeParameter = "",
+    Operator = "",
+    TypeParameter = "",
   }
 
   local has_words_before = function()
