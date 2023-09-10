@@ -31,15 +31,27 @@ if [ "$1" == "diff" ]; then
       nvim -d $i ~/github/My_VIM_Customization/Tema/init/$i
     fi
   done
+
+  # Diccionario personal
+  DICCIONARIO=$(ls spell/*.add)
+  for i in $DICCIONARIO ; do
+    if [ ! -z "$(diff $i ~/github/My_VIM_Customization/Tema/init/$i)" ]; then
+      nvim -d $i ~/github/My_VIM_Customization/Tema/init/$i
+    fi
+  done
   exit
 fi
 
 if [ "$1" == "sync" ]; then
+  # Elimina configuración del repo
   rm -rf ~/github/My_VIM_Customization/Tema/init/*
   rm ~/github/My_VIM_Customization/Documentacion/Neovim\ -\ Documentación.md
+
+  # Copia la configuración
   cd ~/.config/nvim/
-  # cp -r after init.lua lua ~/github/My_VIM_Customization/Tema/init/
   cp -r init.lua lua ~/github/My_VIM_Customization/Tema/init/
+  mkdir ~/github/My_VIM_Customization/Tema/init/spell/
+  cp spell/*.add ~/github/My_VIM_Customization/Tema/init/spell/
   cp documentacion.md ~/github/My_VIM_Customization/Documentacion/Neovim\ -\ Documentación.md
   exit
 fi
