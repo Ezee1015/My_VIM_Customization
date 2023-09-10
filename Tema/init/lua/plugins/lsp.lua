@@ -131,7 +131,7 @@ local function cmp_config ()
   local luasnip = require('luasnip')
   local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
-  --      פּ  ﯟ  m    some other good icons
+  --      פּ  ﯟ  m      some other good icons
   local kind_icons = {
     Text = "󰦨",
     Method = "m ",
@@ -149,9 +149,9 @@ local function cmp_config ()
     Keyword = "",
     Snippet = "",
     Color = "",
-    File = "",
+    File = "󰈔",
     Reference = "",
-    Folder = "",
+    Folder = "",
     EnumMember = "",
     Constant = "",
     Struct = "",
@@ -215,6 +215,9 @@ local function cmp_config ()
         })[entry.source.name]
         return vim_item
       end,
+    },
+    sources = {
+      { name = 'path' }
     }
   })
 
