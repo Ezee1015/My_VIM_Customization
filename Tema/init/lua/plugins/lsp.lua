@@ -196,7 +196,7 @@ local function cmp_config ()
 
       ["<ESC>"] = cmp.mapping.close(),
 
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<CR>'] = cmp.mapping.confirm(), -- { select = true }
 
       ["<S-k>"] = nil,
     },
