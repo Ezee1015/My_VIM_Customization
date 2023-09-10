@@ -216,7 +216,10 @@ local function cmp_config ()
       end,
     },
     sources = {
-      { name = 'path' }
+      { name = 'path' },
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' },
+      { name = 'buffer' },
     }
   })
 
