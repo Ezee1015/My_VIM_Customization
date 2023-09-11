@@ -1,6 +1,6 @@
 return {
   {"kyazdani42/nvim-tree.lua",
-    config = {
+    opts = {
       respect_buf_cwd = true,
       on_attach = function(bufnr)
         local api = require('nvim-tree.api')

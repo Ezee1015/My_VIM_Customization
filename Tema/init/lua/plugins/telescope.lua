@@ -6,7 +6,7 @@ local function telescope_config()
     defaults = {
       -- layout_strategy = 'vertical',
       layout_strategy = 'horizontal',
-      layout_config = {
+      layout_opts = {
         height = 0.99,
         width = 0.99,
         preview_cutoff = 50,
@@ -100,7 +100,7 @@ local function telescope_config()
   }
 end
 
-local neoclip_config = {
+local neoclip_opts = {
   history = 1000,
   enable_persistent_history = false,
   length_limit = 1048576,
@@ -140,7 +140,7 @@ return {
       "BurntSushi/ripgrep",
 
       {"AckslD/nvim-neoclip.lua",
-        config = neoclip_config,
+        opts = neoclip_opts,
       },
 
       "nvim-telescope/telescope-file-browser.nvim",

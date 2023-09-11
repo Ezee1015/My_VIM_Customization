@@ -5,7 +5,7 @@ return {
 		dependencies = {
 			"folke/twilight.nvim" -- Resalta la porción de código debajo del cursor
     },
-    config = {
+    opts = {
       window = {
         backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
         width = 100, -- width of the Zen window

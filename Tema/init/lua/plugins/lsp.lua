@@ -75,7 +75,7 @@ local function lspconfig_config()
   }
 end
 
-local lsp_signature_config = {
+local lsp_signature_opts = {
   bind = true, -- This is mandatory, otherwise border config won't get registered.
   doc_lines = 10, -- will show two lines of comment/doc(if there are more than two lines in doc, will be truncated);
   -- set to 0 if you DO NOT want any API comments be shown
@@ -288,10 +288,8 @@ return {
 
       -- Function signatures
       {"ray-x/lsp_signature.nvim",
-        config = lsp_signature_config
+        opts = lsp_signature_opts
       },
-
-      "nvim-treesitter/nvim-treesitter-context",
     },
 
     config = lspconfig_config,

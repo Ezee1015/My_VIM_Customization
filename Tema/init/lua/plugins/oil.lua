@@ -1,6 +1,6 @@
 return {
 	{"stevearc/oil.nvim",
-    config = {
+    opts = {
       columns = {
         "icon",
         -- "permissions",

@@ -16,7 +16,7 @@ return {
 
   -- Símbolos Git dentro del archivo
   {"lewis6991/gitsigns.nvim",
-    config = {
+    opts = {
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
 

@@ -1,7 +1,7 @@
 -- Instalación de los servidores de lenguaje y DAPs
 return {
   {"williamboman/mason.nvim",
-    config = {
+    opts = {
       ui = {
         icons = {
           package_installed = "✓",
@@ -15,7 +15,7 @@ return {
   "williamboman/mason-lspconfig.nvim",
 
   {"WhoIsSethDaniel/mason-tool-installer.nvim",
-    config = {
+    opts = {
       ensure_installed = {
         -- DAP
         'cpptools',

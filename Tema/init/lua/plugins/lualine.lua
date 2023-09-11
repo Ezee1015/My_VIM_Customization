@@ -17,8 +17,7 @@ end
 
 return {
 	{"nvim-lualine/lualine.nvim",
-
-    config = {
+    opts = {
       options = {
         refresh = {
           statusline = 500,
