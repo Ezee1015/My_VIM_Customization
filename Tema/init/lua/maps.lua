@@ -230,17 +230,18 @@ map('v', '<leader>p'    , '"_dP'                             , { silent= true, n
 -- Marca de rojo los caracteres no ascii que pueden dar problemas en el código
 map('n', '<leader>i'    , ':syntax match nonascii "[^\\d0-\\d127]"<CR>:highlight nonascii guibg=DarkRed ctermbg=2<CR>' , { silent= true, noremap= true } )
 
--- Surround ([{*"'` `'"*}])
-map('v', 'ñ('    , 's()<ESC>P'                                , { silent= true, noremap= true } )
-map('v', 'ñ)'    , 's(  )<ESC>hP'                             , { silent= true, noremap= true } )
-map('v', 'ñ['    , 's[]<ESC>P'                                , { silent= true, noremap= true } )
-map('v', 'ñ]'    , 's[  ]<ESC>hP'                             , { silent= true, noremap= true } )
-map('v', 'ñ{'    , 's{}<ESC>P'                                , { silent= true, noremap= true } )
-map('v', 'ñ}'    , 's{  }<ESC>hP'                             , { silent= true, noremap= true } )
-map('v', 'ñ"'    , 's""<ESC>P'                                , { silent= true, noremap= true } )
-map('v', 'ñ\''    , 's\'\'<ESC>P'                             , { silent= true, noremap= true } )
-map('v', 'ñ`'    , 's``<ESC>P'                                , { silent= true, noremap= true } )
-map('v', 'ñ*'    , 's**<ESC>P'                                , { silent= true, noremap= true } )
+-- Surround ([{*"'` `'"*}]) --> En el registro 'z' guarda la info.
+map('v', 'ñ('    , '"zdi()<ESC>"zP'                                , { silent= true, noremap= true } )
+map('v', 'ñ)'    , '"zdi(  )<ESC>h"zP'                             , { silent= true, noremap= true } )
+map('v', 'ñ['    , '"zdi[]<ESC>"zP'                                , { silent= true, noremap= true } )
+map('v', 'ñ]'    , '"zdi[  ]<ESC>h"zP'                             , { silent= true, noremap= true } )
+map('v', 'ñ{'    , '"zdi{}<ESC>"zP'                                , { silent= true, noremap= true } )
+map('v', 'ñ}'    , '"zdi{  }<ESC>h"zP'                             , { silent= true, noremap= true } )
+map('v', 'ñ"'    , '"zdi""<ESC>"zP'                                , { silent= true, noremap= true } )
+map('v', 'ñ\''   , '"zdi\'\'<ESC>"zP'                             , { silent= true, noremap= true } )
+map('v', 'ñ`'    , '"zdi``<ESC>"zP'                                , { silent= true, noremap= true } )
+map('v', 'ñc'    , '"zdi``<ESC>"zP'                                , { silent= true, noremap= true } )
+map('v', 'ñ*'    , '"zdi**<ESC>"zP'                                , { silent= true, noremap= true } )
 
 -- "*****************************************************************************
 -- "" Mappings de los PLUGINS
