@@ -1,4 +1,4 @@
-<img alt="Neovim Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Neovim-mark.svg/1680px-Neovim-mark.svg.png"  align="left" width="60" style="margin-right:25px">
+<img alt="Neovim Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Neovim-mark.svg/1680px-Neovim-mark.svg.png"  align="left" width="60" style="margin-right:30px">
 
 # My Neovim Customization
 
