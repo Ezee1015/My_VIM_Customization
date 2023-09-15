@@ -361,17 +361,20 @@
 
 ### Surround
 
-|   Atajo  | Significado                                                                  |
-|:--------:|------------------------------------------------------------------------------|
-|  **`ñ(`** | En visual mode, inserta al inicio un `(` y al final un `)`                   |
-|  **`ñ[`** | En visual mode, inserta al inicio un `[` y al final un `]`                   |
-|  **`ñ{`** | En visual mode, inserta al inicio un `{` y al final un `}`                   |
-|  **`ñ'`** | En visual mode, inserta al inicio un `'` y al final un `'`                   |
-| **`ñ\``** | En visual mode, inserta al inicio un `` ` `` y al final un `` ` ``           |
-|  **`ñ"`** | En visual mode, inserta al inicio un `"` y al final un `"`                   |
-|  **`ñ)`** | En visual mode, **lo mismo que `(`**, pero agregando un espacio en el medio  |
-|  **`ñ]`** | En visual mode, **lo mismo que `[`**, pero agregando un espacio en el medio  |
-|  **`ñ}`** | En visual mode, **lo mismo que `{`**, pero agregando un espacio en el medio  |
+Para poder rodear la palabra con el caracter deseado, estos atajos utilizan el registro `z` para poder almacenar la información seleccionada, por lo tanto, **se eliminará cualquier contenido que haya en el registro `z`**
+
+|      Atajo     | Significado                                                                 |
+|:--------------:|-----------------------------------------------------------------------------|
+|    **`ñ(`**    | En visual mode, inserta al inicio un `(` y al final un `)`                  |
+|    **`ñ[`**    | En visual mode, inserta al inicio un `[` y al final un `]`                  |
+|    **`ñ{`**    | En visual mode, inserta al inicio un `{` y al final un `}`                  |
+|    **`ñ'`**    | En visual mode, inserta al inicio un `'` y al final un `'`                  |
+| **``` ñ` ```** | En visual mode, inserta al inicio un `` ` `` y al final un `` ` ``          |
+|    **`ñc`**    | La misma función que **``` ñ` ```**                                         |
+|    **`ñ"`**    | En visual mode, inserta al inicio un `"` y al final un `"`                  |
+|    **`ñ)`**    | En visual mode, **lo mismo que `(`**, pero agregando un espacio en el medio |
+|    **`ñ]`**    | En visual mode, **lo mismo que `[`**, pero agregando un espacio en el medio |
+|    **`ñ}`**    | En visual mode, **lo mismo que `{`**, pero agregando un espacio en el medio |
 
 ### Modo Diff (`vimdiff` o `nvim -d`)
 
