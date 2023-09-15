@@ -123,6 +123,14 @@
 |  **`m[letra]`**  | Pone una Marca en el punto sobre el que el cursor está                    |
 |  **`'[Letra]`**  | Va hacia esa marca                                                        |
 
+### Nivel 5 - Help pages
+
+|        Atajo       | Significado                                              |
+|:------------------:|----------------------------------------------------------|
+| **`:help [ALGO]`** | Ir a la ayuda del 'ALGO'                                 |
+|   **`[Ctrl] ]`**   | Ir a la etiqueta (definición) que está debajo del cursor |
+|    **`[Ctrl]o`**   | Regresa a la anterior posición                           |
+
 
 ## Comandos Básicos
 
