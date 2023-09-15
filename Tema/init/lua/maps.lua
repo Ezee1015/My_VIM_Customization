@@ -171,6 +171,7 @@ map('', '__'            , 'g<C-x>'                          , { }               
 
 -- Atajo Sustituir
 map('n', 'S'             , ':%s//g<Left><Left>'              , { }                             )
+map('v', 'S'             , ':s//g<Left><Left>'              , { }                             )
 map('n', '<Leader>S'     , ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>' , { }        )
 
 -- Lista de Cambios en un Archivo
