@@ -4,6 +4,8 @@ local function luasnip_config()
   local text = ls.text_node
   local insert = ls.insert_node
 
+  require("luasnip.loaders.from_vscode").lazy_load()
+
   -- Agrega la etiqueta "ul" que es subrayado en markdown
   ls.add_snippets("markdown", {
     s("ul", {
