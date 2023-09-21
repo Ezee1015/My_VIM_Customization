@@ -23,39 +23,39 @@ install:
 	echo "                     * Lenguajes Soportados por Treesitter: https://github.com/nvim-treesitter/nvim-treesitter#supported-languages"
 
 # Updates and shows the diff with the repository lua's files
-diff_local:
+diff:
 	# Actualiza los repos
 	cd ~/github/My_VIM_Customization
 	git pull
 	# init.lua
 	cd ~/.config/nvim/
-	if [ ! -z "$(diff init.lua ~/github/My_VIM_Customization/Tema/init/init.lua)" ]; then
-		nvim -d init.lua ~/github/My_VIM_Customization/Tema/init/init.lua
+	if [ ! -z "$(diff init.lua ~/github/My_VIM_Customization/Tema/init/init.lua)" ]; then \
+		nvim -d init.lua ~/github/My_VIM_Customization/Tema/init/init.lua; \
 	fi
 	# Documentación
-	if [ ! -z "$(diff documentacion.md ~/github/My_VIM_Customization/Documentacion/Neovim\ -\ Documentación.md)" ]; then
-		nvim -d documentacion.md ~/github/My_VIM_Customization/Documentacion/Neovim\ -\ Documentación.md
+	if [ ! -z "$(diff documentacion.md ~/github/My_VIM_Customization/Documentacion/Neovim\ -\ Documentación.md)" ]; then \
+		nvim -d documentacion.md ~/github/My_VIM_Customization/Documentacion/Neovim\ -\ Documentación.md; \
 	fi
 	# Archivos de configuraciones
 	LUACONFIG=$(ls lua/*.lua)
-	for i in $LUACONFIG ; do
-		if [ ! -z "$(diff $i ~/github/My_VIM_Customization/Tema/init/$i)" ]; then
-			nvim -d $i ~/github/My_VIM_Customization/Tema/init/$i
-		fi
+	for i in $LUACONFIG ; do \
+		if [ ! -z "$(diff $i ~/github/My_VIM_Customization/Tema/init/$i)" ]; then \
+			nvim -d $i ~/github/My_VIM_Customization/Tema/init/$i; \
+		fi; \
 	done
 	# Archivos de configuraciones de PLUGINS
 	LUACONFIG=$(ls lua/plugins/*.lua)
-	for i in $LUACONFIG ; do
-		if [ ! -z "$(diff $i ~/github/My_VIM_Customization/Tema/init/$i)" ]; then
-			nvim -d $i ~/github/My_VIM_Customization/Tema/init/$i
-		fi
+	for i in $LUACONFIG ; do \
+		if [ ! -z "$(diff $i ~/github/My_VIM_Customization/Tema/init/$i)" ]; then \
+			nvim -d $i ~/github/My_VIM_Customization/Tema/init/$i; \
+		fi \
 	done
 	# Diccionario personal
 	DICCIONARIO=$(ls spell/*.add)
-	for i in $DICCIONARIO ; do
-		if [ ! -z "$(diff $i ~/github/My_VIM_Customization/Tema/init/$i)" ]; then
-			nvim -d $i ~/github/My_VIM_Customization/Tema/init/$i
-		fi
+	for i in $DICCIONARIO ; do \
+		if [ ! -z "$(diff $i ~/github/My_VIM_Customization/Tema/init/$i)" ]; then \
+			nvim -d $i ~/github/My_VIM_Customization/Tema/init/$i; \
+		fi \
 	done
 
 # Updates and send to the repository the lua files
