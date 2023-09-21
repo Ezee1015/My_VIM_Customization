@@ -59,7 +59,7 @@ diff:
 	done
 
 # Updates and send to the repository the lua files
-to_repo:
+sync:
 	# Elimina configuración del repo
 	rm -rf ~/github/My_VIM_Customization/Tema/init/*
 	rm ~/github/My_VIM_Customization/Documentacion/Neovim\ -\ Documentación.md
