@@ -1,5 +1,5 @@
 # My_VIM_Customization
-Mi personalización de NeoVim, creado desde cero y personalizado por mi para mis necesidades.
+Mi personalización de Neovim, creado desde cero y personalizado por mi para mis necesidades.
 
 ## Documentación:
 | TIPO                                                                                                                                                                              | RUTA                                                 |
@@ -17,10 +17,7 @@ neovim
 ## INSTALACIÓN
 Para Instalarlo, pegar estos comandos en la terminal uno por uno...
 ```
-cd
 git clone https://github.com/Ezee1015/My_VIM_Customization
 cd My_VIM_Customization
-bash INSTALL.sh
-cd ..
-rm -rf My_VIM_Customization
+make install
 ```
