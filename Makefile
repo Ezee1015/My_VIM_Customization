@@ -1,5 +1,5 @@
 REPO_DIR=~/github/My_VIM_Customization
-REPO_CONFIG_DIR=${REPO_DIR}/Tema/init/
+REPO_CONFIG_DIR=${REPO_DIR}/Tema/init
 LOCAL_CONFIG_DIR=~/.config/nvim
 
 LUA_CONFIG_FILES=init.lua lua/basic.lua lua/compile.lua lua/maps.lua lua/plugins.lua
