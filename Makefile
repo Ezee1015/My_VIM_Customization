@@ -66,14 +66,16 @@ diff:
 # Updates and send to the repository the lua files
 sync:
 	# Elimina configuración del repo
-	rm -rf ~/github/My_VIM_Customization/Tema/init/*
-	rm ~/github/My_VIM_Customization/Documentacion/Neovim\ -\ Documentación.md
+	rm -rf ${REPO_CONFIG_DIR}/*
+	rm ${REPO_DOC_FILE}
 	# Copia la configuración
-	cd ~/.config/nvim/
-	cp -r init.lua lua ~/github/My_VIM_Customization/Tema/init/
-	mkdir ~/github/My_VIM_Customization/Tema/init/spell/
-	cp spell/*.add ~/github/My_VIM_Customization/Tema/init/spell/
-	cp documentacion.md ~/github/My_VIM_Customization/Documentacion/Neovim\ -\ Documentación.md
+	cp -r ${LOCAL_CONFIG_DIR}/init.lua ${LOCAL_CONFIG_DIR}/lua ${REPO_CONFIG_DIR}/
+	cp ${LOCAL_DOC_FILE} ${REPO_DOC_FILE}
+	mkdir ${REPO_CONFIG_DIR}/spell
+	for i in ${SPELL_FILE} ; do                                \
+		LOCAL_FILE=${LOCAL_CONFIG_DIR}/$$i;                      \
+		cp ${LOCAL_FILE} ${REPO_CONFIG_DIR}/spell/
+	done
 
 # Updates from the repository the lua files. DESTRUCTIVE!!!
 update:
