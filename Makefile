@@ -1,3 +1,14 @@
+REPO_DIR=~/github/My_VIM_Customization
+REPO_CONFIG_DIR=${REPO_DIR}/Tema/init/
+LOCAL_CONFIG_DIR=~/.config/nvim
+
+LUA_CONFIG_FILES=init.lua lua/basic.lua lua/compile.lua lua/maps.lua lua/plugins.lua
+PLUGIN_CONFIG_FILES=lua/plugins/bufline.lua lua/plugins/git.lua lua/plugins/markdown.lua lua/plugins/startify.lua lua/plugins/zen-mode.lua lua/plugins/colorscheme.lua lua/plugins/init.lua lua/plugins/mason.lua lua/plugins/telescope.lua lua/plugins/commentary.lua lua/plugins/lsp.lua lua/plugins/nvim-tree.lua lua/plugins/treesitter.lua lua/plugins/dap.lua lua/plugins/lualine.lua lua/plugins/oil.lua lua/plugins/venn.lua
+SPELL_FILE=/spell/es.utf-8.add
+
+REPO_DOC_FILE=${REPO_DIR}/Documentacion/Neovim\ -\ Documentación.md
+LOCAL_DOC_FILE=${LOCAL_CONFIG_DIR}/documentacion.md
+
 # Updates and install the lua files from the repository
 install:
 	sudo apt install neovim vim curl vim-gtk openjdk-17* xdotool curl python3 universal-ctags gdb ripgrep -y
@@ -24,38 +35,34 @@ install:
 
 # Updates and shows the diff with the repository lua's files
 diff:
-	# Actualiza los repos
-	cd ~/github/My_VIM_Customization
-	git pull
-	# init.lua
-	cd ~/.config/nvim/
-	if [ ! -z "$(diff init.lua ~/github/My_VIM_Customization/Tema/init/init.lua)" ]; then \
-		nvim -d init.lua ~/github/My_VIM_Customization/Tema/init/init.lua; \
-	fi
-	# Documentación
-	if [ ! -z "$(diff documentacion.md ~/github/My_VIM_Customization/Documentacion/Neovim\ -\ Documentación.md)" ]; then \
-		nvim -d documentacion.md ~/github/My_VIM_Customization/Documentacion/Neovim\ -\ Documentación.md; \
-	fi
-	# Archivos de configuraciones
-	LUACONFIG=$(ls lua/*.lua)
-	for i in $LUACONFIG ; do \
-		if [ ! -z "$(diff $i ~/github/My_VIM_Customization/Tema/init/$i)" ]; then \
-			nvim -d $i ~/github/My_VIM_Customization/Tema/init/$i; \
-		fi; \
+	cd ${REPO_DIR} && git pull
+	# Archivos de configuraciones de Neovim
+	for i in ${LUA_CONFIG_FILES} ; do                          \
+		LOCAL_FILE=${LOCAL_CONFIG_DIR}/$$i;                      \
+		REPO_FILE=${REPO_CONFIG_DIR}/$$i;                        \
+		if [ ! -z "$$(diff $$LOCAL_FILE $$REPO_FILE)" ]; then    \
+			nvim -d $$LOCAL_FILE $$REPO_FILE ;                     \
+		fi;                                                      \
 	done
 	# Archivos de configuraciones de PLUGINS
-	LUACONFIG=$(ls lua/plugins/*.lua)
-	for i in $LUACONFIG ; do \
-		if [ ! -z "$(diff $i ~/github/My_VIM_Customization/Tema/init/$i)" ]; then \
-			nvim -d $i ~/github/My_VIM_Customization/Tema/init/$i; \
-		fi \
+	for i in ${PLUGIN_CONFIG_FILES} ; do                       \
+		LOCAL_FILE=${LOCAL_CONFIG_DIR}/$$i;                      \
+		REPO_FILE=${REPO_CONFIG_DIR}/$$i;                        \
+		if [ ! -z "$$(diff  $$LOCAL_FILE $$REPO_FILE)" ]; then   \
+			nvim -d $$LOCAL_FILE $$REPO_FILE;                      \
+		fi;                                                      \
 	done
+	# Documentación
+	if [ ! -z "$(diff ${LOCAL_DOC_FILE} ${REPO_DOC_FILE})" ]; then \
+		nvim -d ${LOCAL_DOC_FILE} ${REPO_DOC_FILE};                  \
+	fi
 	# Diccionario personal
-	DICCIONARIO=$(ls spell/*.add)
-	for i in $DICCIONARIO ; do \
-		if [ ! -z "$(diff $i ~/github/My_VIM_Customization/Tema/init/$i)" ]; then \
-			nvim -d $i ~/github/My_VIM_Customization/Tema/init/$i; \
-		fi \
+	for i in ${SPELL_FILE} ; do                                \
+		LOCAL_FILE=${LOCAL_CONFIG_DIR}/$$i;                      \
+		REPO_FILE=${REPO_CONFIG_DIR}/$$i;                        \
+		if [ ! -z "$$(diff $$LOCAL_FILE $$REPO_FILE)" ]; then    \
+			nvim -d $$LOCAL_FILE $$REPO_FILE;                      \
+		fi;                                                      \
 	done
 
 # Updates and send to the repository the lua files
