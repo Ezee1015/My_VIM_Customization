@@ -16,7 +16,7 @@ ZYPPER_PACKAGES=neovim xclip xclipboard vim xdotool python3 ctags lua-language-s
 
 # Updates and install the lua files from the repository
 install:
-	@sudo apt install ${APT_PACKAGES} ||  \
+	@sudo apt install ${APT_PACKAGES} || \
 	sudo pacman -S ${PACMAN_PACKAGES} || \
 	sudo zypper install ${ZYPPER_PACKAGES}
 	# pip install -U neovim || pip3 install -U neovim
@@ -35,7 +35,7 @@ install:
 diff:
 	cd ${REPO_DIR} && git pull
 	# Archivos de configuraciones de Neovim
-	for i in ${LUA_CONFIG_FILES} ; do                          \
+	@for i in ${LUA_CONFIG_FILES} ; do                         \
 		LOCAL_FILE=${LOCAL_CONFIG_DIR}/$$i;                      \
 		REPO_FILE=${REPO_CONFIG_DIR}/$$i;                        \
 		if [ ! -z "$$(diff $$LOCAL_FILE $$REPO_FILE)" ]; then    \
@@ -43,7 +43,7 @@ diff:
 		fi;                                                      \
 	done
 	# Archivos de configuraciones de PLUGINS
-	for i in ${PLUGIN_CONFIG_FILES} ; do                       \
+	@for i in ${PLUGIN_CONFIG_FILES} ; do                      \
 		LOCAL_FILE=${LOCAL_CONFIG_DIR}/$$i;                      \
 		REPO_FILE=${REPO_CONFIG_DIR}/$$i;                        \
 		if [ ! -z "$$(diff  $$LOCAL_FILE $$REPO_FILE)" ]; then   \
@@ -51,11 +51,11 @@ diff:
 		fi;                                                      \
 	done
 	# Documentación
-	if [ ! -z "$(diff ${LOCAL_DOC_FILE} ${REPO_DOC_FILE})" ]; then \
-		nvim -d ${LOCAL_DOC_FILE} ${REPO_DOC_FILE};                  \
+	@if [ ! -z "$(diff ${LOCAL_DOC_FILE} ${REPO_DOC_FILE})" ]; then \
+		nvim -d ${LOCAL_DOC_FILE} ${REPO_DOC_FILE};                   \
 	fi
 	# Diccionario personal
-	for i in ${SPELL_FILE} ; do                                \
+	@for i in ${SPELL_FILE} ; do                               \
 		LOCAL_FILE=${LOCAL_CONFIG_DIR}/$$i;                      \
 		REPO_FILE=${REPO_CONFIG_DIR}/$$i;                        \
 		if [ ! -z "$$(diff $$LOCAL_FILE $$REPO_FILE)" ]; then    \
@@ -66,19 +66,19 @@ diff:
 # Updates and send to the repository the lua files
 sync:
 	# Elimina configuración del repo
-	rm -rf ${REPO_CONFIG_DIR}/*
-	rm ${REPO_DOC_FILE}
+	@rm -rf ${REPO_CONFIG_DIR}/*
+	@rm ${REPO_DOC_FILE}
 	# Copia la configuración
-	cp -r ${LOCAL_CONFIG_DIR}/init.lua ${LOCAL_CONFIG_DIR}/lua ${REPO_CONFIG_DIR}/
-	cp ${LOCAL_DOC_FILE} ${REPO_DOC_FILE}
-	mkdir ${REPO_CONFIG_DIR}/spell
-	for i in ${SPELL_FILE} ; do                                \
+	@cp -r ${LOCAL_CONFIG_DIR}/init.lua ${LOCAL_CONFIG_DIR}/lua ${REPO_CONFIG_DIR}/
+	@cp ${LOCAL_DOC_FILE} ${REPO_DOC_FILE}
+	@mkdir ${REPO_CONFIG_DIR}/spell
+	@for i in ${SPELL_FILE} ; do                               \
 		LOCAL_FILE=${LOCAL_CONFIG_DIR}/$$i;                      \
 		cp ${LOCAL_FILE} ${REPO_CONFIG_DIR}/spell/
 	done
 
 # Updates from the repository the lua files. DESTRUCTIVE!!!
 update:
-	cd ${REPO_DIR} && git pull
-	cp -r ${REPO_CONFIG_DIR}/* ${LOCAL_CONFIG_DIR}/
-	cp ${REPO_DOC_FILE} ${LOCAL_DOC_FILE}
+	@cd ${REPO_DIR} && git pull
+	@cp -r ${REPO_CONFIG_DIR}/* ${LOCAL_CONFIG_DIR}/
+	@cp ${REPO_DOC_FILE} ${LOCAL_DOC_FILE}
