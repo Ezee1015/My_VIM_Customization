@@ -75,7 +75,7 @@ send:
 	@mkdir ${REPO_CONFIG_DIR}/spell
 	@for i in ${SPELL_FILE} ; do                               \
 		LOCAL_FILE=${LOCAL_CONFIG_DIR}/$$i;                      \
-		cp ${LOCAL_FILE} ${REPO_CONFIG_DIR}/spell/
+		cp $$LOCAL_FILE ${REPO_CONFIG_DIR}/spell/;               \
 	done
 
 # Updates from the repository the lua files. DESTRUCTIVE!!!
