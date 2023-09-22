@@ -79,7 +79,6 @@ sync:
 
 # Updates from the repository the lua files. DESTRUCTIVE!!!
 update:
-	cd ~/github/My_VIM_Customization
-	git pull
-	cp -r Tema/init/* ~/.config/nvim/
-	cp Documentacion/Neovim\ -\ Documentación.md ~/.config/nvim/documentacion.md
+	cd ${REPO_DIR} && git pull
+	cp -r ${REPO_CONFIG_DIR}/* ${LOCAL_CONFIG_DIR}/
+	cp ${REPO_DOC_FILE} ${LOCAL_DOC_FILE}
