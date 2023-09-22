@@ -64,7 +64,8 @@ diff:
 	done
 
 # Updates and send to the repository the lua files
-sync:
+send:
+	$(info Enviando...)
 	# Elimina configuración del repo
 	@rm -rf ${REPO_CONFIG_DIR}/*
 	@rm ${REPO_DOC_FILE}
@@ -79,6 +80,7 @@ sync:
 
 # Updates from the repository the lua files. DESTRUCTIVE!!!
 update:
+	$(info Actualizando...)
 	@cd ${REPO_DIR} && git pull
 	@cp -r ${REPO_CONFIG_DIR}/* ${LOCAL_CONFIG_DIR}/
 	@cp ${REPO_DOC_FILE} ${LOCAL_DOC_FILE}
