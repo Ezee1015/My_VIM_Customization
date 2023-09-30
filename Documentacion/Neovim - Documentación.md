@@ -641,15 +641,15 @@ Se puede modificar los archivos como si fuera un buffer de texto
 
 |     Atajo    | Significado                                                                                     |
 |:------------:|-------------------------------------------------------------------------------------------------|
-| **`[C-d]d`** | Abre y cierra el debugger.                                                                      |
-| **`[C-d]b`** | Agrega un breakpoint                                                                            |
-| **`[C-d]c`** | Comienza la ejecución                                                                           |
-| **`[C-d]n`** | Continúa a la siguiente instrucción                                                             |
-| **`[C-d]i`** | Entra dentro de la función que está sobre la línea que se está ejecutando                       |
-| **`[C-d]o`** | Sale dentro de la función que se entró con [C-d]i                                               |
-| **`[C-d]B`** | Pone un breakpoint, donde **solamente** se frena la ejecución cuando se cumple cierta condición |
-| **`[C-d]s`** | Detiene la ejecución del DAP                                                                    |
-| **`[C-d]r`** | Resetea el Layout original de la interfaz del DAP                                               |
+| **`[C-s]d`** | Abre y cierra el debugger.                                                                      |
+| **`[C-s]b`** | Agrega un breakpoint                                                                            |
+| **`[C-s]c`** | Comienza la ejecución                                                                           |
+| **`[C-s]n`** | Continúa a la siguiente instrucción                                                             |
+| **`[C-s]i`** | Entra dentro de la función que está sobre la línea que se está ejecutando                       |
+| **`[C-s]o`** | Sale dentro de la función que se entró con [C-d]i                                               |
+| **`[C-s]B`** | Pone un breakpoint, donde **solamente** se frena la ejecución cuando se cumple cierta condición |
+| **`[C-s]s`** | Detiene la ejecución del DAP                                                                    |
+| **`[C-s]r`** | Resetea el Layout original de la interfaz del DAP                                               |
 
 #### Mappings de las ventanas más importantes
 

@@ -98,15 +98,15 @@ return {
     config = dap_ui_config,
 
     keys = {
-      { '<C-d>d', ":lua require('dapui').toggle()<CR>"            , desc="Mostrar/Ocultar DAP" },
-      { '<C-d>r', ":lua require('dapui').open({reset = true})<CR>", desc="Restaurar interfaz DAP" },
-      { '<C-d>b', ":lua require('dap').toggle_breakpoint()<CR>"   , desc="Breakpoint DAP" },
-      { '<C-d>c', ":lua require('dap').continue()<CR>"            , desc="Comenzar DAP" },
-      { '<C-d>n', ":lua require('dap').step_over()<CR>"           , desc="Siguiente instrucción DAP" },
-      { '<C-d>i', ":lua require('dap').step_into()<CR>"           , desc="Entrar en la instrucción DAP" },
-      { '<C-d>o', ":lua require('dap').step_out()<CR>"            , desc="Salir de la instrucción DAP" },
-      { '<C-d>s', ":lua require('dap').close()<CR>"               , desc="Detener DAP" },
-      { '<C-d><S-b>', ":lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", desc="Breakpoint condicional DAP" },
+      { '<C-s>d', ":lua require('dapui').toggle()<CR>"            , desc="Mostrar/Ocultar DAP" },
+      { '<C-s>r', ":lua require('dapui').open({reset = true})<CR>", desc="Restaurar interfaz DAP" },
+      { '<C-s>b', ":lua require('dap').toggle_breakpoint()<CR>"   , desc="Breakpoint DAP" },
+      { '<C-s>c', ":lua require('dap').continue()<CR>"            , desc="Comenzar DAP" },
+      { '<C-s>n', ":lua require('dap').step_over()<CR>"           , desc="Siguiente instrucción DAP" },
+      { '<C-s>i', ":lua require('dap').step_into()<CR>"           , desc="Entrar en la instrucción DAP" },
+      { '<C-s>o', ":lua require('dap').step_out()<CR>"            , desc="Salir de la instrucción DAP" },
+      { '<C-s>s', ":lua require('dap').close()<CR>"               , desc="Detener DAP" },
+      { '<C-s><S-b>', ":lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", desc="Breakpoint condicional DAP" },
     }
   }
 }
