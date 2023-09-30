@@ -74,12 +74,12 @@ com! DiffSaved call s:DiffWithSaved()
 -- Programa los cambios de çÇ a <> respectivamente y su restablecimiento
 local programado = false
 function Programar()
-  local n1 = 'ç'
-  local n2 = 'Ç'
+  local n1 = '<'
+  local n2 = '>'
 
   if programado then
-    n1 = '<'
-    n2 = '>'
+    n1 = 'ç'
+    n2 = 'Ç'
   end
 
   programado = not programado
