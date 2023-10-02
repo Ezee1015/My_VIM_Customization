@@ -10,18 +10,15 @@ REPO_DOC_FILE=${REPO_DIR}/Documentacion/Neovim\ -\ Documentación.md
 LOCAL_DOC_FILE=${LOCAL_CONFIG_DIR}/documentacion.md
 REPO_DOC_PDF=${REPO_DIR}/Documentacion/Neovim\ -\ Documentación\ -\ Dark.pdf ${REPO_DIR}/Documentacion/Neovim\ -\ Documentación\ -\ Light.pdf
 
-APT_PACKAGES=vim curl vim-gtk openjdk-17* xdotool curl python3 universal-ctags gdb ripgrep python-pynvim rustc cargo cmake pkgconf
-PACMAN_PACKAGES=neovim xclip xorg-xclipboard vim xdotool python3 ctags jdk17-openjdk lua-language-server gdb ripgrep ttf-hack-nerd python-pynvim rust cmake pkgconf
-ZYPPER_PACKAGES=neovim xclip xclipboard vim xdotool python3 ctags lua-language-server gdb ripgrep nerd-font-hack python-pynvim cargo cmake pkgconf
+APT_PACKAGES=vim curl vim-gtk openjdk-17* xdotool curl python3 universal-ctags gdb ripgrep python-pynvim
+PACMAN_PACKAGES=neovim xclip xorg-xclipboard vim xdotool python3 ctags jdk17-openjdk lua-language-server gdb ripgrep ttf-hack-nerd python-pynvim
+ZYPPER_PACKAGES=neovim xclip xclipboard vim xdotool python3 ctags lua-language-server gdb ripgrep nerd-font-hack python-pynvim
 
 # Updates and install the lua files from the repository
 install:
 	@sudo apt install ${APT_PACKAGES} || \
 	sudo pacman -S ${PACMAN_PACKAGES} || \
 	sudo zypper install ${ZYPPER_PACKAGES}
-	# Instala RUST para instalar silicon (imágenes de código)
-	# @curl https://sh.rustup.rs -sSf | sh # Lo instala a través del gestor de paquete, en vez de un script online
-	@cargo install silicon
 	@if [ ! -d ${LOCAL_CONFIG_DIR} ]; then mkdir ${LOCAL_CONFIG_DIR}; fi
 	@cp -r ${REPO_CONFIG_DIR}/* ${LOCAL_CONFIG_DIR}/
 	@cp ${REPO_DOC_FILE} ${LOCAL_DOC_FILE}
@@ -29,7 +26,6 @@ install:
 	$(info *****************************************************************************************)
 	$(info Consideraciones...")
 	$(info   - En Debian o derivadas, instale una fuente de NerdFonts y seleccionela en su terminal (Ejemplo: Hack Font - https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.zip\)")
-	$(info   - En tu .zshrc o .bashrc inserta: export PATH="$$PATH:${HOME}/.cargo/bin"")
 	$(info   - En Debian o derivadas, instale el paquete 'lua-language-server' e instale Neovim desde HomeBrew u otro gestor de paquetes (  /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  )")
 	$(info   - Lenguajes Soportados por Treesitter: https://github.com/nvim-treesitter/nvim-treesitter#supported-languages")
 	$(info *****************************************************************************************)

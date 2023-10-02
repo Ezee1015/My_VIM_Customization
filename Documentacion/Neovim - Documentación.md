@@ -428,10 +428,12 @@ Para poder rodear la palabra con el caracter deseado, estos atajos utilizan el r
 
 ### Photos
 
-|     Atajo    | Significado                                                                                      |
-|:------------:|--------------------------------------------------------------------------------------------------|
-|     [F9]     | Con el texto/código **seleccionado**, crea una imagen de presentación con Silicon (rust)         |
-| [Shift] [F9] | Con el texto/código **seleccionado**, crea una imagen de presentación con https://carbon.now.sh/ |
+| Atajo | Significado                                                                                      |
+|:-----:|--------------------------------------------------------------------------------------------------|
+| [F10] | Con el texto/código **seleccionado**, crea una imagen de presentación con https://carbon.now.sh/ |
+| [F10] | Con el archivo abierto, crea una imagen de presentación con https://carbon.now.sh/               |
+| [F11] | Con el texto/código **seleccionado**, crea un HTML de presentación                               |
+| [F11] | Con el archivo abierto, crea un HTML de presentación                                             |
 
 ### Venn
 
