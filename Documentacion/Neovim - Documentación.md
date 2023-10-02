@@ -417,7 +417,7 @@ Para poder rodear la palabra con el caracter deseado, estos atajos utilizan el r
 |       **`⎵.`**       | Establece el directorio actual como el de trabajo                                         |
 |       **`''`**       | Vuelve a la ultima linea en donde se encontraba el cursor (con `` va a la columna y fila) |
 |       **`F6`**       | Ver cambios del archivo actual                                                            |
-|   **`[Shift-F6]`**   | Volver  a la ventana de edición del archivo                                               |
+|  **`[Shift] [F7]`**  | Volver  a la ventana de edición del archivo                                               |
 |       **`g??`**      | Encripta una linea                                                                        |
 |      [ACCION]gn      | Salta a la siguiente coincidencia (de la búsqueda) y realizar una operación (Ej.: dgn)    |
 |       **`⎵ç`**       | cambia la tecla ç por < y la Ç por >                                                      |
