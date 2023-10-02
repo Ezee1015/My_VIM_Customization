@@ -30,7 +30,7 @@ install:
 	$(info Consideraciones...")
 	$(info   - En Debian o derivadas, instale una fuente de NerdFonts y seleccionela en su terminal (Ejemplo: Hack Font - https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.zip\)")
 	$(info   - En tu .zshrc o .bashrc inserta: export PATH="$$PATH:${HOME}/.cargo/bin"")
-	$(info   - En Debian o derivadas, instale el paquete 'lua-language-server' e instale Neovim desde HomeBrew u otro gestor de paquetes")
+	$(info   - En Debian o derivadas, instale el paquete 'lua-language-server' e instale Neovim desde HomeBrew u otro gestor de paquetes (  /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  )")
 	$(info   - Lenguajes Soportados por Treesitter: https://github.com/nvim-treesitter/nvim-treesitter#supported-languages")
 	$(info *****************************************************************************************)
 
