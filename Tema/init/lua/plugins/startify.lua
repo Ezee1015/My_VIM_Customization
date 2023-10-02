@@ -76,9 +76,6 @@ local function startify_config()
   --       \ { 'type': 'bookmarks',               'header': startify#center(['   Bookmarks'])            },
   --       \ ]
   vim.cmd([[
-  autocmd User StartifyReady exec 'IndentBlanklineDisable'
-  autocmd User StartifyAllBufferOpened exec 'IndentBlanklineEnable'
-
   function! StartifyEntryFormat() abort
   return 'v:lua.webDevIcons(absolute_path) ." ". entry_path'
   endfunction

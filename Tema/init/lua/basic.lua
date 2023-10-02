@@ -2,7 +2,6 @@ vim.o.rnu = true
 vim.o.nu = true
 vim.o.mouse = "a"
 vim.o.cursorline = true
-vim.cmd "lang en_US.UTF-8"
 vim.cmd "set wildmode=longest:full,full"
 vim.o.ic = true --Ignora la Capitalizacion de las letras en la busqueda = true
 vim.o.updatetime = 300 -- Tiempo de actualizacion de CoC
@@ -89,7 +88,6 @@ vim.cmd([[
 -- "" Visual Settings
 -- "*****************************************************************************
 vim.o.mousemodel  = "popup"
-vim.o.guioptions  = "egmrti"
 
 vim.o.scrolloff   = 3
 
