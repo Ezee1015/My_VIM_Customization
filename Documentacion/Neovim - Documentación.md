@@ -232,7 +232,7 @@
 |          **`zug`**          | Elimina palabra del diccionario                                       |
 | **`[Ctrl] r = [Ecuacion]`** | Inserta el resultado de la ecuación escrita en el documento           |
 |           **`⎵S`**          | Reemplaza la palabra que esta debajo del cursor                       |
-|           **`⎵i`**          | Marca en rojo los caracteres no ASCII                                 |
+|           **`⎵i`**          | Marca en rojo los caracteres no ASCII (ideal para *debuggear*)        |
 
 #### Ejemplo de conjugación de atajos
 
