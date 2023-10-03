@@ -225,8 +225,8 @@ map('v', '<S-l>'         , '>gv'                             , { }              
 map('v', '<S-h>'         , '<gv'                             , { }                             )
 
 -- File to HTML
-vim.keymap.set('v', '<F11>', '<cmd>TOhtml<CR>', {})
-vim.keymap.set('n', '<F11>', '<cmd>TOhtml<CR>', {})
+map('v', '<F11>'         , '<cmd>TOhtml<CR>'                 , { }                             )
+map('n', '<F11>'         , '<cmd>TOhtml<CR>'                 , { }                             )
 
 -- Hace que pegar sobre una seleccion no reemplaze a lo que se borra
 map('v', '<leader>p'    , '"_dP'                             , { silent= true, noremap= true } )
