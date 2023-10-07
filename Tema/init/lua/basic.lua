@@ -2,6 +2,7 @@ vim.o.rnu = true
 vim.o.nu = true
 vim.o.cursorline = true
 vim.o.ic = true --Ignora la Capitalizacion de las letras en la busqueda = true
+vim.o.smartcase   = true
 vim.opt.undofile  = true
 -- vim.o.smartindent = true
 vim.opt.fillchars = {
@@ -25,30 +26,6 @@ vim.o.splitright = true
 vim.o.wildignore=vim.o.wildignore.."*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite"
 vim.o.wildignore=vim.o.wildignore.."*.o,*.obj,.git,*.rbc,*.pyc,__pycache__"
 
-vim.cmd ([[
-  " Automatically deletes all trailing whitespace and newlines at end of file on save.
-  autocmd BufWritePre * norm mf
-  autocmd BufWritePre * %s/\s\+$//e
-  autocmd BufWritePre * %s/\n\+\%$//e
-  autocmd BufWritePre *.[ch] %s/\%$/\r/e
-  autocmd BufWritePre * norm `f
-  autocmd BufWritePre * norm dmf
-
-  " Cambia entre el cursor cuadrado ( [] ) en modo normal al cursor de barrita ( | ) en el modo de insercion
-  let &t_SI = "\e[6 q"
-  let &t_EI = "\e[2 q"
-  let &t_SR = "\<Esc>[4 q"
-
-  " reset the cursor on start (for older versions of vim, usually not required)
-  augroup myCmds
-  au!
-  autocmd VimEnter * silent !echo -ne "\e[2 q"            "
-  augroup END
-
-  " Quita los nu y rnu en la terminal
-  autocmd TermOpen * setlocal nonumber norelativenumber
-  ]])
-
 -- "*****************************************************************************
 -- "" Basic Setup
 -- "*****************************************************************************"
@@ -61,16 +38,13 @@ vim.o.softtabstop = 0
 vim.o.shiftwidth  = 2
 vim.o.expandtab   = true
 
--- Searching
-vim.o.smartcase   = true
-
 vim.cmd([[
   if exists('$SHELL')
       set shell=$SHELL
   else
       set shell=/bin/sh
   endif
-  ]])
+]])
 
 -- "*****************************************************************************
 -- "" Visual Settings
@@ -100,7 +74,7 @@ vim.cmd([[
   cnoreabbrev W w
   cnoreabbrev Q q
   cnoreabbrev Qall qall
-  ]])
+]])
 
 -- "*****************************************************************************
 -- "" Autocmd Rules
@@ -112,3 +86,44 @@ vim.api.nvim_create_autocmd("BufReadPost", {
  command = [[ if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]],
  group = remember_cursor_position,
 })
+
+local remove_trailing_whitespaces_and_newlines = vim.api.nvim_create_augroup("remove_trailing_whitespaces_and_newlines", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre",{
+  pattern = "*",
+  command = "norm mf",
+  group = remove_trailing_whitespaces_and_newlines,
+})
+vim.api.nvim_create_autocmd("BufWritePre",{
+  pattern = "*",
+  command = "%s/\\s\\+$//e",
+  group = remove_trailing_whitespaces_and_newlines,
+})
+vim.api.nvim_create_autocmd("BufWritePre",{
+  pattern = "*",
+  command = "%s/\\n\\+\\%$//e",
+  group = remove_trailing_whitespaces_and_newlines,
+})
+vim.api.nvim_create_autocmd("BufWritePre",{
+  pattern = "*.",
+  command = "[ch] %s/\\%$/\\r/e",
+  group = remove_trailing_whitespaces_and_newlines,
+})
+vim.api.nvim_create_autocmd("BufWritePre",{
+  pattern = "*",
+  command = "norm `fdmf",
+  group = remove_trailing_whitespaces_and_newlines,
+})
+
+local remove_nu_nru_terminal = vim.api.nvim_create_augroup("remove_nu_nru_terminal", { clear = true })
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  command = "setlocal nonumber norelativenumber",
+  group = remove_nu_nru_terminal,
+})
+
+vim.cmd ([[
+  " Cambia entre el cursor cuadrado ( [] ) en modo normal al cursor de barrita ( | ) en el modo de insercion
+  let &t_SI = "\e[6 q"
+  let &t_EI = "\e[2 q"
+  let &t_SR = "\<Esc>[4 q"
+]])
