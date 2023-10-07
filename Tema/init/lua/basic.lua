@@ -1,10 +1,9 @@
 vim.o.rnu = true
 vim.o.nu = true
-vim.o.mouse = "a"
 vim.o.cursorline = true
-vim.cmd "set wildmode=longest:full,full"
 vim.o.ic = true --Ignora la Capitalizacion de las letras en la busqueda = true
-vim.o.smartindent = true
+vim.opt.undofile  = true
+-- vim.o.smartindent = true
 vim.opt.fillchars = {
   vert = "█",
   fold = "⠀",
@@ -21,11 +20,10 @@ vim.o.clipboard = "unnamedplus"-- Combina el Portapapeles de VIM con el del Sist
 vim.o.lazyredraw = true -- Evita redibujado de ventanas innecesarios, ideal para cuanto se ejecutan macros. Para forzar el redibujado de una ventana, usar el comando /\s\+$//e<CR>'fdmf"redraw
 vim.o.splitbelow = true
 vim.o.splitright = true
-vim.opt.completeopt= "menu,menuone,noselect"
+-- vim.opt.completeopt= "menu,menuone,noselect"
 
 vim.o.wildignore=vim.o.wildignore.."*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite"
 vim.o.wildignore=vim.o.wildignore.."*.o,*.obj,.git,*.rbc,*.pyc,__pycache__"
-vim.opt.undofile  = true
 
 vim.cmd ([[
   " Automatically deletes all trailing whitespace and newlines at end of file on save.
