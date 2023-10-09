@@ -38,22 +38,11 @@ vim.o.softtabstop = 0
 vim.o.shiftwidth  = 2
 vim.o.expandtab   = true
 
-vim.cmd([[
-  if exists('$SHELL')
-      set shell=$SHELL
-  else
-      set shell=/bin/sh
-  endif
-]])
 
 -- "*****************************************************************************
 -- "" Visual Settings
 -- "*****************************************************************************
 vim.o.scrolloff   = 3
-
--- Use modeline overrides
-vim.o.modeline    = true
-vim.o.modelines   = 10
 
 vim.o.title       = true
 vim.o.titleold    = "Terminal"
@@ -62,7 +51,6 @@ vim.o.titlestring = "%F"
 -- "*****************************************************************************
 -- "" Abbreviations
 -- "*****************************************************************************
--- No one is really happy until you have this shortcuts
 vim.cmd([[
   cnoreabbrev W! w!
   cnoreabbrev Q! q!
