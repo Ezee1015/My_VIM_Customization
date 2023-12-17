@@ -14,6 +14,17 @@ function Delete_undo_history()
   end
 end
 
+function Delete_recent_files()
+  local input = vim.fn.confirm("Do you want to proceed? (y/n)", "&Yes\n&No")
+
+  if input == 1 then
+      vim.cmd("!rm ~/.local/state/nvim/shada/main.shada")
+      print("\nLista de archivos recientes eliminado!\n")
+  else
+      print("\nEliminado cancelado...\n")
+  end
+end
+
 local function startify_config()
   vim.g.webdevicons_enable_startify = 1
   vim.g.startify_files_number=8
@@ -57,6 +68,7 @@ local function startify_config()
     { p = {'  Información sobre LSP y DAP', 'Mason'}},
     { o = {'  Log del LSP', 'e ~/.local/state/nvim/lsp.log'}},
     { u = {'  Limpiar Historial de Undo', 'lua Delete_undo_history()'}},
+    { f = {'  Limpiar Archivos Recientes', 'lua Delete_recent_files()'}},
   }
   vim.g.startify_lists = {
     { type = 'files'                    , header = vim.fn['startify#pad']({'   RECIENTES'}             )},
