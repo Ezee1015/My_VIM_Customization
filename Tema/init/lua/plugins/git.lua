@@ -5,6 +5,11 @@ return {
       -- Dependencia para :GBrowse
       -- "tpope/vim-rhubarb",
     },
+    cmd = {
+      "Git",
+      "Gread",
+      "Gwrite"
+    },
     keys = {
       { '<leader>gp', ':Git push<CR>'   , { noremap= true, desc="Git push"       } },
       { '<leader>gl', ':Git pull<CR>'   , { noremap= true, desc="Git pull"       } },
