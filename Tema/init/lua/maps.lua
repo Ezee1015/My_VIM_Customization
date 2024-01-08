@@ -14,7 +14,8 @@ local function map(modes, lhs, rhs, opts)
     end
 end
 
-vim.g.mapleader   = ' '
+vim.g.mapleader      = ' '
+vim.g.maplocalleader = ','
 
 -- "*****************************************************************************
 -- "" Funciones de los Mappings
