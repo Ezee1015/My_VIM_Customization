@@ -98,6 +98,7 @@ local function telescope_config()
       },
     },
   }
+
 end
 
 local neoclip_opts = {
@@ -140,10 +141,12 @@ return {
       "BurntSushi/ripgrep",
 
       {"AckslD/nvim-neoclip.lua",
-        opts = neoclip_opts,
+      opts = neoclip_opts,
       },
 
       "nvim-telescope/telescope-file-browser.nvim",
+
+      "nvim-neorg/neorg-telescope",
     },
 
     config = telescope_config,
