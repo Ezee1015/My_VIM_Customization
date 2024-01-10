@@ -41,7 +41,7 @@ local Compile = {
     end,
 
     ['markdown'] = function()
-        vim.cmd("MarkdownPreview")
+        exe("~/github/My_Scripts/MarkdownToHTML/mdToHtml.sh '%'")
         -- exe("markdown '%' > '%<'.html")
         -- exe("pandoc '%' -o '%<'.pdf")
     end
@@ -115,7 +115,7 @@ local CompileAndRun = {
     end,
 
     ['markdown'] = function()
-        Procesar("compilar", 1)
+        vim.cmd("MarkdownPreview")
     end,
   }
 
