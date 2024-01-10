@@ -18,5 +18,5 @@ return {
     keys = {
       { '<leader>toc', 'gg:GenTocGFM<CR>', { noremap= true } }
     }
-  }
+  },
 }
