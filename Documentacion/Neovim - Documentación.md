@@ -9,6 +9,7 @@
     * [Nivel 2 - Avanzar dentro de la linea](#nivel-2---avanzar-dentro-de-la-linea)
     * [Nivel 3 - Avanzar por caracteres](#nivel-3---avanzar-por-caracteres)
     * [Nivel 4 - Desplazarse](#nivel-4---desplazarse)
+    * [Nivel 5 - Help pages](#nivel-5---help-pages)
 * [Comandos Básicos](#comandos-básicos)
     * [Nivel 1 - Abrir y guardar archivos](#nivel-1---abrir-y-guardar-archivos)
     * [Nivel 2 - Búsqueda, reemplazo y acciones](#nivel-2---búsqueda-reemplazo-y-acciones)
@@ -36,6 +37,7 @@
         * [Forma VIM](#forma-vim)
     * [Otros atajos](#otros-atajos)
 * [Plugins](#plugins)
+    * [Photos](#photos)
     * [Venn](#venn)
     * [TableMode (Markdown)](#tablemode-markdown)
         * [CSV](#csv)
@@ -64,6 +66,15 @@
             * [Breakpoints (Frena la ejecución)](#breakpoints-frena-la-ejecución)
             * [Scopes (Muestra los Scopes y variables)](#scopes-muestra-los-scopes-y-variables)
             * [Watch (Permite vigilar bajo demanda ciertas variables)](#watch-permite-vigilar-bajo-demanda-ciertas-variables)
+    * [Neorg](#neorg)
+        * [Dentro de un archivo de Neorg](#dentro-de-un-archivo-de-neorg)
+            * [Tareas](#tareas)
+            * [Listas](#listas)
+            * [Modos](#modos)
+            * [Integración con Telescope](#integración-con-telescope)
+            * [Otros](#otros)
+        * [Globales](#globales)
+    * [Mkdnflow (Markdown)](#mkdnflow-markdown)
 * [Datos útiles](#datos-útiles)
 * [Buffer <-> Tab <-> Session](#buffer---tab---session)
 * [Ejemplos de RegEx en Neovim](#ejemplos-de-regex-en-neovim)
@@ -687,6 +698,57 @@ Se puede modificar los archivos como si fuera un buffer de texto
 |    **`d`**    | Elimina la expresión                                |
 |    **`e`**    | Edita la expresión o cambia el valor de la variable |
 |    **`r`**    | Envía la variable a REPL (desconozco utilidad)      |
+
+### Neorg
+#### Dentro de un archivo de Neorg
+##### Tareas
+|    Atajo   | Significado    |
+|:----------:|----------------|
+| **`,t u`** | Undone task    |
+| **`,t a`** | Ambiguous task |
+| **`,t d`** | Done task      |
+| **`,t d`** | Important task |
+| **`,t r`** | Recurring task |
+| **`,t p`** | Pending task   |
+| **`,t h`** | on Hold task   |
+| **`,t c`** | Canceled task  |
+
+##### Listas
+|    Atajo   | Significado                                                                                                                            |
+|:----------:|----------------------------------------------------------------------------------------------------------------------------------------|
+|  **`,lt`** | Toggle between ordered and unordered lists block                                                                                       |
+| **`,li`** | Toggle for each line between ordered and unordered lists (for when you have combined ordered an unordered lists inside the same block) |
+
+##### Modos
+|    Atajo   | Significado                              |
+|:----------:|------------------------------------------|
+| **`,m h`** | use `j` and `k` to jump between headings |
+| **`,m n`** | Normal mode                              |
+##### Integración con Telescope
+|    Atajo   | Significado                                  |
+|:----------:|----------------------------------------------|
+| **`,i l`** | Insert a Link to a heading, definition, etc. |
+| **`,i f`** | Insert a link to a File                      |
+| **`,s l`** | Search between heading, definition, etc.     |
+| **`,s f`** | Search between `.norg` files                 |
+| **`,s h`** | Search between Headers                       |
+| **`,s w`** | Switch between workspaces                    |
+
+##### Otros
+|             Atajo             | Significado                                                 |
+|:-----------------------------:|-------------------------------------------------------------|
+|       **`>>` and `<<`**       | Indent recursively                                          |
+|       **`>.` and `<.`**       | Indent NOT recursively, just the line                       |
+| **`Ctrl + t` and `Ctrl + d`** | Indent while in insert mode                                 |
+|       **`Alt + Enter`**       | if it's in a list (for example) make a new line with a list |
+|            **`==`**           | Auto indent line (Accepts range)                            |
+|            **`za`**           | Toggle folds                                                |
+
+
+#### Globales
+|   Atajo   | Significado           |
+|:---------:|-----------------------|
+| **`⎵ n`** | Abre el bloc de notas |
 
 
 ### Mkdnflow (Markdown)
