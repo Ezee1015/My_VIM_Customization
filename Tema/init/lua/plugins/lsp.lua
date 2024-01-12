@@ -213,6 +213,7 @@ local function cmp_config ()
           luasnip = "- Snippet",
           path = "- Path",
           buffer = "- Buffer",
+          mkdnflow = "- Markdown",
         })[entry.source.name]
         return vim_item
       end,
@@ -222,6 +223,7 @@ local function cmp_config ()
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
       { name = 'buffer' },
+      { name = 'mkdnflow' },
     }
   })
 

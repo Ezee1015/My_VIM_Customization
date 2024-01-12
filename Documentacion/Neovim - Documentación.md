@@ -688,6 +688,23 @@ Se puede modificar los archivos como si fuera un buffer de texto
 |    **`e`**    | Edita la expresión o cambia el valor de la variable |
 |    **`r`**    | Envía la variable a REPL (desconozco utilidad)      |
 
+
+### Mkdnflow (Markdown)
+| Atajo                 | Significado                                                                                                                                                                                                       |
+| :-----------------:   | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`[Enter]`**         | Abre el link, o crea un link con la palabra SELECCIONADA (puede ser: # Titulo ; una palabra - crea un nuevo archivo markdown -)                                                                                   |
+| **`[Enter]`**         | También abre y cierra *folds* el los titulos (headings)                                                                                                                                                           |
+| **`[BackSpace]`**     | Cuando entre a un archivo con `[Enter]`, vuelve al archivo anterior                                                                                                                                               |
+| **`[Alt] [Enter]`**   | Destruye el link debajo del cursor                                                                                                                                                                                |
+| **`[[`** y **`]]`**   | Salta entre los títulos del archivo                                                                                                                                                                               |
+| **`[l`** y **`]l`**   | Salta entre los links del archivo                                                                                                                                                                                 |
+| **`⎵ [Shift] p`**     | Convierte el texto SELECCIONADO en un link, siendo la dirección el contenido del portapapeles                                                                                                                     |
+| **`<F2>`**            | Si el cursor está sobre un link a un archivo, puede moverlo de lugar o cambiar el nombre (si la dirección de la carpeta ingresada no existe, creara la carpeta, pero tiene que reingresar la dirección de vuelta) |
+| **`+`** y **`-`**     | Sube y baja el nivel de los títulos (Headings)                                                                                                                                                                    |
+| **`⎵ f`**             | Cierra el fold del título (heading) más cercano al cursor                                                                                                                                                         |
+| **`⎵ ts`**            | Cambia entre los estados de las tareas (Tasks/ToDos). Si está sobre un párrafo, lo convertirá a tarea. Funciona también en visual mode (Pero no en Line-Visual ni Block-Visual )                                  |
+| **`⎵ tf`**            | Formatea (acomoda) las tablas - no me funcionó -                                                                                                                                                                  |
+| **`[\|`** y **`]\|`** | Navega entre los campos de una tabla                                                                                                                                                                              |
 ## Datos útiles
 
 - Si se está el cursor debajo de una palabra y se apreta **`*`**, busca la palabra, y si se presiona **`S/`** Busca y reemplaza el termino.
