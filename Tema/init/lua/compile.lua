@@ -41,7 +41,7 @@ local Compile = {
     end,
 
     ['markdown'] = function()
-        exe("~/github/My_Scripts/MarkdownToHTML/mdToHtml.sh '%'")
+        exe("~/github/My_Markdown_CSS/mdToHtml.sh '%'")
         -- exe("markdown '%' > '%<'.html")
         -- exe("pandoc '%' -o '%<'.pdf")
     end
