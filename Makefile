@@ -3,7 +3,7 @@ REPO_CONFIG_DIR=${REPO_DIR}/Tema/init
 LOCAL_CONFIG_DIR=~/.config/nvim
 
 LUA_CONFIG_FILES=init.lua lua/basic.lua lua/compile.lua lua/maps.lua lua/plugins.lua
-PLUGIN_CONFIG_FILES=lua/plugins/bufline.lua lua/plugins/git.lua lua/plugins/markdown.lua lua/plugins/startify.lua lua/plugins/zen-mode.lua lua/plugins/colorscheme.lua lua/plugins/init.lua lua/plugins/mason.lua lua/plugins/telescope.lua lua/plugins/commentary.lua lua/plugins/lsp.lua lua/plugins/nvim-tree.lua lua/plugins/treesitter.lua lua/plugins/dap.lua lua/plugins/lualine.lua lua/plugins/oil.lua lua/plugins/venn.lua
+PLUGIN_CONFIG_FILES=lua/plugins/bufline.lua lua/plugins/git.lua lua/plugins/markdown.lua lua/plugins/oil.lua lua/plugins/venn.lua lua/plugins/colorscheme.lua lua/plugins/init.lua lua/plugins/mason.lua lua/plugins/startify.lua lua/plugins/zen-mode.lua lua/plugins/commentary.lua lua/plugins/lsp.lua lua/plugins/neorg.lua lua/plugins/telescope.lua lua/plugins/dap.lua lua/plugins/lualine.lua lua/plugins/nvim-tree.lua lua/plugins/treesitter.lua
 SPELL_FILE=spell/es.utf-8.add
 
 REPO_DOC_FILE=${REPO_DIR}/Documentacion/Neovim\ -\ Documentación.md
