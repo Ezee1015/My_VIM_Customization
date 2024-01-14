@@ -19,7 +19,9 @@ return {
 
   -- Colorizado de códigos hexadecimales y de etiquetas rgb()
   {"norcalli/nvim-colorizer.lua",
-    config = true,
+    config = {
+      '*' -- Execute for all filetypes. See docs --> :h colorizer.lua
+    },
     lazy = false
   },
 
