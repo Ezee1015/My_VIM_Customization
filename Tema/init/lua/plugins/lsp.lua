@@ -146,7 +146,7 @@ local function cmp_config ()
     Module = "",
     Property = "",
     Unit = "",
-    Value = "",
+    Value = "󰎠",
     Enum = "",
     Keyword = "",
     Snippet = "",
