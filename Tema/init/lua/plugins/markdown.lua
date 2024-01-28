@@ -1,3 +1,5 @@
+vim.g.table_mode_syntax = 0 -- disable the table syntax for improve speed
+
 return {
   -- Live preview de markdown
   {"iamcco/markdown-preview.nvim",
