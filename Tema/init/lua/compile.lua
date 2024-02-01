@@ -123,6 +123,17 @@ function Procesar (tipo, guardar)
   if guardar == nil then
     vim.cmd "w"
   end
+
+  if IsFile("Makefile") then
+    if tipo == "ejecutar" then
+      print("Todavía no se ha programado la compilación de archivos con Make")
+      return 1;
+    end
+
+    exe("make", 1)
+    return 0;
+  end
+
   if tipo == "compilar" then
     local obj = Compile[vim.bo.filetype]
     if obj then
