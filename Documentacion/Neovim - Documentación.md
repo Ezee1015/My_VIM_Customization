@@ -589,19 +589,23 @@ En un texto separado por comas, se selecciona, se presiona ⎵tt y lo ordena en 
 
 ### Git
 
-|     Atajo     | Significado                                                      |
-|:-------------:|------------------------------------------------------------------|
-|   **`⎵gl`**   | Git pull                                                         |
-|   **`⎵gs`**   | Ventana de gestión de Git (*)                                    |
-|   **`⎵gp`**   | Git Push                                                         |
-|   **`⎵gd`**   | Git Diff                                                         |
-|   **`⎵gb`**   | Muestra quien y cuando escribió la linea y en qué commit         |
-|   **`⎵gB`**   | Muestra el Git Blame del archivo entero                          |
-|    **`]g`**   | Avanza por los cambios del archivo (con git)                     |
-|    **`[g`**   | Retrocede por los cambios del archivo (con git)                  |
-|  **`:G log`** | Muestra el log de git y muestra los cambios de los commits       |
-|  **`:Gread`** | Es parecido a `:git reset`, pero permite hacer un *undo* con `u` |
-| **`:Gwrite`** | Realiza un `:git add` al archivo entero                          |
+|     Atajo     | Significado                                                                 |
+|:-------------:|-----------------------------------------------------------------------------|
+|   **`⎵gl`**   | Git pull                                                                    |
+|   **`⎵gs`**   | Ventana de gestión de Git (*)                                               |
+|   **`⎵gp`**   | Git Push                                                                    |
+|   **`⎵gd`**   | Git Diff                                                                    |
+|   **`⎵gb`**   | Muestra quien y cuando escribió la linea y en qué commit                    |
+|   **`⎵gB`**   | Muestra el Git Blame del archivo entero                                     |
+|   **`⎵gc`**   | Muestra los commits del archivo abierto                                     |
+|   **`⎵gc`**   | En **visual mode**, Muestra los commits relacionados a la linea del archivo |
+|   **`⎵gC`**   | Muestra los commits del repositorio                                         |
+|   **`⎵gr`**   | Muestra los *branches*                                                      |
+|    **`]g`**   | Avanza por los cambios del archivo (con git)                                |
+|    **`[g`**   | Retrocede por los cambios del archivo (con git)                             |
+|  **`:G log`** | Muestra el log de git y muestra los cambios de los commits                  |
+|  **`:Gread`** | Es parecido a `:git reset`, pero permite hacer un *undo* con `u`            |
+| **`:Gwrite`** | Realiza un `:git add` al archivo entero                                     |
 
 > (*) Comando dentro de la gestión del repositorio...
 > - `s`  --> agregar al commit
