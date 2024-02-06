@@ -124,7 +124,7 @@ function Procesar (tipo, guardar)
     vim.cmd "w"
   end
 
-  if IsFile("Makefile") then
+  if IsFile("Makefile") and vim.bo.filetype ~= "markdown" then
     if tipo == "ejecutar" then
       print("Todavía no se ha programado la compilación de archivos con Make")
       return 1;
