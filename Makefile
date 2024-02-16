@@ -10,7 +10,7 @@ REPO_DOC_FILE=${REPO_DIR}/Documentacion/Neovim\ -\ Documentación.md
 LOCAL_DOC_FILE=${LOCAL_CONFIG_DIR}/documentacion.md
 REPO_DOC_PDF=${REPO_DIR}/Documentacion/Neovim\ -\ Documentación\ -\ Dark.pdf ${REPO_DIR}/Documentacion/Neovim\ -\ Documentación\ -\ Light.pdf
 
-APT_PACKAGES=vim curl vim-gtk openjdk-17* xdotool curl python3 universal-ctags gdb ripgrep python-pynvim
+APT_PACKAGES=vim curl vim-gtk openjdk-17* xdotool curl python3 universal-ctags gdb ripgrep # python-pynvim
 PACMAN_PACKAGES=neovim xclip xorg-xclipboard vim xdotool python3 ctags jdk17-openjdk lua-language-server gdb ripgrep ttf-hack-nerd python-pynvim
 ZYPPER_PACKAGES=neovim xclip xclipboard vim xdotool python3 ctags lua-language-server gdb ripgrep nerd-font-hack python-pynvim
 
