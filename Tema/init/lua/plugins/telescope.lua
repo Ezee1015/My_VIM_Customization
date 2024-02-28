@@ -173,10 +173,10 @@ return {
       { '<leader>dq', "<cmd>lua require('telescope').extensions.macroscope.default()<CR>"      , desc="Macros" },
       { '<leader>dc', "<cmd>lua require('telescope').extensions.neoclip.default()<CR>"         , desc="Portapapeles" },
 
-      { '<leader>gr', "<cmd>lua require('telescope.builtin').git_branches()<CR>"             , desc="Portapapeles" },
-      { '<leader>gc', "<cmd>lua require('telescope.builtin').git_bcommits()<CR>"             , desc="Portapapeles" },
-      { '<leader>gc', "<cmd>lua require('telescope.builtin').git_bcommits_range()<CR>"       , mode="v", desc="Portapapeles" },
-      { '<leader>g<S-c>', "<cmd>lua require('telescope.builtin').git_commits()<CR>"          , desc="Portapapeles" },
+      { '<leader>gr', "<cmd>lua require('telescope.builtin').git_branches()<CR>"             , desc="Git branches" },
+      { '<leader>gc', "<cmd>lua require('telescope.builtin').git_bcommits()<CR>"             , desc="Commits in the current file" },
+      { '<leader>gc', "<cmd>lua require('telescope.builtin').git_bcommits_range()<CR>"       , mode="v", desc="Commits in the current range" },
+      { '<leader>g<S-c>', "<cmd>lua require('telescope.builtin').git_commits()<CR>"          , desc="All the git commits" },
     }
   },
 }
