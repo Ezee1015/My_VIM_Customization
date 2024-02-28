@@ -17,6 +17,7 @@ return {
   "dhruvasagar/vim-table-mode",
 
   {"mzlogin/vim-markdown-toc",
+    lazy = false,
     keys = {
       { '<leader>toc', 'gg:GenTocGFM<CR>', { noremap= true } }
     }
