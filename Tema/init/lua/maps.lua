@@ -248,6 +248,12 @@ map('v', 'ñ`'    , '"zdi``<ESC>"zP'                                , { silent= 
 map('v', 'ñc'    , '"zdi``<ESC>"zP'                                , { silent= true, noremap= true } )
 map('v', 'ñ*'    , '"zdi**<ESC>"zP'                                , { silent= true, noremap= true } )
 
+-- Inicio y final de la linea
+map('n', 'gh'    , '0'                                       , { silent= true, noremap= true } )
+map('v', 'gh'    , '0'                                       , { silent= true, noremap= true } )
+map('n', 'gl'    , '$'                                       , { silent= true, noremap= true } )
+map('v', 'gl'    , '$'                                       , { silent= true, noremap= true } )
+
 -- "*****************************************************************************
 -- "" Mappings de los PLUGINS
 -- "*****************************************************************************

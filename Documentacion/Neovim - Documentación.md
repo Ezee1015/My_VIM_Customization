@@ -101,7 +101,9 @@
 |  **`e`** | Avanza una palabra (Apuntando al final de la palabra)  |
 | **`ge`** | retrocede palabra por palabra en el final de la misma  |
 |  **`0`** | Principio de la Linea                                  |
+| **`gh`** | Principio de la Linea                                  |
 |  **`$`** | Final de la Linea                                      |
+| **`gl`** | Final de la Linea                                      |
 |  **`^`** | Va al primer carácter no vacío                         |
 
 ### Nivel 3 - Avanzar por caracteres
