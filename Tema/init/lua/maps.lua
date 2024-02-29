@@ -236,17 +236,17 @@ map('v', '<leader>p'    , '"_dP'                             , { silent= true, n
 map('n', '<leader>i'    , ':syntax match nonascii "[^\\d0-\\d127]"<CR>:highlight nonascii guibg=DarkRed ctermbg=2<CR>' , { silent= true, noremap= true } )
 
 -- Surround ([{*"'` `'"*}]) --> En el registro 'z' guarda la info.
-map('v', 'ñ('    , '"zdi()<ESC>"zP'                                , { silent= true, noremap= true } )
-map('v', 'ñ)'    , '"zdi(  )<ESC>h"zP'                             , { silent= true, noremap= true } )
-map('v', 'ñ['    , '"zdi[]<ESC>"zP'                                , { silent= true, noremap= true } )
-map('v', 'ñ]'    , '"zdi[  ]<ESC>h"zP'                             , { silent= true, noremap= true } )
-map('v', 'ñ{'    , '"zdi{}<ESC>"zP'                                , { silent= true, noremap= true } )
-map('v', 'ñ}'    , '"zdi{  }<ESC>h"zP'                             , { silent= true, noremap= true } )
-map('v', 'ñ"'    , '"zdi""<ESC>"zP'                                , { silent= true, noremap= true } )
-map('v', 'ñ\''   , '"zdi\'\'<ESC>"zP'                             , { silent= true, noremap= true } )
-map('v', 'ñ`'    , '"zdi``<ESC>"zP'                                , { silent= true, noremap= true } )
-map('v', 'ñc'    , '"zdi``<ESC>"zP'                                , { silent= true, noremap= true } )
-map('v', 'ñ*'    , '"zdi**<ESC>"zP'                                , { silent= true, noremap= true } )
+map('v', 'ñ('    , 'c(<C-r>")<ESC>'                                , { silent= true, noremap= true } )
+map('v', 'ñ['    , 'c[<C-r>"]<ESC>'                                , { silent= true, noremap= true } )
+map('v', 'ñ{'    , 'c{<C-r>"}<ESC>'                                , { silent= true, noremap= true } )
+map('v', 'ñ)'    , 'c( <C-r>" )<ESC>'                             , { silent= true, noremap= true } )
+map('v', 'ñ]'    , 'c[ <C-r>" ]<ESC>'                             , { silent= true, noremap= true } )
+map('v', 'ñ}'    , 'c{ <C-r>" }<ESC>'                             , { silent= true, noremap= true } )
+map('v', 'ñ"'    , 'c"<C-r>""<ESC>'                                , { silent= true, noremap= true } )
+map('v', 'ñ\''   , 'c\'<C-r>"\'<ESC>'                             , { silent= true, noremap= true } )
+map('v', 'ñ`'    , 'c`<C-r>"`<ESC>'                                , { silent= true, noremap= true } )
+map('v', 'ñc'    , 'c`<C-r>"`<ESC>'                                , { silent= true, noremap= true } )
+map('v', 'ñ*'    , 'c*<C-r>"*<ESC>'                                , { silent= true, noremap= true } )
 
 -- Inicio y final de la linea
 map('n', 'gh'    , '0'                                       , { silent= true, noremap= true } )
