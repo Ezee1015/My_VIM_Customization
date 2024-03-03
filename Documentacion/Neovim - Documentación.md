@@ -175,6 +175,7 @@
 |            Comando           | Significado                                                                                                                                  |
 |:----------------------------:|----------------------------------------------------------------------------------------------------------------------------------------------|
 |           **`q:`**           | Abre un buffer con el historial de comandos, para poder editarlos y ejecutarlos con enter (se pueden seleccionar varios comandos a ejecutar) |
+|           **`q/`**           | Abre un buffer con el historial de búsqueda, para poder editarlos y ejecutarlos con enter                                                    |
 |    **`:![Comando Bash]`**    | Ejecuta comando de Terminal                                                                                                                  |
 |     **`:read [Comando]`**    | Lee un Comando y lo importa al texto (Ejemplo comando: !date o un archivo como “Texto.txt”)                                                  |
 |      **`:earlier 10m`**      | Retrocede los cambios según en el tiempo especificado.                                                                                       |
