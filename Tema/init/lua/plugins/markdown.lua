@@ -74,7 +74,19 @@ return {
         MkdnTableNewColBefore = {'n', '<leader>iC'},
         MkdnFoldSection = {'n', '<leader>f'},
         MkdnUnfoldSection = {'n', '<leader>F'}
-      }
+      },
+      tables = {
+        trim_whitespace = true,
+        format_on_move = true,
+        auto_extend_rows = false,
+        auto_extend_cols = false,
+        style = {
+            cell_padding = 0,
+            separator_padding = 0,
+            outer_pipes = true,
+            mimic_alignment = false
+        }
+    },
     }
   },
 
