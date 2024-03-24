@@ -70,20 +70,20 @@ local function neorg_telescope_config()
 end
 
 return {
-  {"nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-
-    dependencies = { "nvim-lua/plenary.nvim" },
-
-    config = function()
-      neorg_config()
-      neorg_telescope_config()
-    end,
-
-    event = { "BufReadPre", "BufNewFile", "BufAdd" },
-
-    keys = {
-      { '<leader>n'      , "<cmd>Neorg workspace notes<cr>", desc="Abre bloc de notas" },
-    }
-  }
+  -- {"nvim-neorg/neorg",
+  --   -- build = ":Neorg sync-parsers",
+  --
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --
+  --   config = function()
+  --     neorg_config()
+  --     neorg_telescope_config()
+  --   end,
+  --
+  --   event = { "BufReadPre", "BufNewFile", "BufAdd" },
+  --
+  --   keys = {
+  --     { '<leader>n'      , "<cmd>Neorg workspace notes<cr>", desc="Abre bloc de notas" },
+  --   }
+  -- }
 }
